@@ -1,0 +1,20 @@
+// Postprocessing macro
+print("Postprocessing");
+name=getTitle(); 
+run("Properties...", "unit=nm pixel_width=1.5646 pixel_height=1.5646 voxel_depth=1");
+run("Gaussian Blur...", "sigma=3");
+setAutoThreshold("Default dark");
+setThreshold(0.4000, 1000000000000000000000000000000.0000);
+setOption("BlackBackground", true);
+run("Convert to Mask");
+
+run("Open");
+minsize=PI*(15)*(15)/(1.566*1.566);
+run("Analyze Particles...", "size=&minsize-Infinity show=Masks include");
+
+run("Convert to Mask");
+selectWindow(name);
+close();
+selectWindow("Mask of "+name)
+rename(name);
+

@@ -1,0 +1,59 @@
+// Preprocessing macro
+
+print("Preprocessing");
+
+/*required pixel size 1.566 nm = 0.001566 um*/
+
+name=getTitle; 
+getPixelSize(unit, pixelWidth, pixelHeight);
+getDimensions(width, height, channels, slices, frames);
+
+/*print(unit);
+print(pixelHeight);
+print(width);
+print(height);*/
+
+if (unit=="µm") {
+      final_resolution=0.0015646;
+   } else if (unit=="nm"){
+      final_resolution=1.5646;
+   } else {
+	  final_resolution=0.0015646;
+   }
+hsize = height*(pixelHeight/final_resolution);
+wsize = width*(pixelWidth/final_resolution);
+
+/*print(round(hsize));
+print(pixelHeight/final_resolution);*/
+
+hsize = round(hsize);
+
+/*print(round(hsize));
+print("x=- y=- width="+hsize+" height="+hsize+" interpolation=Bicubic create");*/
+
+run("Scale...", "x=- y=- width=&wsize height=&hsize interpolation=Bicubic create");
+selectWindow(name); 
+close();
+
+/*print(name);*/
+
+format = substring(name,lengthOf(name)-5,lengthOf(name));
+if (format!=".tiff") {
+      format = substring(name,lengthOf(name)-4,lengthOf(name));
+   }
+
+new_name=substring(name, 0,lengthOf(name)-lengthOf(format));
+
+/*print(new_name);
+print(format);*/
+
+selectWindow(new_name+"-1"+format); 
+rename(name);
+run("Brightness/Contrast...");
+run("Enhance Contrast", "saturated=0.35");
+run("Apply LUT");
+selectWindow("B&C"); 
+run("Close");
+run("32-bit");
+run("Divide...", "value=65535.000");
+

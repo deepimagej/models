@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Model>
+    <ModelInformation>
+        <Name>Fully Residual U-net - TEM</Name>
+        <Author>Estibaliz Gómez de Mariscal</Author>
+        <URL>https://cbia.fi.muni.cz/research/segmentation/fru-net</URL>
+        <Credit>Universidad Carlos III de Madrid and Masaryk University</Credit>
+        <Version>n/a</Version>
+        <Date>2019</Date>
+        <Reference>Estibaliz Gómez-de-Mariscal, Martin Maska, Anna Kotrbová, Vendula Pospíchalová, Pavel Matula and Arrate Muñoz-Barrutia, Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission ElectronMicroscopy Images, Scientific Reports 2019</Reference>
+    </ModelInformation>
+    <ModelTest>
+        <InputSize>2048x2048</InputSize>
+        <OutputSize>1264x1264</OutputSize>
+        <MemoryPeak>257.7 Mb</MemoryPeak>
+        <Runtime>78.8 s</Runtime>
+		<PixelSize>9.658E-4µmx9.658E-4µm</PixelSize>
+    </ModelTest>
+    <ModelCharacteristics>
+        <ModelTag>tf.saved_model.tag_constants.SERVING</ModelTag>
+        <SignatureDefinition>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</SignatureDefinition>
+        <InputTensorDimensions>,-1,400,400,1,</InputTensorDimensions>
+        <NumberOfInputs>1</NumberOfInputs>
+        <InputNames0>input</InputNames0>
+        <InputOrganization0>NHWC</InputOrganization0>
+        <NumberOfOutputs>1</NumberOfOutputs>
+        <OutputNames0>output</OutputNames0>
+        <OutputOrganization0>NHWC</OutputOrganization0>
+        <Channels>1</Channels>
+        <FixedPatch>true</FixedPatch>
+        <MinimumSize>1</MinimumSize>
+        <PatchSize>400</PatchSize>
+        <FixedPadding>true</FixedPadding>
+        <Padding>127</Padding>
+        <PreprocessingFile>preprocessing.txt</PreprocessingFile>
+        <PostprocessingFile>postprocessing.txt</PostprocessingFile>
+        <slices>1</slices>
+    </ModelCharacteristics>
+</Model>
