@@ -38,7 +38,7 @@ prediction:
   preprocess:
     - spec: deepimagej.runMacro:preprocessing
       kwargs: {preprocessing.txt}
-  weights:{source: https://github.com/deepimagej/models/releases/download/v0.0.0/fru-net_sev_segmentation.zip}
+  weights:{source: https://github.com/deepimagej/models/releases/download/0.0/fru-net_sev_segmentation.zip}
   postprocess:
     - spec: deepimagej.runMacro:preprocessing
       kwargs: {postprocessing.txt}
