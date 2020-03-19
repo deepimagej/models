@@ -6,8 +6,8 @@ cite:
 authors: [Estibaliz Gómez-de-Mariscal]
 documentation: https://cbia.fi.muni.cz/research/segmentation/fru-net
 tags: [unet, deepimagej, extracellular vesicles, segmentation, EM]
-license:
-format_version:
+license: null
+format_version: null
 language: java
 framework: tensorflow
 test_input: exampleImage.tiff
