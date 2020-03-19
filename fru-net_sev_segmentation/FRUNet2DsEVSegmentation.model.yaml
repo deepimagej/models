@@ -38,4 +38,3 @@ prediction:
   postprocess:
     spec: deepimagej.runMacro::preprocessing
     kwargs: {postprocessing.txt}
-  dependencies: deepimagej
