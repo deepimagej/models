@@ -1,4 +1,4 @@
-name: Fully Residual U-net - TEM
+name: Fully Residual U-Net - TEM
 description: A fully residual 2D U-Net trained to segment small extracellular vesicles in 2D transmission electron microscopy images
 cite:
   text: |-
