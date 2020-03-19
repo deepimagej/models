@@ -1,16 +1,16 @@
 name: Fully Residual U-Net - TEM
-description: A fully residual 2D U-Net trained to segment small extracellular vesicles in 2D transmission electron microscopy images
+description: DeepImageJ compatible fully residual U-Net trained to segment small extracellular vesicles in 2D TEM images
 cite:
   text: |-
     Gómez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission Electron Microscopy Images 
     Scientific Reports, (2019)
   doi: https://doi.org/10.1038/s41598-019-49431-3
-authors: [Estibaliz Gomez-de-Mariscal]
+authors: [Gómez-de-Mariscal, E. et al.]
 documentation: https://cbia.fi.muni.cz/research/segmentation/fru-net.html
 covers: [./frunet_sev.jpg]
 test_input: ./exampleImage.tiff
 test_output: ./resultImage.tiff
-tags: [unet, deepimagej, extracellular vesicles, segmentation, EM]
+tags: [deepimagej, extracellular vesicles, segmentation, TEM]
 license: null
 format_version: null
 language: java
