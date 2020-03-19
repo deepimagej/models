@@ -2,7 +2,7 @@ name: Fully Residual U-net - TEM
 description: A fully residual 2D U-Net trained to segment small extracellular vesicles in 2D transmission electron microscopy images
 cite:
   text: |-
-    Gómez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission ElectronMicroscopy Images 
+    Gomez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission ElectronMicroscopy Images 
     Scientific Reports, (2019)
   doi: https://doi.org/10.1038/s41598-019-49431-3
 authors: [Estibaliz Gomez-de-Mariscal]
@@ -31,6 +31,4 @@ outputs:
     scale: [1, 1, 1, 1]
     offset: [0, 0, 0, 0]
 prediction:
-  preprocess:
   weights: {source: https://github.com/deepimagej/models/releases/download/0.1/fru-net_sev_segmentation.zip}
-  postprocess:
