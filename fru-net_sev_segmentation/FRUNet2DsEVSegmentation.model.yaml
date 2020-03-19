@@ -7,6 +7,7 @@ cite:
   doi: https://doi.org/10.1038/s41598-019-49431-3
 authors: [Estibaliz Gomez-de-Mariscal]
 documentation: https://cbia.fi.muni.cz/research/segmentation/fru-net.html
+covers: [./frunet_sev.jpg]
 test_input: ./exampleImage.tiff
 test_output: ./resultImage.tiff
 tags: [unet, deepimagej, extracellular vesicles, segmentation, EM]
