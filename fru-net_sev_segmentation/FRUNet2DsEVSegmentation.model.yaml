@@ -7,8 +7,8 @@ cite:
   doi: https://doi.org/10.1038/s41598-019-49431-3
 authors: [Estibaliz Gomez-de-Mariscal]
 documentation: null
-test_input: exampleImage.tiff
-test_output: resultImage.tiff
+test_input: ./exampleImage.tiff
+test_output: ./resultImage.tiff
 covers: null
 tags: [unet, deepimagej, extracellular vesicles, segmentation, EM]
 license: null
@@ -21,8 +21,8 @@ inputs:
   axes: byxc
   data_type: float32
   data_range: [-inf, inf]
-  shape: [1, 400, 400, 1]
-#    exact: [1, 400, 400, 1]
+  shape:
+    exact: [1, 400, 400, 1]
 outputs:
 - name: segmentation
   axes: byxc
@@ -34,6 +34,11 @@ outputs:
     scale: [1, 1, 1, 1]
     offset: [0, 0, 0, 0]
 prediction:
-  preprocess: null
+  preprocess:
+    spec: deepimagej.runMacro::preprocessing
+    kwargs: {preprocessing.txt}
   weights: {source: https://github.com/deepimagej/models/releases/download/0.1/fru-net_sev_segmentation.zip}
-  postprocess: null
+  postprocess:
+    spec: deepimagej.runMacro::preprocessing
+    kwargs: {postprocessing.txt}
+  dependencies: deepimagej
