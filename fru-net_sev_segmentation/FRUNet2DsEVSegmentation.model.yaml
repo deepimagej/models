@@ -15,7 +15,7 @@ license: null
 format_version: null
 language: java
 framework: tensorflow
-source: de.csbdresden.n2v.train.N2VPrediction
+source: https://cbia.fi.muni.cz/research/segmentation/fru-net.html
 inputs:
 - name: raw
   axes: byxc
@@ -37,7 +37,7 @@ prediction:
   preprocess:
     spec: deepimagej.runMacro::preprocessing
     kwargs: {preprocessing.txt}
-  weights: {source: https://github.com/deepimagej/models/releases/download/0.1/fru-net_sev_segmentation.zip}
+  weights: {https://github.com/deepimagej/models/releases/download/0.1/fru-net_sev_segmentation.zip}
   postprocess:
     spec: deepimagej.runMacro::preprocessing
     kwargs: {postprocessing.txt}
