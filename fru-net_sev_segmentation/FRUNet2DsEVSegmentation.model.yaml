@@ -12,7 +12,10 @@ covers: [./frunet_sev.jpg]
 test_input: ./exampleImage.tiff
 test_output: ./resultImage.tiff
 tags:
- - [deepimagej, extracellular vesicles, segmentation, TEM]
+ - deepimagej
+ - extracellular vesicles
+ - segmentation
+ - TEM
 license: null
 format_version: null
 language: Java
