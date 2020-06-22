@@ -11,7 +11,10 @@ covers: n/a
 test_input: ./exampleImage.tiff
 test_output: ./resultImage.tiff
 tags:
- - [deepimagej, hela cells, segmentation, phase contrast]
+ - deepimagej
+ - hela cells
+ - segmentation
+ - phase contrast
 license: null
 format_version: null
 language: Java
