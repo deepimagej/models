@@ -31,5 +31,32 @@
       ],
       "download_url": "https://github.com/deepimagej/models/releases/download/0.1/fru-net_sev_segmentation.zip"
     },
+	{
+      "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation",
+      "name": "U-Net Hela Cell Segmentation",
+      "description": "DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images",
+      "cite": {
+        "text": "Biomedical Imaging Group, School of Engineering, Ecole Polytechnique Fédérale de Lausanne, Lausanne, Switzerland",
+        "doi": ""
+      },
+      "authors": [
+        "João Soares Lopes"
+      ],
+      "documentation": "https://deepimagej.github.io/deepimagej/models_documentation.html",
+      "covers": [
+        ""
+      ],
+      "tags": [
+        "deepimagej",
+        "hela cells",
+        "segmentation",
+        "phase contrast"
+      ],
+      "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/UNet2DHelaSegmentation.model.yaml",
+      "applications": [
+        "Fiji"
+      ],
+      "download_url": "https://github.com/deepimagej/models/releases/download/0.1/u-net_glioblastoma_segmentation.zip"
+    },
   ]
 }
