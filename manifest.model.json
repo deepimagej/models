@@ -56,7 +56,7 @@
       "applications": [
         "Fiji"
       ],
-      "download_url": "https://github.com/deepimagej/models/releases/download/0.1/u-net_glioblastoma_segmentation.zip"
+      "download_url": "https://github.com/deepimagej/models/releases/download/0.2/u-net_glioblastoma_segmentation.zip"
     },
   ]
 }
