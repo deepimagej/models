@@ -1,0 +1,70 @@
+name: U-Net Pancreatic Cell Segmentation
+description: DeepImageJ compatible U-Net trained to segment phase contrast microscopy images of pancreatic stem cells on a 2D polystyrene substrate.
+date: Jun 23, 2020
+cite:
+  text: |-
+    Gómez-de-Mariscal E. et al., biorXiv 2019; Ulman V. et al., Nature Methods 2017; Ronneberger O. et al., MICCAI 2015
+  doi: n/a
+authors: [DeepImageJ, Ignacio Arganda-Carreras]
+documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
+covers: n/a
+test_input: ./exampleImage.tiff
+test_output: ./resultImage.tiff
+tags:
+ - deepimagej
+ - pancreatic stem cells
+ - segmentation
+ - phase contrast
+license: null
+format_version: null
+language: Java
+framework: Tensorflow
+source: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
+model:
+  source: ./saved_model.pb
+  sha256: n/a
+  
+  v1:
+    source: ./variables
+    sha256: n/a
+config:
+# custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
+  deepimagej:
+    model_keys:
+      # In principle the tag "SERVING" is used in almost every tf model
+      model_tag: tf.saved_model.tag_constants.SERVING
+      # Signature definition to call the model. Again "SERVING" is the most general
+      signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+    test_information:  
+      input_size: [720x576x1] # Size of the input image  
+      output_size: [720x576x1]# Size of the output after post-processing  
+      device: cpu # Device used. In principle either cpu or GPU  
+      memory_peak: 172,9 Mb # Maximum memory consumed by the model in the device  
+      runtime: 2,8 s # Time it took to run the model
+      pixel_size: [1,60E-04cmx1,60E-04cmx1.00E+00pixels] # Size of the pixels of the input
+inputs:
+- name: raw
+  axes: byxc
+  data_type: float32
+  data_range: [-inf, inf]
+  shape:
+    min: [1, 8, 8, 1]
+    step: [0, 8, 8, 0]
+outputs:
+- name: segmentation
+  axes: byxc
+  data_type: float32
+  data_range: [0, 1]
+  halo: [0, 47, 47, 0]
+  shape:
+    reference_input: raw
+    scale: [1, 1, 1, 1]
+    offset: [0, 0, 0, 0]
+prediction:
+  preprocess:
+    spec: deepimagej.runMacro::preprocessing
+    kwargs: {preprocessing.txt}
+  postprocess:
+    spec: deepimagej.runMacro::preprocessing
+    kwargs: {postprocessing.txt}
+  dependencies: deepimagej

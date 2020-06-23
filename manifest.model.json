@@ -58,5 +58,33 @@
       ],
       "download_url": "https://github.com/deepimagej/models/releases/download/0.2/u-net_glioblastoma_segmentation.zip"
     },
+	{
+      "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation",
+      "name": "U-Net Pancreatic Cell Segmentation",
+      "description": "DeepImageJ compatible U-Net trained to segment phase contrast microscopy images of pancreatic stem cells on a 2D polystyrene substrate.",
+      "cite": {
+        "text": "Gómez-de-Mariscal E. et al., biorXiv 2019; Ulman V. et al., Nature Methods 2017; Ronneberger O. et al., MICCAI 2015",
+        "doi": ""
+      },
+      "authors": [
+        "DeepImageJ",
+        "Ignacio Arganda-Carreras"
+      ],
+      "documentation": "https://deepimagej.github.io/deepimagej/models_documentation.html",
+      "covers": [
+        ""
+      ],
+      "tags": [
+        "deepimagej",
+        "hela cells",
+        "segmentation",
+        "phase contrast"
+      ],
+      "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/UNet2DPancreaticSegmentation.model.yaml",
+      "applications": [
+        "Fiji"
+      ],
+      "download_url": "https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_segmentation.zip"
+    },
   ]
 }
