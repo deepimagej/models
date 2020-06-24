@@ -6,7 +6,7 @@ cite:
     Gómez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission Electron Microscopy Images 
     Scientific Reports, (2019)
   doi: https://doi.org/10.1038/s41598-019-49431-3
-authors: [Gómez-de-Mariscal, E. et al.]
+authors: [Estibaliz Gómez-de-Mariscal, Martin Maška, Anna Kotrbová, Vendula Pospíchalová, Pavel Matula and Arrate Muñoz-Barrutia]
 documentation: https://cbia.fi.muni.cz/research/segmentation/fru-net.html
 covers: [./frunet_sev.jpg]
 test_input: ./exampleImage.tiff
