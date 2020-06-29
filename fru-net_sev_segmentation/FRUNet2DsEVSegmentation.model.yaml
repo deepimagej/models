@@ -17,17 +17,19 @@ tags:
  - segmentation
  - TEM
 license: BSD 3
-format_version: null
+format_version: 0.2.0
 language: Java
 framework: Tensorflow
 source: https://cbia.fi.muni.cz/research/segmentation/fru-net.html
 model:
   source: ./saved_model.pb
   sha256: 9ccb79070f30813e7447342e3ab7f4107a314a1414c1541c79134ef950ac4a7f
-weigths:
-  v1:
+weights:
+  - id: v1
+    name: version 1
+    description: weights trained for segmenting small extracellular vesicles
     source: ./variables
-    sha256: n/a
+    sha256: null
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
@@ -61,6 +63,7 @@ outputs:
     scale: [1, 1, 1, 1]
     offset: [0, 0, 0, 0]
 prediction:
+  weights: v1
   preprocess:
     spec: deepimagej.runMacro::preprocessing
     kwargs: {preprocessing.txt}
