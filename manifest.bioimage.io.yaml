@@ -27,12 +27,11 @@ model:
   - id: UNet2DPancreaticSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/UNet2DPancreaticSegmentation.model.yaml
     links:
-      - unet-2d-pancreatic-cell-segmentation
-
+      - unet-pancreaticcellsegmentation
 notebook:
-  - id: unet-2d-pancreatic-cell-segmentation
-    name: U-net (2D)
-    description: Easy example to define a 2D U-Net for segmentation with Keras and import it into DeepImageJ format.
+  - id: unet-pancreaticcellsegmentation
+    name: 2D U-Net for binary segmentation
+    description: Easy example to define a 2D U-Net for segmentation with Keras and import it into DeepImageJ format
     cite:
       text: "Falk, T., Mai, D., Bensch, R. et al. U-Net: deep learning for cell counting, detection, and morphometry. Nat Methods 16, 67–70 (2019)."
       doi: https://doi.org/10.1038/s41592-018-0261-2
@@ -47,4 +46,4 @@ notebook:
         url: https://colab.research.google.com/github/deepimagej/models/blob/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
     documentation: https://github.com/miura/NEUBIAS_AnalystSchool2020/tree/master/Ignacio
     tags: [UNet, segmentation, DeepImageJ]
-    source: https://github.com/deepimagej/models/blob/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
+    source: https://github.com/deepimagej/models/raw/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
