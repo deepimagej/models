@@ -4,10 +4,10 @@ date: Jun 23, 2020
 cite:
   text: |-
     Gómez-de-Mariscal E. et al., biorXiv 2019; Ulman V. et al., Nature Methods 2017; Ronneberger O. et al., MICCAI 2015
-  doi: n/a
+  doi: null
 authors: [DeepImageJ, Ignacio Arganda-Carreras]
 documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
-covers: n/a
+covers: null
 test_input: ./exampleImage.tiff
 test_output: ./resultImage.tiff
 tags:
@@ -22,11 +22,11 @@ framework: Tensorflow
 source: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
 model:
   source: ./saved_model.pb
-  sha256: n/a
+  sha256: null
   
   v1:
     source: ./variables
-    sha256: n/a
+    sha256: null
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
