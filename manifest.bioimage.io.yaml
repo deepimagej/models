@@ -46,4 +46,4 @@ notebook:
         url: https://colab.research.google.com/github/deepimagej/models/blob/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
     documentation: https://github.com/miura/NEUBIAS_AnalystSchool2020/tree/master/Ignacio
     tags: [UNet, segmentation, DeepImageJ]
-    source: https://github.com/deepimagej/models/raw/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
+    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
