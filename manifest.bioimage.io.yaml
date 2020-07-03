@@ -26,6 +26,8 @@ model:
 
   - id: UNet2DPancreaticSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/UNet2DPancreaticSegmentation.model.yaml
+    links:
+      - unet-2d-pancreatic-cell-segmentation
 
 notebook:
   - id: unet-2d-pancreatic-cell-segmentation
