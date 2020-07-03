@@ -1,0 +1,30 @@
+config:
+  id: deepimagej
+  name: deepImageJ
+  tags: 
+   - deepimagej
+  logo: "https://deepimagej.github.io/deepimagej/images/deepimagej_logo.png"
+  icon: "https://deepimagej.github.io/deepimagej/images/deepimagej_logo.png"
+  splash_title: deepImageJ
+  splash_subtitle: "A user-friendly plugin to run deep learning models in ImageJ"
+  splash_feature_list: 
+  explore_button_text: "Start Exploring"
+  background_image: "static/img/zoo-background.svg"
+  resource_types: 
+   - model
+   - notebook
+  url_root: https://raw.githubusercontent.com/deepimagej/models/master
+
+model:
+- id: FRUNet2DsEVSegmentation
+  source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/FRUNet2DsEVSegmentation.model.yaml
+  download_url: https://github.com/deepimagej/models/releases/download/0.1/fru-net_sev_segmentation.zip
+
+- id: UNet2DHelaSegmentation
+  source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/UNet2DHelaSegmentation.model.yaml
+
+- id: UNet2DPancreaticSegmentation
+  source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/UNet2DPancreaticSegmentation.model.yaml
+  
+
+  
