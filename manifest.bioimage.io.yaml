@@ -38,8 +38,8 @@ notebook:
     authors:
       - Ignacio Arganda-Carreras and DeepImageJ
     covers:
-      - https://github.com/deepimagej/models/blob/master/u-net_pancreatic_segmentation/notebook_intro.png
-      - https://github.com/deepimagej/models/blob/master/u-net_pancreatic_segmentation/usecase.png
+      - https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/notebook_intro.png
+      - https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/usecase.png
     badges:
       - label: Open in Colab
         icon: https://colab.research.google.com/assets/colab-badge.svg
