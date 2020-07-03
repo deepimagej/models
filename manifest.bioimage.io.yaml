@@ -4,8 +4,8 @@ config:
   name: deepImageJ
   tags:
     - deepimagej
-  logo: "https://deepimagej.github.io/deepimagej/images/deepimagej_logo.png"
-  icon: "https://deepimagej.github.io/deepimagej/images/deepimagej_logo.png"
+  logo: "logos/logo.png"
+  icon: "logos/icon.png"
   splash_title: deepImageJ
   splash_subtitle: "A user-friendly plugin to run deep learning models in ImageJ"
   splash_feature_list:
