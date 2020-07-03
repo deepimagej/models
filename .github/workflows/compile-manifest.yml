@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: built-output
-          path: ./dist
+          path: ./
