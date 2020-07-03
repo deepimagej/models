@@ -7,7 +7,7 @@ cite:
   doi: null
 authors: [DeepImageJ, Ignacio Arganda-Carreras]
 documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
-covers: null
+covers: [./exampleImage.png, ./resultImage.png]
 test_input: ./exampleImage.tiff
 test_output: ./resultImage.tiff
 tags:
