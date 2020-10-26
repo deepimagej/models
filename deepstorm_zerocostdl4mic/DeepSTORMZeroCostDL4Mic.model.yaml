@@ -66,10 +66,10 @@ config:
       inputs:
         - name: exampleImage.tiff
           size: 512 x 512 x 1 x 1
-	pixel_size:
-      x: 0.1 µm
-      y: 0.1 µm
-      z: 1.0 pixel
+          pixel_size:
+            x: 0.1 µm
+            y: 0.1 µm
+            z: 1.0 pixel
       outputs:
         - name: normalizedConfidence.tiff
           type: image
