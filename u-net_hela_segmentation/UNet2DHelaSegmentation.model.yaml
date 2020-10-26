@@ -7,7 +7,7 @@ cite:
   doi: null
 authors: [João Soares Lopes]
 documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
-covers: null
+covers: [./unet_hela_seg.jpg]
 test_input: ./exampleImage.tiff
 test_output: ./resultImage.tiff
 tags:

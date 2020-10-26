@@ -28,6 +28,10 @@ model:
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/UNet2DPancreaticSegmentation.model.yaml
     links:
       - unet-pancreaticcellsegmentation
+
+  - id: DeepSTORMZeroCostDL4Mic
+    source: https://raw.githubusercontent.com/deepimagej/models/biomodelzoo-0.3.0/deepstorm_zerocostdl4mic/DeepSTORMZeroCostDL4Mic.model.yaml
+
 notebook:
   - id: unet-pancreaticcellsegmentation
     name: 2D U-Net for binary segmentation
