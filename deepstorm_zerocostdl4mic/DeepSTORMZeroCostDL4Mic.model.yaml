@@ -64,22 +64,22 @@ config:
       signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
-      - name: ./exampleImage.tiff
-      	size: [512, 512, 1, 1]
+        - name: exampleImage.tiff
+          size: 512 x 512 x 1 x 1
 	pixel_size:
       x: 0.1 µm
       y: 0.1 µm
       z: 1.0 pixel
       outputs:
-      - name: ./normalizedConfidence.tiff
-      	type: image
-      	size: [64, 64, 1, 1]
-      - name: ./filteredConfidence.tiff
-      	type: image
-      	size: [64, 64, 1, 1]
-      - name: ./Localizations_resultImage_max.csv
-        type: ResultsTable
-        size: [120, 3]
+        - name: normalizedConfidence.tiff
+          type: image
+          size: 64 x 64 x 1 x 1
+        - name: filteredConfidence.tiff
+          type: image
+          size: 64 x 64 x 1 x 1
+        - name: Localizations_resultImage_max.csv
+          type: ResultsTable
+          size: 120 x 3
       memory_peak: 328.1 Mb
       runtime: 0.9 s
     prediction:
