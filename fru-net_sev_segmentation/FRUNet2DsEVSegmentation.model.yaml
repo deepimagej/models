@@ -14,10 +14,10 @@ authors:
 documentation: https://cbia.fi.muni.cz/research/segmentation/fru-net.html
 covers: [./frunet_sev.jpg]
 tags:
- - deepimagej
- - extracellular vesicles
- - segmentation
- - TEM
+  - deepimagej
+  - extracellular vesicles
+  - segmentation
+  - TEM
 license: BSD 3
 language: Java
 framework: Tensorflow
@@ -32,22 +32,22 @@ weights:
     test_input: ./exampleImage.tiff
     test_output: ./resultImage.tiff
 inputs:
-- name: raw
-  axes: byxc
-  data_type: float32
-  data_range: [-inf, inf]
-  shape:
-    exact: [1, 400, 400, 1]
+  - name: raw
+    axes: byxc
+    data_type: float32
+    data_range: [-inf, inf]
+    shape: [1, 400, 400, 1]
+    preprocessing: {name: min_max_normalization, kwargs: {min: 0, max: 1}}
 outputs:
-- name: segmentation
-  axes: byxc
-  data_type: float32
-  data_range: [0, 1]
-  halo: [0, 127, 127, 0]
-  shape:
-    reference_input: raw
-    scale: [1, 1, 1, 1]
-    offset: [0, 0, 0, 0]
+  - name: segmentation
+    axes: byxc
+    data_type: float32
+    data_range: [0, 1]
+    halo: [0, 127, 127, 0]
+    shape:
+      reference_input: raw
+      scale: [1, 1, 1, 1]
+      offset: [0, 0, 0, 0]
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
@@ -73,7 +73,7 @@ config:
     prediction:
       preprocess:
       -   spec: ij.IJ::runMacroFile
-          kwargs: preprocessing.ijm
+          kwargs: preprocessing.txt
       postprocess:
       -   spec: ij.IJ::runMacroFile
-          kwargs: postprocessing_LocalMaximaSMLM.ijm
+          kwargs: postprocessing.txt

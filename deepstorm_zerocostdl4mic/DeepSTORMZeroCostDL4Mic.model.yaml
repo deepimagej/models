@@ -14,11 +14,11 @@ git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic
 documentation: https://deepimagej.github.io/deepimagej/
 covers: [./input.png, ./output.png]
 tags:
- - zerocostdl4mic
- - deepimagej
- - SMLM
- - image reconstruction
- - super-resolution
+  - zerocostdl4mic
+  - deepimagej
+  - SMLM
+  - image reconstruction
+  - super-resolution
 
 license: MIT
 language: Java

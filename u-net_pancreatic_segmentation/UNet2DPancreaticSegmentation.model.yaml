@@ -15,10 +15,10 @@ authors:
 documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
 covers: [./exampleImage.png, ./resultImage.png]
 tags:
- - deepimagej
- - pancreatic stem cells
- - segmentation
- - phase contrast
+  - deepimagej
+  - pancreatic stem cells
+  - segmentation
+  - phase contrast
 license: BSD-2
 language: Java
 framework: Tensorflow
@@ -32,23 +32,24 @@ weights:
     test_outputs: ./resultImage.tiff
     documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
 inputs:
-- name: raw
-  axes: byxc
-  data_type: float32
-  data_range: [-inf, inf]
-  shape:
-    min: [1, 8, 8, 1]
-    step: [0, 8, 8, 0]
+  - name: raw
+    axes: byxc
+    data_type: float32
+    data_range: [-inf, inf]
+    shape:
+      min: [1, 8, 8, 1]
+      step: [0, 8, 8, 0]
+    preprocessing: {name: max_division}
 outputs:
-- name: segmentation
-  axes: byxc
-  data_type: float32
-  data_range: [0, 1]
-  halo: [0, 47, 47, 0]
-  shape:
-    reference_input: raw
-    scale: [1, 1, 1, 1]
-    offset: [0, 0, 0, 0]
+  - name: segmentation
+    axes: byxc
+    data_type: float32
+    data_range: [0, 1]
+    halo: [0, 47, 47, 0]
+    shape:
+      reference_input: raw
+      scale: [1, 1, 1, 1]
+      offset: [0, 0, 0, 0]
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
@@ -74,7 +75,7 @@ config:
     prediction:
       preprocess:
       -   spec: ij.IJ::runMacroFile
-          kwargs: preprocessing.ijm
+          kwargs: preprocessing.txt
       postprocess:
       -   spec: ij.IJ::runMacroFile
-          kwargs: postprocessing_LocalMaximaSMLM.ijm
+          kwargs: postprocessing.txt
