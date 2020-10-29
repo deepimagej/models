@@ -23,7 +23,7 @@ license: BSD-2
 language: Java
 framework: Tensorflow
 source: ./saved_model.pb
-sha256: null
+sha256: d854be0e2a43a4d594aedbab7f483b929e3983288b0fd2e553e1b08bf86c8bfb
 weights:
   - id: v1
     source: ./variables

@@ -19,7 +19,7 @@ config:
 model:
   - id: FRUNet2DsEVSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/FRUNet2DsEVSegmentation.model.yaml
-    download_url: https://github.com/deepimagej/models/releases/download/0.1/fru-net_sev_segmentation.zip
+    download_url: https://zenodo.org/record/4156050/files/deepimagej_fru-net_sev_segmentation.zip
 
   - id: UNet2DHelaSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/UNet2DHelaSegmentation.model.yaml
