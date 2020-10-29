@@ -1,5 +1,4 @@
 format_version: 0.3.0
-
 name: Deep-STORM
 description: A trained Deep-STORM model for image reconstruction from high-density single-molecule localization microscopy (SMLM).
 date: 2020

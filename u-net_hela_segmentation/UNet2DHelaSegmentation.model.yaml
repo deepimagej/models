@@ -1,10 +1,10 @@
+format_version: 0.3.0
 name: U-Net Hela Cell Segmentation
 description: DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images
 date: 2019
 cite:
-  text: |-
-    Biomedical Imaging Group, School of Engineering, Ecole Polytechnique Fédérale de Lausanne, Lausanne, Switzerland
-  doi: null
+  - text: Biomedical Imaging Group, School of Engineering, Ecole Polytechnique Fédérale de Lausanne, Lausanne, Switzerland
+    doi: null
 authors: [João Soares Lopes]
 documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
 covers: [./unet_hela_seg.jpg]
@@ -15,8 +15,7 @@ tags:
  - hela cells
  - segmentation
  - phase contrast
-license: null
-format_version: null
+license: BSD-2
 language: Java
 framework: Tensorflow
 source: https://github.com/deepimagej/python4deepimagej/tree/master/unet
