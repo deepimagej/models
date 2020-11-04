@@ -21,14 +21,12 @@ tags:
 license: BSD 3
 language: Java
 framework: Tensorflow
-source: https://zenodo.org/record/4156050/files/saved_model.pb
-sha256: 9ccb79070f30813e7447342e3ab7f4107a314a1414c1541c79134ef950ac4a7f
 weights:
   - id: v1
     name: version 1
     description: weights trained for segmenting small extracellular vesicles
-    source: https://zenodo.org/record/4156050/files/weights_v1.zip
-    sha256: f090bbe5aa6a5127777ca58f85066d0b272c9d8d2493832fe4bfb940aaca9ba7
+    source: https://zenodo.org/record/4156050/files/model_v1.zip
+    sha256: 5e3588d626a0f8ee655c503b4f867eacf53fe890feaa5c62125d4d2c544638f0
     test_input: ./exampleImage.tiff
     test_output: ./resultImage.tiff
 inputs:

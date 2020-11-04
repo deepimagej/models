@@ -17,13 +17,11 @@ tags:
 license: BSD-2
 language: Java
 framework: Tensorflow
-git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet
-source: ./saved_model.pb
-sha256: 601830ca4462cc7b6d1047541bd2e6de105dbc92d6da42d840700eaf65aef0e7
+git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet	
 weights:
   - id: v1
-    source: https://zenodo.org/record/4155785/files/u-net_glioblastoma_segmentation_tf_weights.zip
-    sha256: 3d40b0b5e584c41c4190cc4f4600609e975b65c795fae7db0b055f6d22b6fa84
+    source: https://zenodo.org/record/4155785/files/u-net_glioblastoma_segmentation_tf_model.zip
+    sha256: b72412b1457c9f3e37850914308381c7c81910e04b2edc7697bb0293c15b57d4
     test_input:
       - ./exampleImage.tiff
     test_output:

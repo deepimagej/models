@@ -18,12 +18,10 @@ license: BSD-2
 language: Java
 framework: Tensorflow
 git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet
-source: ./saved_model.pb
-sha256: 601830ca4462cc7b6d1047541bd2e6de105dbc92d6da42d840700eaf65aef0e7
 weights:
   - id: v1
-    source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_weights.zip
-    sha256: null
+    source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_model.zip
+    sha256: 1a64fcdbd0835c2b490bb2fdfe33e3321c022a7c5dd82c7b99661c808175a559
     test_input: ./exampleImage.tiff
     test_output: ./resultImage.tiff
 inputs:
