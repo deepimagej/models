@@ -22,7 +22,7 @@ license: BSD 3
 language: Java
 framework: Tensorflow
 weights:
-  - id: v1
+  tensorflow_protobuffer:
     name: version 1
     description: weights trained for segmenting small extracellular vesicles
     source: https://zenodo.org/record/4156050/files/model_v1.zip
