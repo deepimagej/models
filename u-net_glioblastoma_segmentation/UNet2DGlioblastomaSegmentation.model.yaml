@@ -17,7 +17,7 @@ tags:
 license: BSD-2
 language: Java
 framework: Tensorflow
-git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet	
+git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet
 weights:
   tensorflow_protobuffer:
     name: v1
