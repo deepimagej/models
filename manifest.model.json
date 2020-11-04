@@ -126,6 +126,35 @@
       "git_repo": "https://github.com/deepimagej/python4deepimagej/tree/master/unet",
       "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/UNet2DGlioblastomaSegmentation.model.yaml",
       "download_url": "https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip"
+    },
+    {
+      "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation",
+      "name": "DEFCoN density map estimation",
+      "description": "Density Estimation by Fully Convolutional Networks (DEFCoN) - A fluorescent spot counter for single molecule localization microscopy.",
+      "cite": [
+        {
+          "text": "DEFCoN was written by Baptiste Ottino as a Master's thesis project under the guidance of Kyle M. Douglass and Suliana Manley in the Laboratory of Experimental Biophysics."
+        }
+      ],
+      "authors": [
+        "Baptiste Ottino",
+        "Kyle M. Douglass",
+        "Suliana Manley"
+      ],
+      "documentation": "https://github.com/LEB-EPFL/DEFCoN-ImageJ/wiki",
+      "covers": [
+        "cover_image.jpg"
+      ],
+      "tags": [
+        "deepimagej",
+        "defcon",
+        "smlm",
+        "density estimation"
+      ],
+      "license": "BSD 3",
+      "git_repo": "https://github.com/LEB-EPFL/DEFCoN",
+      "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/DEFCoN_DensityMapEstimation.model.yaml",
+      "download_url": "https://zenodo.org/record/4244821/files/deepimagej_defcon_density_map_estimation.zip"
     }
   ]
 }

@@ -18,6 +18,7 @@ tags:
 license: BSD 3
 language: Java
 framework: Tensorflow
+git_repo: https://github.com/LEB-EPFL/DEFCoN
 weights:
   tensorflow_protobuffer:
     name: v1
