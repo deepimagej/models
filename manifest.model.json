@@ -1,19 +1,24 @@
 {
   "name": "DeepImageJ Bundled Model Repository",
   "description": "Models available on the deepImageJ web site.",
-  "version": "1.0",
+  "version": "2.0",
   "models": [
     {
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation",
       "name": "Fully Residual U-Net - TEM",
       "description": "DeepImageJ compatible fully residual U-Net trained to segment small extracellular vesicles in 2D TEM images",
-      "cite": {
-        "text": "G\u00f3mez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission Electron Microscopy Images \nScientific Reports, (2019)",
-        "doi": "https://doi.org/10.1038/s41598-019-49431-3"
-      },
+      "cite": [
+        {
+          "text": "G\u00f3mez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission Electron Microscopy Images Scientific Reports, (2019)",
+          "doi": "https://doi.org/10.1038/s41598-019-49431-3"
+        }
+      ],
       "authors": [
-        "G\u00f3mez-de-Mariscal",
-        "E. et al."
+        "Estibaliz G\u00f3mez-de-Mariscal",
+        "Martin Ma\u0161ka, Anna Kotrbov\u00e1",
+        "Vendula Posp\u00edchalov\u00e1",
+        "Pavel Matula",
+        "Arrate Mu\u00f1oz-Barrutia"
       ],
       "documentation": "https://cbia.fi.muni.cz/research/segmentation/fru-net.html",
       "covers": [
@@ -25,66 +30,102 @@
         "segmentation",
         "TEM"
       ],
+      "license": "BSD 3",
       "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/FRUNet2DsEVSegmentation.model.yaml",
-      "applications": [
-        "Fiji"
-      ],
-      "download_url": "https://github.com/deepimagej/models/releases/download/0.1/fru-net_sev_segmentation.zip"
+      "download_url": "https://zenodo.org/record/4156050/files/deepimagej_fru-net_sev_segmentation.zip"
     },
 	{
-      "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation",
+      "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation",
       "name": "U-Net Hela Cell Segmentation",
       "description": "DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images",
-      "cite": {
-        "text": "Biomedical Imaging Group, School of Engineering, Ecole Polytechnique Fédérale de Lausanne, Lausanne, Switzerland",
-        "doi": ""
-      },
+      "cite": [
+        {
+          "text": "Biomedical Imaging Group, School of Engineering, Ecole Polytechnique F\u00e9d\u00e9rale de Lausanne, Lausanne, Switzerland",
+          "doi": null
+        }
+      ],
       "authors": [
-        "João Soares Lopes"
+        "Jo\u00e3o Soares Lopes"
       ],
       "documentation": "https://deepimagej.github.io/deepimagej/models_documentation.html",
       "covers": [
-        ""
+        "unet_hela_seg.jpg"
       ],
       "tags": [
         "deepimagej",
-        "hela cells",
         "segmentation",
+        "hela cells",
         "phase contrast"
       ],
-      "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/UNet2DHelaSegmentation.model.yaml",
-      "applications": [
-        "Fiji"
-      ],
-      "download_url": "https://github.com/deepimagej/models/releases/download/0.2/u-net_glioblastoma_segmentation.zip"
+      "license": "BSD-2",
+      "git_repo": "https://github.com/deepimagej/python4deepimagej/tree/master/unet",
+      "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/UNet2DHelaSegmentation.model.yaml",
+      "download_url": "https://zenodo.org/record/4155785/files/deepimagej_u-net_hela_segmentation.zip"
     },
 	{
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation",
       "name": "U-Net Pancreatic Cell Segmentation",
       "description": "DeepImageJ compatible U-Net trained to segment phase contrast microscopy images of pancreatic stem cells on a 2D polystyrene substrate.",
-      "cite": {
-        "text": "Gómez-de-Mariscal E. et al., biorXiv 2019; Ulman V. et al., Nature Methods 2017; Ronneberger O. et al., MICCAI 2015",
-        "doi": ""
-      },
+      "cite": [
+        {
+          "text": "G\u00f3mez-de-Mariscal E. et al., biorXiv 2019",
+          "doi": "https://doi.org/10.1101/799270"
+        },
+        {
+          "text": "Ulman V. et al., Nature Methods 2017",
+          "doi": "https://doi.org/10.1038/nmeth.4473"
+        },
+        {
+          "text": "Ronneberger O. et al., MICCAI 2015",
+          "doi": "https://doi.org/10.1007/978-3-319-24574-4_28"
+        }
+      ],
       "authors": [
-        "DeepImageJ",
-        "Ignacio Arganda-Carreras"
+        "Ignacio Arganda-Carreras",
+        "DeepImageJ team"
       ],
       "documentation": "https://deepimagej.github.io/deepimagej/models_documentation.html",
       "covers": [
-        ""
+        "exampleImage.png",
+        "resultImage.png"
       ],
       "tags": [
         "deepimagej",
-        "hela cells",
         "segmentation",
+        "pancreatic stem cells",
         "phase contrast"
       ],
+      "license": "BSD-2",
       "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/UNet2DPancreaticSegmentation.model.yaml",
-      "applications": [
-        "Fiji"
-      ],
       "download_url": "https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_segmentation.zip"
     },
+    {
+      "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation",
+      "name": "U-Net GLioblastoma Cell Segmentation",
+      "description": "DeepImageJ compatible U-Net trained to segment 2D phase contrast microscopy images of glioblastoma-astrocytoma U373 cells on a polyacrylamide substrate.",
+      "cite": [
+        {
+          "text": "Biomedical Imaging Group, School of Engineering, Ecole Polytechnique F\u00e9d\u00e9rale de Lausanne, Lausanne, Switzerland",
+          "doi": null
+        }
+      ],
+      "authors": [
+        "Jo\u00e3o Soares Lopes"
+      ],
+      "documentation": "https://deepimagej.github.io/deepimagej/models_documentation.html",
+      "covers": [
+        "cover_image.jpg"
+      ],
+      "tags": [
+        "deepimagej",
+        "segmentation",
+        "phase contrast",
+        "glioblastoma cells"
+      ],
+      "license": "BSD-2",
+      "git_repo": "https://github.com/deepimagej/python4deepimagej/tree/master/unet",
+      "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/UNet2DGlioblastomaSegmentation.model.yaml",
+      "download_url": "https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip"
+    }
   ]
 }
