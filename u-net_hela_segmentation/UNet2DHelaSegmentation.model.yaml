@@ -53,17 +53,17 @@ config:
     test_information:
       inputs:
         - name: exampleImage.tiff
-          size: 348 x 260 x 1 x 1
+          size: 256 x 256 x 1 x 1
           pixel_size:
-            x: 1.30 µm
-            y: 1.30 µm
+            x: 0.38 µm
+            y: 0.38 µm
             z: 1.0 pixel
       outputs:
         - name: resultImage.tiff
           type: image
-          size: 348 x 260 x 1 x 1
-      memory_peak: 269.0 Mb
-      runtime: 11.5 s s
+          size: 256 x 256 x 1 x 1
+      memory_peak: 268.0 Mb
+      runtime: 5.5 s s
     prediction:
       preprocess:
       -   spec: ij.IJ::runMacroFile
