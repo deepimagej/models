@@ -35,6 +35,10 @@ model:
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/UNet2DGlioblastomaSegmentation.model.yaml
     download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip
 
+  - id: DEFCoN_DensityMapEstimation
+    source: https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/DEFCoN_DensityMapEstimation.model.yaml
+    download_url: https://zenodo.org/record/4244821/files/deepimagej_defcon_density_map_estimation.zip
+
 notebook:
   - id: unet-pancreaticcellsegmentation
     name: 2D U-Net for binary segmentation

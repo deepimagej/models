@@ -1,0 +1,5 @@
+// Postprocessing macro
+print("Postprocessing");
+
+run("Set Measurements...", "integrated redirect=None decimal=2");
+run("Measure");
