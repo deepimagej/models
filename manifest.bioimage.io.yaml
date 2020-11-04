@@ -32,7 +32,7 @@ model:
       - unet-pancreaticcellsegmentation
 
   - id: UNet2DGlioblastomaSegmentation
-    source: https://raw.githubusercontent.com/deepimagej/models/biomodelzoo-0.3.0/u-net_hela_segmentation/UNet2DGlioblastomaSegmentation.model.yaml
+    source: https://raw.githubusercontent.com/deepimagej/models/biomodelzoo-0.3.0/u-net_glioblastoma_segmentation/UNet2DGlioblastomaSegmentation.model.yaml
     download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip
 
 notebook:
