@@ -19,24 +19,32 @@ config:
 model:
   - id: FRUNet2DsEVSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/FRUNet2DsEVSegmentation.model.yaml
-    download_url: https://github.com/deepimagej/models/releases/download/0.1/fru-net_sev_segmentation.zip
+    download_url: https://zenodo.org/record/4156050/files/deepimagej_fru-net_sev_segmentation.zip
 
   - id: UNet2DHelaSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/UNet2DHelaSegmentation.model.yaml
+    download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_hela_segmentation.zip
 
   - id: UNet2DPancreaticSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/UNet2DPancreaticSegmentation.model.yaml
+    download_url: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_segmentation.zip
     links:
       - unet-pancreaticcellsegmentation
+
+  - id: UNet2DGlioblastomaSegmentation
+    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/UNet2DGlioblastomaSegmentation.model.yaml
+    download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip
+
 notebook:
   - id: unet-pancreaticcellsegmentation
     name: 2D U-Net for binary segmentation
     description: Easy example to define a 2D U-Net for segmentation with Keras and import it into DeepImageJ format
     cite:
-      text: "Falk, T., Mai, D., Bensch, R. et al. U-Net: deep learning for cell counting, detection, and morphometry. Nat Methods 16, 67–70 (2019)."
-      doi: https://doi.org/10.1038/s41592-018-0261-2
+      - text: "Falk, T., Mai, D., Bensch, R. et al. U-Net: deep learning for cell counting, detection, and morphometry. Nat Methods 16, 67–70 (2019)."
+        doi: https://doi.org/10.1038/s41592-018-0261-2
     authors:
-      - Ignacio Arganda-Carreras and DeepImageJ
+      - Ignacio Arganda-Carreras
+      - DeepImageJ team
     covers:
       - https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/notebook_intro.png
       - https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/usecase.png
@@ -45,5 +53,8 @@ notebook:
         icon: https://colab.research.google.com/assets/colab-badge.svg
         url: https://colab.research.google.com/github/deepimagej/models/blob/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
     documentation: https://github.com/miura/NEUBIAS_AnalystSchool2020/tree/master/Ignacio
-    tags: [UNet, segmentation, DeepImageJ]
+    tags:
+      - unet
+      - segmentation
+      - deepimagej
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb

@@ -1,73 +1,79 @@
+format_version: 0.3.0
 name: Fully Residual U-Net - TEM
 description: DeepImageJ compatible fully residual U-Net trained to segment small extracellular vesicles in 2D TEM images
 date: 2019
 cite:
-  text: |-
-    Gómez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission Electron Microscopy Images 
-    Scientific Reports, (2019)
-  doi: https://doi.org/10.1038/s41598-019-49431-3
-authors: [Estibaliz Gómez-de-Mariscal, Martin Maška, Anna Kotrbová, Vendula Pospíchalová, Pavel Matula and Arrate Muñoz-Barrutia]
+  - text: Gómez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission Electron Microscopy Images Scientific Reports, (2019)
+    doi: https://doi.org/10.1038/s41598-019-49431-3
+authors:
+  - Estibaliz Gómez-de-Mariscal
+  - Martin Maška, Anna Kotrbová
+  - Vendula Pospíchalová
+  - Pavel Matula
+  - Arrate Muñoz-Barrutia
 documentation: https://cbia.fi.muni.cz/research/segmentation/fru-net.html
 covers: [./frunet_sev.jpg]
-test_input: ./exampleImage.tiff
-test_output: ./resultImage.tiff
 tags:
- - deepimagej
- - extracellular vesicles
- - segmentation
- - TEM
+  - deepimagej
+  - extracellular vesicles
+  - segmentation
+  - TEM
 license: BSD 3
-format_version: 0.2.0
 language: Java
 framework: Tensorflow
-source: https://cbia.fi.muni.cz/research/segmentation/fru-net.html
-model:
-  source: ./saved_model.pb
-  sha256: 9ccb79070f30813e7447342e3ab7f4107a314a1414c1541c79134ef950ac4a7f
+source: https://zenodo.org/record/4156050/files/saved_model.pb
+sha256: 9ccb79070f30813e7447342e3ab7f4107a314a1414c1541c79134ef950ac4a7f
 weights:
   - id: v1
     name: version 1
     description: weights trained for segmenting small extracellular vesicles
-    source: ./variables
-    sha256: null
+    source: https://zenodo.org/record/4156050/files/weights_v1.zip
+    sha256: f090bbe5aa6a5127777ca58f85066d0b272c9d8d2493832fe4bfb940aaca9ba7
+    test_input: ./exampleImage.tiff
+    test_output: ./resultImage.tiff
+inputs:
+  - name: raw
+    axes: byxc
+    data_type: float32
+    data_range: [-inf, inf]
+    shape: [1, 400, 400, 1]
+    preprocessing: {name: min_max_normalization, kwargs: {min: 0, max: 1}}
+outputs:
+  - name: segmentation
+    axes: byxc
+    data_type: float32
+    data_range: [0, 1]
+    halo: [0, 127, 127, 0]
+    shape:
+      reference_input: raw
+      scale: [1, 1, 1, 1]
+      offset: [0, 0, 0, 0]
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
+    pyramidal_model: false
+    allow_tiling: true
     model_keys:
-      # In principle the tag "SERVING" is used in almost every tf model
       model_tag: tf.saved_model.tag_constants.SERVING
-      # Signature definition to call the model. Again "SERVING" is the most general
       signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
-    test_information:  
-      input_size: [2048x2048x1] # Size of the input image  
-      output_size: [1264x1264x1]# Size of the output after post-processing  
-      device: cpu # Device used. In principle either cpu or GPU  
-      memory_peak: 257.7 Mb # Maximum memory consumed by the model in the device  
-      runtime: 78.8 s # Time it took to run the model
-      pixel_size: [9.658E-4µmx9.658E-4µmx1.00E+00pixels] # Size of the pixels of the input
-inputs:
-- name: raw
-  axes: byxc
-  data_type: float32
-  data_range: [-inf, inf]
-  shape:
-    exact: [1, 400, 400, 1]
-outputs:
-- name: segmentation
-  axes: byxc
-  data_type: float32
-  data_range: [0, 1]
-  halo: [0, 127, 127, 0]
-  shape:
-    reference_input: raw
-    scale: [1, 1, 1, 1]
-    offset: [0, 0, 0, 0]
-prediction:
-  weights: v1
-  preprocess:
-    spec: deepimagej.runMacro::preprocessing
-    kwargs: {preprocessing.txt}
-  postprocess:
-    spec: deepimagej.runMacro::preprocessing
-    kwargs: {postprocessing.txt}
-  dependencies: deepimagej
+    test_information:
+      inputs:
+        - name: exampleImage.tiff
+          size: 2048 x 2048 x 1 x 1
+          pixel_size:
+            x: 9.658E-4 µm
+            y: 9.658E-4 µm
+            z: 1.0 pixel
+      outputs:
+        - name: resultImage.tiff
+          type: image
+          size: 1264 x 1264 x 1 x 1
+      memory_peak: 257.7 Mb
+      runtime: 78.8 s
+    prediction:
+      preprocess:
+      -   spec: ij.IJ::runMacroFile
+          kwargs: preprocessing.txt
+      postprocess:
+      -   spec: ij.IJ::runMacroFile
+          kwargs: postprocessing.txt

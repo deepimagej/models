@@ -1,69 +1,73 @@
+format_version: 0.3.0
 name: U-Net Hela Cell Segmentation
 description: DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images
 date: 2019
 cite:
-  text: |-
-    Biomedical Imaging Group, School of Engineering, Ecole Polytechnique Fédérale de Lausanne, Lausanne, Switzerland
-  doi: null
-authors: [João Soares Lopes]
+  - text: Biomedical Imaging Group, School of Engineering, Ecole Polytechnique Fédérale de Lausanne, Lausanne, Switzerland
+    doi: null
+authors:
+  - João Soares Lopes
 documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
-covers: null
-test_input: ./exampleImage.tiff
-test_output: ./resultImage.tiff
+covers: [./unet_hela_seg.jpg]
 tags:
- - deepimagej
- - hela cells
- - segmentation
- - phase contrast
-license: null
-format_version: null
+  - deepimagej
+  - hela cells
+  - segmentation
+  - phase contrast
+license: BSD-2
 language: Java
 framework: Tensorflow
-source: https://github.com/deepimagej/python4deepimagej/tree/master/unet
-model:
-  source: ./saved_model.pb
-  sha256: 601830ca4462cc7b6d1047541bd2e6de105dbc92d6da42d840700eaf65aef0e7
-  
-  v1:
-    source: ./variables
+git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet
+source: ./saved_model.pb
+sha256: 601830ca4462cc7b6d1047541bd2e6de105dbc92d6da42d840700eaf65aef0e7
+weights:
+  - id: v1
+    source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_weights.zip
     sha256: null
+    test_input: ./exampleImage.tiff
+    test_output: ./resultImage.tiff
+inputs:
+  - name: raw
+    axes: byxc
+    data_type: float32
+    data_range: [-inf, inf]
+    shape: [1, 256, 256, 1]
+outputs:
+  - name: segmentation
+    axes: byxc
+    data_type: float32
+    data_range: [0, 1]
+    halo: [0, 64, 64, 0]
+    shape:
+      reference_input: raw
+      scale: [1, 1, 1, 1]
+      offset: [0, 0, 0, 0]
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
+    pyramidal_model: false
+    allow_tiling: true
     model_keys:
-      # In principle the tag "SERVING" is used in almost every tf model
       model_tag: tf.saved_model.tag_constants.SERVING
-      # Signature definition to call the model. Again "SERVING" is the most general
       signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
-    test_information:  
-      input_size: [348x260x1] # Size of the input image  
-      output_size: [348x260x1]# Size of the output after post-processing  
-      device: cpu # Device used. In principle either cpu or GPU  
-      memory_peak: 269.0 Mb # Maximum memory consumed by the model in the device  
-      runtime: 11.5 s # Time it took to run the model
-      pixel_size: [1.30µmx1.30µmx1.00E+00pixels] # Size of the pixels of the input
-inputs:
-- name: raw
-  axes: byxc
-  data_type: float32
-  data_range: [-inf, inf]
-  shape:
-    exact: [1, 256, 256, 1]
-outputs:
-- name: segmentation
-  axes: byxc
-  data_type: float32
-  data_range: [0, 1]
-  halo: [0, 64, 64, 0]
-  shape:
-    reference_input: raw
-    scale: [1, 1, 1, 1]
-    offset: [0, 0, 0, 0]
-prediction:
-  preprocess:
-    spec: deepimagej.runMacro::preprocessing
-    kwargs: {preprocessing.txt}
-  postprocess:
-    spec: deepimagej.runMacro::preprocessing
-    kwargs: {postprocessing.txt}
-  dependencies: deepimagej
+    test_information:
+      inputs:
+        - name: exampleImage.tiff
+          size: 256 x 256 x 1 x 1
+          pixel_size:
+            x: 0.38 µm
+            y: 0.38 µm
+            z: 1.0 pixel
+      outputs:
+        - name: resultImage.tiff
+          type: image
+          size: 256 x 256 x 1 x 1
+      memory_peak: 268.0 Mb
+      runtime: 5.5 s s
+    prediction:
+      preprocess:
+      -   spec: ij.IJ::runMacroFile
+          kwargs: preprocessing.txt
+      postprocess:
+      -   spec: ij.IJ::runMacroFile
+          kwargs: postprocessing.txt

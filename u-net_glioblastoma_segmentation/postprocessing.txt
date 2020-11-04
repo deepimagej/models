@@ -1,0 +1,10 @@
+// Postprocessing macro
+print("Postprocessing");
+run("8-bit");
+run("Make Binary");
+run("Analyze Particles...", "size=100-Infinity show=[Count Masks] clear add");
+run("Multiply...", "value=20");
+run("8-bit");
+run("Fire");
+
+

@@ -1,58 +1,45 @@
 format_version: 0.3.0
-name: U-Net Pancreatic Cell Segmentation
-description: DeepImageJ compatible U-Net trained to segment phase contrast microscopy images of pancreatic stem cells on a 2D polystyrene substrate.
-date: Jun 23, 2020
+name: U-Net GLioblastoma Cell Segmentation
+description: DeepImageJ compatible U-Net trained to segment 2D phase contrast microscopy images of glioblastoma-astrocytoma U373 cells on a polyacrylamide substrate.
+date: 2019
 cite:
-  - text: Gómez-de-Mariscal E. et al., biorXiv 2019
-    doi: https://doi.org/10.1101/799270
-  - text: Ulman V. et al., Nature Methods 2017
-    doi: https://doi.org/10.1038/nmeth.4473
-  - text: Ronneberger O. et al., MICCAI 2015
-    doi: https://doi.org/10.1007/978-3-319-24574-4_28
+  - text: Biomedical Imaging Group, School of Engineering, Ecole Polytechnique Fédérale de Lausanne, Lausanne, Switzerland
+    doi: null
 authors:
-  - Ignacio Arganda-Carreras
-  - DeepImageJ team
+  - João Soares Lopes
 documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
-covers: [./exampleImage.png, ./resultImage.png]
+covers: [./cover_image.jpg]
 tags:
   - deepimagej
-  - pancreatic stem cells
+  - glioblastoma cells
   - segmentation
   - phase contrast
 license: BSD-2
 language: Java
 framework: Tensorflow
+git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet
 source: ./saved_model.pb
-sha256: d854be0e2a43a4d594aedbab7f483b929e3983288b0fd2e553e1b08bf86c8bfb
+sha256: 601830ca4462cc7b6d1047541bd2e6de105dbc92d6da42d840700eaf65aef0e7
 weights:
   - id: v1
-    source: ./variables
-    sha256: null
-    test_inputs:
+    source: https://zenodo.org/record/4155785/files/u-net_glioblastoma_segmentation_tf_weights.zip
+    sha256: 3d40b0b5e584c41c4190cc4f4600609e975b65c795fae7db0b055f6d22b6fa84
+    test_input:
       - ./exampleImage.tiff
-    test_outputs:
+    test_output:
       - ./resultImage.tiff
-    documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
 inputs:
   - name: raw
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
-    shape:
-      min: [1, 8, 8, 1]
-      step: [0, 8, 8, 0]
-    preprocessing:
-      name: min_max_normalization
-      kwargs:
-        mode: per_sample
-        axes: xy
-
+    shape: [1, 256, 256, 1]
 outputs:
   - name: segmentation
     axes: byxc
     data_type: float32
     data_range: [0, 1]
-    halo: [0, 47, 47, 0]
+    halo: [0, 64, 64, 0]
     shape:
       reference_input: raw
       scale: [1, 1, 1, 1]
@@ -68,17 +55,17 @@ config:
     test_information:
       inputs:
         - name: exampleImage.tiff
-          size: 720 x 576 x 1 x 1
+          size: 348 x 260 x 1 x 1
           pixel_size:
-            x: 1,60E-04 cm
-            y: 60E-04 cm
+            x: 1.30 µm
+            y: 1.30 µm
             z: 1.0 pixel
       outputs:
         - name: resultImage.tiff
           type: image
-          size: 720 x 576 x 1 x 1
-      memory_peak: 328.1 Mb
-      runtime: 2.8 s
+          size: 348 x 260 x 1 x 1
+      memory_peak: 269.0 Mb
+      runtime: 11.5 s s
     prediction:
       preprocess:
       -   spec: ij.IJ::runMacroFile
