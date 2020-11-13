@@ -28,7 +28,7 @@ weights:
     test_output:
       - ./resultImage.tiff
   tensorlfow_js:
-    source: 
+    source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/defcon_density_map_estimation_tf_js_model/model.json
     sha256: d1427f81f1fb217c127ef01ed992b6a9dc11d3a5b552514cfdccd82c01230e21
     test_input:
       - ./exampleImage.tiff
