@@ -23,8 +23,7 @@ license: BSD-2
 language: Java
 framework: Tensorflow
 weights:
-  tensorflow_protobuffer:
-    name: v1
+  tensorflow_saved_model_bundle:
     source: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_cell_segmentation_tf_model.zip
     sha256: c1a4a551af6246e9f998c919ac675d437ee1ddfd9c1bd4004b083d9e736b2a43
     test_inputs:
