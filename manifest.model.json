@@ -154,7 +154,7 @@
       "license": "BSD 3",
       "git_repo": "https://github.com/LEB-EPFL/DEFCoN",
       "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/DEFCoN_DensityMapEstimation.model.yaml",
-      "download_url": "https://zenodo.org/record/4244821/files/deepimagej_defcon_density_map_estimation.zip"
+      "download_url": "https://zenodo.org/record/4269855/files/deepimagej_defcon_density_map_estimation.zip"
     }
   ]
 }
