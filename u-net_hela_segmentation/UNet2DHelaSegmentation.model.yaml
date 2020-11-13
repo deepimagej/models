@@ -19,17 +19,14 @@ language: Java
 framework: Tensorflow
 git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet
 weights:
-  tensorflow_protobuffer:
-    name: v1
+  tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_model.zip
     sha256: 1a64fcdbd0835c2b490bb2fdfe33e3321c022a7c5dd82c7b99661c808175a559
     test_input: ./exampleImage.tiff
     test_output: ./resultImage.tiff
   tensorflow_js:
-    name: v1
-    description: weights trained for segmenting small extracellular vesicles
-    source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_js_model.zip
-    sha256: cec4e0e58982c545de54bce80260341a2652917481cc46cd32144416566655ff
+    source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/u-net_hela_segmentation_tf_js_model/model.json
+    sha256: 816f39edcc4a16aa60e8ea485c9eac31dc54181241252270ee5e2ae0bb71b49d
     test_input:
       - ./exampleImage.tiff
     test_output:
