@@ -20,8 +20,7 @@ language: Java
 framework: Tensorflow
 git_repo: https://github.com/LEB-EPFL/DEFCoN
 weights:
-  tensorflow_protobuffer:
-    name: v1
+  tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4269855/files/defcon_density_map_estimation_tf_model.zip
     sha256: ea57590caefa41a493808420d5bc029d7b6c8ad8b1633d8feeb166a99d71f45d
     test_input:
@@ -29,9 +28,8 @@ weights:
     test_output:
       - ./resultImage.tiff
   tensorlfow_js:
-    name: v1
-    source: https://zenodo.org/record/4269855/files/defcon_density_map_estimation_tf_js_model.zip
-    sha256: 3ad64b56bdc083fa5e304b72a551b2d9564407e09bd7f7ae7cd60879c50cad3a
+    source: 
+    sha256: d1427f81f1fb217c127ef01ed992b6a9dc11d3a5b552514cfdccd82c01230e21
     test_input:
       - ./exampleImage.tiff
     test_output:
