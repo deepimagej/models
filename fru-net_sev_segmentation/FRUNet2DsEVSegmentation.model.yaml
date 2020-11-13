@@ -22,9 +22,7 @@ license: BSD 3
 language: Java
 framework: Tensorflow
 weights:
-  tensorflow_protobuffer:
-    name: v1
-    description: weights trained for segmenting small extracellular vesicles
+  tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4156050/files/model_v1.zip
     sha256: 5e3588d626a0f8ee655c503b4f867eacf53fe890feaa5c62125d4d2c544638f0
     test_input:
@@ -32,10 +30,8 @@ weights:
     test_output:
       - ./resultImage.tiff
   tensorflow_js:
-    name: v1
-    description: weights trained for segmenting small extracellular vesicles
-    source: https://zenodo.org/record/4156050/files/model_tf_js_v1.zip
-    sha256: 72315277b5d2f8787d895e276e915676518de0c779a06d074b08c425c1878ba8
+    source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/fru-net_sev_segmentation_tf_js_model/model.json
+    sha256: eb27d8f3df23ce5d1d6ae4112cf36117c70a2257ca6f1b56869b9537fa60531e
     test_input:
       - ./exampleImage.tiff
     test_output:
