@@ -27,6 +27,15 @@ weights:
       - ./exampleImage.tiff
     test_output:
       - ./resultImage.tiff
+  tensorflow_js:
+    name: v1
+    description: weights trained for segmenting small extracellular vesicles
+    source: https://zenodo.org/record/4155785/files/u-net_glioblastoma_segmentation_tf_js_model.zip
+    sha256: 073d77aa28be8483c19dea83d0eca446b4997b95f1ff8be2c44a9a0e44aed491
+    test_input:
+      - ./exampleImage.tiff
+    test_output:
+      - ./resultImage.tiff
 inputs:
   - name: raw
     axes: byxc

@@ -25,6 +25,15 @@ weights:
     sha256: 1a64fcdbd0835c2b490bb2fdfe33e3321c022a7c5dd82c7b99661c808175a559
     test_input: ./exampleImage.tiff
     test_output: ./resultImage.tiff
+  tensorflow_js:
+    name: v1
+    description: weights trained for segmenting small extracellular vesicles
+    source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_js_model.zip
+    sha256: cec4e0e58982c545de54bce80260341a2652917481cc46cd32144416566655ff
+    test_input:
+      - ./exampleImage.tiff
+    test_output:
+      - ./resultImage.tiff
 inputs:
   - name: raw
     axes: byxc

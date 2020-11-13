@@ -23,10 +23,19 @@ language: Java
 framework: Tensorflow
 weights:
   tensorflow_protobuffer:
-    name: version 1
+    name: v1
     description: weights trained for segmenting small extracellular vesicles
     source: https://zenodo.org/record/4156050/files/model_v1.zip
     sha256: 5e3588d626a0f8ee655c503b4f867eacf53fe890feaa5c62125d4d2c544638f0
+    test_input:
+      - ./exampleImage.tiff
+    test_output:
+      - ./resultImage.tiff
+  tensorflow_js:
+    name: v1
+    description: weights trained for segmenting small extracellular vesicles
+    source: https://zenodo.org/record/4156050/files/model_tf_js_v1.zip
+    sha256: 72315277b5d2f8787d895e276e915676518de0c779a06d074b08c425c1878ba8
     test_input:
       - ./exampleImage.tiff
     test_output:
