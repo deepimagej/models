@@ -44,14 +44,13 @@ model:
     download_url: https://zenodo.org/record/4155785/files/DeepImageJ_DeepSTORM_ZeroCostDL4Mic.zip
     links:
       - zero-Notebook_Deep-STORM_2D_ZeroCostDL4Mic
-      - zero-
+      - zero-Dataset_Deep-STORM_ZeroCostDL4Mic
 
   - id: 2DUNetZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/2DUNetZeroCostDL4Mic.model.yaml
     download_url: https://zenodo.org/record/4155785/files/DeepImageJ_2D%20UNet_ZeroCostDL4Mic.zip
     links:
-      zero-Notebook_U-Net_2D_ZeroCostDL4Mic
-      zero-Dataset_Deep-STORM_ZeroCostDL4Mic
+      - zero-Notebook_U-Net_2D_ZeroCostDL4Mic
 
 notebook:
   - id: unet-pancreaticcellsegmentation
