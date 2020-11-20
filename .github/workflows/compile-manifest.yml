@@ -27,8 +27,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install git+https://github.com/bioimage-io/python-bioimage-io.git@verify_spec
-      - name: Verify config files
-        run: python -m pybio.spec verify-bioimageio-manifest manifest.bioimage.io.yaml
+
       - name: Compile manifest file
         run: |
           wget https://raw.githubusercontent.com/bioimage-io/bioimage-io-models/master/src/compile_model_manifest.py
@@ -39,3 +38,6 @@ jobs:
         with:
           name: built-output
           path: ./
+
+      - name: Verify config files
+        run: python -m pybio.spec verify-bioimageio-manifest manifest.bioimage.io.yaml
