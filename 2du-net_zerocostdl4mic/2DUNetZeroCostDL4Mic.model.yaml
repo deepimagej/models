@@ -14,7 +14,7 @@ authors:
   - DeepImageJ team
 git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic
 documentation: https://deepimagej.github.io/deepimagej/
-covers: [./input.png, ./output.png]
+covers: [./cover.png]
 tags:
   - zerocostdl4mic
   - deepimagej
@@ -30,7 +30,7 @@ weights:
     test_inputs: ./exampleImage.tiff
     test_outputs: ./resultImage.tiff
   keras_hdf5:
-    source:
+    source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/weights_best.hdf5
     sha256: 52f4065fe49f3e3bbd21bf36c815f6431042a1d6699b3caea40572cae833c893
     test_inputs: ./exampleImage.tiff
     test_outputs: ./resultImage.tiff
