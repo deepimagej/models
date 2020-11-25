@@ -1,0 +1,80 @@
+format_version: 0.3.0
+name: Widefield DAPI super-resolution
+description: A trained GAN to transform diffraction-limited input images into super-resolved ones.
+date: 20
+cite:
+  - text: Hongda Wang, Yair Rivenson, et al., Nature Methods 2019
+    doi: https://doi.org/10.1038/s41592-018-0239-0
+authors:
+  - Hongda Wang
+  - Yair Rivenson
+  - Aydogan Ozcan
+
+covers: [./exampleImage.png, ./resultImage.png]
+tags:
+  - deepimagej
+  - GAN
+  - Fluorescence microscopy
+  - Super resolution
+documentation: https://innovate.ee.ucla.edu/
+license: null
+language: Java
+framework: Tensorflow
+weights:
+  tensorflow_saved_model_bundle:
+    source: https://zenodo.org/record/4290871/files/txred_tensorflow_saved_model_bundle.zip
+    sha256: 68f57fa211524fa258c3212f04e67c668a73c757033f3d0fbca69c2b1539c7cf
+    test_inputs: ./exampleImage.tiff
+    test_outputs: ./resultImage.tiff
+
+inputs:
+  - name: raw
+    axes: byxc
+    data_type: float32
+    data_range: [-inf, inf]
+    shape:
+      min: [1, 1, 1]
+      step: [1, 1, 0]
+    preprocessing: null
+
+outputs:
+  - name: output
+    axes: byxc
+    data_type: float32
+    data_range: [-inf, inf]
+    halo: [22, 22, 0]
+    shape:
+        reference_input: raw
+        scale: [1, 1, 1]
+        offset: [0, 0, 0]
+    postprocessing: null
+
+config:
+# custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
+  deepimagej:
+    pyramidal_model: false
+    allow_tiling: true
+    model_keys:
+      model_tag: tf.saved_model.tag_constants.SERVING
+      signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+    test_information:
+      inputs:
+        - name: exampleImage.tiff
+          size: 1024 x 1024 x 1
+          pixel_size:
+            x: 1.0 pixel
+            y: 1.0 pixel
+            z: 1.0 pixel
+      outputs:
+        - name: resultImage.tiff
+          type: image
+          size: 1024 x 1024 x 1
+      memory_peak: 283.8 Mb
+      runtime: 90.0 s
+    prediction:
+      preprocess:
+      -   spec: ij.IJ::runMacroFile
+          kwargs: preprocessing.txt
+      postprocess:
+      -   spec: ij.IJ::runMacroFile
+          kwargs: postprocessing.txt

@@ -54,8 +54,28 @@ model:
 
   - id: MU-Lux_CTC_PhC-C2DL-PSC
     source: https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml
-    download_url: https://zenodo.org/record/4155785/files/MU-Lux_CTC_PhC-C2DL-PSC.bioimage.io.model..zip
+    download_url: https://zenodo.org/record/4155785/files/MU-Lux_CTC_PhC-C2DL-PSC.bioimage.io.model.zip
 
+  - id: WidefieldTxredSuperResolution
+    source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_txred_super-resolution/model.yaml
+    download_url: https://zenodo.org/record/4290871/files/widefield_txred_superresolution.bioimage.io.model.zip
+
+  - id: WidefieldDapiSuperResolution
+    source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution/model.yaml
+    download_url: https://zenodo.org/record/4290871/files/widefield_dapi_superresolution.bioimage.io.model.zip
+
+  - id: WidefieldFitcSuperResolution
+    source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution/model.yaml
+    download_url: https://zenodo.org/record/4290871/files/widefield_fitc_superresolution.bioimage.io.model.zip
+
+  - id: JonesVirtualStaining
+    source: https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining/model.yaml
+    download_url: https://zenodo.org/record/4290839/files/jones_virtual_staining.bioimage.io.model.zip
+
+  - id: Mt3VirtualStaining
+    source: https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining/model.yaml
+    download_url: https://zenodo.org/record/4290839/files/mt3_virtual_staining.bioimage.io.model.zip
+    
 notebook:
   - id: unet-pancreaticcellsegmentation
     name: 2D U-Net for binary segmentation

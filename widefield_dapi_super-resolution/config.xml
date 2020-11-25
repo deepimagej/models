@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Model>
+    <ModelInformation>
+        <Name>Widefield DAPI super-resolution</Name>
+        <Author>Hongda Wang</Author>
+        <URL>https://innovate.ee.ucla.edu/</URL>
+        <Credit>The Ozcan Research Group at UCLA</Credit>
+        <Version>1.0.0</Version>
+        <Date>2019</Date>
+        <Reference>Hongda Wang, Yair Rivenson, Yiyin Jin, Zhensong Wei, Ronald Gao, Harun Günaydın, Laurent A. Bentolila, Comert Kural, Aydogan Ozcan, Deep learning enables cross-modality super-resolution in fluorescence microscopy, Nature Methods, volume 16, 2019</Reference>
+    </ModelInformation>
+    <ModelTest>
+        <InputSize>1024x1024</InputSize>
+        <OutputSize>1024x1024</OutputSize>
+        <MemoryPeak>283.8 Mb</MemoryPeak>
+        <Runtime> 90.0 s</Runtime>
+		<PixelSize>1.00pixel x 1.00pixel</PixelSize>
+    </ModelTest>
+    <ModelCharacteristics>
+        <ModelTag>tf.saved_model.tag_constants.SERVING</ModelTag>
+        <SignatureDefinition>tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY</SignatureDefinition>
+        <InputTensorDimensions>,-1,-1,1,</InputTensorDimensions>
+        <NumberOfInputs>1</NumberOfInputs>
+        <InputNames0>input_images</InputNames0>
+        <InputOrganization0>HWC</InputOrganization0>
+        <NumberOfOutputs>1</NumberOfOutputs>
+        <OutputNames0>output_images</OutputNames0>
+        <OutputOrganization0>NHWC</OutputOrganization0>
+        <Channels>1</Channels>
+        <FixedPatch>true</FixedPatch>
+        <MinimumSize>1</MinimumSize>
+        <PatchSize>1024</PatchSize>
+        <FixedPadding>true</FixedPadding>
+        <Padding>22</Padding>
+        <PreprocessingFile>preprocessing.txt</PreprocessingFile>
+        <PostprocessingFile>postprocessing.txt</PostprocessingFile>
+        <slices>1</slices>
+    </ModelCharacteristics>
+</Model>
