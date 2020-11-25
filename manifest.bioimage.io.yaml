@@ -18,39 +18,43 @@ config:
 
 model:
   - id: FRUNet2DsEVSegmentation
-    source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/FRUNet2DsEVSegmentation.model.yaml
+    source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/model.yaml
     download_url: https://zenodo.org/record/4156050/files/deepimagej_fru-net_sev_segmentation.zip
 
   - id: UNet2DHelaSegmentation
-    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/UNet2DHelaSegmentation.model.yaml
+    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/model.yaml
     download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_hela_segmentation.zip
 
   - id: UNet2DPancreaticSegmentation
-    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/UNet2DPancreaticSegmentation.model.yaml
+    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/model.yaml
     download_url: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_segmentation.zip
     links:
       - unet-pancreaticcellsegmentation
 
   - id: UNet2DGlioblastomaSegmentation
-    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/UNet2DGlioblastomaSegmentation.model.yaml
+    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/model.yaml
     download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip
 
   - id: DEFCoN_DensityMapEstimation
-    source: https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/DEFCoN_DensityMapEstimation.model.yaml
+    source: https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/model.yaml
     download_url: https://zenodo.org/record/4269855/files/deepimagej_defcon_density_map_estimation.zip
 
   - id: DeepSTORMZeroCostDL4Mic
-    source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/DeepSTORMZeroCostDL4Mic.model.yaml
+    source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/model.yaml
     download_url: https://zenodo.org/record/4155785/files/DeepImageJ_DeepSTORM_ZeroCostDL4Mic.zip
     links:
       - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic
       - zero/Dataset_Deep-STORM_ZeroCostDL4Mic
 
   - id: 2DUNetZeroCostDL4Mic
-    source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/2DUNetZeroCostDL4Mic.model.yaml
+    source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/model.yaml
     download_url: https://zenodo.org/record/4155785/files/DeepImageJ_2D%20UNet_ZeroCostDL4Mic.zip
     links:
       - zero/Notebook_U-Net_2D_ZeroCostDL4Mic
+
+  - id: MU-Lux_CTC_PhC-C2DL-PSC
+    source: https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml
+    download_url: https://zenodo.org/record/4155785/files/MU-Lux_CTC_PhC-C2DL-PSC.bioimage.io.model..zip
 
 notebook:
   - id: unet-pancreaticcellsegmentation

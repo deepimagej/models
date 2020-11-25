@@ -1,0 +1,43 @@
+// Preprocessing macro
+print("Preprocessing");
+// Store the name of the image to process it
+rename("input");
+run("Brightness/Contrast...");
+setMinAndMax(0, 255);
+run("Apply LUT");
+run("32-bit");
+
+// Remove uneven illumination
+// 1.Calculate the mean value to use it later
+getRawStatistics(nPixels, mean, min, max, std, histogram);
+// 2.Duplicate the image to blur it
+run("Duplicate...", "title=gaussian_blur");
+selectWindow("gaussian_blur");
+run("32-bit");
+run("Gaussian Blur...", "sigma=99");
+// 3.Subtract the illumination artifact and 
+// restore the values with the mean
+imageCalculator("Subtract 32-bit", "input","gaussian_blur");
+run("Add...", "value=" + mean);
+run("Brightness/Contrast...");
+setMinAndMax(0, 255);
+run("8-bit");
+
+
+// Normalize the image using the median value
+selectWindow("input");
+run("32-bit");
+run("Divide...", "value=255");
+im_median=getValue("Median")
+im_median = 0.5-im_median
+run("Add...", "value=" + im_median);
+run("Brightness/Contrast...");
+setMinAndMax(0, 1);
+selectWindow("B&C"); 
+run("Close");
+run("Subtract...", "value=0.5");
+selectWindow("gaussian_blur");
+close();
+selectWindow("input");
+
+
