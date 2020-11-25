@@ -75,7 +75,7 @@ model:
   - id: Mt3VirtualStaining
     source: https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining/model.yaml
     download_url: https://zenodo.org/record/4290839/files/mt3_virtual_staining.bioimage.io.model.zip
-    
+
 notebook:
   - id: unet-pancreaticcellsegmentation
     name: 2D U-Net for binary segmentation
