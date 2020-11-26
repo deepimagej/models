@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Model>
     <ModelInformation>
-        <Name>UVA-NL segmentation - CTC submission for PhC-C2DL-PSC</Name>
-        <Author> Andreas Panteli, Deepak K. Gupta, Nathan de Bruijn, Efstratios Gavves</Author>
-        <URL>http://celltrackingchallenge.net/participants/UVA-NL/</URL>
-        <Credit>MU-Lux-CZ and UVA-NL submissions</Credit>
+        <Name>MU-Lux segmentation - CTC submission for PhC-C2DL-PSC</Name>
+        <Author> Filip Lux and Petr Matula</Author>
+        <URL>http://celltrackingchallenge.net/participants/MU-Lux-CZ/</URL>
+        <Credit>MU-Lux-CZ submission</Credit>
         <Version>n/a</Version>
         <Date>Tue Jul 21 12:30:33 CEST 2020</Date>
         <Reference>Ulman, Vladimír, et al. Nature methods 2017</Reference>
