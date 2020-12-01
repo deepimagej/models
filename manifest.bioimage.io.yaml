@@ -1,7 +1,7 @@
 format_version: 0.2.0
 config:
   id: deepimagej
-  name: deepImageJ
+  name: DeepImageJ
   tags:
     - deepimagej
   logo: https://raw.githubusercontent.com/deepimagej/models/master/logos/logo.png
@@ -18,7 +18,8 @@ config:
   url_root: https://raw.githubusercontent.com/deepimagej/models/master
 
 application:
-  - id: DeepImageJ
+  - id: deepimagej
+    type: application
     name: DeepImageJ
     description: DeepImageJ is a user-friendly plugin that enables the use of pre-trained deep learning models in ImageJ and Fiji. 
     source: https://deepimagej.github.io/deepimagej/index.html
@@ -37,33 +38,33 @@ model:
   - id: FRUNet2DsEVSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/model.yaml
     links:
-      - DeepImageJ
+      - deepimagej
     download_url: https://zenodo.org/record/4156050/files/deepimagej_fru-net_sev_segmentation.zip
 
   - id: UNet2DHelaSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/model.yaml
     links:
-      - DeepImageJ
+      - deepimagej
     download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_hela_segmentation.zip
 
   - id: UNet2DPancreaticSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/model.yaml
     download_url: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_segmentation.zip
     links:
-      - DeepImageJ
+      - deepimagej
       - unet-pancreaticcellsegmentation
 
   - id: UNet2DGlioblastomaSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/model.yaml
     download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip
     links:
-      - DeepImageJ
+      - deepimagej
 
   - id: DEFCoN_DensityMapEstimation
     source: https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/model.yaml
     download_url: https://zenodo.org/record/4269855/files/deepimagej_defcon_density_map_estimation.zip
     links:
-      - DeepImageJ
+      - deepimagej
 
   - id: DeepSTORMZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/model.yaml
@@ -71,50 +72,50 @@ model:
     links:
       - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic
       - zero/Dataset_Deep-STORM_ZeroCostDL4Mic
-      - DeepImageJ
+      - deepimagej
 
   - id: 2DUNetZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/model.yaml
     download_url: https://zenodo.org/record/4155785/files/DeepImageJ_2D%20UNet_ZeroCostDL4Mic.zip
     links:
       - zero/Notebook_U-Net_2D_ZeroCostDL4Mic
-      - DeepImageJ
+      - deepimagej
 
   - id: MU-Lux_CTC_PhC-C2DL-PSC
     source: https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml
     download_url: https://zenodo.org/record/4155785/files/MU-Lux_CTC_PhC-C2DL-PSC.bioimage.io.model.zip
     links:
-      - DeepImageJ
+      - deepimagej
 
   - id: WidefieldTxredSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_txred_super-resolution/model.yaml
     download_url: https://zenodo.org/record/4290871/files/widefield_txred_superresolution.bioimage.io.model.zip
     links:
-      - DeepImageJ
+      - deepimagej
 
   - id: WidefieldDapiSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution/model.yaml
     download_url: https://zenodo.org/record/4290871/files/widefield_dapi_superresolution.bioimage.io.model.zip
     links:
-      - DeepImageJ
+      - deepimagej
 
   - id: WidefieldFitcSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution/model.yaml
     download_url: https://zenodo.org/record/4290871/files/widefield_fitc_superresolution.bioimage.io.model.zip
     links:
-      - DeepImageJ
+      - deepimagej
 
   - id: JonesVirtualStaining
     source: https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining/model.yaml
     download_url: https://zenodo.org/record/4290839/files/jones_virtual_staining.bioimage.io.model.zip
     links:
-      - DeepImageJ
+      - deepimagej
 
   - id: Mt3VirtualStaining
     source: https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining/model.yaml
     download_url: https://zenodo.org/record/4290839/files/mt3_virtual_staining.bioimage.io.model.zip
     links:
-      - DeepImageJ
+      - deepimagej
 
 notebook:
   - id: unet-pancreaticcellsegmentation
@@ -139,3 +140,5 @@ notebook:
       - segmentation
       - deepimagej
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
+    links:
+      - UNet2DPancreaticSegmentation
