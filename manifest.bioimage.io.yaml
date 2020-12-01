@@ -21,9 +21,7 @@ application:
   - id: DeepImageJ
     name: DeepImageJ
     description: DeepImageJ is a user-friendly plugin that enables the use of pre-trained deep learning models in ImageJ and Fiji. 
-    covers:
-      - https://raw.githubusercontent.com/deepimagej/models/master/logos/logo.png
-    source: https://raw.githubusercontent.com/deepimagej/deepimagej/master/index.html
+    source: https://deepimagej.github.io/deepimagej/index.html
     cite:
       text: "Gómez-de-Mariscal, E., García-López-de-Haro, C., Donati, L., Unser, M., Muñoz-Barrutia, A. and Sage, D. DeepImageJ: A user-friendly plugin to run deep learning models in ImageJ, BioRxiv, 2019"
       doi: https://doi.org/10.1101/799270
