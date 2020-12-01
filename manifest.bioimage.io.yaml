@@ -14,6 +14,7 @@ config:
   resource_types:
     - model
     - notebook
+    - application
   url_root: https://raw.githubusercontent.com/deepimagej/models/master
 
 application:
@@ -30,7 +31,7 @@ application:
   documentation: https://deepimagej.github.io/deepimagej/
   git_repo: https://github.com/deepimagej/deepimagej-plugin
   tags:
-    - DeepImageJ
+    - deepimagej
 
 model:
   - id: FRUNet2DsEVSegmentation
