@@ -70,7 +70,7 @@ model:
     source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/model.yaml
     download_url: https://zenodo.org/record/4155785/files/DeepImageJ_DeepSTORM_ZeroCostDL4Mic.zip
     links:
-      - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic
+      - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic_DeepImageJ
       - zero/Dataset_Deep-STORM_ZeroCostDL4Mic
       - deepimagej
 
@@ -78,7 +78,7 @@ model:
     source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/model.yaml
     download_url: https://zenodo.org/record/4155785/files/DeepImageJ_2D%20UNet_ZeroCostDL4Mic.zip
     links:
-      - zero/Notebook_U-Net_2D_ZeroCostDL4Mic
+      - zero/Notebook_U-Net_2D_ZeroCostDL4Mic_DeepImageJ
       - deepimagej
 
   - id: MU-Lux_CTC_PhC-C2DL-PSC
