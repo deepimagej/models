@@ -17,7 +17,7 @@ tags:
   - Virtual staining
   - histology
 documentation: https://innovate.ee.ucla.edu/
-license: null
+license: CC BY 4.0
 language: Java
 framework: Tensorflow
 weights:

@@ -26,7 +26,7 @@ tags:
 license: null
 language: Java
 framework: Tensorflow
-source: http://public.celltrackingchallenge.net/participants/MU-Lux-CZ.zip
+# source: http://public.celltrackingchallenge.net/participants/MU-Lux-CZ.zip
 
 weights:
   tensorflow_saved_model_bundle:
