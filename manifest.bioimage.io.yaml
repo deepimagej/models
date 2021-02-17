@@ -62,7 +62,7 @@ model:
 
   - id: DEFCoN_DensityMapEstimation
     source: https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/model.yaml
-    download_url: https://zenodo.org/record/4269855/files/deepimagej_defcon_density_map_estimation.zip
+    download_url: https://zenodo.org/record/4545183/files/deepimagej_defcon_density_map_estimation.zip
     links:
       - deepimagej
 
