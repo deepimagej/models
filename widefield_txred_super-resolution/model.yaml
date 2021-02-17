@@ -17,7 +17,7 @@ tags:
   - Super resolution
 documentation: https://innovate.ee.ucla.edu/
 license: CC BY 4.0
-language: Java
+language: java
 framework: Tensorflow
 test_inputs:
   - ./exampleImage.tiff
