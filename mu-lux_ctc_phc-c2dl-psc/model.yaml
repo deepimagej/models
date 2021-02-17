@@ -23,24 +23,26 @@ tags:
   - watershed
   - cell tracking challenge
   - phase contrast
-license: null
+license: MIT
 language: java
 framework: tensorflow
 # source: http://public.celltrackingchallenge.net/participants/MU-Lux-CZ.zip
-
+test_inputs:
+  - ./exampleImage.tiff
+test_outputs:
+  - ./resultImage.tiff
+sample_inputs:
+  - ./exampleImage.npy
+sample_outputs:
+  - ./resultImage.npy
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/MU-Lux_CTC_PhC-C2DL-PSC_tf_saved_model_bundle.zip
     sha256: 2f436133d4373a4080b8412985861b90be03166c5d07f477304d53b30d8cc28b
-    test_inputs: ./exampleImage.tiff
-    test_outputs: ./resultImage.tiff
     tensorflow_version: 1.15
   keras_hdf5:
     source: https://zenodo.org/record/4155785/files/MU-Lux_CTC_unet_PhC-C2DL-PSC.h5
     sha256: 0cc15900861ed5e5e7a6254400a85ed6f9b5d488bf1204d1274d36386b239283
-    test_inputs: ./exampleImage.tiff
-    test_outputs: ./resultImage.tiff
-
 inputs:
   - name: raw
     axes: byxc

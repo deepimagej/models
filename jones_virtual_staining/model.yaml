@@ -18,8 +18,8 @@ tags:
   - histology
 documentation: https://innovate.ee.ucla.edu/
 license: CC BY 4.0
-language: Java
-framework: Tensorflow
+language: java
+framework: tensorflow
 test_inputs:
   - ./exampleImage.tiff
 test_outputs:

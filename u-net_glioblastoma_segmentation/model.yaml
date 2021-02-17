@@ -3,8 +3,10 @@ name: U-Net GLioblastoma Cell Segmentation
 description: DeepImageJ compatible U-Net trained to segment 2D phase contrast microscopy images of glioblastoma-astrocytoma U373 cells on a polyacrylamide substrate.
 timestamp: 2021-02-17T10:13:32.618903
 cite:
-  - text: Biomedical Imaging Group, School of Engineering, Ecole Polytechnique Fédérale de Lausanne, Lausanne, Switzerland
-    doi: null
+  - text: Ronneberger O. et al., MICCAI 2015
+    doi: https://doi.org/10.1007/978-3-319-24574-4_28
+  - text: Ulman V. et al., Nature Methods 2017
+    doi: https://doi.org/10.1038/nmeth.4473
 authors:
   - João Soares Lopes
 documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
@@ -28,7 +30,7 @@ sample_outputs:
   - ./resultImage.npy
 
 weights:
-  tensorflow_protobuffer:
+  tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/u-net_glioblastoma_segmentation_tf_model.zip
     sha256: b72412b1457c9f3e37850914308381c7c81910e04b2edc7697bb0293c15b57d4
     tensorflow_version: 1.x

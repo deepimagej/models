@@ -3,8 +3,10 @@ name: U-Net Hela Cell Segmentation
 description: DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images
 timestamp: 2021-02-17T10:13:32.618903
 cite:
-  - text: Biomedical Imaging Group, School of Engineering, Ecole Polytechnique Fédérale de Lausanne, Lausanne, Switzerland
-    doi: null
+  - text: Ronneberger O. et al., MICCAI 2015
+    doi: https://doi.org/10.1007/978-3-319-24574-4_28
+  - text: Ulman V. et al., Nature Methods 2017
+    doi: https://doi.org/10.1038/nmeth.4473
 authors:
   - João Soares Lopes
 documentation: https://deepimagej.github.io/deepimagej/models_documentation.html

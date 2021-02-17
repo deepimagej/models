@@ -12,7 +12,7 @@ cite:
 authors:
   - Ignacio Arganda-Carreras
   - DeepImageJ team
-documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
+documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
 covers: [./exampleImage.png, ./resultImage.png]
 tags:
   - deepimagej
@@ -35,7 +35,6 @@ weights:
   tensorflow_saved_model_bundle:
     source: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_cell_segmentation_tf_model.zip
     sha256: c1a4a551af6246e9f998c919ac675d437ee1ddfd9c1bd4004b083d9e736b2a43
-    documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
     tensorflow_version: 1.15
 inputs:
   - name: raw
@@ -46,10 +45,10 @@ inputs:
       min: [1, 8, 8, 1]
       step: [0, 8, 8, 0]
     preprocessing:
-      name: min_max
-      kwargs:
-        mode: per_sample
-        axes: xy
+      - name: min_max
+        kwargs:
+          mode: per_sample
+          axes: xy
 
 outputs:
   - name: segmentation
@@ -62,9 +61,9 @@ outputs:
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
     postprocessing:
-      name: intensity_threshold
-      kwargs:
-        threshold: 0.5
+      - name: intensity_threshold
+        kwargs:
+          threshold: 0.5
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:

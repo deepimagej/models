@@ -18,15 +18,19 @@ license: BSD 3
 language: java
 framework: tensorflow
 git_repo: https://github.com/LEB-EPFL/DEFCoN
-test_input:
-- ./exampleImage.tiff
-test_output:
-- ./resultImage.tiff
+test_inputs:
+  - ./exampleImage.tiff
+test_outputs:
+  - ./resultImage.tiff
+sample_inputs:
+  - ./exampleImage.npy
+sample_outputs:
+  - ./resultImage.npy
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4269855/files/defcon_density_map_estimation_tf_model.zip
     sha256: ea57590caefa41a493808420d5bc029d7b6c8ad8b1633d8feeb166a99d71f45d
-  tensorlfow_js:
+  tensorflow_js:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/defcon_density_map_estimation_tf_js_model/model.json
     sha256: d1427f81f1fb217c127ef01ed992b6a9dc11d3a5b552514cfdccd82c01230e21
 inputs:

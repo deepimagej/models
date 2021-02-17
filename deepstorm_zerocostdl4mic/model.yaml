@@ -28,10 +28,6 @@ test_inputs:
   - ./exampleImage.tiff
 test_outputs:
   - ./resultImage.tiff
-sample_inputs:
-  - ./exampleImage.npy
-sample_outputs:
-  - ./resultImage.npy
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/deepstorm_zerocostdl4mic_tf_model.zip
@@ -49,20 +45,20 @@ inputs:
     data_range: [-inf, inf]
     shape: [1, 2048, 2048, 1]
     preprocessing:
-      name: min_max
-      kwargs:
-        mode: per_sample
-        axes: xy
-      name: zero_mean_unit_variance
-      kwargs:
-        mode: fixed
-        axes: xy
-        mean: 0.23217396438121796
-        std: 0.15450893342494965
-      name: upsample
-      kwargs:
-        axes: xy
-        factor: [8, 8]
+      - name: min_max
+        kwargs:
+          mode: per_sample
+          axes: xy
+      - name: zero_mean_unit_variance
+        kwargs:
+          mode: fixed
+          axes: xy
+          mean: 0.23217396438121796
+          std: 0.15450893342494965
+      - name: upsample
+        kwargs:
+          axes: xy
+          factor: [8, 8]
 outputs:
   - name: localizations
     axes: byxc
@@ -73,6 +69,7 @@ outputs:
         reference_input: raw
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
+    postprocessing: null
 
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
