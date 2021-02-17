@@ -1,7 +1,7 @@
 format_version: 0.3.0
 name: Deep-STORM - ZeroCostDL4Mic
 description: A trained Deep-STORM model for image reconstruction from high-density single-molecule localization microscopy (SMLM).
-date: 2020
+timestamp: 2021-02-17T10:13:32.618903
 cite:
   - text: Nehme E. et al., Optica 2018
     doi: https://doi.org/10.1364/OPTICA.5.000458
