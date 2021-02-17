@@ -18,8 +18,8 @@ tags:
   - histology
 documentation: https://innovate.ee.ucla.edu/
 license: CC BY 4.0
-language: Java
-framework: Tensorflow
+language: java
+framework: tensorflow
 test_inputs:
   - ./exampleImage.tiff
 test_outputs:
@@ -33,6 +33,7 @@ weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4290839/files/mt3_vstain_tensorflow_saved_model_bundle.zip
     sha256: 9c20009f5eb0f751dcd4b9f1d43ef7b7ec989b41d6edd080804595aa436b6201
+    tensorflow_version: 1.15
 
 inputs:
   - name: raw

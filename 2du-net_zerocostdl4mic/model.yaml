@@ -21,8 +21,8 @@ tags:
   - segmentation
   - unet
 license: MIT
-language: Java
-framework: Tensorflow
+language: java
+framework: tensorflow
 test_inputs:
   - ./exampleImage.tiff
 test_outputs:
@@ -35,6 +35,7 @@ weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/2du-net_zerocostdl4mic_tf_model.zip
     sha256: 167a552f5b97b5bf5e3da2c44755a5c6f5e4d2b019ef9151627495e9f91434ef
+    tensorflow_version: 1.15
   keras_hdf5:
     source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/weights_best.hdf5
     sha256: 52f4065fe49f3e3bbd21bf36c815f6431042a1d6699b3caea40572cae833c893

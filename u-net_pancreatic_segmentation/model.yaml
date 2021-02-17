@@ -1,7 +1,7 @@
 format_version: 0.3.0.
 name: U-Net Pancreatic Cell Segmentation
 description: DeepImageJ compatible U-Net trained to segment phase contrast microscopy images of pancreatic stem cells on a 2D polystyrene substrate.
-date: Jun 23, 2020
+timestamp: 2021-02-17T10:13:32.618903
 cite:
   - text: Gómez-de-Mariscal E. et al., biorXiv 2019
     doi: https://doi.org/10.1101/799270
@@ -20,8 +20,8 @@ tags:
   - segmentation
   - phase contrast
 license: BSD-2
-language: Java
-framework: Tensorflow
+language: java
+framework: tensorflow
 test_inputs:
   - ./exampleImage.tiff
 test_outputs:
@@ -36,6 +36,7 @@ weights:
     source: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_cell_segmentation_tf_model.zip
     sha256: c1a4a551af6246e9f998c919ac675d437ee1ddfd9c1bd4004b083d9e736b2a43
     documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
+    tensorflow_version: 1.15
 inputs:
   - name: raw
     axes: byxc

@@ -1,7 +1,7 @@
 format_version: 0.3.0
 name: Widefield FITC super-resolution
 description: A trained GAN to transform diffraction-limited input images into super-resolved ones.
-date: 20
+timestamp: 2021-02-17T10:13:32.618903
 cite:
   - text: Hongda Wang, Yair Rivenson, et al., Nature Methods 2019
     doi: https://doi.org/10.1038/s41592-018-0239-0
@@ -17,8 +17,8 @@ tags:
   - Super resolution
 documentation: https://innovate.ee.ucla.edu/
 license: CC BY 4.0
-language: Java
-framework: Tensorflow
+language: java
+framework: tensorflow
 test_inputs:
   - ./exampleImage.tiff
 test_outputs:
@@ -32,7 +32,7 @@ weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4290871/files/fitc_tensorflow_saved_model_bundle.zip?download=1
     sha256: df70826cfe40306f3631360260fd2c520e763d4a130700de05d85e79cdc5a553
-
+    tensorflow_version: 1.15
 inputs:
   - name: raw
     axes: byxc
