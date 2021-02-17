@@ -1,5 +1,5 @@
-format_version: 0.3.0.
-timestamp: 2021-02-17
+format_version: 0.3.0
+timestamp: 2021-02-17T10:13:32.618903
 name: Fully Residual U-Net - TEM
 description: DeepImageJ compatible fully residual U-Net trained to segment small extracellular vesicles in 2D TEM images
 cite:
