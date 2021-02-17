@@ -1,4 +1,4 @@
-format_version: 0.3.0
+format_version: 0.3.0.
 name: Masson’s trichrome (MT3) virtual staining
 description: A trained GAN to transform wide-field autofluorescence images of unlabelled tissue sections into images that are equivalent to the bright-field images of histologically stained versions of the same samples.
 date: 20

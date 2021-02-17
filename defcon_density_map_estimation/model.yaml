@@ -1,4 +1,4 @@
-format_version: 0.3.0
+format_version: 0.3.0.
 name: DEFCoN density map estimation
 description: Density Estimation by Fully Convolutional Networks (DEFCoN) - A fluorescent spot counter for single molecule localization microscopy.
 date: 2019

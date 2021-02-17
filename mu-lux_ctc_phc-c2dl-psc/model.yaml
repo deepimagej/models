@@ -1,4 +1,4 @@
-format_version: 0.3.0
+format_version: 0.3.0.
 name: MU-Lux-CZ CTC submission - PhC-C2DL-PSC dataset
 description: The method combines deep learning with watershed segmentation. For each frame, the convolutional
   neural network of U-Net shape detects all cells by markers and recognizes the foreground and the
