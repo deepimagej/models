@@ -1,4 +1,4 @@
-format_version: 0.3.0.
+format_version: 0.3.0
 name: U-Net Pancreatic Cell Segmentation
 description: DeepImageJ compatible U-Net trained to segment phase contrast microscopy images of pancreatic stem cells on a 2D polystyrene substrate.
 timestamp: 2021-02-17T10:13:32.618903

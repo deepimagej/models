@@ -1,4 +1,4 @@
-format_version: 0.3.0.
+format_version: 0.3.0
 name: U-Net Hela Cell Segmentation
 description: DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images
 timestamp: 2021-02-17T10:13:32.618903
