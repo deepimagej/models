@@ -21,21 +21,21 @@ tags:
 license: BSD 3
 language: Java
 framework: Tensorflow
+test_inputs:
+  - ./exampleImage.tiff
+test_outputs:
+  - ./resultImage.tiff
+sample_inputs:
+  - ./exampleImage.npy
+sample_outputs:
+  - ./resultImage.npy
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4156050/files/model_v1.zip
     sha256: 5e3588d626a0f8ee655c503b4f867eacf53fe890feaa5c62125d4d2c544638f0
-    test_input:
-      - ./exampleImage.tiff
-    test_output:
-      - ./resultImage.tiff
   tensorflow_js:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/fru-net_sev_segmentation_tf_js_model/model.json
     sha256: eb27d8f3df23ce5d1d6ae4112cf36117c70a2257ca6f1b56869b9537fa60531e
-    test_input:
-      - ./exampleImage.tiff
-    test_output:
-      - ./resultImage.tiff
 inputs:
   - name: raw
     axes: byxc
@@ -69,8 +69,8 @@ config:
     pyramidal_model: false
     allow_tiling: true
     model_keys:
-      model_tag: tf.saved_model.tag_constants.SERVING
-      signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+      tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
+      tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
         - name: exampleImage.tiff

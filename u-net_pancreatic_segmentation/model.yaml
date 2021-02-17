@@ -22,14 +22,19 @@ tags:
 license: BSD-2
 language: Java
 framework: Tensorflow
+test_inputs:
+  - ./exampleImage.tiff
+test_outputs:
+  - ./resultImage.tiff
+sample_inputs:
+  - ./exampleImage.npy
+sample_outputs:
+  - ./resultImage.npy
+
 weights:
   tensorflow_saved_model_bundle:
     source: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_cell_segmentation_tf_model.zip
     sha256: c1a4a551af6246e9f998c919ac675d437ee1ddfd9c1bd4004b083d9e736b2a43
-    test_inputs:
-      - ./exampleImage.tiff
-    test_outputs:
-      - ./resultImage.tiff
     documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
 inputs:
   - name: raw
@@ -65,8 +70,8 @@ config:
     pyramidal_model: false
     allow_tiling: true
     model_keys:
-      model_tag: tf.saved_model.tag_constants.SERVING
-      signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+      tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
+      tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
         - name: exampleImage.tiff

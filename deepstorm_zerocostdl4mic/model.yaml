@@ -24,18 +24,22 @@ tags:
 license: MIT
 language: Java
 framework: Tensorflow
+test_inputs:
+  - ./exampleImage.tiff
+test_outputs:
+  - ./resultImage.tiff
+sample_inputs:
+  - ./exampleImage.npy
+sample_outputs:
+  - ./resultImage.npy
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/deepstorm_zerocostdl4mic_tf_model.zip
     sha256: dbacc73190690957a332281650f183b3d70db3cb17fe091ae39f84126fbac7fa
-    test_inputs: ./exampleImage.tiff
-    test_outputs: ./resultImage.tiff
   keras_hdf5:
     # This model needs the metadata to load it in the notebook
     source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/weights_best.hdf5
     sha256: 61fd2b4d03d7704c8db810fbd33c6f6a4aed0b3a1ca8371c8381adb6850711f6
-    test_inputs: ./exampleImage.tiff
-    test_outputs: ./resultImage.tiff
 
 inputs:
   - name: raw
@@ -75,8 +79,8 @@ config:
     pyramidal_model: false
     allow_tiling: true
     model_keys:
-      model_tag: tf.saved_model.tag_constants.SERVING
-      signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+      tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
+      tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
         - name: exampleImage.tiff

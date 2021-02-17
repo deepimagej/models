@@ -20,12 +20,18 @@ documentation: https://innovate.ee.ucla.edu/
 license: CC BY 4.0
 language: Java
 framework: Tensorflow
+test_inputs:
+  - ./exampleImage.tiff
+test_outputs:
+  - ./resultImage.tiff
+sample_inputs:
+  - ./exampleImage.npy
+sample_outputs:
+  - ./resultImage.npy
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4290871/files/txred_tensorflow_saved_model_bundle.zip
     sha256: 68f57fa211524fa258c3212f04e67c668a73c757033f3d0fbca69c2b1539c7cf
-    test_inputs: ./exampleImage.tiff
-    test_outputs: ./resultImage.tiff
 
 inputs:
   - name: raw
@@ -55,8 +61,8 @@ config:
     pyramidal_model: false
     allow_tiling: true
     model_keys:
-      model_tag: tf.saved_model.tag_constants.SERVING
-      signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+      tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
+      tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
         - name: exampleImage.tiff

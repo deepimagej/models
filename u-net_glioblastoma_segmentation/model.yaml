@@ -18,21 +18,22 @@ license: BSD-2
 language: Java
 framework: Tensorflow
 git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet
+test_inputs:
+  - ./exampleImage.tiff
+test_outputs:
+  - ./resultImage.tiff
+sample_inputs:
+  - ./exampleImage.npy
+sample_outputs:
+  - ./resultImage.npy
+
 weights:
   tensorflow_protobuffer:
     source: https://zenodo.org/record/4155785/files/u-net_glioblastoma_segmentation_tf_model.zip
     sha256: b72412b1457c9f3e37850914308381c7c81910e04b2edc7697bb0293c15b57d4
-    test_input:
-      - ./exampleImage.tiff
-    test_output:
-      - ./resultImage.tiff
   tensorflow_js:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/u-net_glioblastoma_segmentation_tf_js_model/model.json
     sha256: 34a8002c671a8d64c6eee1395df921e8d55daa60ad843e07c5c62c9b6653c6cd
-    test_input:
-      - ./exampleImage.tiff
-    test_output:
-      - ./resultImage.tiff
 inputs:
   - name: raw
     axes: byxc
@@ -55,8 +56,8 @@ config:
     pyramidal_model: false
     allow_tiling: true
     model_keys:
-      model_tag: tf.saved_model.tag_constants.SERVING
-      signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+      tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
+      tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
         - name: exampleImage.tiff
