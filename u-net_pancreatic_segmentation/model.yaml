@@ -45,7 +45,7 @@ inputs:
       min: [1, 8, 8, 1]
       step: [0, 8, 8, 0]
     preprocessing:
-      - scale_range
+      - name: scale_range
         kwargs:
           mode: per_sample
           axes: xy
@@ -63,7 +63,7 @@ outputs:
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
     postprocessing:
-      - binarize
+      - name: binarize
         kwargs:
           threshold: 0.5
 config:
