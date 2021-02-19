@@ -47,9 +47,12 @@ inputs:
     data_range: [-inf, inf]
     shape: [1, 2048, 2048, 1]
     preprocessing:
-      - name: percentile
+      - name: scale_range
         kwargs:
-          percentile: 0.9985
+          mode: per_sample
+          axes: xy
+          min_percentile: 0
+          max_percentile: 99.85
 outputs:
   - name: localizations
     axes: byxc
@@ -61,10 +64,12 @@ outputs:
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
     postprocessing:
-      - name: min_max
+      - name: scale_range
         kwargs:
           mode: per_sample
           axes: xy
+          min_percentile: 0
+          max_percentile: 100
       - name: scale_linear
         kwargs:
           gain: 255
