@@ -61,7 +61,7 @@ outputs:
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
     postprocessing:
-      - name: intensity_threshold
+      - name: binarize
         kwargs:
           threshold: 0.5
 config:

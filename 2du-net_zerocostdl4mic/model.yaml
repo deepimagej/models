@@ -69,6 +69,9 @@ outputs:
         kwargs:
           gain: 255
           offset: 0
+      - name: binarize
+        kwargs:
+          threshold: 71
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:

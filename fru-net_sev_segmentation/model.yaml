@@ -43,13 +43,7 @@ inputs:
     data_type: float32
     data_range: [-inf, inf]
     shape: [1, 400, 400, 1]
-#    preprocessing:
-#      name: min_max
-#      kwargs:
-#        mode: fixed
-#        axes: xy
-#        min: 0.0
-#        max: 65535.0
+
 outputs:
   - name: segmentation
     axes: byxc
@@ -60,10 +54,8 @@ outputs:
       reference_input: raw
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
-#    postprocessing:
-#      name: intensity_threshold
-#      kwargs:
-#        threshold: 0.4
+run_mode:
+  - name: deepimagej
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:

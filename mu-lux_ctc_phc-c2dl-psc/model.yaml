@@ -51,8 +51,6 @@ inputs:
     shape:
       min: [1, 32, 32, 1]
       step: [0, 32, 32, 0]
-    preprocessing:
-      name: custom
 outputs:
   - name: output
     axes: byxc
@@ -63,9 +61,8 @@ outputs:
         reference_input: raw
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
-    postprocessing:
-      name: custom
-
+run_mode:
+  - name: deepimagej
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:

@@ -69,8 +69,8 @@ outputs:
         reference_input: raw
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
-    postprocessing: null
-
+run_mode:
+  - name: deepimagej
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
