@@ -74,6 +74,7 @@ outputs:
         kwargs:
           gain: 255
           offset: 0
+          axes: xy
       - name: binarize
         kwargs:
           threshold: 71
