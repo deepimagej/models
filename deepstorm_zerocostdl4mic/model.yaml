@@ -44,21 +44,23 @@ inputs:
     data_type: float32
     data_range: [-inf, inf]
     shape: [1, 2048, 2048, 1]
-    preprocessing:
-      - name: min_max
-        kwargs:
-          mode: per_sample
-          axes: xy
-      - name: zero_mean_unit_variance
-        kwargs:
-          mode: fixed
-          axes: xy
-          mean: 0.23217396438121796
-          std: 0.15450893342494965
-      - name: upsample
-        kwargs:
-          axes: xy
-          factor: [8, 8]
+#    preprocessing:
+#      - name: scale_range
+#        kwargs:
+#          mode: per_sample
+#          axes: xy
+#          min_percentile: 0
+#          max_percentile: 100
+#      - name: zero_mean_unit_variance
+#        kwargs:
+#          mode: fixed
+#          axes: xy
+#          mean: 0.23217396438121796
+#          std: 0.15450893342494965
+#      - name: upsample
+#        kwargs:
+#          axes: xy
+#          factor: [8, 8]
 outputs:
   - name: localizations
     axes: byxc
