@@ -23,9 +23,9 @@ license: BSD-2
 language: java
 framework: tensorflow
 test_inputs:
-  - ./exampleImage.tiff
+  - ./exampleImage.tif
 test_outputs:
-  - ./resultImage.tiff
+  - ./resultImage.tif
 sample_inputs:
   - ./exampleImage.npy
 sample_outputs:
@@ -37,7 +37,7 @@ weights:
     sha256: c1a4a551af6246e9f998c919ac675d437ee1ddfd9c1bd4004b083d9e736b2a43
     tensorflow_version: 1.15
 inputs:
-  - name: raw
+  - name: input
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
@@ -53,13 +53,13 @@ inputs:
           max_percentile: 100
 
 outputs:
-  - name: segmentation
+  - name: output
     axes: byxc
     data_type: float32
     data_range: [0, 1]
     halo: [0, 47, 47, 0]
     shape:
-      reference_input: raw
+      reference_input: input
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
     postprocessing:
