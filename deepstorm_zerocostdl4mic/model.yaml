@@ -39,7 +39,7 @@ weights:
     sha256: 61fd2b4d03d7704c8db810fbd33c6f6a4aed0b3a1ca8371c8381adb6850711f6
 
 inputs:
-  - name: raw
+  - name: input
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
@@ -62,13 +62,13 @@ inputs:
 #          axes: xy
 #          factor: [8, 8]
 outputs:
-  - name: localizations
+  - name: output
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
     halo: [0, 0, 0, 0]
     shape:
-        reference_input: raw
+        reference_input: input
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
 run_mode:

@@ -44,7 +44,7 @@ weights:
     source: https://zenodo.org/record/4155785/files/MU-Lux_CTC_unet_PhC-C2DL-PSC.h5
     sha256: 0cc15900861ed5e5e7a6254400a85ed6f9b5d488bf1204d1274d36386b239283
 inputs:
-  - name: raw
+  - name: input
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
@@ -58,7 +58,7 @@ outputs:
     data_range: [-inf, inf]
     halo: [0, 97, 97, 0]
     shape:
-        reference_input: raw
+        reference_input: input
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
 run_mode:

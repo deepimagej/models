@@ -38,20 +38,20 @@ weights:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/fru-net_sev_segmentation_tf_js_model/model.json
     sha256: eb27d8f3df23ce5d1d6ae4112cf36117c70a2257ca6f1b56869b9537fa60531e
 inputs:
-  - name: raw
+  - name: input
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
     shape: [1, 400, 400, 1]
 
 outputs:
-  - name: segmentation
+  - name: output
     axes: byxc
     data_type: float32
     data_range: [0, 1]
     halo: [0, 127, 127, 0]
     shape:
-      reference_input: raw
+      reference_input: input
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
 run_mode:

@@ -38,19 +38,19 @@ weights:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/u-net_hela_segmentation_tf_js_model/model.json
     sha256: 816f39edcc4a16aa60e8ea485c9eac31dc54181241252270ee5e2ae0bb71b49d
 inputs:
-  - name: raw
+  - name: input
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
     shape: [1, 256, 256, 1]
 outputs:
-  - name: segmentation
+  - name: output
     axes: byxc
     data_type: float32
     data_range: [0, 1]
     halo: [0, 64, 64, 0]
     shape:
-      reference_input: raw
+      reference_input: input
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
 config:

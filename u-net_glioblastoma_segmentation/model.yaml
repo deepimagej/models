@@ -38,19 +38,19 @@ weights:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/u-net_glioblastoma_segmentation_tf_js_model/model.json
     sha256: 34a8002c671a8d64c6eee1395df921e8d55daa60ad843e07c5c62c9b6653c6cd
 inputs:
-  - name: raw
+  - name: input
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
     shape: [1, 256, 256, 1]
 outputs:
-  - name: segmentation
+  - name: output
     axes: byxc
     data_type: float32
     data_range: [0, 1]
     halo: [0, 64, 64, 0]
     shape:
-      reference_input: raw
+      reference_input: input
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
 config:

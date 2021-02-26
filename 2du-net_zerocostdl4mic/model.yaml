@@ -41,7 +41,7 @@ weights:
     sha256: 52f4065fe49f3e3bbd21bf36c815f6431042a1d6699b3caea40572cae833c893
 
 inputs:
-  - name: raw
+  - name: input
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
@@ -54,13 +54,13 @@ inputs:
           min_percentile: 0
           max_percentile: 99.85
 outputs:
-  - name: localizations
+  - name: output
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
     halo: [0, 25, 25, 0]
     shape:
-        reference_input: raw
+        reference_input: input
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
     postprocessing:
