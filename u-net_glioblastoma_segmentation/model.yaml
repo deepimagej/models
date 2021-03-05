@@ -33,7 +33,7 @@ weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/u-net_glioblastoma_segmentation_tf_model.zip
     sha256: b72412b1457c9f3e37850914308381c7c81910e04b2edc7697bb0293c15b57d4
-    tensorflow_version: 1.x
+    tensorflow_version: 1.13
   tensorflow_js:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/u-net_glioblastoma_segmentation_tf_js_model/model.json
     sha256: 34a8002c671a8d64c6eee1395df921e8d55daa60ad843e07c5c62c9b6653c6cd

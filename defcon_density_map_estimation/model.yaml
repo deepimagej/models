@@ -2,7 +2,6 @@ format_version: 0.3.0
 name: DEFCoN density map estimation
 description: Density Estimation by Fully Convolutional Networks (DEFCoN) - A fluorescent spot counter for single molecule localization microscopy. DEFCoN was written by Baptiste Ottino as a Master's thesis project under the guidance of Kyle M. Douglass and Suliana Manley in the Laboratory of Experimental Biophysics.
 timestamp: 2021-02-17T10:13:32.618903
-cite: null
 authors:
   - Baptiste Ottino
   - Kyle M. Douglass
