@@ -69,8 +69,8 @@ config:
     pyramidal_model: false
     allow_tiling: true
     model_keys:
-      model_tag: tf.saved_model.tag_constants.SERVING
-      signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+      tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
+      tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
         - name: exampleImage.tiff
