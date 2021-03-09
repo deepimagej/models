@@ -36,22 +36,24 @@ weights:
     tensorflow_version: 1.15
 
 inputs:
-  - name: input
+  - name: input_images
     axes: yxc
     data_type: float32
     data_range: [-inf, inf]
     shape: [1224, 1224, 1]
+    preprocessing: null
 
 outputs:
-  - name: output
+  - name: output_images
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
     halo: [0, 150, 150, 0]
     shape:
-        reference_input: input
+        reference_input: input_images
         scale: [1, 1, 1, 3]
-        offset: [0, 0, 0, 0]
+        offset: [1, 0, 0, 0]
+    postprocessing: null
 
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
