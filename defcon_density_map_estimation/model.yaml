@@ -17,6 +17,7 @@ license: BSD 3
 language: java
 framework: tensorflow
 git_repo: https://github.com/LEB-EPFL/DEFCoN
+attachments: ["preprocessing.txt", "postprocessing.txt", "cover_image.jpg", "exampleImage.npy", "resultImage.npy"]
 test_inputs:
   - ./exampleImage.tiff
 test_outputs:
