@@ -19,7 +19,6 @@ tags:
 license: CC BY 4.0
 language: java
 framework: tensorflow
-git_repo: null
 test_inputs:
   - ./exampleImage.tiff
 test_outputs:
@@ -39,7 +38,6 @@ inputs:
     data_type: float32
     data_range: [-inf, inf]
     shape: [1224, 1224, 1]
-    preprocessing: null
 outputs:
   - name: output_images
     axes: yxc
@@ -50,7 +48,6 @@ outputs:
         reference_input: input_images
         scale: [1.0, 1.0, 3.0]
         offset: [0, 0, 0]
-    postprocessing: null
 config:
     deepimagej:
         pyramidal_model: false
