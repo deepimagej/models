@@ -49,7 +49,7 @@ model:
 
   - id: UNet2DPancreaticSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/model.yaml
-    download_url: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_segmentation.zip
+    download_url: https://github.com/deepimagej/models/releases/download/0.3/PancreaticCellSegmentation.U-Net.bioimage.io.model.zip
     links:
       - deepimagej
       - unet-pancreaticcellsegmentation
