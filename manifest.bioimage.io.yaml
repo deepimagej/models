@@ -144,7 +144,7 @@ notebook:
     links:
       - UNet2DPancreaticSegmentation
   - id: EVsTEMsegmentationFRUNet
-    name: Small extracellular vesicle instance segmentation with fully residual U-Net
+    name: Small extracellular vesicle instance segmentation (FRU-Net)
     description: Ready to use notebook for the segmentation of small extrcaellular vesicles in transmission electron microscopy (TEM) images. The notebook is optimized to use it in Google Colaboratory. It will download the original code and dataset, and make the inference connecting with Google's GPU.
     cite:
       - text: "Gómez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission Electron Microscopy Images Scientific Reports, (2019)"
