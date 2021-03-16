@@ -13,6 +13,7 @@ authors:
   - Ignacio Arganda-Carreras
   - DeepImageJ team
 documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
+git_repo: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/
 covers: [./exampleImage.png, ./resultImage.png]
 tags:
   - deepimagej
@@ -30,7 +31,6 @@ sample_inputs:
   - ./exampleImage.npy
 sample_outputs:
   - ./resultImage.npy
-git_repo: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/
 weights:
   tensorflow_saved_model_bundle:
     source: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_cell_segmentation_tf_model.zip
