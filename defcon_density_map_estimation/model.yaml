@@ -5,7 +5,6 @@ description: "Density Estimation by Fully Convolutional Networks (DEFCoN)   - A 
     Baptiste Ottino as a Masters thesis project under the guidance of Kyle M. Douglass
     and Suliana Manley in the Laboratory of Experimental Biophysics."
 timestamp: 2021-03-16T17:22:18.000122
-cite: null
 authors:
   - Baptiste Ottino
   - Kyle M. Douglass
@@ -47,7 +46,6 @@ inputs:
     shape:
         min: [1, 1, 1, 1]
         step: [0, 1, 1, 0]
-    preprocessing: null
 outputs:
   - name: output
     axes: byxc
@@ -58,7 +56,6 @@ outputs:
         reference_input: input
         scale: [1.0, 1.0, 1.0, 1.0]
         offset: [0, 0, 0, 0]
-    postprocessing: null
 config:
     deepimagej:
         pyramidal_model: false
