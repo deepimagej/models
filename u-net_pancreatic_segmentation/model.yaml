@@ -1,5 +1,5 @@
 format_version: 0.3.0
-name: U-Net Pancreatic Cell Segmentation
+name: Pancreatic Cell Segmentation (U-Net)
 description: DeepImageJ compatible U-Net trained to segment phase contrast microscopy images of pancreatic stem cells on a 2D polystyrene substrate.
 timestamp: 2021-02-17T10:13:32.618903
 cite:
@@ -30,7 +30,7 @@ sample_inputs:
   - ./exampleImage.npy
 sample_outputs:
   - ./resultImage.npy
-
+git_repo: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/
 weights:
   tensorflow_saved_model_bundle:
     source: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_cell_segmentation_tf_model.zip
