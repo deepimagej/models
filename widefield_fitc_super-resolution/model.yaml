@@ -1,5 +1,5 @@
 format_version: 0.3.0
-name: Widefield FITC super-resolution
+name: Widefield Super-resolution (GAN - FITC)
 description: A trained GAN to transform diffraction-limited input images into super-resolved ones.
 timestamp: 2021-02-17T10:13:32.618903
 cite:
