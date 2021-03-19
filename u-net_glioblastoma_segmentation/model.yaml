@@ -9,7 +9,7 @@ cite:
     doi: https://doi.org/10.1038/nmeth.4473
 authors:
   - João Soares Lopes
-documentation: https://deepimagej.github.io/deepimagej/models_documentation.html
+documentation: ./README.md
 covers: [./cover_image.jpg]
 tags:
   - deepimagej
