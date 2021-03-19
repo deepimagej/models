@@ -22,7 +22,7 @@ A U-Net trained to segment cells in 2D images.
 - Binary cross entropy loss function (training): 0.061
 - Binary cross entropy loss function (test): 0.054
 - Accuracy (training): 0.985
-- Accuracy(test): 0.984
+- Accuracy (test): 0.984
 - SEG measure (Cell Tracking Challenge) (test): 0.795
 
 # Caveats and Recommendations
