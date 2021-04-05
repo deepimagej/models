@@ -36,6 +36,8 @@ weights:
     source: https://zenodo.org/record/4155785/files/deepstorm_zerocostdl4mic_tf_model.zip
     sha256: dbacc73190690957a332281650f183b3d70db3cb17fe091ae39f84126fbac7fa
     tensorflow_version: 1.15
+    attachments:
+      files: [ "./config.xml" ]
   keras_hdf5:
     # This model needs the metadata to load it in the notebook
     source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/weights_best.hdf5
