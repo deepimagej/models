@@ -15,6 +15,8 @@ authors:
 documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
 git_repo: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/
 covers: [./exampleImage.png, ./resultImage.png]
+attachments:
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
 tags:
   - deepimagej
   - pancreatic stem cells
@@ -24,18 +26,20 @@ license: BSD-2
 language: java
 framework: tensorflow
 test_inputs:
-  - ./exampleImage.tif
-test_outputs:
-  - ./resultImage.tif
-sample_inputs:
   - ./exampleImage.npy
-sample_outputs:
+test_outputs:
   - ./resultImage.npy
+sample_inputs:
+  - ./exampleImage.tif
+sample_outputs:
+  - ./resultImage.tif
 weights:
   tensorflow_saved_model_bundle:
     source: https://github.com/deepimagej/models/releases/download/0.3/u-net_pancreatic_cell_segmentation_tf_model.zip
     sha256: c1a4a551af6246e9f998c919ac675d437ee1ddfd9c1bd4004b083d9e736b2a43
     tensorflow_version: 1.15
+    attachments:
+      files: [ "./config.xml" ]
 inputs:
   - name: input
     axes: byxc
