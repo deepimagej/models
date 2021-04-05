@@ -212,7 +212,6 @@
 // Regular ImageJ macro code to merge the obtained masks
 
 selectWindow("finalMask");
-run("Duplicate...", "duplicate");
 
 getDimensions(width, height, channels, slices, frames);
 
