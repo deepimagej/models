@@ -16,6 +16,8 @@ authors:
 git_repo: https://gitlab.fi.muni.cz/xlux/deepwater
 documentation: http://public.celltrackingchallenge.net/participants/MU-Lux-CZ.pdf
 covers: [./cover.jpg]
+attachments:
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
 tags:
   - deepwater
   - deepimagej
@@ -28,18 +30,20 @@ language: java
 framework: tensorflow
 # source: http://public.celltrackingchallenge.net/participants/MU-Lux-CZ.zip
 test_inputs:
-  - ./exampleImage.tiff
-test_outputs:
-  - ./resultImage.tiff
-sample_inputs:
   - ./exampleImage.npy
-sample_outputs:
+test_outputs:
   - ./resultImage.npy
+sample_inputs:
+  - ./exampleImage.tiff
+sample_outputs:
+  - ./resultImage.tiff
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/MU-Lux_CTC_PhC-C2DL-PSC_tf_saved_model_bundle.zip
     sha256: 2f436133d4373a4080b8412985861b90be03166c5d07f477304d53b30d8cc28b
     tensorflow_version: 1.15
+    attachments:
+      files: ["./config.xml"]
   keras_hdf5:
     source: https://zenodo.org/record/4155785/files/MU-Lux_CTC_unet_PhC-C2DL-PSC.h5
     sha256: 0cc15900861ed5e5e7a6254400a85ed6f9b5d488bf1204d1274d36386b239283
@@ -91,4 +95,4 @@ config:
           kwargs: preprocessing.txt
       postprocess:
       -   spec: ij.IJ::runMacroFile
-          kwargs: postprocessing_LocalMaximaSMLM.txt
+          kwargs: postprocessing.txt
