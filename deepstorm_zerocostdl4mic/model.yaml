@@ -15,6 +15,8 @@ authors:
 git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic
 documentation: https://deepimagej.github.io/deepimagej/
 covers: [./input.png, ./zoom.png]
+attachments:
+    files: ["./preprocessing.ijm", "./postprocessing_LocalMaximaSMLM.ijm", "./exampleImage.tiff", "./Localizations_resultImage_max.csv", "./resultImage.tiff", "./DeepSTORM4stacksThunderSTORM.ijm", "./postprocessing_AveragedMaximaSMLM.ijm"]
 tags:
   - zerocostdl4mic
   - deepimagej
@@ -24,10 +26,11 @@ tags:
 license: MIT
 language: java
 framework: tensorflow
-test_inputs:
+sample_inputs:
   - ./exampleImage.tiff
-test_outputs:
+sample_outputs:
   - ./resultImage.tiff
+  - ./Localizations_resultImage_max.csv
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/deepstorm_zerocostdl4mic_tf_model.zip
