@@ -21,17 +21,17 @@ language: java
 framework: tensorflow
 git_repo: https://github.com/LEB-EPFL/DEFCoN
 attachments:
-    files: ["./preprocessing.txt", "./postprocessing.txt", "./cover_image.jpg", "./exampleImage.tif", "./resultImage.tif"]
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./Results.csv", "./resultImage.tif"]
 test_inputs:
-  - ./exampleImage.tif
-test_outputs:
-  - ./resultImage.tif
-  - ./Results.csv
-sample_inputs:
   - ./exampleImage.npy
-sample_outputs:
+test_outputs:
   - ./resultImage.npy
   - ./Results.npy
+sample_inputs:
+  - ./exampleImage.tif
+sample_outputs:
+  - ./resultImage.tif
+  - ./Results.csv
 weights:
     tensorflow_saved_model_bundle:
         source: https://zenodo.org/record/4608442/files/tensorflow_saved_model_bundle.zip

@@ -15,6 +15,8 @@ authors:
 git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic
 documentation: https://deepimagej.github.io/deepimagej/
 covers: [./cover.png]
+attachments:
+    files: ["./preprocessing.ijm", "./postprocessing.ijm", "./exampleImage.tif", "./resultImage.tif"]
 tags:
   - zerocostdl4mic
   - deepimagej
@@ -24,18 +26,20 @@ license: MIT
 language: java
 framework: tensorflow
 test_inputs:
-  - ./exampleImage.tiff
-test_outputs:
-  - ./resultImage.tiff
-sample_inputs:
   - ./exampleImage.npy
-sample_outputs:
+test_outputs:
   - ./resultImage.npy
+sample_inputs:
+  - ./exampleImage.tiff
+sample_outputs:
+  - ./resultImage.tiff
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/2du-net_zerocostdl4mic_tf_model.zip
     sha256: 167a552f5b97b5bf5e3da2c44755a5c6f5e4d2b019ef9151627495e9f91434ef
     tensorflow_version: 1.15
+    attachments:
+      files: [ "./config.xml" ]
   keras_hdf5:
     source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/weights_best.hdf5
     sha256: 52f4065fe49f3e3bbd21bf36c815f6431042a1d6699b3caea40572cae833c893
