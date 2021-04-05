@@ -36,8 +36,8 @@ weights:
     source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_model.zip
     sha256: 1a64fcdbd0835c2b490bb2fdfe33e3321c022a7c5dd82c7b99661c808175a559
     tensorflow_version: 1.13
-      attachments:
-        files: [ "./config.xml" ]
+    attachments:
+      files: ["./config.xml"]
   tensorflow_js:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/u-net_hela_segmentation_tf_js_model/model.json
     sha256: 816f39edcc4a16aa60e8ea485c9eac31dc54181241252270ee5e2ae0bb71b49d
