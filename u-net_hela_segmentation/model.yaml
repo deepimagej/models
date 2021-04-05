@@ -30,7 +30,6 @@ sample_inputs:
   - ./exampleImage.tiff
 sample_outputs:
   - ./resultImage.tiff
-
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_model.zip
