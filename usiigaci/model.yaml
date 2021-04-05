@@ -1,0 +1,99 @@
+format_version: 0.3.0
+name: "NIH/3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)"
+description: "Trained model given in Usiigaci for instance segmentation of cells
+    in a 2D substrate and phase contrast microscopy images. The model is a Mask R-CNN
+    and the input is preprocessed to get an RGB image from the grayscale image."
+timestamp: 2021-04-05T20:10:20.000267
+cite:
+  - text: "Tsai, H.-F., et al., SoftwareX, 2019"
+    doi: https://doi.org/10.1016/j.softx.2019.02.007
+authors:
+  - Hsieh-Fu Tsai
+  - Joanna Gajda
+  - Tyler F.W. Sloan
+  - Andrei Rares
+  - Amy Q. Shen
+covers: [./cover.jpg]
+tags:
+  - deepimagej
+  - usiigaci
+  - segmentation
+  - phase contrast
+  - fibroblasts
+  - 2D
+  - maskrcnn
+license: MIT
+language: java
+framework: tensorflow
+git_repo: https://github.com/oist/Usiigaci
+test_inputs:
+  - ./exampleImage.npy
+test_outputs:
+  - ./MAX_finalMask.npy
+  - ./fibroblasts_detection.npy
+sample_inputs:
+  - ./exampleImage.tif
+sample_outputs:
+  - ./MAX_finalMask.tif
+  - ./fibroblasts_detection.csv
+attachments:
+  files: ["./usiigaciParams.ijm", "./usiigaciParams_postprocessing.ijm", "./General.jar", "./exampleImage.tif", "./MAX_finalMask.tif", "./fibroblasts_detection.csv"]
+weights:
+    tensorflow_saved_model_bundle:
+        authors:
+          - Carlos García López-de-Haro
+        source: ./tensorflow_saved_model_bundle.zip
+        sha256: 71c01c5ef2e82223f9229ab0db5d3426f553f2b1c789767a067097f537c7371c
+inputs:
+  - name: input_image
+    axes: byxc
+    data_type: float32
+    data_range: [-inf, inf]
+    shape:
+        min: [1, 1, 1, 3]
+        step: [0, 1, 1, 0]
+outputs:
+  - name: mrcnn_detection
+    axes: brc
+    shape: [1, 1000, 6]
+    data_type: float32
+    data_range: [-inf, inf]
+    postprocessing: null
+  - name: mrcnn_mask
+    axes: bzyxc
+    data_type: float32
+    data_range: [-inf, inf]
+    shape: [1, 1000, 28, 28, 2]
+config:
+    deepimagej:
+        pyramidal_model: true
+        allow_tiling: false
+        model_keys:
+            tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
+            tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+        test_information:
+            inputs:
+              - name: exampleImage.tif
+                size: 1024 x 1024 x 1 x 1
+                pixel_size:
+                    x: 0.87 µm
+                    y: 0.87 µm
+                    z: 1.0 pixel
+            outputs:
+              - name: MAX_finalMask.tif
+                type: image
+                size: 512 x 512 x 1 x 1
+              - name: fibroblasts_detection
+                type: ResultsTable
+                size: 1000 x 5
+            memory_peak: 439.6 Mb
+            runtime: 47.4
+        prediction:
+            preprocess:
+              - spec: ij.IJ::runMacroFile
+                kwargs: usiigaciParams.ijm
+              - spec: General.jar Preprocessing::preProcessingRoutineUsingImage
+            postprocess:
+              - spec: General.jar PostProcessing::postProcessingRoutineUsingImage
+              - spec: ij.IJ::runMacroFile
+                kwargs: usiigaciParams_postprocessing.ijm

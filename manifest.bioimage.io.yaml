@@ -130,6 +130,12 @@ model:
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
+      
+  - id: Usiigaci
+    source: https://raw.githubusercontent.com/deepimagej/models/master/usiigaci/model.yaml
+    download_url: https://zenodo.org/record/4155785/files/usiigaci.bioimage.io.model.zip
+    links:
+      - deepimagej
 
 notebook:
   - id: unet-pancreaticcellsegmentation
