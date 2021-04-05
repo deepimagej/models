@@ -10,6 +10,8 @@ authors:
   - Yair Rivenson
   - Aydogan Ozcan
 covers: [./exampleImage.png, ./resultImage.png]
+attachments:
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
 tags:
   - deepimagej
   - GAN
@@ -20,18 +22,20 @@ license: CC BY 4.0
 language: java
 framework: tensorflow
 test_inputs:
-  - ./exampleImage.tiff
-test_outputs:
-  - ./resultImage.tiff
-sample_inputs:
   - ./exampleImage.npy
-sample_outputs:
+test_outputs:
   - ./resultImage.npy
+sample_inputs:
+  - ./exampleImage.tiff
+sample_outputs:
+  - ./resultImage.tiff
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4290871/files/txred_tensorflow_saved_model_bundle.zip
     sha256: 5aceebca9742c0239de62e38013a223c811cc87e582406b935011eeb92464fe9
     tensorflow_version: 1.15
+    attachments:
+      files: [ "./config.xml" ]
 
 inputs:
   - name: input
