@@ -13,8 +13,10 @@ authors:
   - Tyler F.W. Sloan
   - Andrei Rares
   - Amy Q. Shen
+documentation: ./README.md
 covers: [./cover.jpg]
 tags:
+  - deepimagej-beta
   - deepimagej
   - usiigaci
   - segmentation
