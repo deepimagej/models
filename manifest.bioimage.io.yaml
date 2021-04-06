@@ -34,7 +34,6 @@ application:
     tags:
       - deepimagej
       
-application:
   - id: deepimagej-beta
     type: application
     name: DeepImageJ Beta
