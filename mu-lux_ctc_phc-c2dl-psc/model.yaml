@@ -32,7 +32,7 @@ framework: tensorflow
 test_inputs:
   - ./exampleImage.npy
 test_outputs:
-  - ./resultImage.npy
+  - ./cells-watershed.npy
 sample_inputs:
   - ./exampleImage.tiff
 sample_outputs:
