@@ -45,7 +45,7 @@ weights:
     tensorflow_saved_model_bundle:
         authors:
           - Carlos García López-de-Haro
-        source: ./tensorflow_saved_model_bundle.zip
+        source: https://drive.google.com/file/d/1JrB4M5yTV0L9sJm0wv51qQWwSVY5RhZ_/view?export=download
         sha256: 14f385dc46aa1c7a6315a42d1a8ad4d193f91fe67c990cd6b56d1fc665ea682a
 inputs:
   - name: input_image
