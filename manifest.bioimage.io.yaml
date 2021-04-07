@@ -63,7 +63,6 @@ model:
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/model.yaml
     links:
       - deepimagej
-      - imjoy/BioImageIO-Packager
     download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_hela_segmentation.zip
 
   - id: UNet2DPancreaticSegmentation
@@ -79,7 +78,6 @@ model:
     download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip
     links:
       - deepimagej
-      - imjoy/BioImageIO-Packager
 
   - id: SMLMDensityMapEstimationDEFCoN
     source: https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/model.yaml
@@ -95,7 +93,6 @@ model:
       - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic_DeepImageJ
       - zero/Dataset_Deep-STORM_ZeroCostDL4Mic
       - deepimagej
-      - imjoy/BioImageIO-Packager
 
   - id: 2DUNetZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/model.yaml
@@ -103,7 +100,6 @@ model:
     links:
       - zero/Notebook_U-Net_2D_ZeroCostDL4Mic_DeepImageJ
       - deepimagej
-      - imjoy/BioImageIO-Packager
 
   - id: MU-Lux_CTC_PhC-C2DL-PSC
     source: https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml
@@ -117,35 +113,30 @@ model:
     download_url: https://zenodo.org/record/4290871/files/widefield_txred_superresolution.bioimage.io.model.zip
     links:
       - deepimagej
-      - imjoy/BioImageIO-Packager
 
   - id: WidefieldDapiSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution/model.yaml
     download_url: https://zenodo.org/record/4290871/files/widefield_dapi_superresolution.bioimage.io.model.zip
     links:
       - deepimagej
-      - imjoy/BioImageIO-Packager
 
   - id: WidefieldFitcSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution/model.yaml
     download_url: https://zenodo.org/record/4290871/files/widefield_fitc_superresolution.bioimage.io.model.zip
     links:
       - deepimagej
-      - imjoy/BioImageIO-Packager
 
   - id: JonesVirtualStaining
     source: https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining/model.yaml
     download_url: https://zenodo.org/record/4290839/files/jones_virtual_staining.bioimage.io.model.zip
     links:
       - deepimagej
-      - imjoy/BioImageIO-Packager
 
   - id: Mt3VirtualStaining
     source: https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining/model.yaml
     download_url: https://zenodo.org/record/4290839/files/mt3_virtual_staining.bioimage.io.model.zip
     links:
       - deepimagej
-      - imjoy/BioImageIO-Packager
       
   - id: Usiigaci
     source: https://raw.githubusercontent.com/deepimagej/models/master/usiigaci/model.yaml
