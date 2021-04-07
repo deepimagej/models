@@ -3,27 +3,28 @@ name: "NIH/3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)"
 description: "Trained model given in Usiigaci for instance segmentation of cells
     in a 2D substrate and phase contrast microscopy images. The model is a Mask R-CNN
     and the input is preprocessed to get an RGB image from the grayscale image."
-timestamp: 2021-04-05T20:10:20.000267
+timestamp: 2021-04-07T22:28:34.000365
 cite:
   - text: "Tsai, H.-F., et al., SoftwareX, 2019"
     doi: https://doi.org/10.1016/j.softx.2019.02.007
 authors:
-  - Hsieh-Fu Tsai
+  - "Hsieh-Fu Tsai"
   - Joanna Gajda
   - Tyler F.W. Sloan
   - Andrei Rares
   - Amy Q. Shen
-documentation: ./README.md
-covers: [./cover.jpg]
+covers:
+  - ./exampleImage.tif
+  - ./MAX_finalMask.tif
 tags:
-  - deepimagej-beta
   - deepimagej
   - usiigaci
-  - segmentation
   - phase contrast
   - fibroblasts
   - 2D
   - maskrcnn
+  - segmentation
+  - deepimagej-beta
 license: MIT
 language: java
 framework: tensorflow
@@ -45,7 +46,7 @@ weights:
         authors:
           - Carlos García López-de-Haro
         source: ./tensorflow_saved_model_bundle.zip
-        sha256: 71c01c5ef2e82223f9229ab0db5d3426f553f2b1c789767a067097f537c7371c
+        sha256: 14f385dc46aa1c7a6315a42d1a8ad4d193f91fe67c990cd6b56d1fc665ea682a
 inputs:
   - name: input_image
     axes: byxc
@@ -65,6 +66,8 @@ outputs:
     data_type: float32
     data_range: [-inf, inf]
     shape: [1, 1000, 28, 28, 2]
+run_mode:
+  - name: deepimagej
 config:
     deepimagej:
         pyramidal_model: true
@@ -75,20 +78,20 @@ config:
         test_information:
             inputs:
               - name: exampleImage.tif
-                size: 1024 x 1024 x 1 x 1
+                size: 1024 x 1024 x 3 x 1
                 pixel_size:
                     x: 0.87 µm
                     y: 0.87 µm
                     z: 1.0 pixel
             outputs:
-              - name: MAX_finalMask.tif
+              - name: MAX_finalMask
                 type: image
-                size: 512 x 512 x 1 x 1
+                size: 1024 x 1024 x 1 x 1
               - name: fibroblasts_detection
                 type: ResultsTable
                 size: 1000 x 5
-            memory_peak: 439.6 Mb
-            runtime: 47.4
+            memory_peak: 708.9 Mb
+            runtime: 43.7
         prediction:
             preprocess:
               - spec: ij.IJ::runMacroFile

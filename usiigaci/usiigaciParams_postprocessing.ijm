@@ -204,9 +204,9 @@
 * The following parameters are modified during the processing. Leave as it is
 *
 *
- * RUNTIME_PARAMETER: WINDOW_SIZE = [0.0, 0.0, 1024.0, 1024.0]
- * RUNTIME_PARAMETER: ORIGINAL_IMAGE_SIZE = [512.0, 512.0, 3.0]
- * RUNTIME_PARAMETER: PROCESSING_IMAGE_SIZE = [1024.0, 1024.0, 3.0]
+ * RUNTIME_PARAMETER: WINDOW_SIZE = [0.0, 0.0, 2048.0, 2048.0]
+ * RUNTIME_PARAMETER: ORIGINAL_IMAGE_SIZE = [1024.0, 1024.0, 3.0]
+ * RUNTIME_PARAMETER: PROCESSING_IMAGE_SIZE = [2048.0, 2048.0, 3.0]
 ***/
 
 // Regular ImageJ macro code to merge the obtained masks
