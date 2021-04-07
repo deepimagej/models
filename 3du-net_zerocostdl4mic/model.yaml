@@ -1,0 +1,85 @@
+format_version: 0.3.0
+name: "3D U-Net - ZeroCostDL4Mic"
+description: "3D U-Net trained using ZeroCostDL4Mic notebooks to segment mitochondria in Transmission Electron Microscopy (TEM) data."
+timestamp: 2021-04-07T19:49:30.000301
+cite:
+  - text: "Lucas von Chamier et al. bioRxiv 2020"
+    doi: https://doi.org/10.1101/2020.03.20.000133
+  - text: "Özgün Çiçek et al., MICCAI 2016"
+    doi: https://doi.org/10.1007/978-3-319-46723-8_49
+authors:
+  - DeepImageJ team
+documentation: https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki
+covers:
+  - ./exampleImage.gif
+tags:
+  - deepimagej
+  - TEM
+  - mitochondria
+  - segmentation
+  - 3DUNet
+  - ZeroCostDL4Mic
+  - deepimagej-beta
+license: MIT
+language: java
+framework: tensorflow
+git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic/blob/master/Colab_notebooks/U-Net_3D_ZeroCostDL4Mic.ipynb
+test_inputs:
+  - ./exampleImage.npy
+test_outputs:
+  - ./resultImage.npy
+sample_inputs:
+  - ./exampleImage.tif
+sample_outputs:
+  - ./resultImage.tif
+attachments:
+  files: ["./preprocessing.ijm", "./exampleImage.tif", "./resultImage.tif"]
+weights:
+    tensorflow_saved_model_bundle:
+        source: https://drive.google.com/file/d/13jmGgSXQT6xfBt8mY40hW68a3oNdma5y/view?export=download
+        sha256: 9f47d56a0b16f7e63db91399f2165932b524b9c9b1b83967ea8b2422af756cf0
+inputs:
+  - name: input
+    axes: byxzc
+    data_type: float32
+    data_range: [-inf, inf]
+    shape: [1, 256, 256, 8, 1]
+outputs:
+  - name: output
+    axes: byxzc
+    data_type: float32
+    data_range: [-inf, inf]
+    halo: [0, 0, 0, 0, 0]
+    shape:
+        reference_input: input
+        scale: [1.0, 1.0, 1.0, 1.0, 1.0]
+        offset: [0, 0, 0, 0, 0]
+run_mode:
+  - name: deepimagej
+config:
+    deepimagej:
+        pyramidal_model: false
+        allow_tiling: true
+        model_keys:
+            tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
+            tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+        test_information:
+            inputs:
+              - name: exampleImage.tif
+                size: 256 x 256 x 1 x 51
+                pixel_size:
+                    x: 1.0 pixel
+                    y: 1.0 pixel
+                    z: 1.0 pixel
+            outputs:
+              - name: resultImage
+                type: image
+                size: 256 x 256 x 1 x 51
+            memory_peak: 286.1 Mb
+            runtime: 28.3
+        prediction:
+            preprocess:
+              - spec: ij.IJ::runMacroFile
+                kwargs: preprocessing.ijm
+            postprocess:
+              - spec: null

@@ -157,6 +157,15 @@ model:
     download_url: https://drive.google.com/file/d/1luStgdI-iOW6wvfWIMijDTY23kvD6lxS/view?export=download
     links:
       - deepimagej-beta
+      - imjoy/BioImageIO-Packager
+
+  - id: 3DUNetZeroCostDL4Mic
+    source: hraw.gitttps://hubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
+    download_url: https://zenodo.org/record/4155785/files/DeepImageJ_3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
+    links:
+      - deepimagej-beta
+      - zero/Notebook_U-Net_3D_ZeroCostDL4Mic
+      - imjoy/BioImageIO-Packager
 
 notebook:
   - id: unet-pancreaticcellsegmentation

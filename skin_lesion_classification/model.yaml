@@ -39,6 +39,8 @@ inputs:
     shape:
         min: [3, 1, 1]
         step: [0, 1, 1]
+run_mode:
+  - name: deepimagej
 outputs:
   - name: output
     axes: null
