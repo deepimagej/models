@@ -143,6 +143,8 @@ model:
     download_url: https://zenodo.org/record/4155785/files/usiigaci.bioimage.io.model.zip
     links:
       - deepimagej-beta
+      - imjoy/BioImageIO-Packager
+      
   - id: skin-lesion
     source: https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/model.yaml
     download_url: https://drive.google.com/file/d/1luStgdI-iOW6wvfWIMijDTY23kvD6lxS/view?export=download
