@@ -1,0 +1,73 @@
+format_version: 0.3.0
+name: Skin lesions classification
+description: CNN trained to classify the type of imaged skin lesion.
+timestamp: 2020-08-31T10:13:32.618903
+authors:
+  - Carlos García-López-de-Haro
+documentation: "https://gist.github.com/esgomezm/7398a83321ae589bafadb0392c7b78ef#file-skin_lession_classification_pytorch_original-ipynb"
+covers: [./cover.jpg]
+attachments:
+  files: ["./preprocessing.ijm", "./post.ijm", "./0066.tif", "./lesion.csv", "./0066_mask.png"]
+tags:
+  - deepimagej-beta
+  - deepimagej
+  - skin lesions
+  - melanoma
+  - classification
+  - pytorch
+license: BSD2
+language: java
+framework: pytorch
+git_repo: "https://gist.github.com/esgomezm/72b584887ca5ed5ed0231c47fff9aa9b#file-skin_lession_classification_pytorch_adapted-ipynb"
+test_inputs:
+  - ./0066.npy
+test_outputs:
+  - ./lesion.npy
+sample_inputs:
+  - ./0066.tif
+sample_outputs:
+  - ./lesion.csv
+weights:
+    pytorch_script:
+        source: https://drive.google.com/file/d/18Uc29jaQd_wFDqEgheSvRjdDXndbJafQ/view?export=download
+        sha256: b40e303e2a1996535da02626af6f2a4a243befc8f0957be4d47abdd940554f15
+inputs:
+  - name: input
+    axes: cyx
+    data_type: float32
+    data_range: [-inf, inf]
+    shape:
+        min: [3, 1, 1]
+        step: [0, 1, 1]
+outputs:
+  - name: output
+    axes: null
+    shape: [-1]
+    data_type: float32
+    data_range: [-inf, inf]
+config:
+    deepimagej:
+        pyramidal_model: false
+        allow_tiling: false
+        model_keys: null
+        test_information:
+            inputs:
+              - name: 0066.tif
+                size: 316 x 224 x 3 x 1
+                pixel_size:
+                    x: 1.0 pixel
+                    y: 1.0 pixel
+                    z: 1.0 pixel
+            outputs:
+              - name: lesion.csv
+                type: ResultsTable
+                size: 3 x 0
+            memory_peak: 99.3 Mb
+            runtime:   0.3 s
+        prediction:
+            preprocess:
+              - spec: ij.IJ::runMacroFile
+                kwargs: preprocessing.ijm
+            postprocess:
+              - spec: ij.IJ::runMacroFile
+                kwargs: post.ijm
