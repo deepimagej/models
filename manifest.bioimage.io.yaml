@@ -161,7 +161,7 @@ model:
 
   - id: 3DUNetZeroCostDL4Mic
     source: hraw.gitttps://hubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
-    download_url: https://zenodo.org/record/4155785/files/DeepImageJ_3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
+    download_url: https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
     links:
       - deepimagej-beta
       - zero/Notebook_U-Net_3D_ZeroCostDL4Mic
