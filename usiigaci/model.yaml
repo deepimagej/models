@@ -14,8 +14,7 @@ authors:
   - Andrei Rares
   - Amy Q. Shen
 covers:
-  - ./exampleImage.tif
-  - ./MAX_finalMask.tif
+  - ./cover.jpg
 tags:
   - deepimagej
   - usiigaci
