@@ -152,7 +152,7 @@ model:
       - deepimagej-beta
 
   - id: 3DUNetZeroCostDL4Mic
-    source: hraw.gitttps://hubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
+    source: https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
     download_url: https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
     links:
       - deepimagej-beta
