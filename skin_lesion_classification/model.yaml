@@ -29,7 +29,7 @@ sample_outputs:
   - ./lesion.csv
 weights:
     pytorch_script:
-        source: https://drive.google.com/file/d/18Uc29jaQd_wFDqEgheSvRjdDXndbJafQ/view?export=download
+        source: ./pytorch_script.pt
         sha256: b40e303e2a1996535da02626af6f2a4a243befc8f0957be4d47abdd940554f15
 inputs:
   - name: input
