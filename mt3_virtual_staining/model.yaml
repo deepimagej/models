@@ -12,7 +12,7 @@ authors:
 documentation: https://innovate.ee.ucla.edu/
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
-    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
 tags:
   - deepimagej
   - GAN
@@ -26,9 +26,9 @@ test_inputs:
 test_outputs:
   - ./resultImage.npy
 sample_inputs:
-  - ./exampleImage.tiff
+  - ./exampleImage.tif
 sample_outputs:
-  - ./resultImage.tiff
+  - ./resultImage.tif
 weights:
     tensorflow_saved_model_bundle:
         source: https://zenodo.org/record/4290839/files/mt3_vstain_tensorflow_saved_model_bundle.zip
@@ -68,7 +68,7 @@ config:
                     y: 1.0 pixel
                     z: 1.0 pixel
             outputs:
-              - name: Masson’s trichrome (MT3) virtual staining_output_images_exampleImage
+              - name: resultImage.tif
                 type: image
                 size: 1224 x 1224 x 3 x 1
             memory_peak: 672.8 Mb
