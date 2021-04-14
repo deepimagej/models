@@ -38,22 +38,22 @@ weights:
       files: [ "./config.xml" ]
 
 inputs:
-  - name: input
+  - name: input_images
     axes: yxc
     data_type: float32
     data_range: [-inf, inf]
     shape: [1024, 1024, 1]
 
 outputs:
-  - name: output
+  - name: output_images
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
-    halo: [22, 22, 0]
+    halo: [0, 22, 22, 0]
     shape:
-        reference_input: input
-        scale: [1, 1, 3]
-        offset: [0, 0, 0]
+        reference_input: input_images
+        scale: [1.0, 1.0, 1.0, 1.0]
+        offset: [0, 0, 0, 0]
 
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
