@@ -1,21 +1,8 @@
-// For non-squared images run the following command. 
-name = getTitle();
-run("Copy");
-newImage("squared_im", "16-bit black", 1024, 1024, 1);
-selectWindow("squared_im");
-run("Paste");
-close(name);
-
-// Regular ImageJ macro code to convert the image into RGB
-name = getTitle();
-//run("32-bit");
-run("Merge Channels...", "c1=" + name + " c2=" + name + " c3=" + name + " create");
-
 /**********************************************************************************
 * 					Mask R-CNN CONFIG
 * DEFINITION OF THE MASK R-CNN PARAMETERS
 *
-* In order to use the Java pre- and post-processing provided by the deepImageJ team
+* In order to use the Java pre- and post-processing provided by the DeepImageJ team
 * it is necessary to fill the following parameters with the corresponding values relative
 * to the model training.
 *
@@ -31,6 +18,25 @@ run("Merge Channels...", "c1=" + name + " c2=" + name + " c3=" + name + " create
 * *****************************************************************************
 * *****************************************************************************
 *
+* Name given to the image tensor input of the Deep Learning model.
+* Rename to the name given to the tensor that goes inside the Deep Learning model
+*
+* PARAMETER: INPUT_IMAGE = input_image
+*
+*
+* Name given to the image tensor output of the Deep Learning model that corresponds to the mask
+* of each of the objects detected.
+* Rename to the name given to that tensor in your model model
+*
+* PARAMETER: MRCNN_MASK = mrcnn_mask
+*
+*
+* Name given to the tensor output of the Deep Learning model that corresponds to the matrix
+* with the coordinates of each of the bounding box of the objects, with the class of each object
+* and with the probability of each object being a class.
+* Rename to the name given to that tensor in your model model
+*
+* PARAMETER: MRCNN_DETECTION = mrcnn_detection
 *
 *
 * Name the configurations. For example, 'COCO', 'Experiment 3', ...etc.
@@ -128,8 +134,8 @@ run("Merge Channels...", "c1=" + name + " c2=" + name + " c3=" + name + " create
 *         IMAGE_MAX_DIM is not used in this mode.
 * PARAMETER: IMAGE_RESIZE_MODE = pad64
 * PARAMETER: IMAGE_MIN_DIM = 512
-* PARAMETER: IMAGE_MAX_DIM = 1024
-* PARAMETER: IMAGE_SHAPE = [1024, 1024, 3]
+* PARAMETER: IMAGE_MAX_DIM = 512
+* PARAMETER: IMAGE_SHAPE = [512, 512, 3]
 *
 *
 * Minimum scaling ratio. Checked after MIN_IMAGE_DIM and can force further

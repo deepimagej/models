@@ -96,9 +96,9 @@ config:
         prediction:
             preprocess:
               - spec: ij.IJ::runMacroFile
-                kwargs: usiigaciParams.ijm
+                kwargs: preprocessing.ijm
               - spec: General.jar Preprocessing::preProcessingRoutineUsingImage
             postprocess:
               - spec: General.jar PostProcessing::postProcessingRoutineUsingImage
               - spec: ij.IJ::runMacroFile
-                kwargs: usiigaciParams_postprocessing.ijm
+                kwargs: postprocessing.ijm
