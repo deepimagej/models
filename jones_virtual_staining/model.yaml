@@ -12,7 +12,7 @@ authors:
 
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
-    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
 tags:
   - deepimagej
   - GAN
@@ -27,9 +27,9 @@ test_inputs:
 test_outputs:
   - ./resultImage.npy
 sample_inputs:
-  - ./exampleImage.tiff
+  - ./exampleImage.tif
 sample_outputs:
-  - ./resultImage.tiff
+  - ./resultImage.tif
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4290839/files/jones_vstaining_tensorflow_saved_model_bundle.zip
@@ -66,14 +66,14 @@ config:
       tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
-        - name: exampleImage.tiff
+        - name: exampleImage.tif
           size: 1224 x 1224 x 1
           pixel_size:
             x: 1.0 pixel
             y: 1.0 pixel
             z: 1.0 pixel
       outputs:
-        - name: resultImage.tiff
+        - name: resultImage.tif
           type: image
           size: 1224 x 1224 x 1
       memory_peak: 829.8 Mb
