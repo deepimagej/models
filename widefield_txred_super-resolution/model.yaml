@@ -1,7 +1,7 @@
 format_version: 0.3.0
 name: Widefield Super-resolution (GAN - TxRed)
 description: A trained GAN to transform diffraction-limited input images into super-resolved ones.
-timestamp: 2021-02-17T10:13:32.618903
+timestamp: 2021-04-16T17:40:54.000799
 cite:
   - text: Hongda Wang, Yair Rivenson, et al., Nature Methods 2019
     doi: https://doi.org/10.1038/s41592-018-0239-0
@@ -11,7 +11,7 @@ authors:
   - Aydogan Ozcan
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
-    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
 tags:
   - deepimagej
   - GAN
@@ -26,13 +26,13 @@ test_inputs:
 test_outputs:
   - ./resultImage.npy
 sample_inputs:
-  - ./exampleImage.tiff
+  - ./exampleImage.tif
 sample_outputs:
-  - ./resultImage.tiff
+  - ./resultImage.tif
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4290871/files/txred_tensorflow_saved_model_bundle.zip
-    sha256: 5aceebca9742c0239de62e38013a223c811cc87e582406b935011eeb92464fe9
+    sha256: 47cbe0b1a0495edc4d0f238aa3908f16e061eb8786147577a75e9f16d403a1c8
     tensorflow_version: 1.15
     attachments:
       files: [ "./config.xml" ]
@@ -65,14 +65,14 @@ config:
       tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
-        - name: exampleImage.tiff
+        - name: exampleImage.tif
           size: 1024 x 1024 x 1
           pixel_size:
             x: 1.0 pixel
             y: 1.0 pixel
             z: 1.0 pixel
       outputs:
-        - name: resultImage.tiff
+        - name: resultImage.tif
           type: image
           size: 1024 x 1024 x 1
       memory_peak: 283.8 Mb

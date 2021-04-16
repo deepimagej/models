@@ -1,7 +1,7 @@
 format_version: 0.3.0
 name: Widefield Super-resolution (GAN - DAPI)
 description: A trained GAN to transform diffraction-limited input images into super-resolved ones.
-timestamp: 2021-02-17T10:13:32.618903
+timestamp: 2021-04-16T17:47:28.000545
 cite:
   - text: Hongda Wang, Yair Rivenson, et al., Nature Methods 2019
     doi: https://doi.org/10.1038/s41592-018-0239-0
@@ -12,7 +12,7 @@ authors:
 
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
-    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
 tags:
   - deepimagej
   - GAN
@@ -27,13 +27,13 @@ test_inputs:
 test_outputs:
   - ./resultImage.npy
 sample_inputs:
-  - ./exampleImage.tiff
+  - ./exampleImage.tif
 sample_outputs:
-  - ./resultImage.tiff
+  - ./resultImage.tif
 weights:
   tensorflow_saved_model_bundle:
-    source: https://zenodo.org/record/4290871/files/txred_tensorflow_saved_model_bundle.zip
-    sha256: 68f57fa211524fa258c3212f04e67c668a73c757033f3d0fbca69c2b1539c7cf
+    source: https://zenodo.org/record/4290871/files/dapi_tensorflow_saved_model_bundle.zip
+    sha256: 1b9d8849d008b52018d93242c8d8540eb01e7211740a4c6e0f460ff762a4f0b5
     tensorflow_version: 1.15
     attachments:
       files: [ "./config.xml" ]
@@ -64,14 +64,14 @@ config:
       tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
-        - name: exampleImage.tiff
+        - name: exampleImage.tif
           size: 1024 x 1024 x 1
           pixel_size:
             x: 1.0 pixel
             y: 1.0 pixel
             z: 1.0 pixel
       outputs:
-        - name: resultImage.tiff
+        - name: resultImage.tif
           type: image
           size: 1024 x 1024 x 1
       memory_peak: 283.8 Mb
