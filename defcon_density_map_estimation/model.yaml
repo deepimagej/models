@@ -26,7 +26,6 @@ test_inputs:
   - ./exampleImage.npy
 test_outputs:
   - ./resultImage.npy
-  - ./Results.npy
 sample_inputs:
   - ./exampleImage.tif
 sample_outputs:
