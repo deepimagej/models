@@ -58,7 +58,7 @@ inputs:
         step: [0, 1, 1, 0]
 outputs:
   - name: mrcnn_detection
-    axes: brc
+    axes: bic
     shape: [1, 1000, 6]
     data_type: float32
     data_range: [-inf, inf]
