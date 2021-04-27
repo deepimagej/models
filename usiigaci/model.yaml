@@ -1,74 +1,78 @@
 format_version: 0.3.1
 name: "NIH/3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)"
-description: "Trained model given in Usiigaci for instance segmentation of cells
-    in a 2D substrate and phase contrast microscopy images. The model is a Mask R-CNN
+description: "Trained model given in Usiigaci for instance segmentation of cells in
+    a 2D substrate and phase contrast microscopy images. The model is a Mask R-CNN
     and the input is preprocessed to get an RGB image from the grayscale image."
-timestamp: 2021-04-07T22:28:34.000365
+timestamp: 2021-04-12T20:19:15.000544
 cite:
   - text: "Tsai, H.-F., et al., SoftwareX, 2019"
     doi: https://doi.org/10.1016/j.softx.2019.02.007
 authors:
-  - "Hsieh-Fu Tsai"
   - Joanna Gajda
   - Tyler F.W. Sloan
+  - "Hsieh-Fu Tsai"
   - Andrei Rares
   - Amy Q. Shen
 covers:
-  - ./cover.jpg
+  - ./Composite.tif
+  - ./MAX_finalMask.tif
 tags:
   - deepimagej
   - usiigaci
   - phase contrast
   - fibroblasts
-  - 2D
   - maskrcnn
+  - 2D
   - segmentation
-  - deepimagej-beta
+  - "deepimagej-beta"
 license: MIT
 language: java
 framework: tensorflow
 git_repo: https://github.com/oist/Usiigaci
-test_inputs:
-  - ./exampleImage.npy
-test_outputs:
-  - ./MAX_finalMask.npy
-  - ./fibroblasts_detection.npy
 sample_inputs:
-  - ./exampleImage.tif
+  - ./Composite.tif
 sample_outputs:
   - ./MAX_finalMask.tif
   - ./fibroblasts_detection.csv
+test_inputs:
+  - ./Composite.npy
+test_outputs:
+  - ./MAX_finalMask.npy
+  - ./fibroblasts_detection.npy
 attachments:
-  files: ["./usiigaciParams.ijm", "./usiigaciParams_postprocessing.ijm", "./General.jar", "./exampleImage.tif", "./MAX_finalMask.tif", "./fibroblasts_detection.csv"]
+  files: ["./preprocessing.ijm", "./postprocessing.ijm", "./General.jar", "./config.ijm", "./exampleImage.tif", "./MAX_finalMask.tif", "./fibroblasts_detection.csv"]
 weights:
     tensorflow_saved_model_bundle:
-        authors:
+        authors: 
           - Carlos García López-de-Haro
-        source: https://drive.google.com/file/d/1JrB4M5yTV0L9sJm0wv51qQWwSVY5RhZ_/view?export=download
-        sha256: 14f385dc46aa1c7a6315a42d1a8ad4d193f91fe67c990cd6b56d1fc665ea682a
-    attachments:
-      - config.ijm
+        source: ./tensorflow_saved_model_bundle.zip
+        sha256: a5e697209327296076df4a414d9bf1ccf15ed4d4ab46f352a90398fd68f1a355
+        attachments:
+          files:
+            - config.ijm
+          
 inputs:
   - name: input_image
-    axes: byxc
+    axes: bxyc
     data_type: float32
     data_range: [-inf, inf]
     shape:
         min: [1, 1, 1, 3]
         step: [0, 1, 1, 0]
+
 outputs:
   - name: mrcnn_detection
     axes: bic
     shape: [1, 1000, 6]
     data_type: float32
     data_range: [-inf, inf]
+    postprocessing: null
   - name: mrcnn_mask
-    axes: bzyxc
+    axes: bzxyc
     data_type: float32
     data_range: [-inf, inf]
     shape: [1, 1000, 28, 28, 2]
-run_mode:
-  - name: deepimagej
+
 config:
     deepimagej:
         pyramidal_model: true
@@ -91,8 +95,8 @@ config:
               - name: fibroblasts_detection
                 type: ResultsTable
                 size: 1000 x 5
-            memory_peak: 708.9 Mb
-            runtime: 43.7
+            memory_peak: 376.8 Mb
+            runtime: 57.6
         prediction:
             preprocess:
               - spec: ij.IJ::runMacroFile
