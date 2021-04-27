@@ -145,7 +145,7 @@ model:
       - deepimagej-beta
       - imjoy/BioImageIO-Packager
       
-  - id: skin-lesion
+  - id: SkinLesionClassification
     source: https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/model.yaml
     download_url: https://zenodo.org/record/4155785/files/SkinLesions.bioimage.io.model.zip
     links:
