@@ -33,7 +33,7 @@ sample_outputs:
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_model.zip
-    sha256: 1a64fcdbd0835c2b490bb2fdfe33e3321c022a7c5dd82c7b99661c808175a559
+    sha256: d8275b3cd6d1b6b2a0a1c5eccbeb0cd1f204055ed714974bb66c3e610df119b2
     tensorflow_version: 1.13
     attachments:
       files: ["./config.xml"]
