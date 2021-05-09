@@ -34,7 +34,7 @@ sample_outputs:
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/deepstorm_zerocostdl4mic_tf_model.zip
-    sha256: dbacc73190690957a332281650f183b3d70db3cb17fe091ae39f84126fbac7fa
+    sha256: efcae3a3cde4b9f077b9595dd7f3c40c39e97e673e087b7cc8fa5fa28e283944
     tensorflow_version: 1.15
     attachments:
       files: [ "./config.xml" ]
