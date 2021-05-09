@@ -36,8 +36,8 @@ attachments:
   files: ["./preprocessing.ijm", "./exampleImage.tif", "./resultImage.tif"]
 weights:
     tensorflow_saved_model_bundle:
-        source: https://drive.google.com/file/d/13jmGgSXQT6xfBt8mY40hW68a3oNdma5y/view?export=download
-        sha256: 9f47d56a0b16f7e63db91399f2165932b524b9c9b1b83967ea8b2422af756cf0
+        source: https://zenodo.org/record/4155785/files/3dunet_zerocostdl4mic_tf_model.zip
+        sha256: 09f8212a605ae387b8289b364b29c3e2d65f44e42e02f820063793d11e3886e3
 inputs:
   - name: input
     axes: byxzc
