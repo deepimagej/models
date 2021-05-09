@@ -36,7 +36,7 @@ sample_outputs:
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/2du-net_zerocostdl4mic_tf_model.zip
-    sha256: 167a552f5b97b5bf5e3da2c44755a5c6f5e4d2b019ef9151627495e9f91434ef
+    sha256: fdab3f95492e7a2fd67ce6a3fbf3aa65b2d12454305fb13d5eb3bd2e64f1aaa8
     tensorflow_version: 1.15
     attachments:
       files: [ "./config.xml" ]
