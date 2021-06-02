@@ -31,6 +31,7 @@ application:
     icon: https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png
     documentation: https://deepimagej.github.io/deepimagej/index.html
     git_repo: https://github.com/deepimagej/deepimagej-plugin
+    passive: true
     tags:
       - deepimagej
       
