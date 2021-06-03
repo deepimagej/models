@@ -41,4 +41,4 @@ jobs:
       - name: Verify model config files
         run: |
           pip install git+https://github.com/bioimage-io/python-bioimage-io.git
-          python -m pybio.spec verify-bioimageio-manifest manifest.bioimage.io.yaml
+          python -m bioimageio.spec verify-bioimageio-manifest manifest.bioimage.io.yaml
