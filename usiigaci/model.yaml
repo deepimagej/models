@@ -14,8 +14,7 @@ authors:
   - Andrei Rares
   - Amy Q. Shen
 covers:
-  - ./Composite.tif
-  - ./MAX_finalMask.tif
+  - ./cover.jpg
 tags:
   - deepimagej
   - usiigaci
@@ -66,7 +65,6 @@ outputs:
     shape: [1, 1000, 6]
     data_type: float32
     data_range: [-inf, inf]
-    postprocessing: null
   - name: mrcnn_mask
     axes: bzxyc
     data_type: float32
