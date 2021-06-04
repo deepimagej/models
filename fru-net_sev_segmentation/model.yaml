@@ -20,7 +20,7 @@ tags:
   - extracellular vesicles
   - segmentation
   - TEM
-license: BSD 3
+license: BSD-3
 language: java
 framework: tensorflow
 test_inputs:
@@ -32,12 +32,14 @@ sample_inputs:
 sample_outputs:
   - ./resultImage.tiff
 weights:
+  keras_hdf5:
+    source: ./fully_residual_dropout_segmentation.h5
+    sha256: 5122cbff7451136102eabfc8c80771dbba5ec477d5dac186f729cdfbb4605ff6
+    tensorflow_version: 1.12
   tensorflow_saved_model_bundle:
-    source: https://zenodo.org/record/4156050/files/tensorflow_saved_model_bundle.zip
+    source: ./tensorflow_saved_model_bundle.zip
     sha256: 20bff1da933cc78027690fa311fea3e562cf60df1f0a2018527c45b9fafe8099
-    tensorflow_version: 1.13
-    attachments:
-      files: [ "./config.xml" ]
+    tensorflow_version: 1.12
   tensorflow_js:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/fru-net_sev_segmentation_tf_js_model/model.json
     sha256: eb27d8f3df23ce5d1d6ae4112cf36117c70a2257ca6f1b56869b9537fa60531e
