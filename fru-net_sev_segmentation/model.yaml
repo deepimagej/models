@@ -20,7 +20,7 @@ tags:
   - extracellular vesicles
   - segmentation
   - TEM
-license: BSD-3
+license: BSD-3-Clause
 language: java
 framework: tensorflow
 test_inputs:
