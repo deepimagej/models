@@ -51,7 +51,7 @@ application:
       - deepimagej-beta
       - deepimagej
 workflow:
-   - id: smlm-deepimagej
+  - id: smlm-deepimagej
     type: workflow
     name: SMLM-superresolution
     description: Single molecule localization microscopy (SMLM) processing using deepImageJ and ThunderSTORM in an ImageJ macro.
