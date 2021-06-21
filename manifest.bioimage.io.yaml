@@ -34,7 +34,6 @@ application:
     passive: true
     tags:
       - deepimagej
-      
   - id: deepimagej-beta
     type: application
     name: DeepImageJ Beta
@@ -51,6 +50,28 @@ application:
     tags:
       - deepimagej-beta
       - deepimagej
+workflow:
+   - id: smlm-deepimagej
+    type: workflow
+    name: SMLM-superresolution
+    description: Single molecule localization microscopy (SMLM) processing using deepImageJ and ThunderSTORM in an ImageJ macro.
+    source: https://github.com/deepimagej/imagej-macros/blob/master/DeepSTORM4stacksThunderSTORM.ijm
+    cite:
+      - text: Lucas von Chamier et al., Nature Communications 2021
+        doi: https://doi.org/10.1038/s41467-021-22518-0
+      - text: Gómez de Mariscal et al. bioRxiv 2019
+        doi: https://doi.org/10.1101/799270
+      - text: M. Ovesný, et al., Bioinformatics 2014
+        doi: https://doi.org/10.1093/bioinformatics/btu202
+    authors:
+      - DeepImageJ team
+    icon: https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png
+    documentation: 
+    tags:
+      - deepimagej
+      - smlm
+      - deepstorm
+      - thunderstorm
 model:
   - id: FRUNet2DsEVSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/model.yaml
