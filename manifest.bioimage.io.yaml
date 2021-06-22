@@ -55,7 +55,8 @@ workflow:
     type: workflow
     name: SMLM-superresolution
     description: Single molecule localization microscopy (SMLM) processing using deepImageJ and ThunderSTORM in an ImageJ macro.
-    cover: [https://github.com/deepimagej/models/blob/master/workflows/smlm_deepstorm/cover.png]
+    covers:
+      - https://github.com/deepimagej/models/blob/master/workflows/smlm_deepstorm/cover.png
     source: https://raw.githubusercontent.com/deepimagej/imagej-macros/master/DeepSTORM4stacksThunderSTORM.ijm
     cite:
       - text: Lucas von Chamier et al., Nature Communications 2021
