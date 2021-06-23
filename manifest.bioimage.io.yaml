@@ -34,6 +34,8 @@ application:
     passive: true
     tags:
       - deepimagej
+    config:
+      supported_weight_formats: ["tensorflow_saved_model_bundle"]
   - id: deepimagej-beta
     type: application
     name: DeepImageJ Beta
@@ -50,6 +52,9 @@ application:
     tags:
       - deepimagej-beta
       - deepimagej
+    config:
+      supported_weight_formats: ["tensorflow_saved_model_bundle", "pytorch_script"]
+
 workflow:
   - id: smlm-deepimagej
     type: workflow
