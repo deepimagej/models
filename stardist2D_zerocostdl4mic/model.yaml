@@ -1,0 +1,116 @@
+format_version: 0.3.2
+name: Multi-Organ Nucleus Segmentation Challenge
+description: Nucleus segmentation in digital pathology datasets (MoNuSeg 2018 Challenge)
+date:
+# we allow for multiple citations. Each citation contains TEXT, DOI and URL. One of DOI or URL needs to be given.
+cite:
+- doi: https://doi.org/10.1007/978-3-030-00934-2_30
+  text: Uwe Schmidt et al. MICCAI 2018
+- doi: https://doi.org/10.1109/WACV45572.2020.9093435
+  text: Martin Weigert et al. WACV 2020
+- doi: https://doi.org/10.1101/2020.03.20.000133
+  text: Lucas von Chamier et al. biorXiv 2020
+- doi: https://doi.org/10.1109/TMI.2019.2947628
+  text: Neeraj Kumar et al. Transactions on medical imaging 2020
+authors:
+- name: "Estibaliz Gómez de Mariscal"
+  affiliation: "Universidad Carlos III de Madrid"
+documentation: https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki
+source: 'null'
+parent: 'null'
+license: MIT
+language: Java
+framework: tensorflow
+git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic
+covers:
+- ./input.png
+- ./output.png
+tags:
+- ZeroCostDL4Mic
+- deepImageJ
+- segmentation
+- histopathology
+- StarDist
+test_inputs:
+- ./exampleImage.tif
+test_outputs:
+- .resultImage.tif
+sample_inputs:
+- ./exampleImage.npy
+sample_outputs:
+- .resultImage.npy
+packaged_by:
+- pydeepimagej
+attachments:
+  files: [./exampleImage.tif, ./resultImage.tif, ./per_sample_scale_range.ijm, ./StarDist_Post-processing.ijm]
+weights:
+  tensorflow_saved_model_bundle:
+    source: ./tensorflow_saved_model_bundle.zip
+    sha256: 015739d1aff63ce1fd1c0cab85169cd7328fad463d86da7871396b7126abf5e2
+    parent: keras_hdf5
+    authors:
+    - pydeepimagej
+  keras_hdf5:
+    source: ./keras_model.h5
+    sha256: 8385b10cc85767be5e50554747c9731b28ed699a10c6144ee00faf49ec437816
+    authors:
+    - pydeepimagej
+
+inputs:
+- name: input
+  axes: byxc
+  data_type: float32
+  data_range: '[-inf, inf]'
+  preprocessing:
+  - scale_range:
+      kwargs:
+        mode: per_sample
+        axes: xyzc
+        min_percentile: 1
+        max_percentile: 99.8
+  shape:
+    min: [1, 16, 16, 3]
+    step: [0, 16, 16, 0]
+outputs:
+- name: output
+  axes: byxc
+  data_range: '[-inf, inf]'
+  data_type: float32
+  halo: [0, 248, 248, 0]
+  shape:
+    reference_input: input
+    offset: [0, 0, 0, 0]
+    scale: [1, 0.5, 0.5, 11.0]
+run_mode:
+  name: deepimagej
+config:
+# custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
+  deepimagej:
+    pyramidal_model: false
+    allow_tiling: true
+    model_keys:
+      tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
+      tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+    test_information:
+      device:
+      inputs:
+        name: input
+        size: 1000 x 1000 x 3
+        pixel_size:
+          x: 1 µm
+          y: 1 µm
+          z: 1.0 pixel
+      outputs:
+        name: output
+        type: image
+        size: 1000 x 1000
+      memory_peak:
+      runtime:
+    prediction:
+      preprocess:
+      - spec: ij.IJ::runMacroFile
+        kwargs: per_sample_scale_range.ijm
+      postprocess:
+      - spec: ij.IJ::runMacroFile
+        kwargs: StarDist_Post-processing.ijm
+timestamp: 2021-07-13 17:10:25.012260

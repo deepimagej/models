@@ -24,7 +24,7 @@ application:
     description: DeepImageJ is a user-friendly plugin that enables the use of pre-trained deep learning models in ImageJ and Fiji. 
     source: https://deepimagej.github.io/deepimagej/index.html
     cite:
-      text: "Gómez-de-Mariscal, E., García-López-de-Haro, C., Donati, L., Unser, M., Muñoz-Barrutia, A. and Sage, D. DeepImageJ: A user-friendly plugin to run deep learning models in ImageJ, BioRxiv, 2019"
+      text: "Gómez-de-Mariscal, E., García-López-de-Haro, C., Ouyang, W., Donati, L., Lundberg E., Unser, M., Muñoz-Barrutia, A. and Sage, D. DeepImageJ: A user-friendly plugin to run deep learning models in ImageJ, BioRxiv, 2019"
       doi: https://doi.org/10.1101/799270
     authors:
       - DeepImageJ team
@@ -36,24 +36,6 @@ application:
       - deepimagej
     config:
       supported_weight_formats: ["tensorflow_saved_model_bundle"]
-  - id: deepimagej-beta
-    type: application
-    name: DeepImageJ Beta
-    description: DeepImageJ is a user-friendly plugin that enables the use of pre-trained deep learning models in ImageJ and Fiji. 
-    source: https://deepimagej.github.io/deepimagej/beta_release.html
-    cite:
-      text: "Gómez-de-Mariscal, E., García-López-de-Haro, C., Donati, L., Unser, M., Muñoz-Barrutia, A. and Sage, D. DeepImageJ: A user-friendly plugin to run deep learning models in ImageJ, BioRxiv, 2019"
-      doi: https://doi.org/10.1101/799270
-    authors:
-      - DeepImageJ team
-    icon: https://raw.githubusercontent.com/deepimagej/models/master/logos/icon-beta.png
-    documentation: https://deepimagej.github.io/deepimagej/index.html
-    git_repo: https://github.com/deepimagej/deepimagej-plugin
-    tags:
-      - deepimagej-beta
-      - deepimagej
-    config:
-      supported_weight_formats: ["tensorflow_saved_model_bundle", "pytorch_script"]
 
 workflow:
   - id: smlm-deepimagej
@@ -180,22 +162,27 @@ model:
     source: https://raw.githubusercontent.com/deepimagej/models/master/usiigaci/model.yaml
     download_url: https://zenodo.org/record/4155785/files/usiigaci.bioimage.io.model.zip
     links:
-      - deepimagej-beta
+      - deepimagej
       - imjoy/BioImageIO-Packager
       
   - id: SkinLesionClassification
     source: https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/model.yaml
     download_url: https://zenodo.org/record/4155785/files/SkinLesions.bioimage.io.model.zip
     links:
-      - deepimagej-beta
+      - deepimagej
 
   - id: 3DUNetZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
     download_url: https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
     links:
-      - deepimagej-beta
+      - deepimagej
       - zero/Notebook_U-Net_3D_ZeroCostDL4Mic
       - imjoy/BioImageIO-Packager
+  - id: 3DUNetZeroCostDL4Mic
+    source: https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml
+    download_url: https://sandbox.zenodo.org/record/880529/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip
+    links:
+      - deepimagej
 
 notebook:
   - id: unet-pancreaticcellsegmentation
