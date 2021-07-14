@@ -178,7 +178,8 @@ model:
       - deepimagej
       - zero/Notebook_U-Net_3D_ZeroCostDL4Mic
       - imjoy/BioImageIO-Packager
-  - id: 3DUNetZeroCostDL4Mic
+
+  - id: Stardist2DZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml
     download_url: https://sandbox.zenodo.org/record/880529/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip
     links:
