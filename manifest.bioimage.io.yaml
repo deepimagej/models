@@ -45,8 +45,7 @@ dataset:
       text: "Neeraj Kumar et al. Transactions on medical imaging 2020"
       doi: https://doi.org/10.1109/TMI.2019.2947628
     authors: 
-      - name: DeepImageJ team
-      	affiliation: UC3M, EPFL
+      - DeepImageJ team, UC3M, EPFL
     documentation: https://monuseg.grand-challenge.org/
     tags: [StarDist, segmentation, pathology, H&E, histology, 2D, nuclei segmentation, digital pathology]
     source: https://monuseg.grand-challenge.org/Data/
@@ -71,8 +70,7 @@ workflow:
       - text: M. Ovesný, et al., Bioinformatics 2014
         doi: https://doi.org/10.1093/bioinformatics/btu202
     authors: 
-      - name: DeepImageJ team
-      	affiliation: UC3M, EPFL
+      - DeepImageJ team, UC3M, EPFL
     icon: https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png
     documentation: https://raw.githubusercontent.com/deepimagej/models/master/workflows/smlm_deepstorm/README.md
     tags:
