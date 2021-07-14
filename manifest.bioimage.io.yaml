@@ -36,7 +36,25 @@ application:
       - deepimagej
     config:
       supported_weight_formats: ["tensorflow_saved_model_bundle"]
-
+      
+dataset:
+  - id: MoNuSeg_digital_pathology_miccai2018
+    name: Multi-Organ Nucleus Segmentation Challenge - MICCAI 2018
+    description: Labelled images for instance segmentation of cell nuclei in digital pathology datasets (MoNuSeg 2018 Challenge).
+    cite:
+      text: "Neeraj Kumar et al. Transactions on medical imaging 2020"
+      doi: https://doi.org/10.1109/TMI.2019.2947628
+    authors: 
+      - name: DeepImageJ team
+      	affiliation: UC3M, EPFL
+    documentation: https://monuseg.grand-challenge.org/
+    tags: [StarDist, segmentation, pathology, H&E, histology, 2D, nuclei segmentation, digital pathology]
+    source: https://monuseg.grand-challenge.org/Data/
+    covers:
+      - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg1.jpg
+      - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg2.jpg
+      - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg3.jpg
+      
 workflow:
   - id: smlm-deepimagej
     type: workflow
@@ -52,8 +70,9 @@ workflow:
         doi: https://doi.org/10.1101/799270
       - text: M. Ovesný, et al., Bioinformatics 2014
         doi: https://doi.org/10.1093/bioinformatics/btu202
-    authors:
-      - DeepImageJ team
+    authors: 
+      - name: DeepImageJ team
+      	affiliation: UC3M, EPFL
     icon: https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png
     documentation: https://raw.githubusercontent.com/deepimagej/models/master/workflows/smlm_deepstorm/README.md
     tags:
@@ -104,7 +123,6 @@ model:
     download_url: https://zenodo.org/record/4155785/files/DeepImageJ_DeepSTORM_ZeroCostDL4Mic.zip
     links:
       - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic_DeepImageJ
-      - zero/Dataset_Deep-STORM_ZeroCostDL4Mic
       - deepimagej
       - imjoy/BioImageIO-Packager
 
@@ -176,7 +194,7 @@ model:
     download_url: https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
     links:
       - deepimagej
-      - zero/Notebook_U-Net_3D_ZeroCostDL4Mic
+      - zero/Notebook_U-Net_3D_ZeroCostDL4Mic_DeepImageJ
       - imjoy/BioImageIO-Packager
 
   - id: Stardist2DZeroCostDL4Mic
@@ -184,6 +202,8 @@ model:
     download_url: https://sandbox.zenodo.org/record/880529/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip
     links:
       - deepimagej
+      - zero/Notebook_StarDist_2D_ZeroCostDL4Mic_DeepImageJ
+      - MoNuSeg_digital_pathology_miccai2018
 
 notebook:
   - id: unet-pancreaticcellsegmentation
