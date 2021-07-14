@@ -23,8 +23,7 @@ language: Java
 framework: tensorflow
 git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic
 covers:
-- ./input.png
-- ./output.png
+- ./combined.jpg
 tags:
 - ZeroCostDL4Mic
 - deepImageJ
