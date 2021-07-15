@@ -18,7 +18,7 @@ config:
   url_root: https://raw.githubusercontent.com/deepimagej/models/master
 
 application:
-  - id: deepimagej
+  - id: deepimagej-web
     type: application
     name: DeepImageJ
     description: DeepImageJ is a user-friendly plugin that enables the use of pre-trained deep learning models in ImageJ and Fiji. 
@@ -37,7 +37,7 @@ application:
       - software
     config:
       supported_weight_formats: ["tensorflow_saved_model_bundle"]
-  - id: deepimgej-download
+  - id: deepimgej
       source: https://raw.githubusercontent.com/deepimagej/models/master/src/deepimagej-app.imjoy.html
   - id: unet-pancreaticcellsegmentation
     type: application
@@ -183,7 +183,6 @@ model:
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
-      - deepimgej-download
 
   - id: DeepSTORMZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/model.yaml
@@ -254,7 +253,7 @@ model:
     source: https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/model.yaml
     download_url: https://zenodo.org/record/4155785/files/SkinLesions.bioimage.io.model.zip
     links:
-      - deepimagej
+      - deepimagej-web
 
   - id: 3DUNetZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
