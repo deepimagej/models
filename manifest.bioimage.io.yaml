@@ -34,6 +34,7 @@ application:
     passive: true
     tags:
       - deepimagej
+      - software
     config:
       supported_weight_formats: ["tensorflow_saved_model_bundle"]
 
