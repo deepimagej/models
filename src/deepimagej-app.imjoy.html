@@ -322,7 +322,7 @@ class ImJoyPlugin {
 
   async run(ctx) {
     if(!ctx.data || (!ctx.data.config && !ctx.data.source)){
-      const specUrl = await api.prompt("Please paste the model spec url here", "https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml")
+      const specUrl = await api.prompt("Please paste the model spec url here", "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/model.yaml")
       if(!specUrl) return
       app.modelInfo = {
         name: getFileName(specUrl),
@@ -367,7 +367,7 @@ api.export(new ImJoyPlugin())
               <button style="margin:3px;" :key="consumer.name" v-if="consumer && consumer.name==='deepimagej'" @click="download(weight.format)" class="btn btn-primary">Download ({{weight.name}})</button>
           </template>
       </template>
-      <button style="margin:3px;" :disabled="modelInfo.name!=='StarDist nuclei segmentation' || loading" @click="testRun()" class="btn btn-primary">Test Run</button>
+      <button style="margin:3px;" :disabled="modelInfo.name!=='Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)' || loading" @click="testRun()" class="btn btn-primary">Test Run</button>
     </div>
   </div>
 </window>
