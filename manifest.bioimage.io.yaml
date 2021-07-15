@@ -197,7 +197,7 @@ model:
 
 #   - id: Stardist2DZeroCostDL4Mic
 #     source: https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml
-#     download_url: https://sandbox.zenodo.org/record/881607/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip
+#     download_url: https://sandbox.zenodo.org/record/881609/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip
 #     links:
 #       - deepimagej
 #       - zero/Notebook_StarDist_2D_ZeroCostDL4Mic_DeepImageJ
