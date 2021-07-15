@@ -34,9 +34,12 @@ application:
     passive: true
     tags:
       - deepimagej
+      - software
     config:
       supported_weight_formats: ["tensorflow_saved_model_bundle"]
+
   - id: unet-pancreaticcellsegmentation
+    type: application
     name: 2D U-Net for binary segmentation
     description: Easy example to define a 2D U-Net for segmentation with Keras and import it into DeepImageJ format
     cite:
@@ -63,27 +66,8 @@ application:
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
     links:
       - UNet2DPancreaticSegmentation
-      
-dataset:
-  - id: MoNuSeg_digital_pathology_miccai2018
-    name: Multi-Organ Nucleus Segmentation Challenge - MICCAI 2018
-    description: Labelled images for instance segmentation of cell nuclei in digital pathology datasets (MoNuSeg 2018 Challenge).
-    cite:
-      text: "Neeraj Kumar et al. Transactions on medical imaging 2020"
-      doi: https://doi.org/10.1109/TMI.2019.2947628
-    authors: 
-      - DeepImageJ team, UC3M, EPFL
-    documentation: https://monuseg.grand-challenge.org/
-    tags: [StarDist, segmentation, pathology, H&E, histology, 2D, nuclei segmentation, digital pathology]
-    source: https://monuseg.grand-challenge.org/Data/
-    covers:
-      - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg1.jpg
-      - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg2.jpg
-      - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg3.jpg
-      
-workflow:
   - id: smlm-deepimagej
-    type: workflow
+    type: application
     name: SMLM-superresolution
     description: Single molecule localization microscopy (SMLM) processing using deepImageJ and ThunderSTORM in an ImageJ macro.
     covers:
@@ -103,12 +87,14 @@ workflow:
     tags:
       - deepimagej
       - smlm
+      - macro
       - deepstorm
       - thunderstorm
       - workflow
       - pipeline
       - superresolution
   - id: EVsTEMsegmentationFRUNet
+    type: application
     name: Small extracellular vesicle instance segmentation (FRU-Net)
     description: Ready to use notebook for the segmentation of small extrcaellular vesicles in transmission electron microscopy (TEM) images. The notebook is optimized to use it in Google Colaboratory. It will download the original code and dataset, and make the inference connecting with Google's GPU.
     cite:
@@ -140,6 +126,24 @@ workflow:
     source: https://raw.githubusercontent.com/BIIG-UC3M/FRU-Net-TEM-segmentation/master/FRUnet_TEM_Exosomes_sEV.ipynb
     links:
       - FRUNet2DsEVSegmentation
+
+dataset:
+  - id: MoNuSeg_digital_pathology_miccai2018
+    name: Multi-Organ Nucleus Segmentation Challenge - MICCAI 2018
+    description: Labelled images for instance segmentation of cell nuclei in digital pathology datasets (MoNuSeg 2018 Challenge).
+    cite:
+      text: "Neeraj Kumar et al. Transactions on medical imaging 2020"
+      doi: https://doi.org/10.1109/TMI.2019.2947628
+    authors: 
+      - DeepImageJ team, UC3M, EPFL
+    documentation: https://monuseg.grand-challenge.org/
+    tags: [StarDist, segmentation, pathology, H&E, histology, 2D, nuclei segmentation, digital pathology]
+    source: https://monuseg.grand-challenge.org/Data/
+    covers:
+      - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg1.jpg
+      - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg2.jpg
+      - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg3.jpg
+
 model:
   - id: FRUNet2DsEVSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/model.yaml
