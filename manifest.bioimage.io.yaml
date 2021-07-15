@@ -37,7 +37,8 @@ application:
       - software
     config:
       supported_weight_formats: ["tensorflow_saved_model_bundle"]
-
+  - id: deepimgej-download
+      source: https://raw.githubusercontent.com/deepimagej/models/master/src/deepimagej-app.imjoy.html
   - id: unet-pancreaticcellsegmentation
     type: application
     name: 2D U-Net for binary segmentation
@@ -182,6 +183,7 @@ model:
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
+      - deepimgej-download
 
   - id: DeepSTORMZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/model.yaml

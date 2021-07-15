@@ -1,0 +1,390 @@
+<config lang="json">
+{
+  "name": "deepimagej-download",
+  "type": "window",
+  "tags": [],
+  "ui": "",
+  "version": "2.1.9",
+  "api_version": "0.1.0",
+  "description": "Export BioImage.IO model packages for deepImageJ from a model description file",
+  "icon": "https://raw.githubusercontent.com/deepimagej/models/master/logos/logo.png",
+  "labels": ["software"],
+  "inputs": null,
+  "outputs": null,
+  "env": "",
+  "requirements": [
+      "https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js",
+      "https://static.imjoy.io/spectre.css/spectre.min.css",
+      "https://static.imjoy.io/spectre.css/spectre-exp.min.css",
+      "https://static.imjoy.io/spectre.css/spectre-icons.min.css",
+      "https://static.imjoy.io/js/UZIP.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js",
+      "https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+  ],
+  "dependencies": [],
+  "defaults": {"w": 20, "h": 10},
+  "runnable": true
+}
+</config>
+
+<script lang="javascript">
+function isZenodoFileUrl(url){
+  const myRegexp = /https?:\/\/zenodo.org\/record\/([a-zA-Z0-9-]+)\/files\/(.*)/g;
+  const match = myRegexp.exec(url);
+  if (!match || match.length !== 3) {
+    return false
+  }
+  return true
+}
+
+async function convertZenodoFileUrl(url) {
+  const myRegexp = /https?:\/\/zenodo.org\/record\/([a-zA-Z0-9-]+)\/files\/(.*)/g;
+  const match = myRegexp.exec(url);
+  if (!match || match.length !== 3) {
+    throw new Error("Invalid zenodo url");
+  }
+  const [fullUrl, depositId, fileName] = match;
+  const blob = await fetch(
+    `https://zenodo.org/api/records/${depositId}`
+  ).then(r => r.blob());
+  const data = JSON.parse(await new Response(blob).text());
+  const fn = fileName.split("?")[0];
+  const fileObj = data.files.filter(file => {
+    return file.key === fn;
+  })[0];
+  return fileObj && fileObj.links.self;
+}
+
+  
+async function convertZenodoFileUrl(url) {
+  const myRegexp = /zenodo.org\/record\/([a-zA-Z0-9-]+)\/files\/(.*)/g;
+  const match = myRegexp.exec(url);
+  if (!match || match.length !== 3) {
+    return null
+  }
+  const [fullUrl, depositId, fileName] = match;
+  if(url.includes('sandbox.zenodo.org'))
+    url = `https://sandbox.zenodo.org/api/records/${depositId}`;
+  else
+    url = `https://zenodo.org/api/records/${depositId}`;
+  const blob = await fetch(url).then(r => r.blob());
+  const data = JSON.parse(await new Response(blob).text());
+  const fn = fileName.split("?")[0];
+  const fileObj = data.files.filter(file => {
+    return file.key === fn;
+  })[0];
+  return fileObj.links.self;
+}
+
+async function fetchFile(url, showMessage, showProgress){
+    url = await convertZenodoFileUrl(url) || url;
+    const response = await axios({
+    url,
+    method: 'GET',
+    responseType: 'arraybuffer',
+    onDownloadProgress: (progressEvent) => {
+      showMessage(`Downloading weights ${progressEvent.loaded}/${progressEvent.total}`);
+      if(progressEvent.total)
+      showProgress(progressEvent.loaded/progressEvent.total)
+    }
+  })
+  const filename = url.split('/').pop().split('#')[0].split('?')[0];
+  // const blob = new Blob([response.data]);
+  // const file = new File([blob], filename, {type: "application/octet-stream", lastModified: Date.now()});
+  return {name: filename, data: new Uint8Array(response.data)}
+}
+
+
+async function resolveUrl(rootUrl, url){
+    if(!url.startsWith('http')){
+       url = rootUrl + '/' + url.replace('./', '')
+    }
+    if(isZenodoFileUrl(url)) url = await convertZenodoFileUrl(url)
+    return url
+}
+
+function getFileName(url){
+  return './' + url.split('/').pop().split('#')[0].split('?')[0]
+}
+
+async function fileExists(rootUrl, url){
+    const u = await resolveUrl(rootUrl, url)
+    const response = await fetch(u, {method: 'HEAD'})
+    return response.ok
+}
+
+async function downloadModel(rootUrl, spec, weightsFormat, showMessage, showProgress, showWarning){
+  const exportSpec = JSON.parse(JSON.stringify(spec, function (key, value) {
+        if (value === Infinity) {
+            return 'inf';
+        }
+        if (value === -Infinity) {
+            return '-inf';
+        }
+        return value;
+    })
+  );
+  // Move id to config for now
+  exportSpec.config = exportSpec.config || {}
+  if(exportSpec.id){
+    exportSpec.config._id = exportSpec.id
+    delete exportSpec.id
+  }
+  await showMessage('Downloading files...')
+  let files = []
+  const weightsURL = spec.weights[weightsFormat].source
+  if(weightsURL){
+    files.push(weightsURL)
+    exportSpec.weights[weightsFormat].source = getFileName(weightsURL)
+  }
+  if(spec.attachments && spec.attachments['files']){
+    const fs = spec.attachments['files']
+    files = files.concat(fs)
+    const exportedFs = exportSpec.attachments['files']
+    for(let i=0;i<fs.length;i++){
+      exportedFs[i] = getFileName(fs[i])
+    }
+  }
+  if(spec.weights[weightsFormat].attachments && spec.weights[weightsFormat].attachments.files){
+    const fs = spec.weights[weightsFormat].attachments.files
+    files = files.concat(fs)
+    const exportedFs = exportSpec.weights[weightsFormat].attachments.files
+    for(let i=0;i<fs.length;i++){
+      exportedFs[i] = getFileName(fs[i])
+    }
+  }
+  // deprecate this after v0.4.0
+  // TODO: Fix the leading ./ in the python library
+  if(spec.source && spec.source.includes(':')){
+    const src = spec.source.split(':')[0] // e.g. ./mynetwork:UNet
+    files.push(src)
+    // exportSpec.source = getFileName(src)
+    // HACK: leave field in exportSpec unchanged, bioimageio.spec currently only
+    // loads it like this
+    exportSpec.source = spec.source
+  }
+  // deprecate this after v0.4.0
+  if(spec.dependencies && spec.dependencies.includes(':')){
+    const dep = spec.dependencies.split(':')[1] // e.g. pip:./requirements.txt
+    files.push(dep)
+    exportSpec.dependencies = spec.dependencies
+  }
+  // after 0.4.0, rename source to architecture
+  if(spec.weights[weightsFormat]){
+    const wformat = spec.weights[weightsFormat];
+    if(wformat.architecture && wformat.architecture.includes(':')){
+      const src = wformat.architecture.split(':')[0] // e.g. ./mynetwork:UNet
+      files.push(src)
+      exportSpec.weights[weightsFormat].architecture = wformat.architecture
+    }
+    if(wformat.dependencies && wformat.dependencies.includes(':')){
+      const dep = wformat.dependencies.split(':')[1] // e.g. pip:./requirements.txt
+      files.push(dep)
+      exportSpec.weights[weightsFormat].dependencies = wformat.dependencies
+    }
+  }
+  if(spec.documentation && !spec.documentation.startsWith('http')){
+    files.push(spec.documentation)
+    exportSpec.documentation = getFileName(spec.documentation)
+  }
+  for(let key of ['test_inputs', 'test_outputs', 'sample_inputs', 'sample_outputs']){
+      if(spec[key] && Array.isArray(spec[key])){
+        for(let i=0;i<spec[key].length;i++){
+          if(await fileExists(rootUrl, spec[key][i])){
+              files.push(spec[key][i])
+              exportSpec[key][i] = getFileName(spec[key][i])
+          }
+          else{
+              showWarning("File not found: " + spec[key][i])
+          }
+        }
+      }
+  }
+
+  if(spec.covers && Array.isArray(spec.covers)){
+    files = files.concat(spec.covers)
+    for(let i=0;i<spec.covers.length;i++){
+      exportSpec.covers[i] = getFileName(spec.covers[i])
+    }
+  }
+  // remove duplicated files
+  files = [...new Set(files)]
+  const files2zip = {}
+  console.time("downloading")
+  for(let url of files){
+    url = await resolveUrl(rootUrl, url)
+    await showMessage(`Downloading ${url}`)
+    try{
+        const file = await fetchFile(url, showMessage, showProgress)
+        files2zip[file.name] = file.data
+        await showMessage(`file downloaded: ${file.name}`)
+    } catch(e){
+        showWarning("Failed to download: " + url);
+    }
+  }
+  console.timeEnd("downloading")
+  // clear other weights format
+  // and only keep the current one
+  const newWeights = {}
+  newWeights[weightsFormat] = exportSpec.weights[weightsFormat]
+  exportSpec.weights = newWeights
+  files2zip["rdf.yaml"] = new TextEncoder("utf-8").encode(jsyaml.dump(exportSpec))
+  files2zip["model.yaml"] = files2zip["rdf.yaml"]
+  
+
+  await showMessage('Making zip package, this may take a while...')
+  console.time("zipping")
+  const zipBlob = new Blob([UZIP.encode(files2zip, true)]);
+  console.timeEnd('zipping')
+  await api.exportFile(zipBlob, spec.name.replace(/\s+/g, '-').toLowerCase() + '.zip')
+  await showMessage('Model package was exported successfully')
+
+}
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    modelInfo: null,
+    format: null,
+    status: "",
+    loading: false,
+    progress: 0,
+    spec: null,
+    rootUrl: null,
+    warnings: [],
+    weightsConsumers: []
+  },
+  methods: {
+    async init(weight_formats_spec){
+      const rdfFile = this.modelInfo.config&&this.modelInfo.config._rdf_file;
+      let specUrl = rdfFile || this.modelInfo.source
+      const tmp = specUrl.split('/')
+      this.rootUrl = tmp.slice(0, tmp.length-1).join('/')
+      specUrl = await convertZenodoFileUrl(specUrl) || specUrl
+      const response = await fetch(specUrl)
+      this.spec = jsyaml.load(await response.text())
+
+      this.modelInfo.name = this.spec.name
+      this.weightsConsumers = Object.keys(this.spec.weights).map((k)=>{
+          const wformat = weight_formats_spec.weight_formats[k]
+          if(wformat)
+            return {"format": k, "name": wformat.name, "consumers": wformat.consumers.map((k)=>weight_formats_spec.consumers[k])}
+          else
+            return {"format": k, "name": k, "consumers": []}
+      })
+
+    },
+    async download(format){
+      this.format = format
+      this.warnings = []
+      try{
+        this.loading = true;
+        if(this.format === 'default')
+          await api.utils.openUrl(spec.download_url)
+        else
+          await downloadModel(this.rootUrl, this.spec, this.format, async (msg)=>{
+            this.status = msg
+            this.$forceUpdate()
+          }, async (p)=>{
+            if(p<1) p = parseInt(p*100)
+            this.progress = p
+            this.$forceUpdate()
+          },(warning)=>{
+              this.warnings.push(warning)
+              this.$forceUpdate();
+          })
+      }
+      finally{
+        this.progress = 0
+        this.loading = false
+      }
+
+    },
+    async testRun(){
+        try{
+            this.loading = true;
+            await api.showDialog({src: 'https://raw.githubusercontent.com/deepimagej/models/master/src/deepimagej-app.imjoy.html'});
+        } catch(e){
+            await api.alert(`Failed to run the model, error: ${e}`)
+        }
+        finally{
+            this.loading = false;
+        }
+    }
+  }
+})
+
+class ImJoyPlugin {
+  async setup() {
+    const response = await fetch("https://raw.githubusercontent.com/bioimage-io/spec-bioimage-io/gh-pages/weight_formats_spec.json")
+    this.weight_formats_spec = JSON.parse(await response.text())
+  }
+
+  async run(ctx) {
+    if(!ctx.data || (!ctx.data.config && !ctx.data.source)){
+      const specUrl = await api.prompt("Please paste the model spec url here", "https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml")
+      if(!specUrl) return
+      app.modelInfo = {
+        name: getFileName(specUrl),
+        config: { _rdf_file: specUrl }
+      }
+    }
+    else
+      app.modelInfo = ctx.data;
+    await app.init(this.weight_formats_spec);
+    app.$forceUpdate();
+  }
+}
+
+api.export(new ImJoyPlugin())
+</script>
+
+<window lang="html">
+  <div style="text-align: center;" id="app">
+       <img src="https://raw.githubusercontent.com/deepimagej/models/master/logos/logo.png" alt="deepimagej">
+    <h1>
+      <a href="https://deepimagej.github.io/deepimagej/" target="_blank">
+          deepImageJ
+      </a>
+    </h1>
+    <p>A user-friendly environment to run deep learning models in ImageJ</p>
+    <h4>You can download and run this model in deepImageJ:</h4>
+    <h2 v-if="modelInfo">{{modelInfo.name}}</h2>
+
+    <a v-if="modelInfo && modelInfo.source" target="_blank" :href="modelInfo.source">source RDF file</a>
+    <div v-if="spec">
+      <ul>
+          <li style="color: orange;" v-for="warning in warnings">{{warning}}</li>
+      </ul>
+     
+      <p v-else-if="!spec">No model selected.</p>
+      <p v-else-if="!spec.weights">No model weights available.</p>
+      <div v-if="loading" class="loading loading-lg"></div>
+      <progress v-if="progress" id="progressbar" class="progress" :value="progress" max="100"></progress>
+      <div class="d-block">{{status}}</div>
+       <template v-for="weight in weightsConsumers" :key="weight">
+          <template v-for="consumer in weight.consumers">
+              <button style="margin:3px;" :key="consumer.name" v-if="consumer && consumer.name==='deepimagej'" @click="download(weight.format)" class="btn btn-primary">Download ({{weight.name}})</button>
+          </template>
+      </template>
+      <button style="margin:3px;" :disabled="modelInfo.name!=='StarDist nuclei segmentation' || loading" @click="testRun()" class="btn btn-primary">Test Run</button>
+    </div>
+  </div>
+</window>
+
+<style lang="css">
+#progressbar {
+  position: absolute;
+  bottom: 6px;
+  left: 0px;  
+}
+.form-group {
+  margin: 20px;
+}
+.chip{
+  cursor: pointer;
+}
+.avatar {
+    background: white;
+}
+</style>
