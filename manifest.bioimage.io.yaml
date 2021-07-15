@@ -86,6 +86,7 @@ application:
     tags:
       - deepimagej
       - smlm
+      - macro
       - deepstorm
       - thunderstorm
       - workflow
