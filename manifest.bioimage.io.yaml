@@ -57,6 +57,9 @@ application:
       - unet
       - segmentation
       - deepimagej
+      - notebook
+      - training
+      - cell segmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb
     links:
       - UNet2DPancreaticSegmentation
@@ -102,6 +105,9 @@ workflow:
       - smlm
       - deepstorm
       - thunderstorm
+      - workflow
+      - pipeline
+      - superresolution
   - id: EVsTEMsegmentationFRUNet
     name: Small extracellular vesicle instance segmentation (FRU-Net)
     description: Ready to use notebook for the segmentation of small extrcaellular vesicles in transmission electron microscopy (TEM) images. The notebook is optimized to use it in Google Colaboratory. It will download the original code and dataset, and make the inference connecting with Google's GPU.
@@ -126,6 +132,11 @@ workflow:
       - extracellular vesicles
       - segmentation
       - TEM
+      - notebook
+      - model inference
+      - google colab
+      - workflow
+      - pipeline
     source: https://raw.githubusercontent.com/BIIG-UC3M/FRU-Net-TEM-segmentation/master/FRUnet_TEM_Exosomes_sEV.ipynb
     links:
       - FRUNet2DsEVSegmentation
