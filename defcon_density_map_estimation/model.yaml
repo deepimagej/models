@@ -1,94 +1,81 @@
 format_version: 0.3.0
 name: SMLM Density Map Estimation (DEFCoN)
-description: "Density Estimation by Fully Convolutional Networks (DEFCoN)   - A fluorescent
-    spot counter for single molecule localization microscopy. DEFCoN was written by
-    Baptiste Ottino as a Masters thesis project under the guidance of Kyle M. Douglass
-    and Suliana Manley in the Laboratory of Experimental Biophysics."
-timestamp: 2021-03-16T17:22:18.000122
+description: Density Estimation by Fully Convolutional Networks (DEFCoN) - A fluorescent spot counter for single molecule localization microscopy. DEFCoN was written by Baptiste Ottino as a Masters thesis project under the guidance of Kyle M. Douglass and Suliana Manley in the Laboratory of Experimental Biophysics.
+date: 2019
+cite:
 authors:
   - Baptiste Ottino
   - Kyle M. Douglass
   - Suliana Manley
 documentation: https://github.com/LEB-EPFL/DEFCoN-ImageJ/wiki
 covers: [./cover_image.jpg]
-tags:
-  - deepimagej
-  - smlm
-  - defcon
-  - density estimation
-  - deepimagej.js
-license: BSD 3
-language: java
-framework: tensorflow
-git_repo: https://github.com/LEB-EPFL/DEFCoN
 attachments:
     files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./Results.csv", "./resultImage.tif"]
-test_inputs:
-  - ./exampleImage.npy
-test_outputs:
-  - ./resultImage.npy
-  - ./Results.npy
-sample_inputs:
-  - ./exampleImage.tif
-sample_outputs:
-  - ./resultImage.tif
-  - ./Results.csv
+tags:
+  - unet
+  - deepimagej
+  - deepimagej.js
+license: BSD 3
+language: Java
+framework: Tensorflow
+git_repo: https://github.com/LEB-EPFL/DEFCoN
 weights:
-    tensorflow_saved_model_bundle:
-        source: https://zenodo.org/record/4608442/files/tensorflow_saved_model_bundle.zip
-        sha256: 41e6361133ad6f0051900b8b9d8bb25d8223cec81a52234aaec6336357532fea
-        attachments:
-            files: ["./config.xml"]
-    tensorflow_js:
-        source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/defcon_density_map_estimation_tf_js_model/model.json
-        sha256: d1427f81f1fb217c127ef01ed992b6a9dc11d3a5b552514cfdccd82c01230e21
-        format: graph-model
+  tensorflow_js:
+    name: v1
+    format: graph-model
+    source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/defcon_density_map_estimation_tf_js_model/model.json
+    sha256: d1427f81f1fb217c127ef01ed992b6a9dc11d3a5b552514cfdccd82c01230e21
+
 inputs:
   - name: input
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
     shape:
-        min: [1, 1, 1, 1]
-        step: [0, 1, 1, 0]
+      min: [1, 1, 1, 1]
+      step: [0, 1, 1, 0]
+    preprocessing:
+      name: min_max_normalization
+      kwargs:
+        mode: fixed
+        axes: xy
+        min: 0.0
+        max: 65535.0
 outputs:
   - name: output
     axes: byxc
     data_type: float32
-    data_range: [-inf, inf]
+    data_range: [0, 1]
     halo: [0, 10, 10, 0]
     shape:
-        reference_input: input
-        scale: [1.0, 1.0, 1.0, 1.0]
-        offset: [0, 0, 0, 0]
+      reference_input: input
+      scale: [1, 1, 1, 1]
+      offset: [0, 0, 0, 0]
 config:
-    deepimagej:
-        pyramidal_model: false
-        allow_tiling: true
-        model_keys:
-            tensorflow_model_tag: tf.saved_model.tag_constants.SERVING
-            tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
-        test_information:
-            inputs:
-              - name: exampleImage.tif
-                size: 64 x 64 x 1 x 1
-                pixel_size:
-                    x: 1.0 pixel
-                    y: 1.0 pixel
-                    z: 1.0 pixel
-            outputs:
-              - name: resultImage.tif
-                type: image
-                size: 64 x 64 x 1 x 1
-              - name: Results
-                type: ResultsTable
-                size: 1 x 25
-            memory_peak: 67.9 Mb
-            runtime: 1.0
-        prediction:
-            preprocess:
-              - spec: ij.IJ::runMacroFile
-                kwargs: preprocessing.txt
-            postprocess:
-              - spec: ij.IJ::runMacroFile
-                kwargs: postprocessing.txt
+  deepimagej:
+    pyramidal_model: false
+    allow_tiling: true
+    model_keys:
+      model_tag: tf.saved_model.tag_constants.SERVING
+      signature_definition: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
+    test_information:
+      inputs:
+        - name: exampleImage.tiff
+          size: 64 x 64 x 1 x 1
+          pixel_size:
+            x: 1 pixel
+            y: 1 pixel
+            z: 1.0 pixel
+      outputs:
+        - name: resultImage.tiff
+          type: image
+          size: 64 x 64 x 1 x 1
+      memory_peak: 62.9 Mb
+      runtime: 0.1 s
+    prediction:
+      preprocess:
+      -   spec: ij.IJ::runMacroFile
+          kwargs: preprocessing.txt
+      postprocess:
+      -   spec: ij.IJ::runMacroFile
+          kwargs: postprocessing.txt
