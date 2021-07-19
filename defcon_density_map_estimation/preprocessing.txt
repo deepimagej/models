@@ -1,14 +1,1 @@
 // Preprocessing macro
-print("Preprocessing");
-name=getTitle; 
-if (bitDepth()==8) {
-	run("32-bit");
-    run("Divide...", "value=255");
-   } else if (bitDepth()==16){
-   	run("32-bit");
-    run("Divide...", "value=65535.000");
-   }
-run("Brightness/Contrast...");
-run("Enhance Contrast", "saturated=0.35");
-selectWindow("B&C"); 
-run("Close");
