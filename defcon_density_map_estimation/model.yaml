@@ -19,6 +19,7 @@ tags:
   - smlm
   - defcon
   - density estimation
+  - deepimagej.js
 license: BSD 3
 language: java
 framework: tensorflow
