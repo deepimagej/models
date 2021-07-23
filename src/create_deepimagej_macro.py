@@ -1,9 +1,8 @@
 from ruamel import yaml
 from ruamel.yaml import YAML
-import numpy as np
 import urllib.request
+import math
 
-# yaml_url = "https://sandbox.zenodo.org/record/885236/files/model.yaml"
 # Dominik's magic:
 def enforce_min_shape(min_shape, step, axes):
     """Hack: pick a bigger shape than min shape
@@ -29,20 +28,22 @@ def enforce_min_shape(min_shape, step, axes):
     m = max(factors)
     return [s + i * m for s, i in zip(min_shape, step)]
 
+
 def create_dij_macro(url):
     urllib.request.urlretrieve(yaml_url, "model.yaml")
     try:
         yaml = YAML()
-    with open('model.yaml') as f:
-        YAML_dict = yaml.load(f)
+        with open('model.yaml') as f:
+            YAML_dict = yaml.load(f)
     except:
-    print("model.yaml not found.")
+        print("model.yaml not found.")
+        exit(0)
 
     model_name = YAML_dict['name']
     preprocessing = YAML_dict['config']['deepimagej']['prediction']['preprocess']
     preprocessing_txt = preprocessing[0]['kwargs']
-    if len(preprocessing)>1:
-        for i in range(1,len(preprocessing)):
+    if len(preprocessing) > 1:
+        for i in range(1, len(preprocessing)):
             preprocessing_txt = preprocessing_txt + ' ' + preprocessing[i]['kwargs']
 
     postprocessing = YAML_dict['config']['deepimagej']['prediction']['postprocess']
@@ -54,43 +55,54 @@ def create_dij_macro(url):
     axes = YAML_dict['inputs'][0]['axes']
     if axes.__contains__('b'):
         axes = axes[1:]
-    axes = ','.join(axes)
     input_shape = YAML_dict['inputs'][0]['shape']
 
     if 'min' in input_shape:
         m = input_shape['min']
         step = input_shape['step']
-        shape = enforce_min_shape(m, step, axes) # ensure that the tile shape won't be too large
+        if YAML_dict['inputs'][0]['axes'].__contains__('b'):
+            # avoid the batch dimension
+            m = m[1:]
+            step = step[1:]
+        shape = enforce_min_shape(m, step, axes)  # ensure that the tile shape won't be too large
         # shape = [] # variable to store the shape of the tile
         # test_image = np.load( YAML_dict['test_inputs'][0])
         # dims = [test_image.shape[d] for d in range(len(test_image.shape))]
         # for i in range(len(dims)):
-            # if YAML_dict['inputs'][0]['axes'].__contains__('b'):
-            #     # avoid the batch dimension
-            #     j = i+1
-            # else:
-            #     j = 1
-            # if step[j] > 0:
-            #     #if the step is 0, then the shape is like min
-            #     n = np.floor((d[i]-m[j])/step[j]) # multiple for the shape calculator
-            #     shape.append(int(m[j] + n*step[j]))
-            # else:
-            #     shape.append(int(m[j]))
-        shape = ','.join([str(i) for i in shape])
+        # if YAML_dict['inputs'][0]['axes'].__contains__('b'):
+        #     # avoid the batch dimension
+        #     j = i+1
+        # else:
+        #     j = 1
+        # if step[j] > 0:
+        #     #if the step is 0, then the shape is like min
+        #     n = np.floor((d[i]-m[j])/step[j]) # multiple for the shape calculator
+        #     shape.append(int(m[j] + n*step[j]))
+        # else:
+        #     shape.append(int(m[j]))
+
     else:
         if YAML_dict['inputs'][0]['axes'].__contains__('b'):
             input_shape = input_shape[1:]
-        shape = ','.join([str(i) for i in input_shape])
-        
+        shape = input_shape
+
+    # convert into string:
+    axes = ','.join(axes)
+    shape = ','.join([str(i) for i in shape])
     if 'tensorflow_saved_model_bundle' in YAML_dict['weights']:
         format = "Tensorflow"
     elif 'pytorch_script' in YAML_dict['weights']:
         format = "Pytorch"
     else:
         print("This models does not have any deepImageJ compatible weight format.")
+        exit(0)
 
     ijmacro = f"""
     run("DeepImageJ Run",
         "model=[{model_name}] format={format} preprocessing=[{preprocessing_txt}] postprocessing=[{postprocessing_txt}] axes={axes} tile={shape} logging=normal");
     """
     return ijmacro
+
+## Test it with:
+#yaml_url = "https://sandbox.zenodo.org/record/885236/files/model.yaml"
+#print(create_dij_macro(yaml_url))
