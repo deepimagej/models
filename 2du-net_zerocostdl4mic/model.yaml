@@ -67,21 +67,6 @@ outputs:
         reference_input: input
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
-    postprocessing:
-      - name: scale_range
-        kwargs:
-          mode: per_sample
-          axes: xy
-          min_percentile: 0
-          max_percentile: 100
-      - name: scale_linear
-        kwargs:
-          gain: 255
-          offset: 0
-          axes: xy
-      - name: binarize
-        kwargs:
-          threshold: 71
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
@@ -108,6 +93,3 @@ config:
       preprocess:
       -   spec: ij.IJ::runMacroFile
           kwargs: preprocessing.ijm
-      postprocess:
-      -   spec: ij.IJ::runMacroFile
-          kwargs: postprocessing.ijm
