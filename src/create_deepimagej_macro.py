@@ -4,7 +4,7 @@ import numpy as np
 import urllib.request
 
 # yaml_url = "https://sandbox.zenodo.org/record/885236/files/model.yaml"
-# Constantin's magic:
+# Dominik's magic:
 def enforce_min_shape(min_shape, step, axes):
     """Hack: pick a bigger shape than min shape
     Some models come with super tiny minimal shapes, that make the processing
