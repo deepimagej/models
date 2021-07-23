@@ -27,7 +27,23 @@ def enforce_min_shape(min_shape, step, axes):
 
     m = max(factors)
     return [s + i * m for s, i in zip(min_shape, step)]
+def parse_prediction(prediction_dict):
+    if prediction_dict[0]['spec'].__contains__('MacroFile'):
+        processing_txt = [prediction_dict[0]['kwargs']]
+    else:
+        processing_txt = prediction_dict[0]['spec'].split(' ')
+        processing_txt = [processing_txt[0]]
+    if len(prediction_dict) > 1:
+        for i in range(1, len(prediction_dict)):
+            if prediction_dict[i]['spec'].__contains__('MacroFile'):
+                aux_txt = prediction_dict[i]['kwargs']
+            else:
+                aux_txt = prediction_dict[i]['spec'].split(' ')
+                aux_txt = aux_txt[0]
 
+            processing_txt.append(aux_txt)
+    processing_txt = ' '.join(processing_txt)
+    return processing_txt
 
 def create_dij_macro(url):
     urllib.request.urlretrieve(yaml_url, "model.yaml")
@@ -40,17 +56,12 @@ def create_dij_macro(url):
         exit(0)
 
     model_name = YAML_dict['name']
+
     preprocessing = YAML_dict['config']['deepimagej']['prediction']['preprocess']
-    preprocessing_txt = preprocessing[0]['kwargs']
-    if len(preprocessing) > 1:
-        for i in range(1, len(preprocessing)):
-            preprocessing_txt = preprocessing_txt + ' ' + preprocessing[i]['kwargs']
+    preprocessing_txt = parse_prediction(preprocessing)
 
     postprocessing = YAML_dict['config']['deepimagej']['prediction']['postprocess']
-    postprocessing_txt = postprocessing[0]['kwargs']
-    if len(postprocessing) > 1:
-        for i in range(1, len(postprocessing)):
-            postprocessing_txt = postprocessing_txt + ' ' + postprocessing[i]['kwargs']
+    postprocessing_txt = parse_prediction(postprocessing)
 
     axes = YAML_dict['inputs'][0]['axes']
     if axes.__contains__('b'):
@@ -102,7 +113,6 @@ def create_dij_macro(url):
         "model=[{model_name}] format={format} preprocessing=[{preprocessing_txt}] postprocessing=[{postprocessing_txt}] axes={axes} tile={shape} logging=normal");
     """
     return ijmacro
-
 ## Test it with:
 #yaml_url = "https://sandbox.zenodo.org/record/885236/files/model.yaml"
 #print(create_dij_macro(yaml_url))
