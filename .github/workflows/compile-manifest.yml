@@ -38,17 +38,26 @@ jobs:
           name: built-output
           path: ./
 
+      - name: Verify model config files
+        run: |
+          pip install git+https://github.com/bioimage-io/spec-bioimage-io.git
+          python -m bioimageio.spec verify-bioimageio-manifest --auto-convert manifest.bioimage.io.yaml
+          
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-manifest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - name: Load saved build output
+        uses: actions/download-artifact@v1
+        with:
+          name: built-output
+          path: ./output
       - run: |
           mkdir ./dist
-          mv ./manifest.bioimage.io.json ./dist
-
+          mv ./output/manifest.bioimage.io.json ./dist
       - name: Deploy the manifest JSON file
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
           folder: ./dist
-
-      - name: Verify model config files
-        run: |
-          pip install git+https://github.com/bioimage-io/spec-bioimage-io.git
-          python -m bioimageio.spec verify-bioimageio-manifest --auto-convert manifest.bioimage.io.yaml
