@@ -38,6 +38,16 @@ jobs:
           name: built-output
           path: ./
 
+      - run: |
+          mkdir ./dist
+          mv ./manifest.bioimage.io.json ./dist
+
+      - name: Deploy the manifest JSON file
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: ./dist
+
       - name: Verify model config files
         run: |
           pip install git+https://github.com/bioimage-io/spec-bioimage-io.git
