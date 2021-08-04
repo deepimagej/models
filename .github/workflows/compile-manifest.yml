@@ -48,6 +48,8 @@ jobs:
     needs: build-manifest
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Load saved build output
         uses: actions/download-artifact@v1
         with:
