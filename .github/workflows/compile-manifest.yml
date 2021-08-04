@@ -38,10 +38,10 @@ jobs:
           name: built-output
           path: ./
 
-#       - name: Verify model config files
-#         run: |
-#           pip install git+https://github.com/bioimage-io/spec-bioimage-io.git
-#           python -m bioimageio.spec verify-bioimageio-manifest --auto-convert manifest.bioimage.io.yaml
+      - name: Verify model config files
+        run: |
+          pip install git+https://github.com/bioimage-io/spec-bioimage-io.git
+          python -m bioimageio.spec verify-bioimageio-manifest --auto-convert manifest.bioimage.io.yaml
           
   deploy:
     runs-on: ubuntu-latest
