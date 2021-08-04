@@ -38,6 +38,7 @@ weights:
     tensorflow_saved_model_bundle:
         source: https://zenodo.org/record/4155785/files/3dunet_zerocostdl4mic_tf_model.zip
         sha256: 09f8212a605ae387b8289b364b29c3e2d65f44e42e02f820063793d11e3886e3
+        tensorflow_version: 1.15.2
 inputs:
   - name: input
     axes: byxzc
