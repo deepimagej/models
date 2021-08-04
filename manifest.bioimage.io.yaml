@@ -255,7 +255,7 @@ model:
     source: https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/model.yaml
     download_url: https://zenodo.org/record/4155785/files/SkinLesions.bioimage.io.model.zip
     links:
-      - deepimagej-web
+      - deepimagej
 
   - id: 3DUNetZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
