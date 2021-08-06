@@ -265,10 +265,10 @@ model:
       - zero/Notebook_U-Net_3D_ZeroCostDL4Mic_DeepImageJ
       - imjoy/BioImageIO-Packager
 
-#   - id: Stardist2DZeroCostDL4Mic
-#     source: https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml
-#     download_url: https://sandbox.zenodo.org/record/881609/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip
-#     links:
-#       - deepimagej
-#       - zero/Notebook_StarDist_2D_ZeroCostDL4Mic_DeepImageJ
-#       - MoNuSeg_digital_pathology_miccai2018
+   - id: Stardist2DZeroCostDL4Mic
+     source: https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml
+     download_url: https://sandbox.zenodo.org/record/894493/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip
+     links:
+       - deepimagej
+       - zero/Notebook_StarDist_2D_ZeroCostDL4Mic_DeepImageJ
+       - MoNuSeg_digital_pathology_miccai2018
