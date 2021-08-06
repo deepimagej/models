@@ -41,8 +41,8 @@
       "dependencies": [],
       "env": "",
       "tags": [
-        "bioengine",
-        "software"
+        "software",
+        "bioengine"
       ],
       "documentation": null,
       "covers": [],
@@ -80,13 +80,13 @@
       ],
       "documentation": "https://cbia.fi.muni.cz/research/segmentation/fru-net.html",
       "tags": [
+        "segmentation",
         "pipeline",
-        "extracellular vesicles",
         "notebook",
         "TEM",
-        "model inference",
         "google colab",
-        "segmentation",
+        "model inference",
+        "extracellular vesicles",
         "workflow"
       ],
       "source": "https://raw.githubusercontent.com/BIIG-UC3M/FRU-Net-TEM-segmentation/master/FRUnet_TEM_Exosomes_sEV.ipynb",
@@ -124,14 +124,14 @@
       "icon": "https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png",
       "documentation": "https://raw.githubusercontent.com/deepimagej/models/master/workflows/smlm_deepstorm/README.md",
       "tags": [
-        "thunderstorm",
-        "smlm",
         "pipeline",
+        "macro",
+        "smlm",
         "deepimagej",
-        "superresolution",
-        "workflow",
+        "thunderstorm",
         "deepstorm",
-        "macro"
+        "superresolution",
+        "workflow"
       ]
     },
     {
@@ -152,8 +152,8 @@
       "git_repo": "https://github.com/deepimagej/deepimagej-plugin",
       "passive": true,
       "tags": [
-        "deepimagej",
-        "software"
+        "software",
+        "deepimagej"
       ],
       "config": {
         "supported_weight_formats": [
@@ -189,12 +189,12 @@
       ],
       "documentation": "https://github.com/miura/NEUBIAS_AnalystSchool2020/tree/master/Ignacio",
       "tags": [
-        "deepimagej",
-        "notebook",
-        "training",
         "segmentation",
-        "cell segmentation",
-        "unet"
+        "notebook",
+        "deepimagej",
+        "unet",
+        "training",
+        "cell segmentation"
       ],
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb",
       "links": [
@@ -239,9 +239,9 @@
       ],
       "tags": [
         "deepimagej",
-        "GAN",
         "Super resolution",
-        "Fluorescence microscopy"
+        "Fluorescence microscopy",
+        "GAN"
       ],
       "documentation": "https://innovate.ee.ucla.edu",
       "license": "CC BY 4.0",
@@ -285,9 +285,9 @@
       ],
       "tags": [
         "deepimagej",
-        "GAN",
         "Super resolution",
-        "Fluorescence microscopy"
+        "Fluorescence microscopy",
+        "GAN"
       ],
       "documentation": "https://innovate.ee.ucla.edu",
       "license": "CC BY 4.0",
@@ -331,9 +331,9 @@
       ],
       "tags": [
         "deepimagej",
-        "GAN",
         "Super resolution",
-        "Fluorescence microscopy"
+        "Fluorescence microscopy",
+        "GAN"
       ],
       "documentation": "https://innovate.ee.ucla.edu",
       "license": "CC BY 4.0",
@@ -380,10 +380,10 @@
         "frunet_sev.jpg"
       ],
       "tags": [
+        "extracellular vesicles",
         "deepimagej",
         "segmentation",
-        "TEM",
-        "extracellular vesicles"
+        "TEM"
       ],
       "license": "BSD-3-Clause",
       "error": {}
@@ -417,12 +417,12 @@
         "cover.jpg"
       ],
       "tags": [
+        "deepimagej-beta",
         "melanoma",
-        "pytorch",
-        "classification",
-        "deepimagej",
         "skin lesions",
-        "deepimagej-beta"
+        "deepimagej",
+        "classification",
+        "pytorch"
       ],
       "license": "BSD2",
       "git_repo": "https://gist.github.com/esgomezm/72b584887ca5ed5ed0231c47fff9aa9b#file-skin_lession_classification_pytorch_adapted-ipynb",
@@ -565,12 +565,12 @@
         "cover.jpg"
       ],
       "tags": [
-        "cell tracking challenge",
-        "deepwater",
-        "deepimagej",
-        "phase contrast",
         "segmentation",
-        "watershed"
+        "deepimagej",
+        "watershed",
+        "cell tracking challenge",
+        "phase contrast",
+        "deepwater"
       ],
       "license": "MIT",
       "error": {}
@@ -617,13 +617,13 @@
       ],
       "tags": [
         "2D",
+        "segmentation",
+        "deepimagej-beta",
+        "fibroblasts",
         "deepimagej",
         "maskrcnn",
-        "usiigaci",
-        "deepimagej-beta",
         "phase contrast",
-        "fibroblasts",
-        "segmentation"
+        "usiigaci"
       ],
       "license": "MIT",
       "git_repo": "https://github.com/oist/Usiigaci",
@@ -643,15 +643,15 @@
       ],
       "documentation": "https://monuseg.grand-challenge.org",
       "tags": [
-        "digital pathology",
-        "H&E",
-        "2D",
-        "deepimagej",
-        "histology",
-        "pathology",
-        "StarDist",
         "segmentation",
-        "nuclei segmentation"
+        "2D",
+        "nuclei segmentation",
+        "histology",
+        "deepimagej",
+        "H&E",
+        "StarDist",
+        "pathology",
+        "digital pathology"
       ],
       "covers": [
         "https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg1.jpg",
@@ -699,9 +699,9 @@
       ],
       "tags": [
         "deepimagej",
-        "GAN",
+        "Virtual staining",
         "histology",
-        "Virtual staining"
+        "GAN"
       ],
       "license": "CC BY 4.0",
       "error": {}
@@ -744,9 +744,9 @@
       ],
       "tags": [
         "deepimagej",
-        "GAN",
+        "Virtual staining",
         "histology",
-        "Virtual staining"
+        "GAN"
       ],
       "documentation": "https://innovate.ee.ucla.edu",
       "license": "CC BY 4.0",
@@ -792,9 +792,9 @@
         "unet_hela_seg.jpg"
       ],
       "tags": [
+        "hela cells",
         "deepimagej",
         "segmentation",
-        "hela cells",
         "phase contrast"
       ],
       "license": "BSD-2",
@@ -842,9 +842,9 @@
       ],
       "tags": [
         "deepimagej",
+        "segmentation",
         "glioblastoma cells",
-        "phase contrast",
-        "segmentation"
+        "phase contrast"
       ],
       "license": "BSD-2",
       "git_repo": "https://github.com/deepimagej/python4deepimagej/tree/master/unet",
@@ -900,11 +900,11 @@
         "zoom.png"
       ],
       "tags": [
-        "zerocostdl4mic",
         "image reconstruction",
         "deepimagej",
+        "super-resolution",
         "SMLM",
-        "super-resolution"
+        "zerocostdl4mic"
       ],
       "license": "MIT",
       "error": {}
@@ -948,13 +948,13 @@
         "exampleImage.gif"
       ],
       "tags": [
-        "ZeroCostDL4Mic",
-        "deepimagej",
-        "deepimagej-beta",
-        "TEM",
         "segmentation",
+        "deepimagej-beta",
+        "deepimagej",
+        "3DUNet",
+        "TEM",
         "mitochondria",
-        "3DUNet"
+        "ZeroCostDL4Mic"
       ],
       "license": "MIT",
       "git_repo": "https://github.com/HenriquesLab/ZeroCostDL4Mic/blob/master/Colab_notebooks/U-Net_3D_ZeroCostDL4Mic.ipynb",
@@ -1007,9 +1007,9 @@
       ],
       "tags": [
         "deepimagej",
-        "segmentation",
         "zerocostdl4mic",
-        "unet"
+        "unet",
+        "segmentation"
       ],
       "license": "MIT",
       "error": {}
