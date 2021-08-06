@@ -49,7 +49,13 @@ inputs:
     data_type: float32
     data_range: [-inf, inf]
     shape: [1, 400, 400, 1]
-
+    preprocessing:
+      - name: scale_range
+        kwargs:
+          mode: per_sample
+          axes: xy
+          min_percentile: 0
+          max_percentile: 100
 outputs:
   - name: output
     axes: byxc
@@ -60,8 +66,6 @@ outputs:
       reference_input: input
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
-run_mode:
-  name: deepimagej
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
