@@ -155,7 +155,7 @@ model:
       - deepimagej
       - EVsTEMsegmentationFRUNet
       - imjoy/BioImageIO-Packager      
-    download_url: https://zenodo.org/record/4156050/files/deepimagej_fru-net_sev_segmentation.zip
+    download_url: https://sandbox.zenodo.org/record/894459/files/deepimagej_fru-net_sev_segmentation.zip
 
   - id: UNet2DHeLaSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/model.yaml
