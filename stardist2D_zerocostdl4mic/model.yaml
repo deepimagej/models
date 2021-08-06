@@ -1,7 +1,6 @@
 format_version: 0.3.2
 name: Multi-Organ Nucleus Segmentation Challenge
 description: Nucleus segmentation in digital pathology datasets (MoNuSeg 2018 Challenge)
-date:
 # we allow for multiple citations. Each citation contains TEXT, DOI and URL. One of DOI or URL needs to be given.
 cite:
 - doi: https://doi.org/10.1007/978-3-030-00934-2_30
@@ -16,8 +15,6 @@ authors:
 - name: "Estibaliz Gómez de Mariscal"
   affiliation: "Universidad Carlos III de Madrid"
 documentation: https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki
-source: 'null'
-parent: 'null'
 license: MIT
 language: Java
 framework: tensorflow
@@ -25,11 +22,15 @@ git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic
 covers:
 - ./combined.jpg
 tags:
-- ZeroCostDL4Mic
-- deepImageJ
+- zerocostdl4mic
+- deepimagej
 - segmentation
 - histopathology
-- StarDist
+- stardist
+- digital-pathology
+- nucleus-segmentation
+- trainable
+- 2d
 test_inputs:
 - ./exampleImage.tif
 test_outputs:
@@ -44,13 +45,13 @@ attachments:
   files: [./exampleImage.tif, ./resultImage.tif, ./per_sample_scale_range.ijm, ./StarDist_Post-processing.ijm]
 weights:
   tensorflow_saved_model_bundle:
-    source: ./tensorflow_saved_model_bundle.zip
+    source: https://sandbox.zenodo.org/record/894493/files/tensorflow_saved_model_bundle.zip
     sha256: 015739d1aff63ce1fd1c0cab85169cd7328fad463d86da7871396b7126abf5e2
     parent: keras_hdf5
     authors:
     - pydeepimagej
   keras_hdf5:
-    source: ./keras_model.h5
+    source: https://sandbox.zenodo.org/record/894493/files/keras_model.h5
     sha256: 8385b10cc85767be5e50554747c9731b28ed699a10c6144ee00faf49ec437816
     authors:
     - pydeepimagej
