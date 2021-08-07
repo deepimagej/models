@@ -1,4 +1,4 @@
-format_version: 0.3.0
+format_version: 0.3.2
 name: Pancreatic Cell Phase Contrast Segmentation (DeepWater - CTC submission)
 description: The method combines deep learning with watershed segmentation. For each frame, the convolutional
   neural network of U-Net shape detects all cells by markers and recognizes the foreground and the
@@ -11,8 +11,10 @@ cite:
   - text: Filip Lux and Petr Matula, arXiv 2020
     doi: https://arxiv.org/abs/2004.01607
 authors:
-  - Filip Lux, Centre for Biomedical Image Analysis, Masaryk University
-  - Petr Matula, Centre for Biomedical Image Analysis, Masaryk University
+  - name: "Filip Lux"
+    affiliation: "Centre for Biomedical Image Analysis, Masaryk University"
+  - name: "Petr Matula"
+    affiliation: "Centre for Biomedical Image Analysis, Masaryk University"
 git_repo: https://gitlab.fi.muni.cz/xlux/deepwater
 documentation: http://public.celltrackingchallenge.net/participants/MU-Lux-CZ.pdf
 covers: [./cover.jpg]
