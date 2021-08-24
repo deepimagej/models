@@ -1,6 +1,6 @@
 format_version: 0.3.2
 timestamp: 2021-02-17T10:13:32.618903
-name: Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)
+name: Fully Residual U-Net - TEM
 description: DeepImageJ compatible fully residual U-Net trained to segment small extracellular vesicles in 2D TEM images
 cite:
   - text: Gómez-de-Mariscal, E. et al., Deep-Learning-Based Segmentation of SmallExtracellular Vesicles in Transmission Electron Microscopy Images Scientific Reports, (2019)
@@ -18,33 +18,37 @@ authors:
     affiliation: Masaryk University
   - name: Arrate Muñoz-Barrutia
     affiliation: Universidad Carlos III de Madrid
-documentation: https://cbia.fi.muni.cz/research/segmentation/fru-net.html
+documentation: ./README.md
 covers: [./frunet_sev.jpg]
 attachments:
-    files: ["./preprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff", "./postprocessing.txt", "./postprocessingWatershed.txt"]
+  files: [./exampleImage.tiff, ./resultImage.tiff, ./resultImage_labels.tiff, ./preprocessing.txt, ./postprocessing.txt, ./postprocessingWatershed.txt]
 tags:
   - deepimagej
-  - extracellular vesicles
+  - extracellular-vesicles
   - segmentation
-  - TEM
-license: BSD-3-Clause
+  - tem
+  - frunet
+  - exosomes
+  - electron-microscopy
+  - 2d-segmentation
+license: BSD-3
 language: java
 framework: tensorflow
 test_inputs:
-  - ./exampleImage.npy
-test_outputs:
-  - ./resultImage.npy
-sample_inputs:
   - ./exampleImage.tiff
-sample_outputs:
+test_outputs:
   - ./resultImage.tiff
+sample_inputs:
+  - ./exampleImage.npy
+sample_outputs:
+  - ./resultImage.npy
 weights:
   keras_hdf5:
-    source: https://sandbox.zenodo.org/record/894459/files/fully_residual_dropout_segmentation.h5
+    source: ./fully_residual_dropout_segmentation.h5
     sha256: 5122cbff7451136102eabfc8c80771dbba5ec477d5dac186f729cdfbb4605ff6
     tensorflow_version: 1.12
   tensorflow_saved_model_bundle:
-    source: https://sandbox.zenodo.org/record/894459/files/tensorflow_saved_model_bundle.zip
+    source: ./tensorflow_saved_model_bundle.zip
     sha256: 20bff1da933cc78027690fa311fea3e562cf60df1f0a2018527c45b9fafe8099
     tensorflow_version: 1.12
   tensorflow_js:
@@ -73,6 +77,10 @@ outputs:
       reference_input: input
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
+    postprocessing:
+      - name: binarize
+        kwargs:
+          threshold: 0.4
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
