@@ -1,7 +1,7 @@
-format_version: 0.3.0
+format_version: 0.3.2
 name: 2D UNet - ZeroCostDL4Mic
 description: 2D U-Net trained for binary segmentation using the EM images of neuronal membranes and segmentation masks from the ISBI segmentation challenge 2012.
-timestamp: 2021-02-17T10:13:32.618903
+timestamp: 2021-08-24 18:40:34.848396
 cite:
   - text: Ronneberger O. et al., MICCAI 2015
     doi: https://doi.org/10.1007/978-3-319-24574-4_28
@@ -10,10 +10,11 @@ cite:
   - text: Gómez de Mariscal et al. bioRxiv 2019
     doi: https://doi.org/10.1101/799270
 authors:
-  - ZeroCostDL4Mic team
-  - DeepImageJ team
+- name: ZeroCostDL4Mic
+- name: DeepImageJ
+  affiliation: EPFL, UC3M
 git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic
-documentation: https://deepimagej.github.io/deepimagej/
+documentation: ./README.md
 covers: [./cover.png]
 attachments:
     files: ["./preprocessing.ijm", "./postprocessing.ijm", "./exampleImage.tif", "./resultImage.tif"]
@@ -30,9 +31,9 @@ test_inputs:
 test_outputs:
   - ./resultImage.npy
 sample_inputs:
-  - ./exampleImage.tiff
+  - ./exampleImage.tif
 sample_outputs:
-  - ./resultImage.tiff
+  - ./resultImage.tif
 weights:
   tensorflow_saved_model_bundle:
     source: https://zenodo.org/record/4155785/files/2du-net_zerocostdl4mic_tf_model.zip
