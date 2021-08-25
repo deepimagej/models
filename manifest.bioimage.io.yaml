@@ -216,7 +216,7 @@ model:
 
   - id: MU-Lux_CTC_PhC-C2DL-PSC
     source: https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml
-    download_url: https://zenodo.org/record/4155785/files/MU-Lux_CTC_PhC-C2DL-PSC.bioimage.io.model.zip
+    download_url: https://sandbox.zenodo.org/record/905081/files/mu-lux_ctc_phc-c2dl-psc.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
