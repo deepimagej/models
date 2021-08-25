@@ -25,8 +25,8 @@ tags:
   - deepimagej
   - segmentation
   - watershed
-  - cell tracking challenge
-  - phase contrast
+  - cell-tracking-challenge
+  - phase-contrast
 license: MIT
 language: java
 framework: tensorflow
