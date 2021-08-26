@@ -13,11 +13,11 @@ authors:
   - name: Tyler F.W. Sloan
     affiliation: Quorumetrix Solutions, Canada
   - name: Hsieh-Fu Tsai
-  - affiliation: Micro/Bio/Nanofluidics Unit, Okinawa Institute of Science and Technology Graduate University, Japan.
+    affiliation: Micro/Bio/Nanofluidics Unit, Okinawa Institute of Science and Technology Graduate University, Japan
   - name: Andrei Rares
     affiliation: ImagineA, The Netherlands
   - name: Amy Q. Shen
-    affiliation: Micro/Bio/Nanofluidics Unit, Okinawa Institute of Science and Technology Graduate University, Japan.
+    affiliation: Micro/Bio/Nanofluidics Unit, Okinawa Institute of Science and Technology Graduate University, Japan
 covers:
   - ./cover.jpg
 tags:
