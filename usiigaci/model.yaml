@@ -26,7 +26,7 @@ tags:
   - phase-contrast
   - fibroblasts
   - maskrcnn
-  - 2D
+  - 2d
   - segmentation
   - deepimagej-beta
 license: MIT
