@@ -1,29 +1,34 @@
-format_version: 0.3.1
+format_version: 0.3.2
 name: "NIH/3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)"
 description: "Trained model given in Usiigaci for instance segmentation of cells in
     a 2D substrate and phase contrast microscopy images. The model is a Mask R-CNN
     and the input is preprocessed to get an RGB image from the grayscale image."
-timestamp: 2021-04-12T20:19:15.000544
+timestamp: 2021-08-26T20:19:15.000544
 cite:
   - text: "Tsai, H.-F., et al., SoftwareX, 2019"
     doi: https://doi.org/10.1016/j.softx.2019.02.007
 authors:
-  - Joanna Gajda
-  - Tyler F.W. Sloan
-  - "Hsieh-Fu Tsai"
-  - Andrei Rares
-  - Amy Q. Shen
+  - name: Joanna Gajda
+    affiliation: AGH University of Science and Technology, Poland
+  - name: Tyler F.W. Sloan
+    affiliation: Quorumetrix Solutions, Canada
+  - name: Hsieh-Fu Tsai
+  - affiliation: Micro/Bio/Nanofluidics Unit, Okinawa Institute of Science and Technology Graduate University, Japan.
+  - name: Andrei Rares
+    affiliation: ImagineA, The Netherlands
+  - name: Amy Q. Shen
+    affiliation: Micro/Bio/Nanofluidics Unit, Okinawa Institute of Science and Technology Graduate University, Japan.
 covers:
   - ./cover.jpg
 tags:
   - deepimagej
   - usiigaci
-  - phase contrast
+  - phase-contrast
   - fibroblasts
   - maskrcnn
   - 2D
   - segmentation
-  - "deepimagej-beta"
+  - deepimagej-beta
 license: MIT
 language: java
 framework: tensorflow
