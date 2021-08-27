@@ -1,4 +1,4 @@
-format_version: 0.3.0
+format_version: 0.3.2
 name: Masson’s Trichrome Virtual Staining (GAN)
 description: "A trained GAN to transform wide-field autofluorescence images of unlabelled tissue sections into images that are equivalent to the bright-field images of histologically stained versions of the same samples."
 timestamp: 2021-03-09T15:58:33.000793
@@ -6,19 +6,22 @@ cite:
   - text: "Hongda Wang, Yair Rivenson, et al., Nature Biomedical Engineering, 2019"
     doi: https://doi.org/10.1038/s41551-019-0362-y
 authors:
-  - Yair Rivenson
-  - Hongda Wang
-  - Aydogan Ozcan
-documentation: https://innovate.ee.ucla.edu/
+  - name: Yair Rivenson
+    affiliation:   University of California  
+  - name: Hongda Wang
+    affiliation: University of California
+  - name: Aydogan Ozcan
+    affiliation: University of California
+documentation: ./README.md
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
     files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
 tags:
   - deepimagej
-  - GAN
-  - Virtual staining
+  - gan
+  - virtual-staining
   - histology
-license: CC BY 4.0
+license: CC-BY-4.0
 language: java
 framework: tensorflow
 test_inputs:
@@ -31,7 +34,7 @@ sample_outputs:
   - ./resultImage.tif
 weights:
     tensorflow_saved_model_bundle:
-        source: https://zenodo.org/record/4290839/files/mt3_vstain_tensorflow_saved_model_bundle.zip
+        source: ./tensorflow_saved_model_bundle.zip
         sha256: 9c20009f5eb0f751dcd4b9f1d43ef7b7ec989b41d6edd080804595aa436b6201
         tensorflow_version: 1.15
         attachments:

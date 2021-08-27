@@ -1,4 +1,4 @@
-format_version: 0.3.0
+format_version: 0.3.2
 name: Jones Virtual Staining (GAN)
 description: A trained GAN to transform wide-field autofluorescence images of unlabelled tissue sections into images that are equivalent to the bright-field images of histologically stained versions of the same samples.
 timestamp: 2021-02-17T10:13:32.618903
@@ -6,19 +6,21 @@ cite:
   - text: Hongda Wang, Yair Rivenson, et al., Nature Biomedical Engineering, 2019
     doi: https://doi.org/10.1038/s41551-019-0362-y
 authors:
-  - Yair Rivenson
-  - Hongda Wang
-  - Aydogan Ozcan
-
+  - name: Yair Rivenson
+    affiliation:   University of California  
+  - name: Hongda Wang
+    affiliation: University of California
+  - name: Aydogan Ozcan
+    affiliation: University of California
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
     files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
 tags:
   - deepimagej
-  - GAN
-  - Virtual staining
+  - gan
+  - virtual-staining
   - histology
-documentation: https://innovate.ee.ucla.edu/
+documentation: ./README.md
 license: CC BY 4.0
 language: java
 framework: tensorflow
@@ -32,7 +34,7 @@ sample_outputs:
   - ./resultImage.tif
 weights:
   tensorflow_saved_model_bundle:
-    source: https://zenodo.org/record/4290839/files/jones_vstaining_tensorflow_saved_model_bundle.zip
+    source: ./tensorflow_saved_model_bundle.zip
     sha256: ec37989b50017f53c3cb9cb3ff1a302ee3b7ed50ab6d8ba34264f10a64ad551a
     tensorflow_version: 1.15
     attachments:
