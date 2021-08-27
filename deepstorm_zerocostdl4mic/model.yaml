@@ -1,4 +1,4 @@
-format_version: 0.3.0
+format_version: 0.3.2
 name: Glial Cell SMLM (DeepSTORM - ZeroCostDL4Mic)
 description: A trained Deep-STORM model for image reconstruction from high-density single-molecule localization microscopy (SMLM).
 timestamp: 2021-02-17T10:13:32.618903
@@ -10,18 +10,20 @@ cite:
   - text: Gómez de Mariscal et al. bioRxiv 2019
     doi: https://doi.org/10.1101/799270
 authors:
-  - ZeroCostDL4Mic team
-  - DeepImageJ team
+  - name: ZeroCostDL4Mic team
+    affiliation: UCL, Francis Crick Institute, Turku and Åbo Akademi University
+  - name: DeepImageJ team
+    affiliation: UC3M, EPFL
 git_repo: https://github.com/HenriquesLab/ZeroCostDL4Mic
-documentation: https://deepimagej.github.io/deepimagej/
+documentation: ./README.md
 covers: [./input.png, ./zoom.png]
 attachments:
     files: ["./preprocessing.ijm", "./postprocessing_LocalMaximaSMLM.ijm", "./exampleImage.tiff", "./Localizations_resultImage_max.csv", "./resultImage.tiff", "./DeepSTORM4stacksThunderSTORM.ijm", "./postprocessing_AveragedMaximaSMLM.ijm"]
 tags:
   - zerocostdl4mic
   - deepimagej
-  - SMLM
-  - image reconstruction
+  - smlm
+  - image-reconstruction
   - super-resolution
 license: MIT
 language: java
@@ -33,14 +35,14 @@ sample_outputs:
   - ./Localizations_resultImage_max.csv
 weights:
   tensorflow_saved_model_bundle:
-    source: https://zenodo.org/record/4155785/files/deepstorm_zerocostdl4mic_tf_model.zip
+    source: ./tensorflow_saved_model_bundle.zip
     sha256: efcae3a3cde4b9f077b9595dd7f3c40c39e97e673e087b7cc8fa5fa28e283944
     tensorflow_version: 1.15
     attachments:
       files: [ "./config.xml" ]
   keras_hdf5:
     # This model needs the metadata to load it in the notebook
-    source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/weights_best.hdf5
+    source: ./weights_best.hdf5
     sha256: 61fd2b4d03d7704c8db810fbd33c6f6a4aed0b3a1ca8371c8381adb6850711f6
 
 inputs:
