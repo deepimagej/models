@@ -16,7 +16,7 @@ authors:
   - name: "Petr Matula"
     affiliation: "Centre for Biomedical Image Analysis, Masaryk University"
 git_repo: https://gitlab.fi.muni.cz/xlux/deepwater
-documentation: http://public.celltrackingchallenge.net/participants/MU-Lux-CZ.pdf
+documentation: ./README.md
 covers: [./cover.jpg]
 attachments:
     files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
