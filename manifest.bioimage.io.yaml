@@ -174,7 +174,7 @@ model:
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
-    download_url: https://sandbox.zenodo.org/record/905992/files/u-net_hela_segmentation.zip
+    download_url: https://sandbox.zenodo.org/record/906610/files/u-net_hela_segmentation.zip
 
   - id: UNet2DPancreaticSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/model.yaml
@@ -216,7 +216,7 @@ model:
 
   - id: MU-Lux_CTC_PhC-C2DL-PSC
     source: https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml
-    download_url: https://sandbox.zenodo.org/record/905081/files/mu-lux_ctc_phc-c2dl-psc.zip
+    download_url: https://sandbox.zenodo.org/record/906620/files/mu-lux_ctc_phc-c2dl-psc.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
