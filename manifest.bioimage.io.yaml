@@ -223,7 +223,7 @@ model:
 
   - id: WidefieldTxredSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_txred_super-resolution/model.yaml
-    download_url: https://zenodo.org/record/4290871/files/widefield_txred_superresolution.bioimage.io.model.zip
+    download_url: https://sandbox.zenodo.org/record/907586/files/widefield_txred_super-resolution.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
