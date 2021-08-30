@@ -21,7 +21,7 @@ tags:
   - gan
   - fluorescence-microscopy
   - super-resolution
-documentation: ./README.md
+documentation: ./README.yaml
 license: CC-BY-4.0
 language: java
 framework: tensorflow
