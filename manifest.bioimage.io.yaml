@@ -230,7 +230,7 @@ model:
 
   - id: WidefieldDapiSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution/model.yaml
-    download_url: https://zenodo.org/record/4290871/files/widefield_dapi_superresolution.bioimage.io.model.zip
+    download_url: https://sandbox.zenodo.org/record/907596/files/widefield_dapi_super-resolution.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
