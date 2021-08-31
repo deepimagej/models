@@ -21,7 +21,7 @@ tags:
   - fluorescence-microscopy
   - super-resolution
 documentation: ./README.md
-license: CC-Y-4.0
+license: CC-BY-4.0
 language: java
 framework: tensorflow
 test_inputs:
