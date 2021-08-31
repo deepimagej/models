@@ -16,9 +16,9 @@ attachments:
     files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./Results.csv", "./resultImage.tiff"]
 tags:
   - deepimagej
-  - glioblastoma cells
+  - glioblastoma-cells
   - segmentation
-  - phase contrast
+  - phase-contrast
 license: BSD-2
 language: java
 framework: tensorflow
