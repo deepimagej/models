@@ -174,7 +174,7 @@ model:
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
-    download_url: https://sandbox.zenodo.org/record/906610/files/u-net_hela_segmentation.zip
+    download_url: https://sandbox.zenodo.org/record/908123/files/u-net_hela_segmentation.zip
 
   - id: UNet2DPancreaticSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/model.yaml
