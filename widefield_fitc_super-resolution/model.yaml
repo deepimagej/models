@@ -1,24 +1,27 @@
-format_version: 0.3.0
+format_version: 0.3.2
 name: Widefield Super-resolution (GAN - FITC)
 description: A trained GAN to transform diffraction-limited input images into super-resolved ones.
-timestamp: 2021-04-16T17:51:50.000019
+timestamp: 2021-08-31T17:51:50.000019
 cite:
   - text: Hongda Wang, Yair Rivenson, et al., Nature Methods 2019
     doi: https://doi.org/10.1038/s41592-018-0239-0
 authors:
-  - Hongda Wang
-  - Yair Rivenson
-  - Aydogan Ozcan
+  - name: Hongda Wang
+    affiliation: University of California, Los Angeles, CA, USA
+  - name: Yair Rivenson
+    affiliation: University of California, Los Angeles, CA, USA
+  - name: Aydogan Ozcan
+    affiliation: University of California, Los Angeles, CA, USA
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
     files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
 tags:
   - deepimagej
-  - GAN
-  - Fluorescence microscopy
-  - Super resolution
-documentation: https://innovate.ee.ucla.edu/
-license: CC BY 4.0
+  - gan
+  - fluorescence-microscopy
+  - super-resolution
+documentation: ./README.md
+license: CC-Y-4.0
 language: java
 framework: tensorflow
 test_inputs:
