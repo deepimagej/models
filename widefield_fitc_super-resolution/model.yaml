@@ -1,7 +1,7 @@
 format_version: 0.3.2
 name: Widefield Super-resolution (GAN - FITC)
 description: A trained GAN to transform diffraction-limited input images into super-resolved ones.
-timestamp: 2021-08-31T17:51:50.000019
+timestamp: 2021-09-09T17:51:50.000019
 cite:
   - text: Hongda Wang, Yair Rivenson, et al., Nature Methods 2019
     doi: https://doi.org/10.1038/s41592-018-0239-0
@@ -14,7 +14,7 @@ authors:
     affiliation: University of California, Los Angeles, CA, USA
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
-    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
 tags:
   - deepimagej
   - gan
@@ -29,12 +29,12 @@ test_inputs:
 test_outputs:
   - ./resultImage.npy
 sample_inputs:
-  - ./exampleImage.tif
+  - ./exampleImage.tiff
 sample_outputs:
-  - ./resultImage.tif
+  - ./resultImage.tiff
 weights:
   tensorflow_saved_model_bundle:
-    source: https://zenodo.org/record/4290871/files/fitc_tensorflow_saved_model_bundle.zip?download=1
+    source: ./tensorflow_saved_model_bundle.zip
     sha256: d235aa1ee2a94e67afe45b2c89a2daa14f7f005d1e7ec8256369c4980bc5f016
     tensorflow_version: 1.15
     attachments:
