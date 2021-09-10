@@ -174,7 +174,7 @@ model:
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
-    download_url: https://sandbox.zenodo.org/record/908123/files/u-net_hela_segmentation.zip
+    download_url: https://sandbox.zenodo.org/record/913978/files/u-net_hela_segmentation.zip
 
   - id: UNet2DPancreaticSegmentation
     source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/model.yaml
@@ -216,28 +216,28 @@ model:
 
   - id: MU-Lux_CTC_PhC-C2DL-PSC
     source: https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml
-    download_url: https://sandbox.zenodo.org/record/906620/files/mu-lux_ctc_phc-c2dl-psc.zip
+    download_url: https://sandbox.zenodo.org/record/914413/files/mu-lux_ctc_phc-c2dl-psc.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: WidefieldTxredSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_txred_super-resolution/model.yaml
-    download_url: https://sandbox.zenodo.org/record/907586/files/widefield_txred_super-resolution.zip
+    download_url: https://sandbox.zenodo.org/record/913992/files/widefield_txred_super-resolution.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: WidefieldDapiSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution/model.yaml
-    download_url: https://sandbox.zenodo.org/record/907596/files/widefield_dapi_super-resolution.zip
+    download_url: https://sandbox.zenodo.org/record/914422/files/widefield_dapi_super-resolution.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: WidefieldFitcSuperResolution
     source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution/model.yaml
-    download_url: https://sandbox.zenodo.org/record/908834/files/widefield_fitc_super-resolution.zip
+    download_url: https://sandbox.zenodo.org/record/914425/files/widefield_fitc_super-resolution.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
