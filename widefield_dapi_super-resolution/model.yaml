@@ -1,7 +1,7 @@
 format_version: 0.3.2
 name: Widefield Super-resolution (GAN - DAPI)
 description: A trained GAN to transform diffraction-limited input images into super-resolved ones.
-timestamp: 2021-08-30T17:47:28.000545
+timestamp: 2021-09-09T17:47:28.000545
 cite:
   - text: Hongda Wang, Yair Rivenson, et al., Nature Methods 2019
     doi: https://doi.org/10.1038/s41592-018-0239-0
@@ -15,13 +15,13 @@ authors:
 
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
-    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
 tags:
   - deepimagej
   - gan
   - fluorescence-microscopy
   - super-resolution
-documentation: ./README.yaml
+documentation: ./README.md
 license: CC-BY-4.0
 language: java
 framework: tensorflow
@@ -30,13 +30,13 @@ test_inputs:
 test_outputs:
   - ./resultImage.npy
 sample_inputs:
-  - ./exampleImage.tif
+  - ./exampleImage.tiff
 sample_outputs:
-  - ./resultImage.tif
+  - ./resultImage.tiff
 weights:
   tensorflow_saved_model_bundle:
-    source: https://zenodo.org/record/4290871/files/dapi_tensorflow_saved_model_bundle.zip
-    sha256: 1b9d8849d008b52018d93242c8d8540eb01e7211740a4c6e0f460ff762a4f0b5
+    source: ./tensorflow_saved_model_bundle
+    sha256: 9b84763f2341ba472f091c9eb55e53190bb07bd25b4a3092919fb9585be93878
     tensorflow_version: 1.15
     attachments:
       files: [ "./config.xml" ]
@@ -67,14 +67,14 @@ config:
       tensorflow_siganture_def: tf.saved_model.signature_constants.DEFAULT_SERVING_SIGNATURE_DEF_KEY
     test_information:
       inputs:
-        - name: exampleImage.tif
+        - name: exampleImage.tiff
           size: 1024 x 1024 x 1
           pixel_size:
             x: 1.0 pixel
             y: 1.0 pixel
             z: 1.0 pixel
       outputs:
-        - name: resultImage.tif
+        - name: resultImage.tiff
           type: image
           size: 1024 x 1024 x 1
       memory_peak: 283.8 Mb
