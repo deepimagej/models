@@ -1,7 +1,7 @@
 format_version: 0.3.2
 name: Widefield Super-resolution (GAN - TxRed)
 description: A trained GAN to transform diffraction-limited input images into super-resolved ones.
-timestamp: 2021-08-30T17:40:54.000799
+timestamp: 2021-09-09T17:40:54.000799
 cite:
   - text: Hongda Wang, Yair Rivenson, et al., Nature Methods 2019
     doi: https://doi.org/10.1038/s41592-018-0239-0
@@ -14,7 +14,7 @@ authors:
     affiliation: University of California, Los Angeles, CA, USA
 covers: [./exampleImage.png, ./resultImage.png]
 attachments:
-    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tif", "./resultImage.tif"]
+    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./resultImage.tiff"]
 tags:
   - deepimagej
   - gan
@@ -29,13 +29,13 @@ test_inputs:
 test_outputs:
   - ./resultImage.npy
 sample_inputs:
-  - ./exampleImage.tif
+  - ./exampleImage.tiff
 sample_outputs:
-  - ./resultImage.tif
+  - ./resultImage.tiff
 weights:
   tensorflow_saved_model_bundle:
-    source: https://zenodo.org/record/4290871/files/txred_tensorflow_saved_model_bundle.zip
-    sha256: 47cbe0b1a0495edc4d0f238aa3908f16e061eb8786147577a75e9f16d403a1c8
+    source: ./tensorflow_saved_model_bundle.zip
+    sha256: f8873ff5c48c4cb9c305851b938ec6d31719d86d2ee570f5f576725a8c35486c
     tensorflow_version: 1.15
     attachments:
       files: [ "./config.xml" ]
