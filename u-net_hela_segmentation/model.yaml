@@ -1,7 +1,7 @@
 format_version: 0.3.2
 name: HeLa DIC Cell Segmentation (U-Net)
 description: DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images
-timestamp: 2021-08-26T10:13:32.618903
+timestamp: 2021-09-09T10:13:32.618903
 cite:
   - text: Ronneberger O. et al., MICCAI 2015
     doi: https://doi.org/10.1007/978-3-319-24574-4_28
@@ -33,8 +33,8 @@ sample_outputs:
   - ./resultImage.tiff
 weights:
   tensorflow_saved_model_bundle:
-    source: https://zenodo.org/record/4155785/files/u-net_hela_segmentation_tf_model.zip
-    sha256: d8275b3cd6d1b6b2a0a1c5eccbeb0cd1f204055ed714974bb66c3e610df119b2
+    source: ./tensorflow_saved_model_bundle.zip
+    sha256: dc00ad55637842dfcd9bdf04a48a763641cc70b3f20c1d851f43c850039653a3
     tensorflow_version: 1.13
     attachments:
       files: ["./config.xml"]
