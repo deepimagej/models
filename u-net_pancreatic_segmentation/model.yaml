@@ -10,8 +10,10 @@ cite:
   - text: Ronneberger O. et al., MICCAI 2015
     doi: https://doi.org/10.1007/978-3-319-24574-4_28
 authors:
-  - Ignacio Arganda-Carreras
-  - DeepImageJ team
+  - name: Ignacio Arganda-Carreras
+    affiliation: Ikerbasque - EHU/UPV
+  - name: DeepImageJ
+    affiliation: EPFL, UC3M
 documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
 git_repo: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/
 covers: [./exampleImage.png, ./resultImage.png]
