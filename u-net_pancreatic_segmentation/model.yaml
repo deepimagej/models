@@ -19,9 +19,12 @@ git_repo: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/
 covers: [./exampleImage.png, ./resultImage.png]
 tags:
   - deepimagej
-  - pancreatic stem cells
+  - pancreatic-stem-cells
   - segmentation
-  - phase contrast
+  - phase-contrast
+  - unet
+  - neubias
+  - cell-tracking-challenge
 license: BSD-2
 language: java
 framework: tensorflow
