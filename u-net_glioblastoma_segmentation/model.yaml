@@ -2,7 +2,7 @@ format_version: 0.3.2
 name: Glioblastoma Phase Contrast Cell Segmentation (U-Net)
 description: DeepImageJ compatible U-Net trained to segment 2D phase contrast microscopy images of glioblastoma-astrocytoma U373 cells on a polyacrylamide substrate.
 timestamp: 2021-08-31T10:13:32.618903
-cite:s
+cite:
   - text: Ronneberger O. et al., MICCAI 2015
     doi: https://doi.org/10.1007/978-3-319-24574-4_28
   - text: Ulman V. et al., Nature Methods 2017
