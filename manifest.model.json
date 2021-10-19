@@ -502,40 +502,6 @@
         "license": "MIT",
         "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/3du-net_zerocostdl4mic.model.yaml",
         "download_url": "https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip"
-      },
-      {
-        "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic",
-        "name": "3D U-Net - ZeroCostDL4Mic",
-        "description": "3D U-Net trained using ZeroCostDL4Mic notebooks to segment mitochondria in Transmission Electron Microscopy (TEM) data.",
-        "cite": [
-          {
-            "text": "Lucas von Chamier et al. bioRxiv 2020",
-            "doi": "https://doi.org/10.1101/2020.03.20.000133"
-          },
-          {
-            "text": "\u00d6zg\u00fcn \u00c7i\u00e7ek et al., MICCAI 2016",
-            "doi": "https://doi.org/10.1007/978-3-319-46723-8_49"
-          }
-        ],
-        "authors": [
-          "DeepImageJ team"
-        ],
-        "documentation": "https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki",
-        "covers": [
-          "exampleImage.gif"
-        ],
-        "tags": [
-          "deepimagej",
-          "ZeroCostDL4Mic",
-          "3DUNet",
-          "deepimagej-beta",
-          "mitochondria",
-          "TEM",
-          "segmentation"
-        ],
-        "license": "MIT",
-        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/3du-net_zerocostdl4mic.model.yaml",
-        "download_url": "https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip"
-      }               
+      }             
     ]
   }
