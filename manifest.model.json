@@ -1,3 +1,4 @@
+
 {
   "name": "DeepImageJ Bundled Model Repository",
   "description": "Models available on the deepImageJ web site.",
@@ -183,6 +184,7 @@
 	 "license": "MIT",
 	 "git_repo":"https://github.com/HenriquesLab/ZeroCostDL4Mic",
 	 "config_url":"https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/ZeroCostDL4Mic.model.yaml",
-	 "download_url":"https://zenodo.org/record/5059813/files/HenriquesLab/ZeroCostDL4Mic-v1.13.zip"     
+	 "download_url":"https://zenodo.org/record/5059813/files/HenriquesLab/ZeroCostDL4Mic-v1.13.zip"  
+    }
   ]
 }
