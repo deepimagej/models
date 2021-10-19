@@ -318,8 +318,224 @@
             "Fluorescence microscopy"
         ],
         "license": "CC BY 4.0",
-        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_txred_super-resolution/widefield_txred_super-resolution.model.yaml",
+        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution/widefield_dapi_super-resolution.model.yaml",
         "download_url": "https://zenodo.org/record/4290871/files/widefield_dapi_superresolution.bioimage.io.model.zip"
-      }     
+      },
+      {
+        "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution",
+        "name": "Widefield Super-resolution (GAN - FITC)",
+        "description": "A trained GAN to transform diffraction-limited input images into super-resolved ones.",
+        "cite": [
+            {
+                "text": "Hongda Wang, Yair Rivenson, et al., Nature Methods 2019",
+                "doi": "https://doi.org/10.1038/s41592-018-0239-0"
+              }
+        ],
+        "authors": [
+            "Hongda Wang",
+            "Yair Rivenson",
+            "Aydogan Ozcan"
+        ],
+        "documentation": "https://innovate.ee.ucla.edu",
+        "covers": [
+            "exampleImage.png",
+            "resultImage.png"
+        ],
+        "tags": [
+            "deepimagej",
+            "Super resolution",
+            "GAN",
+            "Fluorescence microscopy"
+        ],
+        "license": "CC BY 4.0",
+        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution/widefield_fitc_super-resolution.model.yaml",
+        "download_url": "https://zenodo.org/record/4290871/files/widefield_fitc_super-resolution.bioimage.io.model.zip"
+      },
+      {
+        "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining",
+        "name": "Jones Virtual Staining (GAN)",
+        "description": "A trained GAN to transform wide-field autofluorescence images of unlabelled tissue sections into images that are equivalent to the bright-field images of histologically stained versions of the same samples.",
+        "cite": [
+          {
+            "text": "Hongda Wang, Yair Rivenson, et al., Nature Biomedical Engineering, 2019",
+            "doi": "https://doi.org/10.1038/s41551-019-0362-y"
+          }
+        ],
+        "authors": [
+          "Yair Rivenson",
+          "Hongda Wang",
+          "Aydogan Ozcan"
+        ],
+        "documentation": "https://innovate.ee.ucla.edu",
+        "covers": [
+            "exampleImage.png",
+            "resultImage.png"
+        ],
+        "tags": [
+          "deepimagej",
+          "GAN",
+          "Virtual staining",
+          "histology"
+        ],
+        "license": "CC BY 4.0",
+        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining/jones_virtual_staining.model.yaml",
+        "download_url": "https://zenodo.org/record/4290839/files/jones_virtual_staining.bioimage.io.model.zip"
+      },
+      {
+        "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining",
+        "name": "Masson\u2019s Trichrome Virtual Staining (GAN)",
+        "description": "A trained GAN to transform wide-field autofluorescence images of unlabelled tissue sections into images that are equivalent to the bright-field images of histologically stained versions of the same samples.",
+        "cite": [
+          {
+            "text": "Hongda Wang, Yair Rivenson, et al., Nature Biomedical Engineering, 2019",
+            "doi": "https://doi.org/10.1038/s41551-019-0362-y"
+          }
+        ],
+        "authors": [
+          "Yair Rivenson",
+          "Hongda Wang",
+          "Aydogan Ozcan"
+        ],
+        "documentation": "https://innovate.ee.ucla.edu",
+        "covers": [
+            "exampleImage.png",
+            "resultImage.png"
+        ],
+        "tags": [
+          "deepimagej",
+          "GAN",
+          "Virtual staining",
+          "histology"
+        ],
+        "license": "CC BY 4.0",
+        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining/mt3_virtual_staining.model.yaml",
+        "download_url": "https://zenodo.org/record/4290839/files/mt3_virtual_staining.bioimage.io.model.zip"
+      },
+      {
+        "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/usiigaci",
+        "name": "NIH/3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)",
+        "description": "Trained model given in Usiigaci for instance segmentation of cells in a 2D substrate and phase contrast microscopy images. The model is a Mask R-CNN and the input is preprocessed to get an RGB image from the grayscale image.",
+        "cite": [
+          {
+            "text": "Tsai, H.-F., et al., SoftwareX, 2019",
+            "doi": "https://doi.org/10.1016/j.softx.2019.02.007"
+          }
+        ],
+        "authors": [
+          "Joanna Gajda",
+          "Tyler F.W. Sloan",
+          "Hsieh-Fu Tsai",
+          "Andrei Rares",
+          "Amy Q. Shen"
+        ],
+        "documentation": "https://github.com/oist/Usiigaci",
+        "covers": [
+          "cover.jpg"
+        ],
+        "tags": [
+          "deepimagej",
+          "2D",
+          "maskrcnn",
+          "phase contrast",
+          "deepimagej-beta",
+          "usiigaci",
+          "fibroblasts",
+          "segmentation"
+        ],
+        "license": "MIT",
+        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/usiigaci/usiigaci.model.yaml",
+        "download_url": "https://zenodo.org/record/4155785/files/usiigaci.bioimage.io.model.zip"
+      },
+      {
+        "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification",
+        "name": "Skin lesions classification",
+        "description": "CNN trained to classify the type of imaged skin lesion.",
+        "authors": [
+          "Carlos Garc\u00eda-L\u00f3pez-de-Haro"
+        ],
+        "documentation": "https://gist.github.com/esgomezm/7398a83321ae589bafadb0392c7b78ef#file-skin_lession_classification_pytorch_original-ipynb",
+        "covers": [
+          "cover.jpg"
+        ],
+        "tags": [
+          "deepimagej",
+          "skin lesions",
+          "deepimagej-beta",
+          "melanoma",
+          "classification",
+          "pytorch"
+        ],
+        "license": "BSD2",
+        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/skin_lesion_classification.model.yaml",
+        "download_url": "https://zenodo.org/record/4155785/files/SkinLesions.bioimage.io.model.zip"
+      },
+      {
+        "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic",
+        "name": "3D U-Net - ZeroCostDL4Mic",
+        "description": "3D U-Net trained using ZeroCostDL4Mic notebooks to segment mitochondria in Transmission Electron Microscopy (TEM) data.",
+        "cite": [
+          {
+            "text": "Lucas von Chamier et al. bioRxiv 2020",
+            "doi": "https://doi.org/10.1101/2020.03.20.000133"
+          },
+          {
+            "text": "\u00d6zg\u00fcn \u00c7i\u00e7ek et al., MICCAI 2016",
+            "doi": "https://doi.org/10.1007/978-3-319-46723-8_49"
+          }
+        ],
+        "authors": [
+          "DeepImageJ team"
+        ],
+        "documentation": "https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki",
+        "covers": [
+          "exampleImage.gif"
+        ],
+        "tags": [
+          "deepimagej",
+          "ZeroCostDL4Mic",
+          "3DUNet",
+          "deepimagej-beta",
+          "mitochondria",
+          "TEM",
+          "segmentation"
+        ],
+        "license": "MIT",
+        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/3du-net_zerocostdl4mic.model.yaml",
+        "download_url": "https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip"
+      },
+      {
+        "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic",
+        "name": "3D U-Net - ZeroCostDL4Mic",
+        "description": "3D U-Net trained using ZeroCostDL4Mic notebooks to segment mitochondria in Transmission Electron Microscopy (TEM) data.",
+        "cite": [
+          {
+            "text": "Lucas von Chamier et al. bioRxiv 2020",
+            "doi": "https://doi.org/10.1101/2020.03.20.000133"
+          },
+          {
+            "text": "\u00d6zg\u00fcn \u00c7i\u00e7ek et al., MICCAI 2016",
+            "doi": "https://doi.org/10.1007/978-3-319-46723-8_49"
+          }
+        ],
+        "authors": [
+          "DeepImageJ team"
+        ],
+        "documentation": "https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki",
+        "covers": [
+          "exampleImage.gif"
+        ],
+        "tags": [
+          "deepimagej",
+          "ZeroCostDL4Mic",
+          "3DUNet",
+          "deepimagej-beta",
+          "mitochondria",
+          "TEM",
+          "segmentation"
+        ],
+        "license": "MIT",
+        "config_url": "https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/3du-net_zerocostdl4mic.model.yaml",
+        "download_url": "https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip"
+      }               
     ]
   }
