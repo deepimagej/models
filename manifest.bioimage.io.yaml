@@ -200,7 +200,7 @@ model:
 
   - id: DeepSTORMZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/model.yaml
-    download_url: https://zenodo.org/record/4155785/files/DeepImageJ_DeepSTORM_ZeroCostDL4Mic.zip
+    download_url: https://sandbox.zenodo.org/record/907832/files/bioimage.io.model.zip
     links:
       - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic_DeepImageJ
       - deepimagej
@@ -208,7 +208,7 @@ model:
 
   - id: 2DUNetZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/model.yaml
-    download_url: https://zenodo.org/record/4155785/files/DeepImageJ_2D%20UNet_ZeroCostDL4Mic.zip
+    download_url: https://sandbox.zenodo.org/record/904905/files/DeepImageJ_2D_UNet_ZeroCostDL4Mic.zip
     links:
       - zero/Notebook_U-Net_2D_ZeroCostDL4Mic_DeepImageJ
       - deepimagej
@@ -244,14 +244,14 @@ model:
 
   - id: JonesVirtualStaining
     source: https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining/model.yaml
-    download_url: https://zenodo.org/record/4290839/files/jones_virtual_staining.bioimage.io.model.zip
+    download_url: https://sandbox.zenodo.org/record/906803/files/bioimage.io.model.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: Mt3VirtualStaining
     source: https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining/model.yaml
-    download_url: https://zenodo.org/record/4290839/files/mt3_virtual_staining.bioimage.io.model.zip
+    download_url: https://sandbox.zenodo.org/record/906805/files/bioimage.io.model.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
@@ -265,13 +265,13 @@ model:
       
   - id: SkinLesionClassification
     source: https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/model.yaml
-    download_url: https://zenodo.org/record/4155785/files/SkinLesions.bioimage.io.model.zip
+    download_url: https://sandbox.zenodo.org/record/906807/files/bioimage.io.model.zip
     links:
       - deepimagej
 
   - id: 3DUNetZeroCostDL4Mic
     source: https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
-    download_url: https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
+    download_url: https://sandbox.zenodo.org/record/907831/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
     links:
       - deepimagej
       - zero/Notebook_U-Net_3D_ZeroCostDL4Mic_DeepImageJ
