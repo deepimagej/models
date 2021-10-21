@@ -41,8 +41,8 @@
       "dependencies": [],
       "env": "",
       "tags": [
-        "software",
-        "bioengine"
+        "bioengine",
+        "software"
       ],
       "documentation": null,
       "covers": [],
@@ -61,11 +61,30 @@
         }
       ],
       "authors": [
-        "Estibaliz G\u00f3mez-de-Mariscal",
-        "Martin Ma\u0161ka, Anna Kotrbov\u00e1",
-        "Vendula Posp\u00edchalov\u00e1",
-        "Pavel Matula",
-        "Arrate Mu\u00f1oz-Barrutia"
+        {
+          "name": "Estibaliz G\u00f3mez-de-Mariscal",
+          "affiliation": "Universidad Carlos III de Madrid"
+        },
+        {
+          "name": "Martin Ma\u0161ka",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Anna Kotrbov\u00e1",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Vendula Posp\u00edchalov\u00e1",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Pavel Matula",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Arrate Mu\u00f1oz-Barrutia",
+          "affiliation": "Universidad Carlos III de Madrid"
+        }
       ],
       "covers": [
         "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41598-019-49431-3/MediaObjects/41598_2019_49431_Fig1_HTML.png",
@@ -78,16 +97,16 @@
           "url": "https://colab.research.google.com/github/BIIG-UC3M/FRU-Net-TEM-segmentation/blob/main/FRUnet_TEM_Exosomes_sEV.ipynb"
         }
       ],
-      "documentation": "https://cbia.fi.muni.cz/research/segmentation/fru-net.html",
+      "documentation": "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/README.md",
       "tags": [
-        "segmentation",
-        "pipeline",
+        "workflow",
         "notebook",
-        "TEM",
-        "google colab",
-        "model inference",
-        "extracellular vesicles",
-        "workflow"
+        "google-colab",
+        "extracellular-vesicles",
+        "model-inference",
+        "pipeline",
+        "segmentation",
+        "TEM"
       ],
       "source": "https://raw.githubusercontent.com/BIIG-UC3M/FRU-Net-TEM-segmentation/master/FRUnet_TEM_Exosomes_sEV.ipynb",
       "links": [
@@ -119,19 +138,22 @@
         }
       ],
       "authors": [
-        "DeepImageJ team, UC3M, EPFL"
+        {
+          "name": "DeepImageJ",
+          "affiliation": "EPFL, UC3M"
+        }
       ],
       "icon": "https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png",
       "documentation": "https://raw.githubusercontent.com/deepimagej/models/master/workflows/smlm_deepstorm/README.md",
       "tags": [
-        "pipeline",
-        "macro",
-        "smlm",
-        "deepimagej",
-        "thunderstorm",
-        "deepstorm",
+        "workflow",
         "superresolution",
-        "workflow"
+        "thunderstorm",
+        "pipeline",
+        "deepstorm",
+        "smlm",
+        "macro",
+        "deepimagej"
       ]
     },
     {
@@ -145,7 +167,10 @@
         "doi": "https://doi.org/10.1101/799270"
       },
       "authors": [
-        "DeepImageJ team"
+        {
+          "name": "DeepImageJ",
+          "affiliation": "EPFL, UC3M"
+        }
       ],
       "icon": "https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png",
       "documentation": "https://deepimagej.github.io/deepimagej/index.html",
@@ -173,8 +198,14 @@
         }
       ],
       "authors": [
-        "Ignacio Arganda-Carreras",
-        "DeepImageJ team"
+        {
+          "name": "Ignacio Arganda-Carreras",
+          "affiliation": "EPFL, UC3M"
+        },
+        {
+          "name": "DeepImageJ",
+          "affiliation": "EPFL, UC3M"
+        }
       ],
       "covers": [
         "https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/notebook_intro.png",
@@ -189,12 +220,12 @@
       ],
       "documentation": "https://github.com/miura/NEUBIAS_AnalystSchool2020/tree/master/Ignacio",
       "tags": [
-        "segmentation",
-        "notebook",
-        "deepimagej",
-        "unet",
         "training",
-        "cell segmentation"
+        "notebook",
+        "unet",
+        "cell-segmentation",
+        "segmentation",
+        "deepimagej"
       ],
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/U_Net_PhC_C2DL_PSC_segmentation.ipynb",
       "links": [
@@ -207,19 +238,19 @@
         "files": [
           "./preprocessing.txt",
           "./postprocessing.txt",
-          "./exampleImage.tif",
-          "./resultImage.tif"
+          "./exampleImage.tiff",
+          "./resultImage.tiff"
         ]
       },
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_txred_super-resolution/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_txred_super-resolution",
       "id": "deepimagej/WidefieldTxredSuperResolution",
-      "download_url": "https://zenodo.org/record/4290871/files/widefield_txred_superresolution.bioimage.io.model.zip",
+      "download_url": "https://sandbox.zenodo.org/record/913992/files/widefield_txred_super-resolution.zip",
       "links": [
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "Widefield Super-resolution (GAN - TxRed)",
       "description": "A trained GAN to transform diffraction-limited input images into super-resolved ones.",
       "cite": [
@@ -229,21 +260,30 @@
         }
       ],
       "authors": [
-        "Hongda Wang",
-        "Yair Rivenson",
-        "Aydogan Ozcan"
+        {
+          "name": "Hongda Wang",
+          "affiliation": "University of California, Los Angeles, CA, USA"
+        },
+        {
+          "name": "Yair Rivenson",
+          "affiliation": "University of California, Los Angeles, CA, USA"
+        },
+        {
+          "name": "Aydogan Ozcan",
+          "affiliation": "University of California, Los Angeles, CA, USA"
+        }
       ],
       "covers": [
         "exampleImage.png",
         "resultImage.png"
       ],
       "tags": [
-        "deepimagej",
-        "Super resolution",
-        "Fluorescence microscopy",
-        "GAN"
+        "fluorescence-microscopy",
+        "gan",
+        "super-resolution",
+        "deepimagej"
       ],
-      "documentation": "https://innovate.ee.ucla.edu",
+      "documentation": "README.md",
       "license": "CC BY 4.0",
       "error": {}
     },
@@ -253,19 +293,19 @@
         "files": [
           "./preprocessing.txt",
           "./postprocessing.txt",
-          "./exampleImage.tif",
-          "./resultImage.tif"
+          "./exampleImage.tiff",
+          "./resultImage.tiff"
         ]
       },
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution",
       "id": "deepimagej/WidefieldFitcSuperResolution",
-      "download_url": "https://zenodo.org/record/4290871/files/widefield_fitc_superresolution.bioimage.io.model.zip",
+      "download_url": "https://sandbox.zenodo.org/record/914425/files/widefield_fitc_super-resolution.zip",
       "links": [
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "Widefield Super-resolution (GAN - FITC)",
       "description": "A trained GAN to transform diffraction-limited input images into super-resolved ones.",
       "cite": [
@@ -275,22 +315,31 @@
         }
       ],
       "authors": [
-        "Hongda Wang",
-        "Yair Rivenson",
-        "Aydogan Ozcan"
+        {
+          "name": "Hongda Wang",
+          "affiliation": "University of California, Los Angeles, CA, USA"
+        },
+        {
+          "name": "Yair Rivenson",
+          "affiliation": "University of California, Los Angeles, CA, USA"
+        },
+        {
+          "name": "Aydogan Ozcan",
+          "affiliation": "University of California, Los Angeles, CA, USA"
+        }
       ],
       "covers": [
         "exampleImage.png",
         "resultImage.png"
       ],
       "tags": [
-        "deepimagej",
-        "Super resolution",
-        "Fluorescence microscopy",
-        "GAN"
+        "fluorescence-microscopy",
+        "gan",
+        "super-resolution",
+        "deepimagej"
       ],
-      "documentation": "https://innovate.ee.ucla.edu",
-      "license": "CC BY 4.0",
+      "documentation": "README.md",
+      "license": "CC-BY-4.0",
       "error": {}
     },
     {
@@ -299,19 +348,19 @@
         "files": [
           "./preprocessing.txt",
           "./postprocessing.txt",
-          "./exampleImage.tif",
-          "./resultImage.tif"
+          "./exampleImage.tiff",
+          "./resultImage.tiff"
         ]
       },
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution",
       "id": "deepimagej/WidefieldDapiSuperResolution",
-      "download_url": "https://zenodo.org/record/4290871/files/widefield_dapi_superresolution.bioimage.io.model.zip",
+      "download_url": "https://sandbox.zenodo.org/record/914422/files/widefield_dapi_super-resolution.zip",
       "links": [
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "Widefield Super-resolution (GAN - DAPI)",
       "description": "A trained GAN to transform diffraction-limited input images into super-resolved ones.",
       "cite": [
@@ -321,31 +370,41 @@
         }
       ],
       "authors": [
-        "Hongda Wang",
-        "Yair Rivenson",
-        "Aydogan Ozcan"
+        {
+          "name": "Hongda Wang",
+          "affiliation": "University of California, Los Angeles, CA, USA"
+        },
+        {
+          "name": "Yair Rivenson",
+          "affiliation": "University of California, Los Angeles, CA, USA"
+        },
+        {
+          "name": "Aydogan Ozcan",
+          "affiliation": "University of California, Los Angeles, CA, USA"
+        }
       ],
       "covers": [
         "exampleImage.png",
         "resultImage.png"
       ],
       "tags": [
-        "deepimagej",
-        "Super resolution",
-        "Fluorescence microscopy",
-        "GAN"
+        "fluorescence-microscopy",
+        "gan",
+        "super-resolution",
+        "deepimagej"
       ],
-      "documentation": "https://innovate.ee.ucla.edu",
-      "license": "CC BY 4.0",
+      "documentation": "README.md",
+      "license": "CC-BY-4.0",
       "error": {}
     },
     {
       "type": "model",
       "attachments": {
         "files": [
-          "./preprocessing.txt",
           "./exampleImage.tiff",
           "./resultImage.tiff",
+          "./resultImage_labels.tiff",
+          "./preprocessing.txt",
           "./postprocessing.txt",
           "./postprocessingWatershed.txt"
         ]
@@ -359,7 +418,7 @@
         "imjoy/BioImageIO-Packager"
       ],
       "download_url": "https://sandbox.zenodo.org/record/894459/files/deepimagej_fru-net_sev_segmentation.zip",
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)",
       "description": "DeepImageJ compatible fully residual U-Net trained to segment small extracellular vesicles in 2D TEM images",
       "cite": [
@@ -369,21 +428,44 @@
         }
       ],
       "authors": [
-        "Estibaliz G\u00f3mez-de-Mariscal",
-        "Martin Ma\u0161ka, Anna Kotrbov\u00e1",
-        "Vendula Posp\u00edchalov\u00e1",
-        "Pavel Matula",
-        "Arrate Mu\u00f1oz-Barrutia"
+        {
+          "name": "Estibaliz G\u00f3mez-de-Mariscal",
+          "affiliation": "Universidad Carlos III de Madrid"
+        },
+        {
+          "name": "Martin Ma\u0161ka",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Anna Kotrbov\u00e1",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Vendula Posp\u00edchalov\u00e1",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Pavel Matula",
+          "affiliation": "Masaryk University"
+        },
+        {
+          "name": "Arrate Mu\u00f1oz-Barrutia",
+          "affiliation": "Universidad Carlos III de Madrid"
+        }
       ],
-      "documentation": "https://cbia.fi.muni.cz/research/segmentation/fru-net.html",
+      "documentation": "README.md",
       "covers": [
         "frunet_sev.jpg"
       ],
       "tags": [
-        "extracellular vesicles",
-        "deepimagej",
+        "2d-segmentation",
+        "electron-microscopy",
+        "extracellular-vesicles",
         "segmentation",
-        "TEM"
+        "tem",
+        "exosomes",
+        "frunet",
+        "deepimagej"
       ],
       "license": "BSD-3-Clause",
       "error": {}
@@ -402,27 +484,30 @@
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification",
       "id": "deepimagej/SkinLesionClassification",
-      "download_url": "https://zenodo.org/record/4155785/files/SkinLesions.bioimage.io.model.zip",
+      "download_url": "https://sandbox.zenodo.org/record/906807/files/bioimage.io.model.zip",
       "links": [
         "deepimagej/deepimagej"
       ],
-      "format_version": "0.3.1",
+      "format_version": "0.3.2",
       "name": "Skin lesions classification",
       "description": "CNN trained to classify the type of imaged skin lesion.",
       "authors": [
-        "Carlos Garc\u00eda-L\u00f3pez-de-Haro"
+        {
+          "name": "Carlos Garc\u00eda-L\u00f3pez-de-Haro",
+          "affiliation": "UC3M"
+        }
       ],
-      "documentation": "https://gist.github.com/esgomezm/7398a83321ae589bafadb0392c7b78ef#file-skin_lession_classification_pytorch_original-ipynb",
+      "documentation": "README.md",
       "covers": [
         "cover.jpg"
       ],
       "tags": [
-        "deepimagej-beta",
+        "pytorch",
+        "skin-lesions",
         "melanoma",
-        "skin lesions",
-        "deepimagej",
         "classification",
-        "pytorch"
+        "deepimagej-beta",
+        "deepimagej"
       ],
       "license": "BSD2",
       "git_repo": "https://gist.github.com/esgomezm/72b584887ca5ed5ed0231c47fff9aa9b#file-skin_lession_classification_pytorch_adapted-ipynb",
@@ -447,37 +532,52 @@
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "SMLM Density Map Estimation (DEFCoN)",
       "description": "Density Estimation by Fully Convolutional Networks (DEFCoN) - A fluorescent spot counter for single molecule localization microscopy. DEFCoN was written by Baptiste Ottino as a Masters thesis project under the guidance of Kyle M. Douglass and Suliana Manley in the Laboratory of Experimental Biophysics.",
       "cite": null,
       "authors": [
-        "Baptiste Ottino",
-        "Kyle M. Douglass",
-        "Suliana Manley"
+        {
+          "name": "Baptiste Ottino",
+          "affiliation": null
+        },
+        {
+          "name": "Kyle M. Douglass",
+          "affiliation": null
+        },
+        {
+          "name": "Suliana Manley",
+          "affiliation": null
+        }
       ],
-      "documentation": "https://github.com/LEB-EPFL/DEFCoN-ImageJ/wiki",
+      "documentation": "README.md",
       "covers": [
         "cover_image.jpg"
       ],
       "tags": [
-        "deepimagej",
         "unet",
-        "deepimagej.js"
+        "deepimagej.js",
+        "deepimagej"
       ],
-      "license": "BSD 3",
+      "license": "BSD-3",
       "git_repo": "https://github.com/LEB-EPFL/DEFCoN",
       "error": {}
     },
     {
       "type": "model",
       "attachments": {
-        "files": [
-          "./preprocessing.txt",
-          "./postprocessing.txt",
-          "./exampleImage.tif",
-          "./resultImage.tif"
-        ]
+        "weights": {
+          "tensorflow_saved_model_bundle": {
+            "source": "./tensorflow_saved_model_bundle.zip",
+            "sha256": "e0775a1d99afe6492946166f72fa6879a2c5e0315ea1e5292340f7e4ee73b842",
+            "tensorflow_version": 1.15
+          },
+          "keras_hdf5": {
+            "source": "./unet_pancreatic_cell_segmentation.h5",
+            "sha256": "d31fd8c4e764ae4b315a33f9ee9cc17e94764a93f2097542a80d0337327e872b",
+            "tensorflow_version": 1.15
+          }
+        }
       },
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation",
@@ -489,7 +589,7 @@
         "imjoy/BioImageIO-Packager"
       ],
       "format_version": "0.3.0",
-      "name": "Pancreatic Phase Contrast Cell Segmentation (U-Net)",
+      "name": "Pancreatic Cell Segmentation (U-Net)",
       "description": "DeepImageJ compatible U-Net trained to segment phase contrast microscopy images of pancreatic stem cells on a 2D polystyrene substrate.",
       "cite": [
         {
@@ -506,8 +606,14 @@
         }
       ],
       "authors": [
-        "Ignacio Arganda-Carreras",
-        "DeepImageJ team"
+        {
+          "name": "Ignacio Arganda-Carreras",
+          "affiliation": "Ikerbasque - EHU/UPV"
+        },
+        {
+          "name": "DeepImageJ",
+          "affiliation": "EPFL, UC3M"
+        }
       ],
       "documentation": "https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb",
       "git_repo": "https://github.com/deepimagej/models/u-net_pancreatic_segmentation/",
@@ -516,10 +622,13 @@
         "resultImage.png"
       ],
       "tags": [
-        "deepimagej",
+        "pancreatic-stem-cells",
+        "neubias",
+        "unet",
         "segmentation",
-        "phase contrast",
-        "pancreatic stem cells"
+        "phase-contrast",
+        "cell-tracking-challenge",
+        "deepimagej"
       ],
       "license": "BSD-2",
       "error": {}
@@ -537,12 +646,12 @@
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc",
       "id": "deepimagej/MU-Lux_CTC_PhC-C2DL-PSC",
-      "download_url": "https://zenodo.org/record/4155785/files/MU-Lux_CTC_PhC-C2DL-PSC.bioimage.io.model.zip",
+      "download_url": "https://sandbox.zenodo.org/record/914413/files/mu-lux_ctc_phc-c2dl-psc.zip",
       "links": [
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "Pancreatic Cell Phase Contrast Segmentation (DeepWater - CTC submission)",
       "description": "The method combines deep learning with watershed segmentation. For each frame, the convolutional neural network of U-Net shape detects all cells by markers and recognizes the foreground and the background of the frame. Then, the final segmentation is generated by a Marker-Controlled Watershed transformation.",
       "cite": [
@@ -556,21 +665,27 @@
         }
       ],
       "authors": [
-        "Filip Lux, Centre for Biomedical Image Analysis, Masaryk University",
-        "Petr Matula, Centre for Biomedical Image Analysis, Masaryk University"
+        {
+          "name": "Filip Lux",
+          "affiliation": "Centre for Biomedical Image Analysis, Masaryk University"
+        },
+        {
+          "name": "Petr Matula",
+          "affiliation": "Centre for Biomedical Image Analysis, Masaryk University"
+        }
       ],
       "git_repo": "https://gitlab.fi.muni.cz/xlux/deepwater",
-      "documentation": "http://public.celltrackingchallenge.net/participants/MU-Lux-CZ.pdf",
+      "documentation": "README.md",
       "covers": [
         "cover.jpg"
       ],
       "tags": [
+        "deepwater",
         "segmentation",
-        "deepimagej",
         "watershed",
-        "cell tracking challenge",
-        "phase contrast",
-        "deepwater"
+        "phase-contrast",
+        "cell-tracking-challenge",
+        "deepimagej"
       ],
       "license": "MIT",
       "error": {}
@@ -596,7 +711,7 @@
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.1",
+      "format_version": "0.3.2",
       "name": "NIH/3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)",
       "description": "Trained model given in Usiigaci for instance segmentation of cells in a 2D substrate and phase contrast microscopy images. The model is a Mask R-CNN and the input is preprocessed to get an RGB image from the grayscale image.",
       "cite": [
@@ -606,24 +721,39 @@
         }
       ],
       "authors": [
-        "Joanna Gajda",
-        "Tyler F.W. Sloan",
-        "Hsieh-Fu Tsai",
-        "Andrei Rares",
-        "Amy Q. Shen"
+        {
+          "name": "Joanna Gajda",
+          "affiliation": "AGH University of Science and Technology, Poland"
+        },
+        {
+          "name": "Tyler F.W. Sloan",
+          "affiliation": "Quorumetrix Solutions, Canada"
+        },
+        {
+          "name": "Hsieh-Fu Tsai",
+          "affiliation": "Micro/Bio/Nanofluidics Unit, Okinawa Institute of Science and Technology Graduate University, Japan"
+        },
+        {
+          "name": "Andrei Rares",
+          "affiliation": "ImagineA, The Netherlands"
+        },
+        {
+          "name": "Amy Q. Shen",
+          "affiliation": "Micro/Bio/Nanofluidics Unit, Okinawa Institute of Science and Technology Graduate University, Japan"
+        }
       ],
       "covers": [
         "cover.jpg"
       ],
       "tags": [
-        "2D",
-        "segmentation",
-        "deepimagej-beta",
-        "fibroblasts",
-        "deepimagej",
+        "2d",
         "maskrcnn",
-        "phase contrast",
-        "usiigaci"
+        "usiigaci",
+        "fibroblasts",
+        "segmentation",
+        "phase-contrast",
+        "deepimagej-beta",
+        "deepimagej"
       ],
       "license": "MIT",
       "git_repo": "https://github.com/oist/Usiigaci",
@@ -634,24 +764,29 @@
       "id": "deepimagej/MoNuSeg_digital_pathology_miccai2018",
       "name": "Multi-Organ Nucleus Segmentation Challenge - MICCAI 2018",
       "description": "Labelled images for instance segmentation of cell nuclei in digital pathology datasets (MoNuSeg 2018 Challenge).",
-      "cite": {
-        "text": "Neeraj Kumar et al. Transactions on medical imaging 2020",
-        "doi": "https://doi.org/10.1109/TMI.2019.2947628"
-      },
+      "cite": [
+        {
+          "text": "Neeraj Kumar et al. Transactions on medical imaging 2020",
+          "doi": "https://doi.org/10.1109/TMI.2019.2947628"
+        }
+      ],
       "authors": [
-        "DeepImageJ team, UC3M, EPFL"
+        {
+          "name": "DeepImageJ",
+          "affiliation": "EPFL, UC3M"
+        }
       ],
       "documentation": "https://monuseg.grand-challenge.org",
       "tags": [
-        "segmentation",
-        "2D",
-        "nuclei segmentation",
-        "histology",
-        "deepimagej",
-        "H&E",
         "StarDist",
+        "histology",
+        "H&E",
+        "nuclei segmentation",
         "pathology",
-        "digital pathology"
+        "digital pathology",
+        "2D",
+        "segmentation",
+        "deepimagej"
       ],
       "covers": [
         "https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg1.jpg",
@@ -659,6 +794,71 @@
         "https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg3.jpg"
       ],
       "source": "https://monuseg.grand-challenge.org/Data/"
+    },
+    {
+      "type": "model",
+      "attachments": {
+        "files": [
+          "./exampleImage.tif",
+          "./resultImage.tif",
+          "./per_sample_scale_range.ijm",
+          "./StarDist_Post-processing.ijm"
+        ]
+      },
+      "source": "https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml",
+      "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic",
+      "id": "deepimagej/Stardist2DZeroCostDL4Mic",
+      "download_url": "https://sandbox.zenodo.org/record/894493/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip",
+      "links": [
+        "deepimagej/deepimagej",
+        "zero/Notebook_StarDist_2D_ZeroCostDL4Mic_DeepImageJ",
+        "deepimagej/MoNuSeg_digital_pathology_miccai2018"
+      ],
+      "format_version": "0.3.2",
+      "name": "Multi-Organ Nucleus Segmentation Challenge",
+      "description": "Nucleus segmentation in digital pathology datasets (MoNuSeg 2018 Challenge)",
+      "cite": [
+        {
+          "doi": "https://doi.org/10.1007/978-3-030-00934-2_30",
+          "text": "Uwe Schmidt et al. MICCAI 2018"
+        },
+        {
+          "doi": "https://doi.org/10.1109/WACV45572.2020.9093435",
+          "text": "Martin Weigert et al. WACV 2020"
+        },
+        {
+          "doi": "https://doi.org/10.1101/2020.03.20.000133",
+          "text": "Lucas von Chamier et al. biorXiv 2020"
+        },
+        {
+          "doi": "https://doi.org/10.1109/TMI.2019.2947628",
+          "text": "Neeraj Kumar et al. Transactions on medical imaging 2020"
+        }
+      ],
+      "authors": [
+        {
+          "name": "Estibaliz G\u00f3mez de Mariscal",
+          "affiliation": "Universidad Carlos III de Madrid"
+        }
+      ],
+      "documentation": "https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki",
+      "license": "MIT",
+      "git_repo": "https://github.com/HenriquesLab/ZeroCostDL4Mic",
+      "covers": [
+        "combined.jpg"
+      ],
+      "tags": [
+        "zerocostdl4mic",
+        "2d",
+        "trainable",
+        "segmentation",
+        "digital-pathology",
+        "histopathology",
+        "nucleus-segmentation",
+        "stardist",
+        "deepimagej"
+      ],
+      "error": {}
     },
     {
       "type": "model",
@@ -673,12 +873,12 @@
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining",
       "id": "deepimagej/Mt3VirtualStaining",
-      "download_url": "https://zenodo.org/record/4290839/files/mt3_virtual_staining.bioimage.io.model.zip",
+      "download_url": "https://sandbox.zenodo.org/record/906805/files/bioimage.io.model.zip",
       "links": [
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "Masson\u2019s Trichrome Virtual Staining (GAN)",
       "description": "A trained GAN to transform wide-field autofluorescence images of unlabelled tissue sections into images that are equivalent to the bright-field images of histologically stained versions of the same samples.",
       "cite": [
@@ -688,22 +888,31 @@
         }
       ],
       "authors": [
-        "Yair Rivenson",
-        "Hongda Wang",
-        "Aydogan Ozcan"
+        {
+          "name": "Yair Rivenson",
+          "affiliation": "University of California"
+        },
+        {
+          "name": "Hongda Wang",
+          "affiliation": "University of California"
+        },
+        {
+          "name": "Aydogan Ozcan",
+          "affiliation": "University of California"
+        }
       ],
-      "documentation": "https://innovate.ee.ucla.edu",
+      "documentation": "README.md",
       "covers": [
         "exampleImage.png",
         "resultImage.png"
       ],
       "tags": [
-        "deepimagej",
-        "Virtual staining",
+        "gan",
         "histology",
-        "GAN"
+        "virtual-staining",
+        "deepimagej"
       ],
-      "license": "CC BY 4.0",
+      "license": "CC-BY-4.0",
       "error": {}
     },
     {
@@ -719,12 +928,12 @@
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining",
       "id": "deepimagej/JonesVirtualStaining",
-      "download_url": "https://zenodo.org/record/4290839/files/jones_virtual_staining.bioimage.io.model.zip",
+      "download_url": "https://sandbox.zenodo.org/record/906803/files/bioimage.io.model.zip",
       "links": [
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "Jones Virtual Staining (GAN)",
       "description": "A trained GAN to transform wide-field autofluorescence images of unlabelled tissue sections into images that are equivalent to the bright-field images of histologically stained versions of the same samples.",
       "cite": [
@@ -734,21 +943,30 @@
         }
       ],
       "authors": [
-        "Yair Rivenson",
-        "Hongda Wang",
-        "Aydogan Ozcan"
+        {
+          "name": "Yair Rivenson",
+          "affiliation": "University of California"
+        },
+        {
+          "name": "Hongda Wang",
+          "affiliation": "University of California"
+        },
+        {
+          "name": "Aydogan Ozcan",
+          "affiliation": "University of California"
+        }
       ],
       "covers": [
         "exampleImage.png",
         "resultImage.png"
       ],
       "tags": [
-        "deepimagej",
-        "Virtual staining",
+        "gan",
         "histology",
-        "GAN"
+        "virtual-staining",
+        "deepimagej"
       ],
-      "documentation": "https://innovate.ee.ucla.edu",
+      "documentation": "README.md",
       "license": "CC BY 4.0",
       "error": {}
     },
@@ -770,8 +988,8 @@
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "download_url": "https://zenodo.org/record/4155785/files/deepimagej_u-net_hela_segmentation.zip",
-      "format_version": "0.3.0",
+      "download_url": "https://sandbox.zenodo.org/record/913978/files/u-net_hela_segmentation.zip",
+      "format_version": "0.3.2",
       "name": "HeLa DIC Cell Segmentation (U-Net)",
       "description": "DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images",
       "cite": [
@@ -785,17 +1003,20 @@
         }
       ],
       "authors": [
-        "Jo\u00e3o Soares Lopes"
+        {
+          "name": "DeepImageJ",
+          "affiliation": "EPFL, UC3M"
+        }
       ],
-      "documentation": "https://deepimagej.github.io/deepimagej/models_documentation.html",
+      "documentation": "README.md",
       "covers": [
         "unet_hela_seg.jpg"
       ],
       "tags": [
-        "hela cells",
-        "deepimagej",
         "segmentation",
-        "phase contrast"
+        "phase-contrast",
+        "hela-cells",
+        "deepimagej"
       ],
       "license": "BSD-2",
       "git_repo": "https://github.com/deepimagej/python4deepimagej/tree/master/unet",
@@ -820,7 +1041,7 @@
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "Glioblastoma Phase Contrast Cell Segmentation (U-Net)",
       "description": "DeepImageJ compatible U-Net trained to segment 2D phase contrast microscopy images of glioblastoma-astrocytoma U373 cells on a polyacrylamide substrate.",
       "cite": [
@@ -834,17 +1055,20 @@
         }
       ],
       "authors": [
-        "Jo\u00e3o Soares Lopes"
+        {
+          "name": "DeepImageJ",
+          "affiliation": "EPFL, UC3M"
+        }
       ],
       "documentation": "README.md",
       "covers": [
         "cover_image.jpg"
       ],
       "tags": [
-        "deepimagej",
         "segmentation",
-        "glioblastoma cells",
-        "phase contrast"
+        "phase-contrast",
+        "glioblastoma-cells",
+        "deepimagej"
       ],
       "license": "BSD-2",
       "git_repo": "https://github.com/deepimagej/python4deepimagej/tree/master/unet",
@@ -866,13 +1090,13 @@
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic",
       "id": "deepimagej/DeepSTORMZeroCostDL4Mic",
-      "download_url": "https://zenodo.org/record/4155785/files/DeepImageJ_DeepSTORM_ZeroCostDL4Mic.zip",
+      "download_url": "https://sandbox.zenodo.org/record/907832/files/bioimage.io.model.zip",
       "links": [
         "zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic_DeepImageJ",
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "Glial Cell SMLM (DeepSTORM - ZeroCostDL4Mic)",
       "description": "A trained Deep-STORM model for image reconstruction from high-density single-molecule localization microscopy (SMLM).",
       "cite": [
@@ -890,21 +1114,27 @@
         }
       ],
       "authors": [
-        "ZeroCostDL4Mic team",
-        "DeepImageJ team"
+        {
+          "name": "ZeroCostDL4Mic team",
+          "affiliation": "UCL, Francis Crick Institute, Turku and \u00c5bo Akademi University"
+        },
+        {
+          "name": "DeepImageJ team",
+          "affiliation": "UC3M, EPFL"
+        }
       ],
       "git_repo": "https://github.com/HenriquesLab/ZeroCostDL4Mic",
-      "documentation": "https://deepimagej.github.io/deepimagej",
+      "documentation": "README.md",
       "covers": [
         "input.png",
         "zoom.png"
       ],
       "tags": [
-        "image reconstruction",
-        "deepimagej",
+        "zerocostdl4mic",
+        "image-reconstruction",
         "super-resolution",
-        "SMLM",
-        "zerocostdl4mic"
+        "smlm",
+        "deepimagej"
       ],
       "license": "MIT",
       "error": {}
@@ -921,13 +1151,13 @@
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic",
       "id": "deepimagej/3DUNetZeroCostDL4Mic",
-      "download_url": "https://zenodo.org/record/4155785/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip",
+      "download_url": "https://sandbox.zenodo.org/record/907831/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip",
       "links": [
         "deepimagej/deepimagej",
         "zero/Notebook_U-Net_3D_ZeroCostDL4Mic_DeepImageJ",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "3D U-Net - ZeroCostDL4Mic",
       "description": "3D U-Net trained using ZeroCostDL4Mic notebooks to segment mitochondria in Transmission Electron Microscopy (TEM) data.",
       "cite": [
@@ -941,20 +1171,23 @@
         }
       ],
       "authors": [
-        "DeepImageJ team"
+        {
+          "name": "DeepImageJ team",
+          "affiliation": "EPFL, UC3M"
+        }
       ],
-      "documentation": "https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki",
+      "documentation": "README.md",
       "covers": [
         "exampleImage.gif"
       ],
       "tags": [
-        "segmentation",
-        "deepimagej-beta",
-        "deepimagej",
-        "3DUNet",
-        "TEM",
+        "zerocostdl4mic",
         "mitochondria",
-        "ZeroCostDL4Mic"
+        "segmentation",
+        "tem",
+        "3d-unet",
+        "deepimagej-beta",
+        "deepimagej"
       ],
       "license": "MIT",
       "git_repo": "https://github.com/HenriquesLab/ZeroCostDL4Mic/blob/master/Colab_notebooks/U-Net_3D_ZeroCostDL4Mic.ipynb",
@@ -973,13 +1206,13 @@
       "source": "https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/model.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic",
       "id": "deepimagej/2DUNetZeroCostDL4Mic",
-      "download_url": "https://zenodo.org/record/4155785/files/DeepImageJ_2D%20UNet_ZeroCostDL4Mic.zip",
+      "download_url": "https://sandbox.zenodo.org/record/904905/files/DeepImageJ_2D_UNet_ZeroCostDL4Mic.zip",
       "links": [
         "zero/Notebook_U-Net_2D_ZeroCostDL4Mic_DeepImageJ",
         "deepimagej/deepimagej",
         "imjoy/BioImageIO-Packager"
       ],
-      "format_version": "0.3.0",
+      "format_version": "0.3.2",
       "name": "2D UNet - ZeroCostDL4Mic",
       "description": "2D U-Net trained for binary segmentation using the EM images of neuronal membranes and segmentation masks from the ISBI segmentation challenge 2012.",
       "cite": [
@@ -997,19 +1230,24 @@
         }
       ],
       "authors": [
-        "ZeroCostDL4Mic team",
-        "DeepImageJ team"
+        {
+          "name": "ZeroCostDL4Mic"
+        },
+        {
+          "name": "DeepImageJ",
+          "affiliation": "EPFL, UC3M"
+        }
       ],
       "git_repo": "https://github.com/HenriquesLab/ZeroCostDL4Mic",
-      "documentation": "https://deepimagej.github.io/deepimagej",
+      "documentation": "README.md",
       "covers": [
         "cover.png"
       ],
       "tags": [
-        "deepimagej",
         "zerocostdl4mic",
+        "segmentation",
         "unet",
-        "segmentation"
+        "deepimagej"
       ],
       "license": "MIT",
       "error": {}
