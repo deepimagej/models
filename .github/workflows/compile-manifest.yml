@@ -42,7 +42,7 @@ jobs:
       - name: Verify model config files
         run: |
           pip install git+https://github.com/bioimage-io/spec-bioimage-io.git
-          bioimageio validate manifest.bioimage.yaml --update-format
+          bioimageio validate rdf.yaml --update-format
           
   deploy:
     runs-on: ubuntu-latest
