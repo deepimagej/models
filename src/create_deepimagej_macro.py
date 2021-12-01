@@ -27,6 +27,7 @@ def enforce_min_shape(min_shape, step, axes):
 
     m = max(factors)
     return [s + i * m for s, i in zip(min_shape, step)]
+
 def parse_prediction(prediction_dict):
     if prediction_dict[0]['spec'].__contains__('MacroFile'):
         processing_txt = [prediction_dict[0]['kwargs']]
@@ -45,7 +46,7 @@ def parse_prediction(prediction_dict):
     processing_txt = ' '.join(processing_txt)
     return processing_txt
 
-def create_dij_macro(url):
+def create_dij_macro(yaml_url):
     urllib.request.urlretrieve(yaml_url, "model.yaml")
     try:
         yaml = YAML()
@@ -56,12 +57,42 @@ def create_dij_macro(url):
         exit(0)
 
     model_name = YAML_dict['name']
+    # Add brackets when there are blanck spaces in the name
+    if model_name.__contains__(' '):
+        macro_model_name = '[' + model_name + ']'
+    else:
+        macro_model_name = model_name
+        
+    # Detect python package of the model
+    if 'tensorflow_saved_model_bundle' in YAML_dict['weights']:
+        py_format = "Tensorflow"
+    elif 'pytorch_script' in YAML_dict['weights']:
+        py_format = "Pytorch"
+    else:
+        print("This models does not have any deepImageJ compatible weight format.")
+        exit(0)
 
+    # if YAML_dict['framework'] == 'tensorflow' or YAML_dict['framework'] == 'Tensorflow':
+    #     py_format = 'Tensorflow'
+    # elif YAML_dict['framework'] == 'tensorflow' or YAML_dict['framework'] == 'Tensorflow' ::
+    #     py_format = 'Pytorch'
+    # else:
+    #     print("The format of the model is not compatible with deepImageJ (format: {})".format(py_format))
+    #     exit(0)
+    
     preprocessing = YAML_dict['config']['deepimagej']['prediction']['preprocess']
-    preprocessing_txt = parse_prediction(preprocessing)
+    if preprocessing[0]['spec'] is None:
+        # No preprocessing
+        preprocessing_txt = "no preprocessing"
+    else:
+        preprocessing_txt = parse_prediction(preprocessing)
 
     postprocessing = YAML_dict['config']['deepimagej']['prediction']['postprocess']
-    postprocessing_txt = parse_prediction(postprocessing)
+    if postprocessing[0]['spec'] is None:
+        # No postprocessing
+        postprocessing_txt = "no postprocessing"
+    else:
+        postprocessing_txt = parse_prediction(postprocessing)
 
     axes = YAML_dict['inputs'][0]['axes']
     if axes.__contains__('b'):
@@ -76,22 +107,6 @@ def create_dij_macro(url):
             m = m[1:]
             step = step[1:]
         shape = enforce_min_shape(m, step, axes)  # ensure that the tile shape won't be too large
-        # shape = [] # variable to store the shape of the tile
-        # test_image = np.load( YAML_dict['test_inputs'][0])
-        # dims = [test_image.shape[d] for d in range(len(test_image.shape))]
-        # for i in range(len(dims)):
-        # if YAML_dict['inputs'][0]['axes'].__contains__('b'):
-        #     # avoid the batch dimension
-        #     j = i+1
-        # else:
-        #     j = 1
-        # if step[j] > 0:
-        #     #if the step is 0, then the shape is like min
-        #     n = np.floor((d[i]-m[j])/step[j]) # multiple for the shape calculator
-        #     shape.append(int(m[j] + n*step[j]))
-        # else:
-        #     shape.append(int(m[j]))
-
     else:
         if YAML_dict['inputs'][0]['axes'].__contains__('b'):
             input_shape = input_shape[1:]
@@ -100,17 +115,11 @@ def create_dij_macro(url):
     # convert into string:
     axes = ','.join(axes)
     shape = ','.join([str(i) for i in shape])
-    if 'tensorflow_saved_model_bundle' in YAML_dict['weights']:
-        format = "Tensorflow"
-    elif 'pytorch_script' in YAML_dict['weights']:
-        format = "Pytorch"
-    else:
-        print("This models does not have any deepImageJ compatible weight format.")
-        exit(0)
-
+    
     ijmacro = f"""
-    run("DeepImageJ Run",
-        "model=[{model_name}] format={format} preprocessing=[{preprocessing_txt}] postprocessing=[{postprocessing_txt}] axes={axes} tile={shape} logging=normal");
+    rename("image");
+    run("DeepImageJ Run", "model={macro_model_name} format={py_format} preprocessing=[{preprocessing_txt}] postprocessing=[{postprocessing_txt}] axes={axes} tile={shape} logging=normal");
+    selectWindow("{model_name}" + "_output_image");
     """
     return ijmacro
 ## Test it with:
