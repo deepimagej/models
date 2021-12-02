@@ -1,11 +1,17 @@
 # Intended Use
 A U-Net trained to segment cells in 2D images.
 
-# Images
+# Images used for training
 - Microscopy modality: Phase contrast
 - Data shape: 2D
 - Cell type: Glioblastoma-astrocytoma (U373)
 - Source: Cell Tracking Challenge
+
+# Recommended validation metrics
+- Jaccard index
+- Hausdorff distance
+- Binary Cross Entropy
+- Precision, Recall and F1 over true and false positive pixels
 
 # Training schedule
 - Steps per epoch: 500
