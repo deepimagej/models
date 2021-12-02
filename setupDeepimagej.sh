@@ -22,4 +22,4 @@ mv DeepImageJ_-2.1.10.jar $HOME/Fiji.app/plugins/DeepImageJ_-2.1.10.jar
 wget  https://zenodo.org/record/4608442/files/SMLM_Density%20Map_Estimation_%28DEFCoN%29.bioimage.io.model.zip
 mkdir -p $HOME/Fiji.app/models/DEFCoN.bioimage.io.model
 unzip 'SMLM_Density Map_Estimation_(DEFCoN).bioimage.io.model.zip' -d $HOME/Fiji.app/models/DEFCoN.bioimage.io.model/
-$HOME/Fiji.app/ImageJ-linux64 --headless --console -macro Fiji.app/macroDIJ.ijm
+$HOME/Fiji.app/ImageJ-linux64 --headless --console -macro macroDIJ.ijm
