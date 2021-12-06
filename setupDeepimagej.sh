@@ -1,5 +1,4 @@
-$JAVA_HOME = /usr/bin/java
+$JAVA_HOME = /usr/share/miniconda/bin/java
 java -version
 whereis java
 mvn -v
-locate openjdk
