@@ -26,7 +26,7 @@ jobs:
     - name: Install dependencies
       run: |
         mamba env update --file environment-test.yaml --name base
-    - name: Download Fiji
+    - name: DeepImageJ terminal call
       run: |
         sh setupDeepimagej.sh
 
