@@ -8,7 +8,7 @@ mv $HOME/Fiji.app/jars/FilamentDetector-1.0.0.jar $HOME/Fiji.app/jars/FilamentDe
 rm $HOME/Fiji.app/jars/jna-4*.jar
 wget https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.9/dependencies_219.zip
 unzip dependencies_219.zip
-mv $HOME/dependencies_219/dependencies_2.1.9/* $HOME/Fiji.app/jars/
+mv $HOME/dependencies_219/dependencies_2.1.9/dependencies_2.1.9/* $HOME/Fiji.app/jars/
 
 wget https://github.com/deepimagej/models/releases/download/0.3/DeepImageJ_-2.1.10.jar
 rm $HOME/Fiji.app/plugins/DeepImageJ*.jar
