@@ -12,7 +12,7 @@ dependencies:
   - matplotlib-base
   - notebook
   - numpy
-  - openjdk=7
+  - openjdk=8
   - pyimagej
   - scikit-image
   - scyjava

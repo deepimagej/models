@@ -17,7 +17,7 @@ mv DeepImageJ_-2.1.10.jar $HOME/Fiji.app/plugins/DeepImageJ_-2.1.10.jar
 #export DISPLAY=:1
 #Xvfb $DISPLAY -screen 0 1024x768x16 &
 
-
+java -version
 
 wget  https://zenodo.org/record/4608442/files/SMLM_Density%20Map_Estimation_%28DEFCoN%29.bioimage.io.model.zip
 mkdir -p $HOME/Fiji.app/models/DEFCoN.bioimage.io.model
