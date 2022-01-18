@@ -4,7 +4,7 @@
   "type": "window",
   "tags": [],
   "ui": "",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "api_version": "0.1.0",
   "description": "Export BioImage.IO model packages for deepImageJ from a model description file",
   "icon": "https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png",
@@ -37,25 +37,6 @@ function isZenodoFileUrl(url){
   return true
 }
 
-async function convertZenodoFileUrl(url) {
-  const myRegexp = /https?:\/\/zenodo.org\/record\/([a-zA-Z0-9-]+)\/files\/(.*)/g;
-  const match = myRegexp.exec(url);
-  if (!match || match.length !== 3) {
-    throw new Error("Invalid zenodo url");
-  }
-  const [fullUrl, depositId, fileName] = match;
-  const blob = await fetch(
-    `https://zenodo.org/api/records/${depositId}`
-  ).then(r => r.blob());
-  const data = JSON.parse(await new Response(blob).text());
-  const fn = fileName.split("?")[0];
-  const fileObj = data.files.filter(file => {
-    return file.key === fn;
-  })[0];
-  return fileObj && fileObj.links.self;
-}
-
-  
 async function convertZenodoFileUrl(url) {
   const myRegexp = /zenodo.org\/record\/([a-zA-Z0-9-]+)\/files\/(.*)/g;
   const match = myRegexp.exec(url);
@@ -256,8 +237,7 @@ const app = new Vue({
   },
   methods: {
     async init(weight_formats_spec){
-      const rdfFile = this.modelInfo.config&&this.modelInfo.config._rdf_file;
-      let specUrl = rdfFile || this.modelInfo.source
+      let specUrl = this.modelInfo.source
       const tmp = specUrl.split('/')
       this.rootUrl = tmp.slice(0, tmp.length-1).join('/')
       specUrl = await convertZenodoFileUrl(specUrl) || specUrl
@@ -326,7 +306,7 @@ class ImJoyPlugin {
       if(!specUrl) return
       app.modelInfo = {
         name: getFileName(specUrl),
-        config: { _rdf_file: specUrl }
+        source: specUrl
       }
     }
     else
