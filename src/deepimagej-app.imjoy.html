@@ -301,7 +301,7 @@ class ImJoyPlugin {
   }
 
   async run(ctx) {
-    if(!ctx.data || (!ctx.data.config && !ctx.data.source)){
+    if(!ctx.data || !ctx.data.source){
       const specUrl = await api.prompt("Please paste the model spec url here", "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/model.yaml")
       if(!specUrl) return
       app.modelInfo = {
