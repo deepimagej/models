@@ -47,11 +47,12 @@ jobs:
         mv dependencies_2112/dependencies_2.1.12/* $HOME/Fiji.app/jars/
 
         wget https://github.com/deepimagej/models/releases/download/0.3/DeepImageJ_-2.1.12.jar
-        rm $HOME/Fiji.app/plugins/DeepImageJ*.jar
-        mv DeepImageJ_-2.1.12.jar $HOME/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
+        rm $pwd/Fiji.app/plugins/DeepImageJ*.jar
+        mv DeepImageJ_-2.1.12.jar $pwd/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
     - name: test with DeepImageJ ${{matrix.v }}
       shell: bash -l {0}
-      run: python scripts/test_many_with_ilastik.py dist '${{ github.event.inputs.pending_matrix }}' --postfix ${{ matrix.v }}
+      run: python scripts/test_many_with_ilastik.py dist '${{ github.event.inputs.pending_matrix }}' \
+            --fiji_path $pwd/Fiji.app --postfix ${{ matrix.v }}
     - name: Upload test summaries
       uses: actions/upload-artifact@v3
       with:
