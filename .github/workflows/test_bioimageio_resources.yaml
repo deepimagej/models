@@ -1,4 +1,4 @@
-name: test BioImage.IO resources  # for compatibility with ilastik
+name: test BioImage.IO resources  # for compatibility with DeepImageJ
 
 concurrency: test-resources
 
@@ -12,30 +12,12 @@ on:
         type: string
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    outputs:
-      version_matrix: ${{ steps.cvm.outputs.version_matrix }}
-    steps:
-    - name: download version list
-      run: wget https://files.ilastik.org/ilastik-versions-bmz.json
-    - name: create version matrix
-      id: cvm
-      shell: python
-      run: |
-        import json
-
-        with open("ilastik-versions-bmz.json") as f:
-            vs = json.load(f)
-
-        version_matrix = dict(include=[dict(v=v, env_url=f"https://files.ilastik.org/ilastik-{v}-Linux.yml") for v in vs])
-        print(f"::set-output name=version_matrix::{version_matrix}")
-
+  // TODO automatize the version management
   run:
     runs-on: ubuntu-latest
-    needs: setup
     strategy:
-      matrix: ${{ fromJson(needs.setup.outputs.version_matrix) }}
+      matrix: 
+        version: [2.1.13]
 
     steps:
     - uses: actions/checkout@v2
@@ -51,55 +33,11 @@ jobs:
           miniforge-version: latest
           activate-environment: ilastik-env
           use-mamba: true
-    - name: Cache ilastik env
-      uses: actions/cache@v2
-      with:
-        path: ${{ env.CONDA }}/envs
-        key: conda-${{ runner.os }}--${{ runner.arch }}--${{ matrix.v }}-${{ env.CACHE_NUMBER }}
-      env:
-        # Increase this value to reset cache if etc/example-environment.yml has not changed
-        CACHE_NUMBER: 0
-      id: cache
-    - name: Download ilastik env
-      if: steps.cache.outputs.cache-hit != 'true'
+    - name: Download Fiji env
       run: wget --output-document env.yaml ${{ matrix.env_url }}
-    - run: pip install ruamel.yaml  # not in the conda env
-      if: steps.cache.outputs.cache-hit != 'true'
-    - run: which python
-    - run: which python
-      shell: bash -l {0}
-    - name: ignore unrelated packages
-      if: steps.cache.outputs.cache-hit != 'true'
-      shell: python  # not the conda env
-      run: |
-        from pathlib import Path
-        from ruamel.yaml import YAML
-
-        yaml = YAML(typ="safe")
-
-        with Path("env.yaml").open() as f:
-          env = yaml.load(f)
-
-        ignore_deps = ["multi-hypotheses-tracking-with-gurobi", "gurobi-symlink"]
-        ignored = []
-        remaining = []
-        for d in env["dependencies"]:
-          if d.split("=")[0] in ignore_deps:
-            ignored.append(d)
-          else:
-            remaining.append(d)
-
-        print("ignored", ignored)
-        env["dependencies"] = remaining
-
-        with Path("env.yaml").open("w") as f:
-          yaml.dump(env, f)
-
-    - name: Update environment
-      shell: bash -l {0}
-      if: steps.cache.outputs.cache-hit != 'true'
+    - name: Download DeepImageJ and deps
       run: mamba env update -n ilastik-env -f env.yaml
-    - name: test with ilastik ${{matrix.v }}
+    - name: test with DeepImageJ ${{matrix.v }}
       shell: bash -l {0}
       run: python scripts/test_many_with_ilastik.py dist '${{ github.event.inputs.pending_matrix }}' --postfix ${{ matrix.v }}
     - name: Upload test summaries
