@@ -5,7 +5,7 @@ from typing import Dict, Union
 
 import typer
 
-from test_with_ilastik import write_test_summaries
+from test_with_deepimagej import write_test_summaries
 
 
 def iterate_over_gh_matrix(matrix: Union[str, Dict[str, list]]):
@@ -34,9 +34,9 @@ def main(
     rdf_dir: Path = Path(__file__).parent / "../bioimageio-gh-pages/rdfs",
     postfix: str = "",
 ):
-    """preliminary ilastik check
+    """preliminary deepimagej check
 
-    only checks if test outputs are reproduced for onnx, torchscript, or pytorch_state_dict weights .
+    only checks if test outputs are obtained for Tensorflow 1 or torchscript weights .
 
     """
     summaries_dir = dist / "test_summaries"

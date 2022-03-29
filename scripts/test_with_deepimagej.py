@@ -36,7 +36,7 @@ def main(
 ):
     """preliminary ilastik check
 
-    only checks if test outputs are reproduced for onnx, torchscript, or pytorch_state_dict weights .
+    only checks if test outputs are reproduced for Tensorflow 1 or torchscript weights .
 
     """
     summaries_dir = dist / "test_summaries"
