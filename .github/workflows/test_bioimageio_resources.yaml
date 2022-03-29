@@ -20,23 +20,35 @@ jobs:
         version: [2.1.13]
 
     steps:
+    - uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu' # See 'Supported distributions' for available options
+        java-version: '8'
     - uses: actions/checkout@v2
     - uses: actions/checkout@v2
       with:
         repository: bioimage-io/collection-bioimage-io
         ref: gh-pages
         path: bioimageio-gh-pages
-    - name: Setup ilastik env
-      uses: conda-incubator/setup-miniconda@v2
-      with:
-          miniforge-variant: Mambaforge
-          miniforge-version: latest
-          activate-environment: ilastik-env
-          use-mamba: true
     - name: Download Fiji env
-      run: wget --output-document env.yaml ${{ matrix.env_url }}
+      run: |
+        wget https://downloads.imagej.net/fiji/archive/20201104-1356/fiji-linux64.zip
+        unzip fiji-linux64.zip -d $pwd
+        # fix FilamentDetector issue
+        mv $pwd/Fiji.app/jars/FilamentDetector-1.0.0.jar $pwd/Fiji.app/jars/FilamentDetector-1.0.0.jar.disabled
+        ##$pwd/Fiji.app/ImageJ-linux64 --update add-update-site DeepImageJ https://sites.imagej.net/DeepImageJ/
+        ##$pwd/Fiji.app/ImageJ-linux64 --update update
+
+        rm $pwd/Fiji.app/jars/jna-4*.jar
     - name: Download DeepImageJ and deps
-      run: mamba env update -n ilastik-env -f env.yaml
+      run: |
+        wget https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.12/dependencies_2112.zip
+        unzip dependencies_2112.zip
+        mv dependencies_2112/dependencies_2.1.12/* $HOME/Fiji.app/jars/
+
+        wget https://github.com/deepimagej/models/releases/download/0.3/DeepImageJ_-2.1.12.jar
+        rm $HOME/Fiji.app/plugins/DeepImageJ*.jar
+        mv DeepImageJ_-2.1.12.jar $HOME/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
     - name: test with DeepImageJ ${{matrix.v }}
       shell: bash -l {0}
       run: python scripts/test_many_with_ilastik.py dist '${{ github.event.inputs.pending_matrix }}' --postfix ${{ matrix.v }}
