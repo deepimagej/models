@@ -1,0 +1,129 @@
+name: test BioImage.IO resources  # for compatibility with ilastik
+
+concurrency: test-resources
+
+on:
+  workflow_dispatch:
+    inputs:
+      pending_matrix:
+        description: 'json encoded gh matrix of pending validations for new or updated resources (default: test on all resources)'
+        required: true
+        default: '{"include": [{"resource_id": "**", "version_id": "**"}]}'
+        type: string
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      version_matrix: ${{ steps.cvm.outputs.version_matrix }}
+    steps:
+    - name: download version list
+      run: wget https://files.ilastik.org/ilastik-versions-bmz.json
+    - name: create version matrix
+      id: cvm
+      shell: python
+      run: |
+        import json
+
+        with open("ilastik-versions-bmz.json") as f:
+            vs = json.load(f)
+
+        version_matrix = dict(include=[dict(v=v, env_url=f"https://files.ilastik.org/ilastik-{v}-Linux.yml") for v in vs])
+        print(f"::set-output name=version_matrix::{version_matrix}")
+
+  run:
+    runs-on: ubuntu-latest
+    needs: setup
+    strategy:
+      matrix: ${{ fromJson(needs.setup.outputs.version_matrix) }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+      with:
+        repository: bioimage-io/collection-bioimage-io
+        ref: gh-pages
+        path: bioimageio-gh-pages
+    - name: Setup ilastik env
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          activate-environment: ilastik-env
+          use-mamba: true
+    - name: Cache ilastik env
+      uses: actions/cache@v2
+      with:
+        path: ${{ env.CONDA }}/envs
+        key: conda-${{ runner.os }}--${{ runner.arch }}--${{ matrix.v }}-${{ env.CACHE_NUMBER }}
+      env:
+        # Increase this value to reset cache if etc/example-environment.yml has not changed
+        CACHE_NUMBER: 0
+      id: cache
+    - name: Download ilastik env
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: wget --output-document env.yaml ${{ matrix.env_url }}
+    - run: pip install ruamel.yaml  # not in the conda env
+      if: steps.cache.outputs.cache-hit != 'true'
+    - run: which python
+    - run: which python
+      shell: bash -l {0}
+    - name: ignore unrelated packages
+      if: steps.cache.outputs.cache-hit != 'true'
+      shell: python  # not the conda env
+      run: |
+        from pathlib import Path
+        from ruamel.yaml import YAML
+
+        yaml = YAML(typ="safe")
+
+        with Path("env.yaml").open() as f:
+          env = yaml.load(f)
+
+        ignore_deps = ["multi-hypotheses-tracking-with-gurobi", "gurobi-symlink"]
+        ignored = []
+        remaining = []
+        for d in env["dependencies"]:
+          if d.split("=")[0] in ignore_deps:
+            ignored.append(d)
+          else:
+            remaining.append(d)
+
+        print("ignored", ignored)
+        env["dependencies"] = remaining
+
+        with Path("env.yaml").open("w") as f:
+          yaml.dump(env, f)
+
+    - name: Update environment
+      shell: bash -l {0}
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: mamba env update -n ilastik-env -f env.yaml
+    - name: test with ilastik ${{matrix.v }}
+      shell: bash -l {0}
+      run: python scripts/test_many_with_ilastik.py dist '${{ github.event.inputs.pending_matrix }}' --postfix ${{ matrix.v }}
+    - name: Upload test summaries
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ matrix.v }}
+        path: dist
+        retention-days: 1
+
+  deploy:
+    needs: run
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v3
+      with:
+        path: artifacts
+    - name: merge ilastik test summaries  # (they differ by postfix)
+      run: |
+        mkdir dist
+        cp -r artifacts/*/* dist
+    - name: Deploy test summaries to gh-pages 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.2.3
+      with:
+        clean: false
+        branch: gh-pages
+        folder: dist
