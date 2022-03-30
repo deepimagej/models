@@ -37,15 +37,15 @@ jobs:
     - name: Install Python dependencies
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
-        $CONDA/bin/conda env update --file environment-test.yaml --name deepImageJ
+        $CONDA/bin/conda env update --file environment-test.yaml --name deepImageJEnv
     - name: Download Fiji env
       run: |
         wget https://downloads.imagej.net/fiji/archive/20201104-1356/fiji-linux64.zip
         unzip fiji-linux64.zip -d $pwd
+        ls
+        echo $pwd
         # fix FilamentDetector issue
         mv $pwd/Fiji.app/jars/FilamentDetector-1.0.0.jar $pwd/Fiji.app/jars/FilamentDetector-1.0.0.jar.disabled
-        ##$pwd/Fiji.app/ImageJ-linux64 --update add-update-site DeepImageJ https://sites.imagej.net/DeepImageJ/
-        ##$pwd/Fiji.app/ImageJ-linux64 --update update
 
         rm $pwd/Fiji.app/jars/jna-4*.jar
     - name: Download DeepImageJ and deps
@@ -58,8 +58,10 @@ jobs:
         rm $pwd/Fiji.app/plugins/DeepImageJ*.jar
         mv DeepImageJ_-2.1.12.jar $pwd/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
     - name: test with DeepImageJ ${{matrix.v }}
-      shell: bash -l {0}
-      run: python scripts/test_many_with_ilastik.py dist '${{ github.event.inputs.pending_matrix }}' \
+      run: |
+        $CONDA/bin/conda activate deepImageJEnv
+        echo $pwd/Fiji.app
+        python scripts/test_many_with_ilastik.py dist '${{ github.event.inputs.pending_matrix }}' \
             --fiji_path $pwd/Fiji.app --postfix ${{ matrix.v }}
     - name: Upload test summaries
       uses: actions/upload-artifact@v3
