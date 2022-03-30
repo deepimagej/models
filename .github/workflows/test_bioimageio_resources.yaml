@@ -30,6 +30,14 @@ jobs:
         repository: bioimage-io/collection-bioimage-io
         ref: gh-pages
         path: bioimageio-gh-pages
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: Install Python dependencies
+      run: |
+        # $CONDA is an environment variable pointing to the root of the miniconda directory
+        $CONDA/bin/conda env update --file environment-test.yaml --name deepImageJ
     - name: Download Fiji env
       run: |
         wget https://downloads.imagej.net/fiji/archive/20201104-1356/fiji-linux64.zip
