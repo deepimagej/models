@@ -61,7 +61,7 @@ jobs:
       run: |
         $CONDA/bin/conda activate deepImageJEnv
         echo $pwd/Fiji.app
-        python scripts/test_many_with_ilastik.py dist '${{ github.event.inputs.pending_matrix }}' \
+        python scripts/test_many_with_deepimagej.py dist '${{ github.event.inputs.pending_matrix }}' \
             --fiji_path $pwd/Fiji.app --postfix ${{ matrix.v }}
     - name: Upload test summaries
       uses: actions/upload-artifact@v3
