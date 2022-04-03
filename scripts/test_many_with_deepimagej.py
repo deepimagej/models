@@ -31,6 +31,7 @@ def iterate_over_gh_matrix(matrix: Union[str, Dict[str, list]]):
 def main(
     dist: Path,
     pending_matrix: str,
+    fiji_path: Path,
     rdf_dir: Path = Path(__file__).parent / "../bioimageio-gh-pages/rdfs",
     postfix: str = "",
 ):

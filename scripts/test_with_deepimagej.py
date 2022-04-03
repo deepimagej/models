@@ -21,7 +21,8 @@ def write_summary(
     yaml.dump(dict(name=name, status=status, error=error, reason=reason, **other), p)
 
 
-def write_test_summaries(rdf_dir: Path, resource_id: str, version_id: str, summaries_dir: Path, postfix: str):
+def write_test_summaries(rdf_dir: Path, resource_id: str, version_id: str, 
+    summaries_dir: Path, fiji_path: Path, postfix: str):
     for rdf_path in rdf_dir.glob(f"{resource_id}/{version_id}/rdf.yaml"):
         test_name = "reproduce test outputs with deepimagej <todo version> (draft)"
         error = None
