@@ -54,7 +54,7 @@ jobs:
         unzip dependencies_2112.zip
         mv dependencies_2112/dependencies_2.1.12/* $HOME/Fiji.app/jars/
 
-        wget https://github.com/deepimagej/models/releases/download/0.3/DeepImageJ_-2.1.12.jar
+        wget https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.12/DeepImageJ_-2.1.12.jar
         rm $pwd/Fiji.app/plugins/DeepImageJ*.jar
         mv DeepImageJ_-2.1.12.jar $pwd/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
     - name: test with DeepImageJ ${{matrix.v }}
