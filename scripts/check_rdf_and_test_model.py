@@ -23,7 +23,7 @@ from bioimageio.spec import __version__ as bioimageio_spec_version
 from bioimageio.spec.model.raw_nodes import WeightsFormat
 from bioimageio.spec.shared.raw_nodes import ResourceDescription as RawResourceDescription
 
-from create_dij_macro immport create_dij_macro
+from run_deepimagej_in_python import run_model_with_deepimagej
 
 def test_model(
     model_rdf: Union[URI, Path, str], 
@@ -106,22 +106,12 @@ def test_resource(
                             f"Shape {tuple(out.shape)} of test output {idx} '{out_spec.name}' does not match "
                             f"output shape description: {out_spec.shape}."
                         )
+                
+                try:
+                    run_model_with_deepimagej()
+                except Exception as e:
+                    error = (error or "") + f"Error running the model in DeepImageJ:\n {e}"
 
-                with create_prediction_pipeline(
-                    bioimageio_model=model, devices=devices, weight_format=weight_format
-                ) as prediction_pipeline:
-                    results = predict(prediction_pipeline, inputs)
-
-                if len(results) != len(expected):
-                    error = (error or "") + (
-                        f"Number of outputs and number of expected outputs disagree: {len(results)} != {len(expected)}"
-                    )
-                else:
-                    for res, exp in zip(results, expected):
-                        try:
-                            np.testing.assert_array_almost_equal(res, exp, decimal=decimal)
-                        except AssertionError as e:
-                            error = (error or "") + f"Output and expected output disagree:\n {e}"
             except Exception as e:
                 error = str(e)
                 tb = traceback.format_tb(e.__traceback__)
