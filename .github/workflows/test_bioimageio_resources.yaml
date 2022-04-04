@@ -12,7 +12,7 @@ on:
         type: string
 
 jobs:
-  // TODO automatize the version management
+  # TODO automatize the version management
   run:
     runs-on: ubuntu-latest
     strategy:
