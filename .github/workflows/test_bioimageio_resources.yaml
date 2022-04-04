@@ -41,13 +41,13 @@ jobs:
     - name: Download Fiji env
       run: |
         wget https://downloads.imagej.net/fiji/archive/20201104-1356/fiji-linux64.zip
-        unzip fiji-linux64.zip -d $pwd
+        unzip fiji-linux64.zip -d $HOME
         ls
-        echo $pwd
+        echo $HOME
         # fix FilamentDetector issue
-        mv $pwd/Fiji.app/jars/FilamentDetector-1.0.0.jar $pwd/Fiji.app/jars/FilamentDetector-1.0.0.jar.disabled
+        mv $HOME/Fiji.app/jars/FilamentDetector-1.0.0.jar $HOME/Fiji.app/jars/FilamentDetector-1.0.0.jar.disabled
 
-        rm $pwd/Fiji.app/jars/jna-4*.jar
+        rm $HOME/Fiji.app/jars/jna-4*.jar
     - name: Download DeepImageJ and deps
       run: |
         wget https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.12/dependencies_2112.zip
@@ -55,14 +55,14 @@ jobs:
         mv dependencies_2112/dependencies_2.1.12/* $HOME/Fiji.app/jars/
 
         wget https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.12/DeepImageJ_-2.1.12.jar
-        rm $pwd/Fiji.app/plugins/DeepImageJ*.jar
-        mv DeepImageJ_-2.1.12.jar $pwd/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
+        rm $HOME/Fiji.app/plugins/DeepImageJ*.jar
+        mv DeepImageJ_-2.1.12.jar $HOME/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
     - name: test with DeepImageJ ${{matrix.v }}
       run: |
         $CONDA/bin/conda activate deepImageJEnv
-        echo $pwd/Fiji.app
+        echo $HOME/Fiji.app
         python scripts/test_many_with_deepimagej.py dist '${{ github.event.inputs.pending_matrix }}' \
-            --fiji_path $pwd/Fiji.app --postfix ${{ matrix.v }}
+            --fiji_path $HOME/Fiji.app --postfix ${{ matrix.v }}
     - name: Upload test summaries
       uses: actions/upload-artifact@v3
       with:
