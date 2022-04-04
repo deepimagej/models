@@ -46,7 +46,9 @@ def parse_prediction(prediction_dict):
     processing_txt = ' '.join(processing_txt)
     return processing_txt
 
-def create_dij_macro(yaml_url):
+def create_dij_macro(yaml_url, fiji_path):
+    # TODO
+    model_dir = fiji_path + "//"
     urllib.request.urlretrieve(yaml_url, "model.yaml")
     try:
         yaml = YAML()
@@ -67,6 +69,8 @@ def create_dij_macro(yaml_url):
     if 'tensorflow_saved_model_bundle' in YAML_dict['weights']:
         py_format = "Tensorflow"
     elif 'pytorch_script' in YAML_dict['weights']:
+        py_format = "Pytorch"
+    elif 'torchscript' in YAML_dict['weights']:
         py_format = "Pytorch"
     else:
         print("This models does not have any deepImageJ compatible weight format.")
@@ -115,11 +119,12 @@ def create_dij_macro(yaml_url):
     # convert into string:
     axes = ','.join(axes)
     shape = ','.join([str(i) for i in shape])
-    
+    # TODO Generalize input image name. Be able to open input images that are not called exampleImage.tif
     ijmacro = f"""
-    rename("image");
-    run("DeepImageJ Run", "model={macro_model_name} format={py_format} preprocessing=[{preprocessing_txt}] postprocessing=[{postprocessing_txt}] axes={axes} tile={shape} logging=normal");
+    open("{fiji_path}/exampleImage.tif");
+    run("DeepImageJ Run", "model={macro_model_name} format={py_format} preprocessing=[{preprocessing_txt}] postprocessing=[{postprocessing_txt}] axes={axes} tile={shape} logging=normal model_dir={model_dir}");
     selectWindow("{model_name}" + "_output_image");
+    saveAs("TIF", "{fiji_path}/CI_outputs/{model_name}/test_output.tif");
     """
     return ijmacro
 ## Test it with:
