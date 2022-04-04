@@ -1,8 +1,31 @@
 import imagej
 import os
+import traceback
+from pathlib import Path
+from typing import List, Optional, Tuple, Union
+
+import numpy
+import numpy as np
+import xarray as xr
+from marshmallow import ValidationError
+
+from bioimageio.core import __version__ as bioimageio_core_version, load_resource_description
+from bioimageio.core.prediction import predict
+from bioimageio.core.prediction_pipeline import create_prediction_pipeline
+from bioimageio.core.resource_io.nodes import (
+    ImplicitOutputShape,
+    Model,
+    ParametrizedInputShape,
+    ResourceDescription,
+    URI,
+)
+from bioimageio.spec import __version__ as bioimageio_spec_version
+from bioimageio.spec.model.raw_nodes import WeightsFormat
+from bioimageio.spec.shared.raw_nodes import ResourceDescription as RawResourceDescription
 
 def test_model(
-    model_rdf: Union[URI, Path, str],
+    model_rdf: Union[URI, Path, str], 
+    fiji_path: Path,
     weight_format: Optional[WeightsFormat] = None,
     devices: Optional[List[str]] = None,
     decimal: int = 4,

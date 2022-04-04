@@ -46,7 +46,7 @@ def main(
         resource_id = matrix["resource_id"]
         version_id = matrix["version_id"]
 
-        write_test_summaries(rdf_dir, resource_id, version_id, summaries_dir, postfix)
+        write_test_summaries(rdf_dir, resource_id, version_id, summaries_dir, fiji_path, postfix)
 
 
 if __name__ == "__main__":
