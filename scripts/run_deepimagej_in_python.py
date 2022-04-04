@@ -47,7 +47,7 @@ def test_model(
         error = None
 
     if isinstance(model, Model):
-        return test_resource(model, weight_format=weight_format, devices=devices, decimal=decimal)
+        return test_resource(model, fiji_path, weight_format=weight_format, devices=devices, decimal=decimal)
     else:
         error = error or f"Expected RDF type Model, got {type(model)} instead."
 
@@ -82,7 +82,7 @@ def run_model_with_deepimagej(fiji_dir: Path,
     IJ.runMacro (macrotest)
 
 def test_resource(
-    rdf: Union[RawResourceDescription, ResourceDescription, URI, Path, str],
+    rdf: Union[RawResourceDescription, ResourceDescription, URI, Path, str], fiji_path: Path,
     *,
     weight_format: Optional[WeightsFormat] = None,
     devices: Optional[List[str]] = None,
