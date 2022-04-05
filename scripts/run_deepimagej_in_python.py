@@ -54,7 +54,7 @@ def run_model_with_deepimagej(fiji_dir: Path,
 
 
 
-def download_deepimagej_model(fiji_dir: Path, rdf: YAML_dict):
+def (fiji_dir: Path, rdf: YAML_dict):
     # Create the model folder
     os.makedirs(fiji_dir + "//models")
     model_name = rdf.get("name")

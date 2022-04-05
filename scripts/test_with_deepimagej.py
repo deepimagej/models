@@ -4,7 +4,7 @@ from typing import Optional
 
 import typer
 
-from bioimageio.core.resource_tests import test_model
+from check_rdf_and_test_model import test_model
 from bioimageio.spec.shared import yaml
 
 

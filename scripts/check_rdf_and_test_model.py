@@ -11,7 +11,6 @@ from marshmallow import ValidationError
 
 from bioimageio.core import __version__ as bioimageio_core_version, load_resource_description
 from bioimageio.core.prediction import predict
-from bioimageio.core.prediction_pipeline import create_prediction_pipeline
 from bioimageio.core.resource_io.nodes import (
     ImplicitOutputShape,
     Model,
@@ -23,7 +22,8 @@ from bioimageio.spec import __version__ as bioimageio_spec_version
 from bioimageio.spec.model.raw_nodes import WeightsFormat
 from bioimageio.spec.shared.raw_nodes import ResourceDescription as RawResourceDescription
 
-from run_deepimagej_in_python import run_model_with_deepimagej
+from run_deepimagej_in_python import run_model_with_deepimagej, download_deepimagej_model
+from create_deepimagej_macro import create_dij_macro
 
 def test_model(
     model_rdf: Union[URI, Path, str], 
@@ -107,8 +107,12 @@ def test_resource(
                             f"output shape description: {out_spec.shape}."
                         )
                 
+                download_log = download_deepimagej_model(fiji_path, rdf)
+                error = (error or "") + download_log
+                
                 try:
                     run_model_with_deepimagej()
+                    create_dij_macro(yaml_url, fiji_path)
                 except Exception as e:
                     error = (error or "") + f"Error running the model in DeepImageJ:\n {e}"
 
