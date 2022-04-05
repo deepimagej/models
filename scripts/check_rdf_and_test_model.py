@@ -22,7 +22,8 @@ from bioimageio.spec import __version__ as bioimageio_spec_version
 from bioimageio.spec.model.raw_nodes import WeightsFormat
 from bioimageio.spec.shared.raw_nodes import ResourceDescription as RawResourceDescription
 
-from run_deepimagej_in_python import run_model_with_deepimagej, download_deepimagej_model
+from run_deepimagej_in_python import run_model_with_deepimagej
+from utils import download_deepimagej_model, delete_dir
 from create_deepimagej_macro import create_dij_macro
 
 def test_model(
@@ -117,7 +118,7 @@ def test_resource(
                     error = (error or "") + f"Error running the model in DeepImageJ:\n {e}"
                 
                 # Delete the models sir each time a run is complete
-                deleteDir(fiji_path + "//models")
+                delete_dir(fiji_path + "//models")
 
             except Exception as e:
                 error = str(e)

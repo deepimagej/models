@@ -5,7 +5,7 @@ import requests
 from ruamel.yaml import YAML
 
 
-def deleteDir(top: str):
+def delete_dir(top: str):
     if (os.path.isdir(top)):
         for root, dirs, files in os.walk(top, topdown=False):
             for name in files:
