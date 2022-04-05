@@ -59,6 +59,7 @@ jobs:
       shell: bash -l {0}
       run: |
         echo $HOME/Fiji.app
+        conda install -c conda-forge bioimageio.core
         python scripts/test_many_with_deepimagej.py dist '${{ github.event.inputs.pending_matrix }}' $HOME/Fiji.app --postfix ${{ matrix.v }}
     - name: Upload test summaries
       uses: actions/upload-artifact@v3
