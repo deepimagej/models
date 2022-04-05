@@ -13,10 +13,9 @@ import xarray as xr
 from marshmallow import ValidationError
 
 
-def run_model_with_deepimagej(fiji_dir: Path, 
-    model_rdf: Union[URI, Path, str],
-    weight_format: Optional[WeightsFormat] = None,
-    devices: Optional[List[str]] = None,
+def run_model_with_deepimagej(fiji_dir: Path,
+    macro_call: str,
+    path_to_image: str,
     decimal: int = 4,
 ) -> dict:
 
