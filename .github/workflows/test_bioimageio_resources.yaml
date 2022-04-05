@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: 
-        version: [2.1.13]
+        v: [2.1.13]
 
     steps:
     - uses: actions/setup-java@v2
@@ -55,11 +55,13 @@ jobs:
 
         wget https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.12/DeepImageJ_-2.1.12.jar
         mv DeepImageJ_-2.1.12.jar $HOME/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
+    - name: Install BioImage.io Core
+      shell: bash -l {0}
+      run: |
+        conda install -c conda-forge bioimageio.core
     - name: test with DeepImageJ ${{matrix.v }}
       shell: bash -l {0}
       run: |
-        echo $HOME/Fiji.app
-        conda install -c conda-forge bioimageio.core
         python scripts/test_many_with_deepimagej.py dist '${{ github.event.inputs.pending_matrix }}' $HOME/Fiji.app --postfix ${{ matrix.v }}
     - name: Upload test summaries
       uses: actions/upload-artifact@v3
