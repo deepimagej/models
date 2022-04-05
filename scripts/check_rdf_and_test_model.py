@@ -40,6 +40,7 @@ def test_model(
     # todo: reuse more of 'test_resource'
     tb = None
     try:
+        print("TRY LOADING RESOURCE DESCRIPTION")
         model = load_resource_description(
             model_rdf, weights_priority_order=None if weight_format is None else [weight_format]
         )
@@ -51,6 +52,7 @@ def test_model(
         error = None
 
     if isinstance(model, Model):
+        print("TEST THE RESOURCE")
         return test_resource(model, fiji_path, rdf_path, weight_format=weight_format, devices=devices, decimal=decimal)
     else:
         error = error or f"Expected RDF type Model, got {type(model)} instead."
@@ -80,6 +82,7 @@ def test_resource(
     test_name: str = "load resource description"
 
     try:
+        print("LOAD RESOURCE DESRIPTION")
         rd = load_resource_description(rdf, weights_priority_order=None if weight_format is None else [weight_format])
     except Exception as e:
         error = str(e)
@@ -88,6 +91,7 @@ def test_resource(
         if isinstance(rd, Model):
             test_name = "reproduced test outputs from test inputs"
             model = rd
+            print("CHECK NUMBER OF INPUTS SAME AS MODEL")
             try:
                 inputs = [np.load(str(in_path)) for in_path in model.test_inputs]
                 expected = [np.load(str(out_path)) for out_path in model.test_outputs]
