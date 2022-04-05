@@ -108,9 +108,8 @@ def test_resource(
                             f"output shape description: {out_spec.shape}."
                         )
                 
+                print("DOWNLOAD MODEL")
                 error = (error or "") + download_deepimagej_model(fiji_path, rdf)
-                error = (error or "") + create_dij_macro(yaml_url, fiji_path)
-                
                 try:
                     create_dij_macro(yaml_url, fiji_path, weight_format)
                     run_model_with_deepimagej()

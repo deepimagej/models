@@ -47,6 +47,7 @@ def parse_prediction(prediction_dict):
     return processing_txt
 
 def create_dij_macro(rdf_path, fiji_path, weight_format):
+    print("CREATE MACRO")
     # TODO
     os.makedirs(fiji_dir + "//CI_outputs")
     try:

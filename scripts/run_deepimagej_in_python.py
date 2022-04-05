@@ -19,7 +19,8 @@ def run_model_with_deepimagej(fiji_dir: Path,
     decimal: int = 4,
 ) -> dict:
 
-    print(fiji_dir)
+    print("EXECUTING THE FOLLOWING MACRO:")
+    print(macro_call)
     ij = imagej.init(os.path.expanduser(fiji_dir) + '/Fiji.app',headless=True)
     ij.getVersion()
 
