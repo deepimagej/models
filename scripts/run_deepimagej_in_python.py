@@ -35,7 +35,94 @@ def download_deepimagej_model(fiji_dir: Path, rdf: YAML_dict):
     model_dir = fiji_dir + "//models//" + model_name
     os.mkdir(model_dir)
     # Download the files
-    download(rdf.get(""), model_dir)
+    model_download = rdf.get("download_url")
+    if (model_download not None):
+        result = download(model_download, model_dir)
+        if (result == None):
+            return
+    # If the model was not downloaded with a direct link, download all the needed files
+    attachments = rdf.get("attachments")
+    if (attachments not )
+    attachments = rdf.get("attachments").get("files")
+    for attach in attachments:
+        download_result = download(attach, model_dir)
+        if (download_result not None):
+            error = (error or "") + "Error downloading attachment " + str(attach) + ".\n"
+            + download_result + "\n"
+
+def download_deepimagej_file_by_file(fiji_dir: Path, rdf: YAML_dict):
+    # Create the model folder
+    os.makedirs(fiji_dir + "//models")
+    model_name = rdf.get("name")
+    model_dir = fiji_dir + "//models//" + model_name
+    os.mkdir(model_dir)
+    # Download the files
+    attachments = rdf.get("attachments")
+    if (attachments not None):
+        attachments_files =  attachments.get("files")
+        if (attachments_files not None):
+            for attach in attachments:
+                download_result = download(attach, model_dir)
+                if (download_result not None):
+                    error = (error or "") + "Error downloading attachment " + str(attach) + ".\n"
+                    + download_result + "\n"
+        else:
+            error = (error or "") + "rdf.yaml missing 'attachments>files' field.\n"
+    else:
+        error = (error or "") + "rdf.yaml missing 'attachments' field.\n"
+
+    rdf_source = rdf.get("rdf_source")
+    if (rdf_source not None):
+        download_result = download(rdf_source, model_dir)
+        if (download_result not None):
+            error = (error or "") + "Error downloading rdf_source " + str(rdf_source) + ".\n"
+            + download_result + "\n"
+    else:
+        error = (error or "") + "rdf.yaml missing 'rdf_source' field.\n"
+
+    sample_inputs = rdf.get("sample_inputs")
+    if (sample_inputs not None and len(sample_inputs) > 0):
+        for ss in sample_inputs:
+            download_result = download(ss, model_dir)
+            if (download_result not None):
+                error = (error or "") + "Error downloading sample_input " + str(ss) + ".\n"
+                + download_result + "\n"
+    else:
+        error = (error or "") + "rdf.yaml missing 'sample_inputs' field.\n"
+
+    sample_outputs = rdf.get("sample_outputs")
+    if (sample_outputs not None and len(sample_outputs) > 0):
+        for ss in sample_outputs:
+            download_result = download(ss, model_dir)
+            if (download_result not None):
+                error = (error or "") + "Error downloading sample_output " + str(ss) + ".\n"
+                + download_result + "\n"
+    else:
+        error = (error or "") + "rdf.yaml missing 'sample_outputs' field.\n"
+
+    test_inputs = rdf.get("test_inputs")
+    if (test_inputs not None and len(test_inputs) > 0):
+        for ss in test_inputs:
+            download_result = download(ss, model_dir)
+            if (download_result not None):
+                error = (error or "") + "Error downloading test_input " + str(ss) + ".\n"
+                + download_result + "\n"
+    else:
+        error = (error or "") + "rdf.yaml missing 'test_inputs' field.\n"
+
+    test_outputs = rdf.get("test_outputs")
+    if (test_outputs not None and len(test_outputs) > 0):
+        for ss in test_outputs:
+            download_result = download(ss, model_dir)
+            if (download_result not None):
+                error = (error or "") + "Error downloading test_output " + str(ss) + ".\n"
+                + download_result + "\n"
+    else:
+        error = (error or "") + "rdf.yaml missing 'test_outputs' field.\n"
+
+
+
+
 
 def download(url: str, dest_folder: str):
     if not os.path.exists(dest_folder):
