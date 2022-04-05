@@ -40,6 +40,7 @@ def main(
     only checks if test outputs are obtained for Tensorflow 1 or torchscript weights .
 
     """
+    print("Start tests")
     summaries_dir = dist / "test_summaries"
     summaries_dir.mkdir(parents=True, exist_ok=True)
     for matrix in iterate_over_gh_matrix(pending_matrix):
