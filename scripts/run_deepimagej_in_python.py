@@ -16,7 +16,6 @@ from ruamel.yaml import YAML
 
 def run_model_with_deepimagej(fiji_dir: Path,
     macro_call: str,
-    path_to_image: str,
     decimal: int = 4,
 ) -> dict:
 
@@ -26,14 +25,6 @@ def run_model_with_deepimagej(fiji_dir: Path,
 
     # Check that the example tif exists
 
-
-    macrotest = """
-        open("/home/runner/Fiji.app/models/DEFCoN.bioimage.io.model/exampleImage.tif");
-        selectWindow("exampleImage.tif");
-        run("DeepImageJ Run", "model=[SMLM Density Map Estimation (DEFCoN)] format=Tensorflow preprocessing=[no preprocessing] postprocessing=[no postprocessing] axes=Y,X,C tile=84,84,1 logging=normal models_dir=/home/runner/Fiji.app/models");
-        saveAs("PNG", "/home/runner/Fiji.app/models/DEFCoN.bioimage.io.model/test_output.png");
-    """
-
-    IJ.runMacro (macrotest)
+    IJ.runMacro (macro_call)
 
 

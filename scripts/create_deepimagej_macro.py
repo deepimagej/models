@@ -47,7 +47,8 @@ def parse_prediction(prediction_dict):
     return processing_txt
 
 def create_dij_macro(rdf_path, fiji_path, weight_format):
-    error = None
+    # TODO
+    os.makedirs(fiji_dir + "//CI_outputs")
     try:
         yaml = YAML()
         with open(rdf_path) as f:
