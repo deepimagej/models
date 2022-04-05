@@ -1,4 +1,5 @@
 import json
+import sys
 from itertools import product
 from pathlib import Path
 from typing import Dict, Union
@@ -41,6 +42,11 @@ def main(
 
     """
     print("Start tests")
+    print(sys.argv[0]) # prints python_script.py
+    print(sys.argv[1]) # prints var1
+    print(sys.argv[2]) # prints var2
+    print(sys.argv[3]) # prints var3
+
     summaries_dir = dist / "test_summaries"
     summaries_dir.mkdir(parents=True, exist_ok=True)
     for matrix in iterate_over_gh_matrix(pending_matrix):
