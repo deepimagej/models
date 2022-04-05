@@ -46,16 +46,15 @@ def parse_prediction(prediction_dict):
     processing_txt = ' '.join(processing_txt)
     return processing_txt
 
-def create_dij_macro(yaml_url, fiji_path):
+def create_dij_macro(rdf_path, fiji_path):
     # TODO
     model_dir = fiji_path + "//"
-    urllib.request.urlretrieve(yaml_url, "model.yaml")
     try:
         yaml = YAML()
-        with open('model.yaml') as f:
+        with open(rdf_path) as f:
             YAML_dict = yaml.load(f)
     except:
-        print("model.yaml not found.")
+        print("rdf.yaml not found.")
         exit(0)
 
     model_name = YAML_dict['name']
@@ -128,5 +127,5 @@ def create_dij_macro(yaml_url, fiji_path):
     """
     return ijmacro
 ## Test it with:
-#yaml_url = "https://sandbox.zenodo.org/record/885236/files/model.yaml"
+#yaml_url = "https://sandbox.zenodo.org/record/885236/files/rdf.yaml"
 #print(create_dij_macro(yaml_url))

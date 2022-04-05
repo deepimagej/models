@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import List, Optional, Tuple, Union
 import os
 import requests
+from ruamel.yaml import YAML
 
 import numpy
 import numpy as np
@@ -41,7 +42,14 @@ def run_model_with_deepimagej(fiji_dir: Path,
 
 
 
-def download_deepimagej_model(fiji_dir: Path, rdf: YAML_dict):
+def download_deepimagej_model(fiji_dir: str, rdf_path: str):
+    try:
+        yaml = YAML()
+        with open(rdf_path) as f:
+            rdf = yaml.load(f)
+    except:
+        print("rdf.yaml not found.")
+        exit(0)
     # Create the model folder
     os.makedirs(fiji_dir + "//models")
     model_name = rdf.get("name")
@@ -49,7 +57,7 @@ def download_deepimagej_model(fiji_dir: Path, rdf: YAML_dict):
     os.mkdir(model_dir)
     # Download the files
     model_download = rdf.get("download_url")
-    if (model_download not None):
+    if (model_download != None):
         result = download(model_download, model_dir)
         if (result == None):
             return None
@@ -90,12 +98,12 @@ def download_deepimagej_file_by_file(fiji_dir: Path, rdf: YAML_dict):
     os.mkdir(model_dir)
     # Download the files
     attachments = rdf.get("attachments")
-    if (attachments not None):
+    if (attachments != None):
         attachments_files =  attachments.get("files")
-        if (attachments_files not None):
+        if (attachments_files != None):
             for attach in attachments:
                 download_result = download(attach, model_dir)
-                if (download_result not None):
+                if (download_result != None):
                     error = (error or "") + "Error downloading attachment " + str(attach) + ".\n"
                     + download_result + "\n"
         else:
@@ -104,60 +112,60 @@ def download_deepimagej_file_by_file(fiji_dir: Path, rdf: YAML_dict):
         error = (error or "") + "rdf.yaml missing 'attachments' field.\n"
 
     rdf_source = rdf.get("rdf_source")
-    if (rdf_source not None):
+    if (rdf_source != None):
         download_result = download(rdf_source, model_dir)
-        if (download_result not None):
+        if (download_result != None):
             error = (error or "") + "Error downloading rdf_source " + str(rdf_source) + ".\n"
             + download_result + "\n"
     else:
         error = (error or "") + "rdf.yaml missing 'rdf_source' field.\n"
 
     sample_inputs = rdf.get("sample_inputs")
-    if (sample_inputs not None and len(sample_inputs) > 0):
+    if (sample_inputs != None and len(sample_inputs) > 0):
         for ss in sample_inputs:
             download_result = download(ss, model_dir)
-            if (download_result not None):
+            if (download_result != None):
                 error = (error or "") + "Error downloading sample_input " + str(ss) + ".\n"
                 + download_result + "\n"
     else:
         error = (error or "") + "rdf.yaml missing 'sample_inputs' field.\n"
 
     sample_outputs = rdf.get("sample_outputs")
-    if (sample_outputs not None and len(sample_outputs) > 0):
+    if (sample_outputs != None and len(sample_outputs) > 0):
         for ss in sample_outputs:
             download_result = download(ss, model_dir)
-            if (download_result not None):
+            if (download_result != None):
                 error = (error or "") + "Error downloading sample_output " + str(ss) + ".\n"
                 + download_result + "\n"
     else:
         error = (error or "") + "rdf.yaml missing 'sample_outputs' field.\n"
 
     test_inputs = rdf.get("test_inputs")
-    if (test_inputs not None and len(test_inputs) > 0):
+    if (test_inputs != None and len(test_inputs) > 0):
         for ss in test_inputs:
             download_result = download(ss, model_dir)
-            if (download_result not None):
+            if (download_result != None):
                 error = (error or "") + "Error downloading test_input " + str(ss) + ".\n"
                 + download_result + "\n"
     else:
         error = (error or "") + "rdf.yaml missing 'test_inputs' field.\n"
 
     test_outputs = rdf.get("test_outputs")
-    if (test_outputs not None and len(test_outputs) > 0):
+    if (test_outputs != None and len(test_outputs) > 0):
         for ss in test_outputs:
             download_result = download(ss, model_dir)
-            if (download_result not None):
+            if (download_result != None):
                 error = (error or "") + "Error downloading test_output " + str(ss) + ".\n"
                 + download_result + "\n"
     else:
         error = (error or "") + "rdf.yaml missing 'test_outputs' field.\n"
     # Download the weights
     weights = rdf.get("weights")
-    if (weights not None and type(weights) == dict):
+    if (weights != None and type(weights) == dict):
         for kk, vv in weights.items():
-            if (type(vv) == dict and vv.get("source") not None):
+            if (type(vv) == dict and vv.get("source") != None):
                 download_result = download(vv.get("source"), model_dir)
-                if (download_result not None):
+                if (download_result != None):
                     error = (error or "") + "Error downloading weights " + str(vv.get("source")) + ".\n"
                     + download_result + "\n"
             else:
