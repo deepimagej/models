@@ -11,6 +11,9 @@ from bioimageio.spec.shared import yaml
 def write_summary(
     p: Path, *, name: str, status: str, error: Optional[str] = None, reason: Optional[str] = None, **other
 ):
+    print("SUMMARY")
+    print(name)
+    print(error)
     p.parent.mkdir(parents=True, exist_ok=True)
     if status == "failed":
         reason = "error"
