@@ -58,9 +58,10 @@ jobs:
         wget https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.12/DeepImageJ_-2.1.12.jar
         mv DeepImageJ_-2.1.12.jar $HOME/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
     - name: test with DeepImageJ ${{matrix.v }}
+      shell: bash -l {0}
       run: |
         echo $CONDA
-        conda activate deepImageJEnv
+        $CONDA/bin/conda activate deepImageJEnv
         echo $HOME/Fiji.app
         python scripts/test_many_with_deepimagej.py dist '${{ github.event.inputs.pending_matrix }}' \
             --fiji_path $HOME/Fiji.app --postfix ${{ matrix.v }}
