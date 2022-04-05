@@ -11,21 +11,8 @@ import numpy as np
 import xarray as xr
 from marshmallow import ValidationError
 
-from bioimageio.core import __version__ as bioimageio_core_version, load_resource_description
-from bioimageio.core.prediction import predict
-from bioimageio.core.prediction_pipeline import create_prediction_pipeline
-from bioimageio.core.resource_io.nodes import (
-    ImplicitOutputShape,
-    Model,
-    ParametrizedInputShape,
-    ResourceDescription,
-    URI,
-)
-from bioimageio.spec import __version__ as bioimageio_spec_version
-from bioimageio.spec.model.raw_nodes import WeightsFormat
-from bioimageio.spec.shared.raw_nodes import ResourceDescription as RawResourceDescription
 
-from create_dij_macro immport create_dij_macro
+from create_dij_macro import create_dij_macro
 
 
 
