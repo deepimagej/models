@@ -62,6 +62,7 @@ def write_test_summaries(rdf_dir: Path, resource_id: str, version_id: str,
 
         # write test summary for each weight format
         for weight_format in weight_formats:
+            print(str(weight_format))
             try:
                 summary = test_model(rdf_path, fiji_path, weight_format=weight_format)
             except Exception as e:

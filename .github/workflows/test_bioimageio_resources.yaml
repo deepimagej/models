@@ -58,8 +58,8 @@ jobs:
     - name: Install BioImage.io Core
       shell: bash -l {0}
       run: |
-        conda install -c conda-forge bioimageio.core
         conda install -c conda-forge bioimageio.spec
+        conda install -c conda-forge bioimageio.core
     - name: test with DeepImageJ ${{matrix.v }}
       shell: bash -l {0}
       run: |
