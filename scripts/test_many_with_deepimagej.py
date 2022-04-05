@@ -51,7 +51,11 @@ def main(
     summaries_dir.mkdir(parents=True, exist_ok=True)
     for matrix in iterate_over_gh_matrix(pending_matrix):
         resource_id = matrix["resource_id"]
+        print("Resource ID: ")
+        print(resource_id)
         version_id = matrix["version_id"]
+        print("Version ID: ")
+        print(version_id)
 
         write_test_summaries(rdf_dir, resource_id, version_id, summaries_dir, fiji_path, postfix)
 
