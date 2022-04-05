@@ -59,6 +59,7 @@ jobs:
       shell: bash -l {0}
       run: |
         conda install -c conda-forge bioimageio.core
+        conda install -c conda-forge bioimageio.spec
     - name: test with DeepImageJ ${{matrix.v }}
       shell: bash -l {0}
       run: |
