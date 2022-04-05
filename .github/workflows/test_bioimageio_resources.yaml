@@ -37,6 +37,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
+        echo $CONDA
         $CONDA/bin/conda env update --file environment-test.yaml --name deepImageJEnv
     - name: Download Fiji env
       run: |
@@ -58,6 +59,7 @@ jobs:
         mv DeepImageJ_-2.1.12.jar $HOME/Fiji.app/plugins/DeepImageJ_-2.1.12.jar
     - name: test with DeepImageJ ${{matrix.v }}
       run: |
+        echo $CONDA
         $CONDA/bin/conda activate deepImageJEnv
         echo $HOME/Fiji.app
         python scripts/test_many_with_deepimagej.py dist '${{ github.event.inputs.pending_matrix }}' \
