@@ -120,7 +120,6 @@ def test_resource(
                 error = str(e)
                 tb = traceback.format_tb(e.__traceback__)
 
-    # todo: add tests for non-model resources
 
     return dict(
         name=test_name,
