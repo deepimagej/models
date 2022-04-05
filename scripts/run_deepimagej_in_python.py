@@ -13,10 +13,6 @@ import xarray as xr
 from marshmallow import ValidationError
 
 
-from create_dij_macro import create_dij_macro
-
-
-
 def run_model_with_deepimagej(fiji_dir: Path, 
     model_rdf: Union[URI, Path, str],
     weight_format: Optional[WeightsFormat] = None,
