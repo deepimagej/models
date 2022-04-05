@@ -62,7 +62,7 @@ def download(url: str, dest_folder: str):
         return error
 
 
-def download_deepimagej_file_by_file(fiji_dir: Path, rdf: YAML_dict):
+def download_deepimagej_file_by_file(fiji_dir: Path, rdf: YAML):
     error = None
     # Create the model folder
     os.makedirs(fiji_dir + "//models")
