@@ -98,6 +98,7 @@ def test_resource(
 
                 assert len(inputs) == len(model.inputs)  # should be checked by validation
                 input_shapes = {}
+                print("VALIDAT  INPUT SHAPES")
                 for idx, (ipt, ipt_spec) in enumerate(zip(inputs, model.inputs)):
                     if not _validate_input_shape(tuple(ipt.shape), ipt_spec.shape):
                         raise ValidationError(
@@ -106,7 +107,9 @@ def test_resource(
                         )
                     input_shapes[ipt_spec.name] = ipt.shape
 
+                print("VALIDAT  OUTPUTS")
                 assert len(expected) == len(model.outputs)  # should be checked by validation
+                print("VALIDAT  OUTPUT SHAPES")
                 for idx, (out, out_spec) in enumerate(zip(expected, model.outputs)):
                     if not _validate_output_shape(tuple(out.shape), out_spec.shape, input_shapes):
                         error = (error or "") + (
