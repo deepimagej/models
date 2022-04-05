@@ -30,15 +30,13 @@ jobs:
         repository: bioimage-io/collection-bioimage-io
         ref: gh-pages
         path: bioimageio-gh-pages
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
+    - name: Setup conda env and install deps
+      uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: 3.8
-    - name: Install Python dependencies
-      run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA
-        $CONDA/bin/conda env update --file environment-test.yaml --name deepImageJEnv
+          python-version: 3.8
+          activate-environment: deepImageJEnv
+          environment-file: environment-test.yaml
+          miniconda-version: "latest"
     - name: Download Fiji env
       run: |
         wget https://downloads.imagej.net/fiji/archive/20201104-1356/fiji-linux64.zip
@@ -60,8 +58,6 @@ jobs:
     - name: test with DeepImageJ ${{matrix.v }}
       shell: bash -l {0}
       run: |
-        echo $CONDA
-        $CONDA/bin/conda activate deepImageJEnv
         echo $HOME/Fiji.app
         python scripts/test_many_with_deepimagej.py dist '${{ github.event.inputs.pending_matrix }}' \
             --fiji_path $HOME/Fiji.app --postfix ${{ matrix.v }}
@@ -80,7 +76,7 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         path: artifacts
-    - name: merge ilastik test summaries  # (they differ by postfix)
+    - name: merge deepimagej test summaries  # (they differ by postfix)
       run: |
         mkdir dist
         cp -r artifacts/*/* dist
