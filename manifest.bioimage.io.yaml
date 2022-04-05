@@ -37,7 +37,7 @@ collection:
     description: DeepImageJ is a user-friendly plugin that enables the use of pre-trained deep learning models in ImageJ and Fiji. 
     source: https://deepimagej.github.io/deepimagej/index.html
     cite:
-      text: "Gómez-de-Mariscal, E., García-López-de-Haro, C., Ouyang, W., Donati, L., Lundberg E., Unser, M., Muñoz-Barrutia, A. and Sage, D. DeepImageJ: A user-friendly plugin to run deep learning models in ImageJ, BioRxiv, 2019"
+    - text: "Gómez-de-Mariscal, E., García-López-de-Haro, C., Ouyang, W., Donati, L., Lundberg E., Unser, M., Muñoz-Barrutia, A. and Sage, D. DeepImageJ: A user-friendly plugin to run deep learning models in ImageJ, BioRxiv, 2019"
       doi: https://doi.org/10.1101/799270
     authors:
       - name: DeepImageJ
@@ -53,8 +53,13 @@ collection:
       supported_weight_formats: ["tensorflow_saved_model_bundle"]
       
   - id: deepimagej
+    name: deepimagej
+    description: "Export BioImage.IO model packages for deepImageJ from a model description file"
+    type: application
     source: https://raw.githubusercontent.com/deepimagej/models/master/src/deepimagej-app.imjoy.html
-      
+    tags: [software, bioengine]
+    icon: https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png
+
   - id: unet-pancreaticcellsegmentation
     type: application
     name: 2D U-Net for binary segmentation
@@ -176,7 +181,8 @@ collection:
 
 # ==================models====================
   - id: FRUNet2DsEVSegmentation
-    source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/model.yaml
     links:
       - deepimagej
       - EVsTEMsegmentationFRUNet
@@ -184,14 +190,16 @@ collection:
     download_url: https://sandbox.zenodo.org/record/894459/files/deepimagej_fru-net_sev_segmentation.zip
 
   - id: UNet2DHeLaSegmentation
-    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_hela_segmentation/model.yaml
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
     download_url: https://sandbox.zenodo.org/record/913978/files/u-net_hela_segmentation.zip
 
   - id: UNet2DPancreaticSegmentation
-    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_pancreatic_segmentation/model.yaml
     download_url: https://github.com/deepimagej/models/releases/download/0.3/PancreaticCellSegmentation.U-Net.bioimage.io.model.zip
     links:
       - deepimagej
@@ -199,21 +207,24 @@ collection:
       - imjoy/BioImageIO-Packager
 
   - id: UNet2DGlioblastomaSegmentation
-    source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/u-net_glioblastoma_segmentation/model.yaml
     download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: SMLMDensityMapEstimationDEFCoN
-    source: https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/defcon_density_map_estimation/model.yaml
     download_url: https://zenodo.org/record/4608442/files/SMLM_Density%20Map_Estimation_%28DEFCoN%29.bioimage.io.model.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: DeepSTORMZeroCostDL4Mic
-    source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/deepstorm_zerocostdl4mic/model.yaml
     download_url: https://sandbox.zenodo.org/record/907832/files/bioimage.io.model.zip
     links:
       - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic_DeepImageJ
@@ -221,7 +232,8 @@ collection:
       - imjoy/BioImageIO-Packager
 
   - id: 2DUNetZeroCostDL4Mic
-    source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/2du-net_zerocostdl4mic/model.yaml
     download_url: https://sandbox.zenodo.org/record/904905/files/DeepImageJ_2D_UNet_ZeroCostDL4Mic.zip
     links:
       - zero/Notebook_U-Net_2D_ZeroCostDL4Mic_DeepImageJ
@@ -229,62 +241,71 @@ collection:
       - imjoy/BioImageIO-Packager
 
   - id: MU-Lux_CTC_PhC-C2DL-PSC
-    source: https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/mu-lux_ctc_phc-c2dl-psc/model.yaml
     download_url: https://sandbox.zenodo.org/record/914413/files/mu-lux_ctc_phc-c2dl-psc.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: WidefieldTxredSuperResolution
-    source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_txred_super-resolution/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_txred_super-resolution/model.yaml
     download_url: https://sandbox.zenodo.org/record/913992/files/widefield_txred_super-resolution.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: WidefieldDapiSuperResolution
-    source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_dapi_super-resolution/model.yaml
     download_url: https://sandbox.zenodo.org/record/914422/files/widefield_dapi_super-resolution.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: WidefieldFitcSuperResolution
-    source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/widefield_fitc_super-resolution/model.yaml
     download_url: https://sandbox.zenodo.org/record/914425/files/widefield_fitc_super-resolution.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: JonesVirtualStaining
-    source: https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/jones_virtual_staining/model.yaml
     download_url: https://sandbox.zenodo.org/record/906803/files/bioimage.io.model.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
   - id: Mt3VirtualStaining
-    source: https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/mt3_virtual_staining/model.yaml
     download_url: https://sandbox.zenodo.org/record/906805/files/bioimage.io.model.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
       
   - id: Usiigaci
-    source: https://raw.githubusercontent.com/deepimagej/models/master/usiigaci/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/usiigaci/model.yaml
     download_url: https://zenodo.org/record/4155785/files/usiigaci.bioimage.io.model.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
       
   - id: SkinLesionClassification
-    source: https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/model.yaml
     download_url: https://sandbox.zenodo.org/record/906807/files/bioimage.io.model.zip
     links:
       - deepimagej
 
   - id: 3DUNetZeroCostDL4Mic
-    source: https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/3du-net_zerocostdl4mic/model.yaml
     download_url: https://sandbox.zenodo.org/record/907831/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
     links:
       - deepimagej
@@ -292,7 +313,8 @@ collection:
       - imjoy/BioImageIO-Packager
 
   - id: Stardist2DZeroCostDL4Mic
-    source: https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml
+    type: model
+    rdf_source: https://raw.githubusercontent.com/deepimagej/models/master/stardist2D_zerocostdl4mic/model.yaml
     download_url: https://sandbox.zenodo.org/record/894493/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip
     links:
       - deepimagej
