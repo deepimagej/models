@@ -60,7 +60,7 @@ jobs:
     - name: test with DeepImageJ ${{matrix.v }}
       run: |
         echo $CONDA
-        $CONDA/bin/conda activate deepImageJEnv
+        conda activate deepImageJEnv
         echo $HOME/Fiji.app
         python scripts/test_many_with_deepimagej.py dist '${{ github.event.inputs.pending_matrix }}' \
             --fiji_path $HOME/Fiji.app --postfix ${{ matrix.v }}
