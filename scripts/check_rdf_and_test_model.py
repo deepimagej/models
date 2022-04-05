@@ -29,6 +29,7 @@ from create_deepimagej_macro import create_dij_macro
 def test_model(
     model_rdf: Union[URI, Path, str], 
     fiji_path: Path,
+    rdf_path: str,
     weight_format: Optional[WeightsFormat] = None,
     devices: Optional[List[str]] = None,
     decimal: int = 4,
@@ -50,7 +51,7 @@ def test_model(
         error = None
 
     if isinstance(model, Model):
-        return test_resource(model, fiji_path, weight_format=weight_format, devices=devices, decimal=decimal)
+        return test_resource(model, fiji_path, rdf_path, weight_format=weight_format, devices=devices, decimal=decimal)
     else:
         error = error or f"Expected RDF type Model, got {type(model)} instead."
 
@@ -64,7 +65,8 @@ def test_model(
     )
 
 def test_resource(
-    rdf: Union[RawResourceDescription, ResourceDescription, URI, Path, str], fiji_path: Path,
+    rdf: Union[RawResourceDescription, ResourceDescription, URI, Path, str], fiji_path: str,
+    rdf_path: str,
     *,
     weight_format: Optional[WeightsFormat] = None,
     devices: Optional[List[str]] = None,
@@ -109,10 +111,10 @@ def test_resource(
                         )
                 
                 print("DOWNLOAD MODEL")
-                error = (error or "") + download_deepimagej_model(fiji_path, rdf)
+                error = (error or "") + download_deepimagej_model(fiji_path, rdf_path)
                 try:
-                    create_dij_macro(yaml_url, fiji_path, weight_format)
-                    run_model_with_deepimagej()
+                    macro = create_dij_macro(rdf_path, fiji_path, weight_format)
+                    run_model_with_deepimagej(fiji_path, macro)
                 except Exception as e:
                     error = (error or "") + f"Error running the model in DeepImageJ:\n {e}"
                 

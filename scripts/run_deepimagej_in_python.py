@@ -14,7 +14,7 @@ from marshmallow import ValidationError
 from ruamel.yaml import YAML
 
 
-def run_model_with_deepimagej(fiji_dir: Path,
+def run_model_with_deepimagej(fiji_dir: str,
     macro_call: str,
     decimal: int = 4,
 ) -> dict:
