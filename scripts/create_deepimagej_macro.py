@@ -46,16 +46,17 @@ def parse_prediction(prediction_dict):
     processing_txt = ' '.join(processing_txt)
     return processing_txt
 
-def create_dij_macro(rdf_path, fiji_path):
+def create_dij_macro(rdf_path, fiji_path, weight_format):
     # TODO
     model_dir = fiji_path + "//"
+    error = None
     try:
         yaml = YAML()
         with open(rdf_path) as f:
             YAML_dict = yaml.load(f)
     except:
         print("rdf.yaml not found.")
-        exit(0)
+        raise ValueError("rdf.yaml not found.")
 
     model_name = YAML_dict['name']
     # Add brackets when there are blanck spaces in the name
@@ -65,15 +66,15 @@ def create_dij_macro(rdf_path, fiji_path):
         macro_model_name = model_name
         
     # Detect python package of the model
-    if 'tensorflow_saved_model_bundle' in YAML_dict['weights']:
+    if 'tensorflow_saved_model_bundle' in weight_format:
         py_format = "Tensorflow"
-    elif 'pytorch_script' in YAML_dict['weights']:
+    elif 'pytorch_script' in weight_format:
         py_format = "Pytorch"
-    elif 'torchscript' in YAML_dict['weights']:
+    elif 'torchscript' in weight_format:
         py_format = "Pytorch"
     else:
-        print("This models does not have any deepImageJ compatible weight format.")
-        exit(0)
+        msg = weight_format + " weight format is not compatible with DeepImageJ.\n"
+        raise ValueError("rdf.yaml not found.")
 
     # if YAML_dict['framework'] == 'tensorflow' or YAML_dict['framework'] == 'Tensorflow':
     #     py_format = 'Tensorflow'

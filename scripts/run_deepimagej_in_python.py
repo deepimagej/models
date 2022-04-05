@@ -11,6 +11,7 @@ import numpy
 import numpy as np
 import xarray as xr
 from marshmallow import ValidationError
+from ruamel.yaml import YAML
 
 
 def run_model_with_deepimagej(fiji_dir: Path,
