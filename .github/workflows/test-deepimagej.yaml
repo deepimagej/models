@@ -2,8 +2,8 @@ name: build
 
 on:
   push:
-    branches:
-      - master
+    #branches:
+      #- master
     tags:
       - "*-[0-9]+.*"
   pull_request:
