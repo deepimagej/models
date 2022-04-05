@@ -47,8 +47,6 @@ def parse_prediction(prediction_dict):
     return processing_txt
 
 def create_dij_macro(rdf_path, fiji_path, weight_format):
-    # TODO
-    model_dir = fiji_path + "//"
     error = None
     try:
         yaml = YAML()
@@ -59,6 +57,8 @@ def create_dij_macro(rdf_path, fiji_path, weight_format):
         raise ValueError("rdf.yaml not found.")
 
     model_name = YAML_dict['name']
+
+    model_dir = fiji_path + "//" + model_name
     # Add brackets when there are blanck spaces in the name
     if model_name.__contains__(' '):
         macro_model_name = '[' + model_name + ']'

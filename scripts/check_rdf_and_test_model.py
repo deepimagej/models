@@ -115,6 +115,9 @@ def test_resource(
                     run_model_with_deepimagej()
                 except Exception as e:
                     error = (error or "") + f"Error running the model in DeepImageJ:\n {e}"
+                
+                # Delete the models sir each time a run is complete
+                deleteDir(fiji_path + "//models")
 
             except Exception as e:
                 error = str(e)
