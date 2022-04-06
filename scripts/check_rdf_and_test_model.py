@@ -21,6 +21,7 @@ from bioimageio.core.resource_io.nodes import (
 from bioimageio.spec import __version__ as bioimageio_spec_version
 from bioimageio.spec.model.raw_nodes import WeightsFormat
 from bioimageio.spec.shared.raw_nodes import ResourceDescription as RawResourceDescription
+from bioimageio.core.resource_tests import _validate_input_shape, _validate_output_shape
 
 from run_deepimagej_in_python import run_model_with_deepimagej
 from utils import download_deepimagej_model, delete_dir
