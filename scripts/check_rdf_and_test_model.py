@@ -122,6 +122,7 @@ def test_resource(
                 error = (error or "") + download_deepimagej_model(fiji_path, rdf_path)
                 try:
                     macro = create_dij_macro(rdf_path, fiji_path, weight_format)
+                    print("RUN MODEL")
                     run_model_with_deepimagej(fiji_path, macro)
                 except Exception as e:
                     error = (error or "") + f"Error running the model in DeepImageJ:\n {e}"
