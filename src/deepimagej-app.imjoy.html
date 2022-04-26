@@ -64,7 +64,7 @@ async function fetchFile(url, showMessage, showProgress){
     method: 'GET',
     responseType: 'arraybuffer',
     onDownloadProgress: (progressEvent) => {
-      showMessage(`Downloading weights ${progressEvent.loaded}/${progressEvent.total}`);
+      showMessage(`Downloading weights ${Math.round(progressEvent.loaded/progressEvent.total*100)}% (${(progressEvent.total/(1024*1024)).toFixed(2)} MB)`);
       if(progressEvent.total)
       showProgress(progressEvent.loaded/progressEvent.total)
     }
