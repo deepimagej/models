@@ -58,7 +58,7 @@ outputs:
         scale: [1.0, 1.0, 1.0, 1.0, 1.0]
         offset: [0, 0, 0, 0, 0]
 run_mode:
-  - name: deepimagej
+  name: deepimagej
 config:
     deepimagej:
         pyramidal_model: false

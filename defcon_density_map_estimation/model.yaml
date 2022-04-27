@@ -22,7 +22,7 @@ tags:
   - deepimagej.js
 license: BSD-3
 language: Java
-framework: Tensorflow
+framework: tensorflow
 git_repo: https://github.com/LEB-EPFL/DEFCoN
 weights:
   tensorflow_js:
@@ -40,7 +40,7 @@ inputs:
       min: [1, 1, 1, 1]
       step: [0, 1, 1, 0]
     preprocessing:
-      name: min_max_normalization
+    - name: min_max_normalization
       kwargs:
         mode: fixed
         axes: xy
