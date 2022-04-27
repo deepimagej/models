@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: "NIH/3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)"
 description: "Trained model given in Usiigaci for instance segmentation of cells in

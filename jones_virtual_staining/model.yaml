@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: Jones Virtual Staining (GAN)
 description: A trained GAN to transform wide-field autofluorescence images of unlabelled tissue sections into images that are equivalent to the bright-field images of histologically stained versions of the same samples.

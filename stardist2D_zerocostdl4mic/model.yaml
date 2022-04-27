@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: Multi-Organ Nucleus Segmentation Challenge
 description: Nucleus segmentation in digital pathology datasets (MoNuSeg 2018 Challenge)

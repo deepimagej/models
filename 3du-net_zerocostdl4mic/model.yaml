@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: "3D U-Net - ZeroCostDL4Mic"
 description: "3D U-Net trained using ZeroCostDL4Mic notebooks to segment mitochondria in Transmission Electron Microscopy (TEM) data."

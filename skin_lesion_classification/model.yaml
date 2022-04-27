@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: Skin lesions classification
 description: CNN trained to classify the type of imaged skin lesion.

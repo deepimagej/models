@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: Pancreatic Cell Phase Contrast Segmentation (DeepWater - CTC submission)
 description: The method combines deep learning with watershed segmentation. For each frame, the convolutional

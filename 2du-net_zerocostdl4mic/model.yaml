@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: 2D UNet - ZeroCostDL4Mic
 description: 2D U-Net trained for binary segmentation using the EM images of neuronal membranes and segmentation masks from the ISBI segmentation challenge 2012.
