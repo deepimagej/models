@@ -1,8 +1,10 @@
+type: model
 format_version: 0.3.2
 name: "NIH/3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)"
 description: "Trained model given in Usiigaci for instance segmentation of cells in
     a 2D substrate and phase contrast microscopy images. The model is a Mask R-CNN
     and the input is preprocessed to get an RGB image from the grayscale image."
+documentation: README.md
 timestamp: 2021-08-26T20:19:15.000544
 cite:
   - text: "Tsai, H.-F., et al., SoftwareX, 2019"
@@ -48,7 +50,7 @@ attachments:
 weights:
     tensorflow_saved_model_bundle:
         authors: 
-          - Carlos García López-de-Haro
+          - name: Carlos García López-de-Haro
         source: ./tensorflow_saved_model_bundle.zip
         sha256: a5e697209327296076df4a414d9bf1ccf15ed4d4ab46f352a90398fd68f1a355
         attachments:

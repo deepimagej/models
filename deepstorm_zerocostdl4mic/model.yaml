@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: Glial Cell SMLM (DeepSTORM - ZeroCostDL4Mic)
 description: A trained Deep-STORM model for image reconstruction from high-density single-molecule localization microscopy (SMLM).
@@ -79,7 +80,7 @@ outputs:
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
 run_mode:
-  - name: deepimagej
+  name: deepimagej
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:

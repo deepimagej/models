@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 timestamp: 2021-02-17T10:13:32.618903
 name: Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)

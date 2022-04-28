@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: HeLa DIC Cell Segmentation (U-Net)
 description: DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images

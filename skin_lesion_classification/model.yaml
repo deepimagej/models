@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: Skin lesions classification
 description: CNN trained to classify the type of imaged skin lesion.
@@ -6,6 +7,7 @@ authors:
   - name: Carlos García-López-de-Haro
     affiliation: UC3M
 documentation: ./README.md
+cite: []  # todo
 covers: [./cover.jpg]
 attachments:
   files: ["./preprocessing.ijm", "./post.ijm", "./0066.tif", "./lesion.csv", "./0066_mask.png"]
@@ -17,7 +19,7 @@ tags:
   - classification
   - pytorch
 license: BSD2
-language: java
+language: python
 framework: pytorch
 git_repo: "https://gist.github.com/esgomezm/72b584887ca5ed5ed0231c47fff9aa9b#file-skin_lession_classification_pytorch_adapted-ipynb"
 test_inputs:
@@ -47,7 +49,7 @@ outputs:
     data_type: float32
     data_range: [-inf, inf]
 run_mode:
-  - name: deepimagej
+  name: deepimagej
 config:
     deepimagej:
         pyramidal_model: false

@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: Widefield Super-resolution (GAN - TxRed)
 description: A trained GAN to transform diffraction-limited input images into super-resolved ones.

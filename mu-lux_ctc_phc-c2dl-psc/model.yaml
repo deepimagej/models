@@ -1,3 +1,4 @@
+type: model
 format_version: 0.3.2
 name: Pancreatic Cell Phase Contrast Segmentation (DeepWater - CTC submission)
 description: The method combines deep learning with watershed segmentation. For each frame, the convolutional
@@ -68,7 +69,7 @@ outputs:
         scale: [1, 1, 1, 1]
         offset: [0, 0, 0, 0]
 run_mode:
-  - name: deepimagej
+  name: deepimagej
 config:
 # custom config for DeepImageJ, see https://github.com/bioimage-io/configuration/issues/23
   deepimagej:
