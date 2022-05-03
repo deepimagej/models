@@ -7,11 +7,11 @@ date: 2019
 cite:
 authors:
   - name: Baptiste Ottino
-    affiliation:
+    affiliation: EPFL
   - name: Kyle M. Douglass
-    affiliation: 
+    affiliation: EPFL
   - name: Suliana Manley
-    affiliation:
+    affiliation:EPFL
 documentation: ./README.md
 covers: [./cover_image.jpg]
 attachments:
@@ -33,18 +33,15 @@ sample_outputs:
 git_repo: https://github.com/LEB-EPFL/DEFCoN
 weights:
   tensorflow_js:
-    name: v1
-    format: graph-model
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/defcon_density_map_estimation_tf_js_model/model.json
     sha256: d1427f81f1fb217c127ef01ed992b6a9dc11d3a5b552514cfdccd82c01230e21
-
 inputs:
   - name: input
     axes: byxc
     data_type: float32
     data_range: [-inf, inf]
     shape:
-      min: [1, 1, 1, 1]
+      min: [1, 20, 20, 1]
       step: [0, 1, 1, 0]
     preprocessing:
     - name: min_max_normalization
