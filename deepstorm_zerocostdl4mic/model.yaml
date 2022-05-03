@@ -26,9 +26,12 @@ tags:
   - smlm
   - image-reconstruction
   - super-resolution
+  - tensorflow
 license: MIT
-language: java
-framework: tensorflow
+test_inputs:
+  - ./exampleImage.npy
+test_outputs:
+  - ./resultImage.npy
 sample_inputs:
   - ./exampleImage.tiff
 sample_outputs:
