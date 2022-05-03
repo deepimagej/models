@@ -198,6 +198,15 @@ collection:
       - imjoy/BioImageIO-Packager
     download_url: https://sandbox.zenodo.org/record/913978/files/u-net_hela_segmentation.zip
 
+  - id: UNet2DPancreaticSegmentation
+    type: model
+    rdf_source: u-net_pancreatic_segmentation/rdf.yaml
+    download_url: https://zenodo.org/record/6514622/files/unet_pancreatic_bioimageio.zip
+    links:
+      - deepimagej
+      - unet-pancreaticcellsegmentation
+      - imjoy/BioImageIO-Packager
+
   - id: UNet2DGlioblastomaSegmentation
     type: model
     rdf_source: u-net_glioblastoma_segmentation/model.yaml
@@ -220,6 +229,15 @@ collection:
     download_url: https://sandbox.zenodo.org/record/907832/files/bioimage.io.model.zip
     links:
       - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic_DeepImageJ
+      - deepimagej
+      - imjoy/BioImageIO-Packager
+
+  - id: 2DUNetZeroCostDL4Mic
+    type: model
+    rdf_source: 2du-net_zerocostdl4mic/model.yaml
+    download_url: https://sandbox.zenodo.org/record/904905/files/DeepImageJ_2D_UNet_ZeroCostDL4Mic.zip
+    links:
+      - zero/Notebook_U-Net_2D_ZeroCostDL4Mic_DeepImageJ
       - deepimagej
       - imjoy/BioImageIO-Packager
 
@@ -285,3 +303,21 @@ collection:
     download_url: https://sandbox.zenodo.org/record/906807/files/bioimage.io.model.zip
     links:
       - deepimagej
+
+  - id: 3DUNetZeroCostDL4Mic
+    type: model
+    rdf_source: 3du-net_zerocostdl4mic/model.yaml
+    download_url: https://sandbox.zenodo.org/record/907831/files/3DUNet_ZeroCostDL4Mic.bioimage.io.model.zip
+    links:
+      - deepimagej
+      - zero/Notebook_U-Net_3D_ZeroCostDL4Mic_DeepImageJ
+      - imjoy/BioImageIO-Packager
+
+  - id: Stardist2DZeroCostDL4Mic
+    type: model
+    rdf_source: stardist2D_zerocostdl4mic/model.yaml
+    download_url: https://sandbox.zenodo.org/record/894493/files/MoNu_HE_StarDist_9JUL.bioimage.io.model.zip
+    links:
+      - deepimagej
+      - zero/Notebook_StarDist_2D_ZeroCostDL4Mic_DeepImageJ
+      - MoNuSeg_digital_pathology_miccai2018

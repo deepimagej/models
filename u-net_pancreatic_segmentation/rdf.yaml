@@ -1,23 +1,29 @@
-type: model
-format_version: 0.3.2
-name: Pancreatic Cell Segmentation (U-Net)
+format_version: 0.4.5
+name: Pancreatic Phase Contrast Cell Segmentation (U-Net)
 description: DeepImageJ compatible U-Net trained to segment phase contrast microscopy images of pancreatic stem cells on a 2D polystyrene substrate.
 timestamp: 2021-02-17T10:13:32.618903
 cite:
-  - text: Gómez-de-Mariscal E. et al., biorXiv 2019
-    doi: https://doi.org/10.1101/799270
+  - text: Gómez-de-Mariscal E. et al., Nature Methods 2021
+    doi: https://doi.org/10.1038/s41592-021-01262-9
   - text: Ulman V. et al., Nature Methods 2017
     doi: https://doi.org/10.1038/nmeth.4473
   - text: Ronneberger O. et al., MICCAI 2015
     doi: https://doi.org/10.1007/978-3-319-24574-4_28
 authors:
-  - name: Ignacio Arganda-Carreras
-    affiliation: Ikerbasque - EHU/UPV
+  - name: Ignacio Arganda Carreras
+    affiliation: Ikerbasque EHU UPV
   - name: DeepImageJ
     affiliation: EPFL, UC3M
-documentation: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/U_Net_PhC-C2DL-PSC_segmentation.ipynb
+documentation: ./README.md
 git_repo: https://github.com/deepimagej/models/u-net_pancreatic_segmentation/
 covers: [./exampleImage.png, ./resultImage.png]
+attachments:
+  files:
+  - ./U_Net_PhC_C2DL_PSC_segmentation.ipynb
+  - ./resultImage.tiff
+  - ./exampleImage.tiff
+  - ./binarize.ijm
+  - ./per_sample_scale_range.ijm
 tags:
   - deepimagej
   - pancreatic-stem-cells
@@ -26,17 +32,20 @@ tags:
   - unet
   - neubias
   - cell-tracking-challenge
-license: BSD-2
-language: java
-framework: tensorflow
+  - transmission-light-microscopy
+  - 2d
+  - cells
+  - semantic-segmentation
+  - tensorflow
+license: BSD-2-Clause
 test_inputs:
-  - ./exampleImage.tif
-test_outputs:
-  - ./resultImage.tif
-sample_inputs:
   - ./exampleImage.npy
-sample_outputs:
+test_outputs:
   - ./resultImage.npy
+sample_inputs:
+  - ./exampleImage.tiff
+sample_outputs:
+  - ./resultImage.tiff
 weights:
   tensorflow_saved_model_bundle:
     source: ./tensorflow_saved_model_bundle.zip
@@ -52,7 +61,7 @@ inputs:
     data_type: float32
     data_range: [-inf, inf]
     shape:
-      min: [1, 8, 8, 1]
+      min: [1, 96, 96, 1]
       step: [0, 8, 8, 0]
     preprocessing:
       - name: scale_range
@@ -69,7 +78,7 @@ outputs:
     data_range: [0, 1]
     halo: [0, 47, 47, 0]
     shape:
-      reference_input: input
+      reference_tensor: input
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
     postprocessing:
@@ -101,7 +110,8 @@ config:
     prediction:
       preprocess:
       -   spec: ij.IJ::runMacroFile
-          kwargs: preprocessing.txt
+          kwargs: per_sample_scale_range.ijm
       postprocess:
       -   spec: ij.IJ::runMacroFile
-          kwargs: postprocessing.txt
+          kwargs: binarize.ijm
+type: model
