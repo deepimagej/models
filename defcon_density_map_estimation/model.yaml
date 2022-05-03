@@ -11,7 +11,7 @@ authors:
   - name: Kyle M. Douglass
     affiliation: EPFL
   - name: Suliana Manley
-    affiliation:EPFL
+    affiliation: EPFL
 documentation: ./README.md
 covers: [./cover_image.jpg]
 attachments:
