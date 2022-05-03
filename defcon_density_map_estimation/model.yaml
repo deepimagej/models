@@ -20,9 +20,16 @@ tags:
   - unet
   - deepimagej
   - deepimagej.js
-license: BSD-3
-language: Java
-framework: tensorflow
+  - tensorflow
+license: BSD-3-Clause
+test_inputs:
+  - ./exampleImage.npy
+test_outputs:
+  - ./resultImage.npy
+sample_inputs:
+  - ./exampleImage.tif
+sample_outputs:
+  - ./resultImage.tif
 git_repo: https://github.com/LEB-EPFL/DEFCoN
 weights:
   tensorflow_js:
