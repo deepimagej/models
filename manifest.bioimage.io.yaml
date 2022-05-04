@@ -209,7 +209,7 @@ collection:
   - id: SMLMDensityMapEstimationDEFCoN
     type: model
     rdf_source: defcon_density_map_estimation/model.yaml
-    download_url: https://zenodo.org/record/4608442/files/SMLM_Density%20Map_Estimation_%28DEFCoN%29.bioimage.io.model.zip
+    # download_url: https://zenodo.org/record/4608442/files/SMLM_Density%20Map_Estimation_%28DEFCoN%29.bioimage.io.model.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
