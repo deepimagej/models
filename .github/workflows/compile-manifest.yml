@@ -5,9 +5,10 @@ name: compile-manifest
 
 on:
   push:
-    branches: [master]
+    # branches: [master]
   pull_request:
-    branches: [master]
+    # branches: [master]
+
 jobs:
   build-manifest:
     runs-on: ubuntu-latest
