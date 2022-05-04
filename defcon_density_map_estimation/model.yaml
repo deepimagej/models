@@ -3,6 +3,9 @@ format_version: 0.3.2
 name: SMLM Density Map Estimation (DEFCoN)
 description: Density Estimation by Fully Convolutional Networks (DEFCoN) - A fluorescent spot counter for single molecule localization microscopy. DEFCoN was written by Baptiste Ottino as a Masters thesis project under the guidance of Kyle M. Douglass and Suliana Manley in the Laboratory of Experimental Biophysics.
 timestamp: 2021-08-31T20:19:15.000544
+cite:
+  - text: Štefko Marcel. et al., Optics Express 2018
+    doi: https://doi.org/10.1364/OE.26.030882
 authors:
   - name: Baptiste Ottino
     affiliation: EPFL
