@@ -8,7 +8,7 @@ authors:
     affiliation: UC3M
 documentation: ./README.md
 cite: []  # todo
-covers: [./cover.jpg]
+covers: [https://raw.githubusercontent.com/deepimagej/models/master/skin_lesion_classification/cover.jpg]
 attachments:
   files: ["./preprocessing.ijm", "./post.ijm", "./0066.tif", "./lesion.csv", "./0066_mask.png"]
 tags:
