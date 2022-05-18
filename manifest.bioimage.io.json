@@ -409,7 +409,7 @@
           "./postprocessingWatershed.txt"
         ]
       },
-      "source": "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/model.yaml",
+      "source": "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/rdf.yaml",
       "root_url": "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation",
       "id": "deepimagej/FRUNet2DsEVSegmentation",
       "links": [
@@ -417,8 +417,8 @@
         "deepimagej/EVsTEMsegmentationFRUNet",
         "imjoy/BioImageIO-Packager"
       ],
-      "download_url": "https://sandbox.zenodo.org/record/894459/files/deepimagej_fru-net_sev_segmentation.zip",
-      "format_version": "0.3.2",
+      "download_url": "https://zenodo.org/record/6559475/files/deepimagej_fru-net_sev_segmentation.zip",
+      "format_version": "0.4.5",
       "name": "Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)",
       "description": "DeepImageJ compatible fully residual U-Net trained to segment small extracellular vesicles in 2D TEM images",
       "cite": [
@@ -465,7 +465,11 @@
         "exosomes",
         "extracellular-vesicles",
         "electron-microscopy",
-        "segmentation"
+        "segmentation",
+        "instance-segmentation",
+        "tensorflow",
+        "2d".
+        "2d-segmentation"
       ],
       "license": "BSD-3-Clause",
       "error": {}
