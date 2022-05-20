@@ -19,7 +19,7 @@
       "https://static.imjoy.io/spectre.css/spectre-icons.min.css",
       "https://static.imjoy.io/js/UZIP.js",
       "https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.0.0/js-yaml.min.js",
-      "https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"
+      "https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
   ],
   "dependencies": [],
   "defaults": {"w": 20, "h": 10},
@@ -137,7 +137,8 @@ async function downloadModel(rootUrl, spec, weightsFormat, showMessage, showProg
   // deprecate this after v0.4.0
   // TODO: Fix the leading ./ in the python library
   if(spec.source && spec.source.includes(':')){
-    const src = spec.source.split(':')[0] // e.g. ./mynetwork:UNet
+    const tmp = spec.source.split(':');
+    const src = tmp.slice(0, tmp.length-1).join(":") // e.g. ./mynetwork:UNet
     files.push(src)
     // exportSpec.source = getFileName(src)
     // HACK: leave field in exportSpec unchanged, bioimageio.spec currently only
@@ -154,12 +155,13 @@ async function downloadModel(rootUrl, spec, weightsFormat, showMessage, showProg
   if(spec.weights[weightsFormat]){
     const wformat = spec.weights[weightsFormat];
     if(wformat.architecture && wformat.architecture.includes(':')){
-      const src = wformat.architecture.split(':')[0] // e.g. ./mynetwork:UNet
+      const tmp = wformat.architecture.split(':');
+      const src = tmp.slice(0, tmp.length-1).join(":") // e.g. ./mynetwork:UNet
       files.push(src)
       exportSpec.weights[weightsFormat].architecture = wformat.architecture
     }
     if(wformat.dependencies && wformat.dependencies.includes(':')){
-      const dep = wformat.dependencies.split(':')[1] // e.g. pip:./requirements.txt
+      const dep = wformat.dependencies.split(':').slice(1).join(":") // e.g. pip:./requirements.txt
       files.push(dep)
       exportSpec.weights[weightsFormat].dependencies = wformat.dependencies
     }
