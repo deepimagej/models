@@ -2,9 +2,10 @@
 print("Postprocessing");
 run("8-bit");
 run("Make Binary");
+// Uncomment the following line if watershed works in the inverted image
+// run("Invert");
+run("Watershed");
 run("Analyze Particles...", "size=100-Infinity show=[Count Masks] clear add");
 run("Multiply...", "value=20");
 run("8-bit");
 run("Fire");
-
-

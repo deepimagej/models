@@ -1,5 +1,5 @@
 type: model
-format_version: 0.3.2
+format_version: 0.4.5
 name: HeLa DIC Cell Segmentation (U-Net)
 description: DeepImageJ compatible U-Net trained to segment Hela cells in 2D phase contrast microscopy images
 timestamp: 2021-09-09T10:13:32.618903
@@ -13,16 +13,26 @@ authors:
     affiliation: EPFL, UC3M
 documentation: ./README.md
 covers: [./unet_hela_seg.jpg]
+download_url: ./deepimagej_hela_unet_segmentation.zip
 attachments:
-    files: ["./preprocessing.txt", "./postprocessing.txt", "./exampleImage.tiff", "./Results.csv", "./resultImage.tiff"]
+  files:
+    - ./exampleImage.tiff
+    - ./resultImage.tiff
+    - ./preprocessing.txt
+    - ./postprocessing.txt
 tags:
   - deepimagej
   - hela-cells
   - segmentation
   - phase-contrast
-license: BSD-2
-language: java
-framework: tensorflow
+  - transmission-light-microscopy
+  - cells
+  - 2d
+  - tensorflow
+  - instance-segmentation
+  - 2d-segmentation
+  - unet
+license: BSD-2-Clause
 git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet
 test_inputs:
   - ./exampleImage.npy
@@ -35,13 +45,12 @@ sample_outputs:
 weights:
   tensorflow_saved_model_bundle:
     source: ./tensorflow_saved_model_bundle.zip
-    sha256: dc00ad55637842dfcd9bdf04a48a763641cc70b3f20c1d851f43c850039653a3
+    sha256: 1e6d4eb78d09e1cacf12c5e5253389448e0803cdd97c6b756b458b1100f15768
     tensorflow_version: 1.13
-    attachments:
-      files: ["./config.xml"]
   tensorflow_js:
     source: https://raw.githubusercontent.com/deepimagej/tensorflow-js-models/main/u-net_hela_segmentation_tf_js_model/model.json
     sha256: 816f39edcc4a16aa60e8ea485c9eac31dc54181241252270ee5e2ae0bb71b49d
+    tensorflow_version: 1.13
 inputs:
   - name: input
     axes: byxc
@@ -55,7 +64,7 @@ outputs:
     data_range: [0, 1]
     halo: [0, 64, 64, 0]
     shape:
-      reference_input: input
+      reference_tensor: input
       scale: [1, 1, 1, 1]
       offset: [0, 0, 0, 0]
 config:
