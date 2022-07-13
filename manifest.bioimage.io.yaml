@@ -187,7 +187,7 @@ collection:
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
-    download_url: https://sandbox.zenodo.org/record/913978/files/u-net_hela_segmentation.zip
+    download_url: https://zenodo.org/record/6827059/files/deepimagej_hela_unet_segmentation.zip
 
   - id: UNet2DGlioblastomaSegmentation
     type: model
