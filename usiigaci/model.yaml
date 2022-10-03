@@ -1,6 +1,6 @@
 type: model
 format_version: 0.3.2
-name: "NIH/3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)"
+name: "NIH 3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)"
 description: "Trained model given in Usiigaci for instance segmentation of cells in
     a 2D substrate and phase contrast microscopy images. The model is a Mask R-CNN
     and the input is preprocessed to get an RGB image from the grayscale image."
@@ -36,12 +36,12 @@ language: java
 framework: tensorflow
 git_repo: https://github.com/oist/Usiigaci
 sample_inputs:
-  - ./Composite.tif
+  - ./exampleImage.tif
 sample_outputs:
   - ./MAX_finalMask.tif
   - ./fibroblasts_detection.csv
 test_inputs:
-  - ./Composite.npy
+  - ./exampleImage.npy
 test_outputs:
   - ./MAX_finalMask.npy
   - ./fibroblasts_detection.npy
