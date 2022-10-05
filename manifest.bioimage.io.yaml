@@ -262,14 +262,6 @@ collection:
       - deepimagej
       - imjoy/BioImageIO-Packager
 
-  - id: Usiigaci
-    type: model
-    rdf_source: usiigaci/model.yaml
-    download_url: https://zenodo.org/record/4155785/files/usiigaci.bioimage.io.model.zip
-    links:
-      - deepimagej
-      - imjoy/BioImageIO-Packager
-
   - id: SkinLesionClassification
     type: model
     rdf_source: skin_lesion_classification/model.yaml
