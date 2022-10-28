@@ -276,7 +276,7 @@ collection:
   - id: JonesVirtualStaining
     type: model
     rdf_source: jones_virtual_staining/model.yaml
-    download_url: https://sandbox.zenodo.org/record/906803/files/bioimage.io.model.zip
+    download_url: https://zenodo.org/record/7260869/files/jones_bioimageio.zip
     links:
       - deepimagej
       - imjoy/BioImageIO-Packager
