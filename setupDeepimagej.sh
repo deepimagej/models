@@ -1,4 +1,4 @@
-wget https://downloads.imagej.net/fiji/archive/10222101-1017/fiji-linux64.zip
+wget https://downloads.imagej.net/fiji/archive/20222101-1017/fiji-linux64.zip
 unzip fiji-linux64.zip -d $HOME
 # fix FilamentDetector issue
 mv $HOME/Fiji.app/jars/FilamentDetector-1.0.0.jar $HOME/Fiji.app/jars/FilamentDetector-1.0.0.jar.disabled
