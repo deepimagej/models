@@ -29,6 +29,20 @@ config:
     - notebook
     - application
   url_root: https://raw.githubusercontent.com/deepimagej/models/master
+  docs: https://github.com/deepimagej/deepimagej-plugin/wiki
+  contact:
+    - name: Arrate Muñoz Barrutia
+      email: mamunozb@ing.uc3m.es
+      github: arratemunoz
+      affiliation:
+      	- name: UC3M
+       	  url: https://www.uc3m.es/home
+   - name: Daniel Sage
+     email: daniel.sage@epfl.ch
+     github: dasv74
+     affiliation:
+     	- name: EPFL
+      	  url: https://www.epfl.ch/en/
 
 collection:
 # ==================applications====================
