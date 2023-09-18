@@ -35,25 +35,25 @@ config:
       email: mamunozb@ing.uc3m.es
       github: arratemunoz
       affiliation:
-      	- name: UC3M
-       	  url: https://www.uc3m.es/home
-   - name: Daniel Sage
-     email: daniel.sage@epfl.ch
-     github: dasv74
-     affiliation:
-     	- name: EPFL
-      	  url: https://www.epfl.ch/en/
+        - name: UC3M
+          url: https://www.uc3m.es/home
+    - name: Daniel Sage
+      email: daniel.sage@epfl.ch
+      github: dasv74
+      affiliation:
+        - name: EPFL
+          url: https://www.epfl.ch/en/
 
 collection:
-# ==================applications====================
+  # ==================applications====================
   - id: deepimagej-web
     type: application
     name: DeepImageJ
-    description: DeepImageJ is a user-friendly plugin that enables the use of pre-trained deep learning models in ImageJ and Fiji. 
+    description: DeepImageJ is a user-friendly plugin that enables the use of pre-trained deep learning models in ImageJ and Fiji.
     source: https://deepimagej.github.io/deepimagej/index.html
     cite:
-    - text: "Gómez-de-Mariscal, E., García-López-de-Haro, C., Ouyang, W., Donati, L., Lundberg E., Unser, M., Muñoz-Barrutia, A. and Sage, D. DeepImageJ: A user-friendly plugin to run deep learning models in ImageJ, BioRxiv, 2019"
-      doi: https://doi.org/10.1101/799270
+      - text: "Gómez-de-Mariscal, E., García-López-de-Haro, C., Ouyang, W., Donati, L., Lundberg E., Unser, M., Muñoz-Barrutia, A. and Sage, D. DeepImageJ: A user-friendly plugin to run deep learning models in ImageJ, BioRxiv, 2019"
+        doi: https://doi.org/10.1101/799270
     authors:
       - name: DeepImageJ
         affiliation: EPFL, UC3M
@@ -66,7 +66,7 @@ collection:
       - software
     config:
       supported_weight_formats: ["tensorflow_saved_model_bundle"]
-      
+
   - id: deepimagej
     name: deepimagej
     description: "Export BioImage.IO model packages for deepImageJ from a model description file"
@@ -120,7 +120,7 @@ collection:
         doi: https://doi.org/10.1101/799270
       - text: M. Ovesný, et al., Bioinformatics 2014
         doi: https://doi.org/10.1093/bioinformatics/btu202
-    authors: 
+    authors:
       - name: DeepImageJ
         affiliation: EPFL, UC3M
     icon: https://raw.githubusercontent.com/deepimagej/models/master/logos/icon.png
@@ -175,7 +175,7 @@ collection:
     links:
       - FRUNet2DsEVSegmentation
 
-# ==================datasets====================
+  # ==================datasets====================
   - id: MoNuSeg_digital_pathology_miccai2018
     type: dataset
     name: Multi-Organ Nucleus Segmentation Challenge - MICCAI 2018
@@ -183,18 +183,28 @@ collection:
     cite:
       - text: "Neeraj Kumar et al. Transactions on medical imaging 2020"
         doi: https://doi.org/10.1109/TMI.2019.2947628
-    authors: 
+    authors:
       - name: DeepImageJ
         affiliation: EPFL, UC3M
     documentation: https://monuseg.grand-challenge.org/
-    tags: [StarDist, segmentation, pathology, H&E, histology, 2D, nuclei segmentation, digital pathology]
+    tags:
+      [
+        StarDist,
+        segmentation,
+        pathology,
+        H&E,
+        histology,
+        2D,
+        nuclei segmentation,
+        digital pathology,
+      ]
     source: https://monuseg.grand-challenge.org/Data/
     covers:
       - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg1.jpg
       - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg2.jpg
       - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg3.jpg
 
-# ==================models====================
+  # ==================models====================
   - id: UNet2DHeLaSegmentation
     type: model
     rdf_source: u-net_hela_segmentation/model.yaml
