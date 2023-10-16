@@ -69,7 +69,7 @@ async function fetchFile(url, showMessage, showProgress){
       showProgress(progressEvent.loaded/progressEvent.total)
     }
   })
-  const filename = url.split('/').pop().split('#')[0].split('?')[0];
+  const filename = getFileName(url).slice(2);
   // const blob = new Blob([response.data]);
   // const file = new File([blob], filename, {type: "application/octet-stream", lastModified: Date.now()});
   return {name: filename, data: new Uint8Array(response.data)}
@@ -85,7 +85,11 @@ async function resolveUrl(rootUrl, url){
 }
 
 function getFileName(url){
-  return './' + url.split('/').pop().split('#')[0].split('?')[0]
+  const parts = url.split('/');
+  // Remove the last element 'content'
+  parts.pop();
+  // Take the last element which should be the file name
+  return './' + parts.pop().split('#')[0].split('?')[0];
 }
 
 async function fileExists(rootUrl, url){
