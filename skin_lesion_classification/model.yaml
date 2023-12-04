@@ -18,7 +18,7 @@ tags:
   - melanoma
   - classification
   - pytorch
-license: BSD2
+license: BSD-2-Clause
 language: python
 framework: pytorch
 git_repo: "https://gist.github.com/esgomezm/72b584887ca5ed5ed0231c47fff9aa9b#file-skin_lession_classification_pytorch_adapted-ipynb"
