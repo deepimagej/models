@@ -46,7 +46,6 @@ config:
 
 collection:
   # ==================applications====================
-=======
   - id: deepimagej-web
     type: application
     name: DeepImageJ
