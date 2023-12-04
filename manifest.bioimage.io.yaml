@@ -45,7 +45,6 @@ config:
       	  url: https://www.epfl.ch/en/
 
 collection:
-# ==================applications====================  
   - id: deepimagej-web
     type: application
     name: DeepImageJ
