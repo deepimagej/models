@@ -18,7 +18,7 @@ tags:
   - glioblastoma cells
   - segmentation
   - phase contrast
-license: BSD-2
+license: BSD-2-Clause
 language: java
 framework: tensorflow
 git_repo: https://github.com/deepimagej/python4deepimagej/tree/master/unet
