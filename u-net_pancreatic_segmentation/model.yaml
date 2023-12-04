@@ -22,7 +22,7 @@ tags:
   - pancreatic stem cells
   - segmentation
   - phase contrast
-license: BSD-2
+license: BSD-2-Clause
 language: java
 framework: tensorflow
 test_inputs:
