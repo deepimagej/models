@@ -47,7 +47,7 @@ config:
 collection:
 # ==================applications====================      
   - id: deepimagej
-    name: deepimagej
+    name: deepImageJ
     description: "DeepImageJ is a user-friendly plugin that enables the use of pre-trained deep learning models in ImageJ and Fiji."
     type: application
     cite:
