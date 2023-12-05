@@ -194,82 +194,82 @@ collection:
       - https://raw.githubusercontent.com/deepimagej/models/master/datasets/MoNuSeg3.jpg
 
   # ==================models====================
-  - id: UNet2DHeLaSegmentation
-    type: model
-    rdf_source: u-net_hela_segmentation/model.yaml
-    links:
-      - deepimagej
-      - imjoy/BioImageIO-Packager
-    download_url: https://zenodo.org/record/6827059/files/deepimagej_hela_unet_segmentation.zip
+#  - id: UNet2DHeLaSegmentation
+#    type: model
+#    rdf_source: u-net_hela_segmentation/model.yaml
+#    links:
+#      - deepimagej
+#      - imjoy/BioImageIO-Packager
+#    download_url: https://zenodo.org/record/6827059/files/deepimagej_hela_unet_segmentation.zip
 
-  - id: UNet2DGlioblastomaSegmentation
-    type: model
-    rdf_source: u-net_glioblastoma_segmentation/model.yaml
-    download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip
-    links:
-      - deepimagej
-      - imjoy/BioImageIO-Packager
+#  - id: UNet2DGlioblastomaSegmentation
+#    type: model
+#    rdf_source: u-net_glioblastoma_segmentation/model.yaml
+#    download_url: https://zenodo.org/record/4155785/files/deepimagej_u-net_glioblastoma_segmentation.zip
+#    links:
+#      - deepimagej
+#      - imjoy/BioImageIO-Packager
 
-  - id: SMLMDensityMapEstimationDEFCoN
-    type: model
-    rdf_source: defcon_density_map_estimation/model.yaml
-    download_url: https://zenodo.org/record/4608442/files/SMLM_Density%20Map_Estimation_%28DEFCoN%29.bioimage.io.model.zip
-    links:
-      - deepimagej
-      - imjoy/BioImageIO-Packager
+#  - id: SMLMDensityMapEstimationDEFCoN
+#    type: model
+#    rdf_source: defcon_density_map_estimation/model.yaml
+#    download_url: https://zenodo.org/record/4608442/files/SMLM_Density%20Map_Estimation_%28DEFCoN%29.bioimage.io.model.zip
+#    links:
+#      - deepimagej
+#      - imjoy/BioImageIO-Packager
 
-  - id: DeepSTORMZeroCostDL4Mic
-    type: model
-    rdf_source: deepstorm_zerocostdl4mic/model.yaml
-    download_url: https://sandbox.zenodo.org/record/907832/files/bioimage.io.model.zip
-    links:
-      - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic_DeepImageJ
-      - deepimagej
-      - imjoy/BioImageIO-Packager
+#  - id: DeepSTORMZeroCostDL4Mic
+#    type: model
+#    rdf_source: deepstorm_zerocostdl4mic/model.yaml
+#    download_url: https://sandbox.zenodo.org/record/907832/files/bioimage.io.model.zip
+#    links:
+#      - zero/Notebook_Deep-STORM_2D_ZeroCostDL4Mic_DeepImageJ
+#      - deepimagej
+#      - imjoy/BioImageIO-Packager
 
-  - id: MU-Lux_CTC_PhC-C2DL-PSC
-    type: model
-    rdf_source: mu-lux_ctc_phc-c2dl-psc/model.yaml
-    download_url: https://sandbox.zenodo.org/record/914413/files/mu-lux_ctc_phc-c2dl-psc.zip
-    links:
-      - deepimagej
-      - imjoy/BioImageIO-Packager
+#  - id: MU-Lux_CTC_PhC-C2DL-PSC
+#    type: model
+#    rdf_source: mu-lux_ctc_phc-c2dl-psc/model.yaml
+#    download_url: https://sandbox.zenodo.org/record/914413/files/mu-lux_ctc_phc-c2dl-psc.zip
+#    links:
+#      - deepimagej
+#      - imjoy/BioImageIO-Packager
 
-  - id: WidefieldTxredSuperResolution
-    type: model
-    rdf_source: widefield_txred_super-resolution/model.yaml
-    download_url: https://sandbox.zenodo.org/record/913992/files/widefield_txred_super-resolution.zip
-    links:
-      - deepimagej
-      - imjoy/BioImageIO-Packager
+#  - id: WidefieldTxredSuperResolution
+#    type: model
+#    rdf_source: widefield_txred_super-resolution/model.yaml
+#    download_url: https://sandbox.zenodo.org/record/913992/files/widefield_txred_super-resolution.zip
+#    links:
+#      - deepimagej
+#      - imjoy/BioImageIO-Packager
 
-  - id: WidefieldDapiSuperResolution
-    type: model
-    rdf_source: widefield_dapi_super-resolution/model.yaml
-    download_url: https://sandbox.zenodo.org/record/914422/files/widefield_dapi_super-resolution.zip
-    links:
-      - deepimagej
-      - imjoy/BioImageIO-Packager
+#  - id: WidefieldDapiSuperResolution
+#    type: model
+#    rdf_source: widefield_dapi_super-resolution/model.yaml
+#    download_url: https://sandbox.zenodo.org/record/914422/files/widefield_dapi_super-resolution.zip
+#    links:
+#      - deepimagej
+#      - imjoy/BioImageIO-Packager
 
-  - id: WidefieldFitcSuperResolution
-    type: model
-    rdf_source: widefield_fitc_super-resolution/model.yaml
-    download_url: https://sandbox.zenodo.org/record/914425/files/widefield_fitc_super-resolution.zip
-    links:
-      - deepimagej
-      - imjoy/BioImageIO-Packager
+#  - id: WidefieldFitcSuperResolution
+#    type: model
+#    rdf_source: widefield_fitc_super-resolution/model.yaml
+#    download_url: https://sandbox.zenodo.org/record/914425/files/widefield_fitc_super-resolution.zip
+#    links:
+#      - deepimagej
+#      - imjoy/BioImageIO-Packager
 
-  - id: Mt3VirtualStaining
-    type: model
-    rdf_source: mt3_virtual_staining/model.yaml
-    download_url: https://sandbox.zenodo.org/record/906805/files/bioimage.io.model.zip
-    links:
-      - deepimagej
-      - imjoy/BioImageIO-Packager
+#  - id: Mt3VirtualStaining
+#    type: model
+#    rdf_source: mt3_virtual_staining/model.yaml
+#    download_url: https://sandbox.zenodo.org/record/906805/files/bioimage.io.model.zip
+#    links:
+#      - deepimagej
+#      - imjoy/BioImageIO-Packager
 
-  - id: SkinLesionClassification
-    type: model
-    rdf_source: skin_lesion_classification/model.yaml
-    download_url: https://sandbox.zenodo.org/record/906807/files/bioimage.io.model.zip
-    links:
-      - deepimagej
+#  - id: SkinLesionClassification
+#    type: model
+#    rdf_source: skin_lesion_classification/model.yaml
+#    download_url: https://sandbox.zenodo.org/record/906807/files/bioimage.io.model.zip
+#    links:
+#      - deepimagej
